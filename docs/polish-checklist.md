@@ -56,7 +56,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Comparison table: its columns are sized by the table, so they don't sit on the grid. Use fixed layout with four equal columns (label, EOR, entity, contractors) so they line up with columns 1, 4, 7 and 10.
 - [x] Pricing cards
 - [x] "We only work in India" list: a numbered full-width ledger.
-- [ ] FAQ
+- [x] FAQ
 - [ ] CTA band: art panel framed inside the black band.
 - [ ] Footer: 32px link rows, drop "llms.txt" from the visible links (keep the file).
 
@@ -127,3 +127,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Contact and 404 already do one job each and stay as they are.
   - Removed the unused `.section-after-hero` and its token. No sideways scroll at 375–1920px.
 - Pricing cards: the home section now shows the three real Employer of Record packages (shared `eorPlanCards`, the same cards as the pricing page) instead of one real card next to two placeholder cards. Cards are uniform (name, price, rupee price and unit, Get a quote), and the price went up from 28px to 36px. The foot link points to all prices and the monthly cost example. Checked at 1440 and 390px; no sideways scroll.
+- FAQ: on opening, the answer fades in and drops 3px (300ms, ease-out, transform and opacity only, none under reduced motion); closing stays instant. The answer stops in line with the end of the question text, clear of the icon column. Mouse users get a hairline underline on hover. Native details/summary is kept; checked open-with-Enter, the focus ring and reduced motion. No sideways scroll.

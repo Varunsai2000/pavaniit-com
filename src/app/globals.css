@@ -447,7 +447,12 @@ table { font-variant-numeric: tabular-nums; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary svg { width: var(--icon-lg); height: var(--icon-lg); flex: none; color: var(--color-inverse); transition: transform var(--dur-ui) var(--ease-out); }
 .faq details[open] summary svg { transform: rotate(45deg); }
-.faq .answer { padding-bottom: var(--space-6); color: var(--color-ink-2); max-width: var(--measure); }
+/* The answer stops where the question text stops, clear of the icon column. */
+.faq .answer { padding-bottom: var(--space-6); padding-right: calc(var(--icon-lg) + var(--space-6)); color: var(--color-ink-2); max-width: var(--measure); }
+@media (hover: hover) and (pointer: fine) { .faq summary:hover { text-decoration: underline; text-decoration-thickness: var(--border-hairline); text-underline-offset: var(--underline-offset); } }
+/* Opening: the answer settles in (transform and opacity only); closing is instant. */
+@media (prefers-reduced-motion: no-preference) { .faq details[open] .answer { animation: answer-in var(--dur-panel) var(--ease-out); } }
+@keyframes answer-in { from { opacity: 0; transform: translateY(calc(var(--nudge) * -1)); } }
 @media (max-width: 860px) { .faq-layout { grid-template-columns: minmax(0, 1fr); } .faq-layout > .section-head { position: static; } }
 
 /* ---------- Frame: the one treatment for every illustration ---------- */
