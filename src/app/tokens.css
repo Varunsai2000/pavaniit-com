@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Pavani IT design tokens: the ONE place to change how the site looks.
+
+   Every colour, font, size, weight, line height, letter spacing, space,
+   width, radius, border, shadow and animation timing used anywhere on the
+   site is defined here. globals.css and the components only reference these
+   variables; they never hard-code values.
+
+   Fonts are loaded (self-hosted) in src/app/layout.tsx and arrive here as
+   --font-manrope and --font-wordmark. To change a typeface, change it there;
+   to change how it's used, change the tokens below.
+
+   Breakpoints can't be variables in CSS media queries, so they're fixed in
+   globals.css at: 480px (phone), 640px, 860px, 1100px (tablet), 1040px (nav).
+   ========================================================================== */
+
+:root {
+  /* ---- Colour: pure monochrome. Status is shown by shape, never by hue. ---- */
+  --color-bg: #ffffff;              /* page background */
+  --color-surface: #f5f5f5;         /* alternate section, form panels */
+  --color-surface-2: #ececec;       /* pressed / today marker */
+  --color-paper: #ffffff;           /* behind illustrations */
+  --color-chip: #f0f0f0;            /* neutral badges, placeholders */
+  --color-selection: #e0e0e0;       /* text selection */
+  --color-ink: #0a0a0a;             /* primary text, buttons, dark bands */
+  --color-ink-2: #525252;           /* secondary text */
+  --color-ink-3: #6b6b6b;           /* tertiary text, labels (AA on white) */
+  --color-line: #e6e6e6;            /* hairlines */
+  --color-line-strong: #d4d4d4;     /* control borders, section rules */
+  --color-line-muted: #8a8a8a;      /* dashed placeholder outlines */
+  --color-inverse: #0a0a0a;         /* dark bands: calendar, CTA, footer */
+  --color-inverse-2: #262626;       /* hover on dark buttons */
+  --color-inverse-line: #3a3a3a;    /* rules on dark bands */
+  --color-on-inverse: #fafafa;      /* text on dark bands */
+  --color-on-inverse-2: #a3a3a3;    /* secondary text on dark bands */
+  --color-danger: #b42318;          /* form errors only */
+  --color-danger-soft: #fdecea;
+
+  /* ---- Font families ---- */
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-brand: var(--font-wordmark), Georgia, "Times New Roman", serif;
+
+  /* ---- Type scale: fixed steps ---- */
+  --text-xs: 0.75rem;     /* 12px: badges, captions */
+  --text-sm: 0.875rem;    /* 14px: UI labels, small print */
+  --text-md: 0.9375rem;   /* 15px: dense body, nav */
+  --text-base: 1rem;      /* 16px: inputs, buttons */
+  --text-body: 1.0625rem; /* 17px: running text */
+  --text-lg: 1.125rem;    /* 18px: FAQ questions, menu links */
+  --text-xl: 1.25rem;     /* 20px: card titles */
+  --text-2xl: 1.375rem;   /* 22px: h3, ledger topics */
+  --text-3xl: 1.75rem;    /* 28px: stage names, prices */
+  --text-4xl: 2.25rem;    /* 36px: step numerals on phones */
+  --text-5xl: 2.75rem;    /* 44px: step numerals */
+  --text-brand: 1.625rem; /* 26px: wordmark */
+
+  /* ---- Type scale: fluid headings ---- */
+  --text-display: clamp(2.6rem, 1.5rem + 3.9vw, 5rem);
+  --text-h1: clamp(2.4rem, 1.6rem + 2.6vw, 3.875rem);
+  --text-h2: clamp(2rem, 1.45rem + 1.8vw, 3rem);
+  --text-h2-sm: clamp(1.75rem, 1.3rem + 1.2vw, 2.375rem);
+  --text-lead: clamp(1.0625rem, 0.98rem + 0.4vw, 1.25rem);
+  --text-money: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+
+  /* ---- Weights ---- */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-heavy: 800;
+
+  /* ---- Line heights ---- */
+  --leading-none: 1;
+  --leading-heading: 1.05;
+  --leading-snug: 1.2;
+  --leading-ui: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+
+  /* ---- Letter spacing ---- */
+  --tracking-display: -0.04em;
+  --tracking-heading: -0.032em;
+  --tracking-title: -0.025em;
+  --tracking-brand: -0.02em;
+  --tracking-tight: -0.015em;
+  --tracking-snug: -0.01em;
+
+  /* ---- Space: 4px scale ---- */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --container-wide: 1360px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --section-y: clamp(80px, 9vw, 140px);
+  --section-y-tight: clamp(56px, 6vw, 96px);
+  --section-head-gap: clamp(40px, 5vw, 64px);
+  --header-h: 68px;
+  --measure: 40em;        /* max line length for body copy */
+  --measure-lead: 36em;   /* max line length for leads */
+
+  /* ---- Shape ---- */
+  --radius-card: 16px;    /* cards, panels, image frames */
+  --radius-control: 10px; /* buttons, inputs, chips, thumbnails */
+  --radius-inline: 6px;   /* inline placeholder chips, focus ring */
+  --radius-pill: 999px;   /* badges, dots */
+  --border-hairline: 1px;
+  --border-strong: 2px;
+
+  /* ---- Elevation ---- */
+  --shadow-card: 0 1px 2px rgba(10, 10, 10, 0.04), 0 10px 30px -18px rgba(10, 10, 10, 0.22);
+  --shadow-float: 0 1px 1px rgba(10, 10, 10, 0.06), 0 18px 40px -18px rgba(10, 10, 10, 0.35);
+  --shadow-menu: 0 30px 60px -40px rgba(10, 10, 10, 0.45);
+  --shadow-focus: 0 0 0 3px rgba(10, 10, 10, 0.15);
+  --header-glass: rgba(255, 255, 255, 0.88);
+
+  /* ---- Motion (Emil Kowalski's rules: ease-out, short, transform/opacity) ---- */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --dur-press: 160ms;     /* :active scale feedback */
+  --dur-ui: 200ms;        /* hover, colour, small state changes */
+  --dur-panel: 300ms;     /* menus, cards, accordions */
+  --dur-enter: 500ms;     /* one-off entrances */
+  --dur-reveal: 700ms;    /* scroll reveal */
+  --dur-draw: 1600ms;     /* journey thread */
+  --stagger: 60ms;        /* gap between staggered items */
+  --press-scale: 0.97;
+
+  /* ---- Controls and icons ---- */
+  --control-h: 50px;
+  --control-h-sm: 42px;
+  --control-h-input: 48px;
+  --tap: 44px;            /* minimum touch target */
+  --icon-sm: 16px;
+  --icon-md: 18px;
+  --icon-lg: 20px;
+
+  /* ---- Layers ---- */
+  --z-menu: 49;
+  --z-header: 50;
+  --z-skip: 100;
+}

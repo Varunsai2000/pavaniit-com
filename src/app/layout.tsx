@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { JsonLd } from "@/components/bits";
 import { organizationSchema, websiteSchema } from "@/content/schema";
 import { site } from "@/content/site";
+import "./tokens.css";
 import "./globals.css";
 
 // Self-hosted at build time by next/font: no request to Google from visitors.

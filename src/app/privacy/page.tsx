@@ -39,7 +39,7 @@ export default function Page() {
           </aside>
 
           <article className="prose">
-            <p style={{ color: "var(--ink)", fontSize: "1.125rem" }}>
+            <p style={{ color: "var(--color-ink)", fontSize: "1.125rem" }}>
               This notice explains what personal data Pavani IT collects through this website, why, and what you can
               ask us to do with it. It follows India&apos;s Digital Personal Data Protection Act, 2023 and the rules made
               under it.
