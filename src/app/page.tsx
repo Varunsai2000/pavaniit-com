@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Art from "@/components/Art";
 import Journey from "@/components/Journey";
 import LiveClock from "@/components/LiveClock";
@@ -48,70 +48,31 @@ export default function Home() {
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap">
-          <div className="hero-top">
-            <h1 className="display hero-title" id="hero-title">
-              Hire your team in India without setting up a company.
-            </h1>
-            <div className="hero-side">
+          <div className="hero-split">
+            <div className="hero-copy">
+              <h1 className="display" id="hero-title">
+                Hire your team in India without setting up a company.
+              </h1>
               <p className="lead">
                 Pavani IT is an Indian Employer of Record. We employ your people under Indian law and run their
                 contracts, payroll, PF, ESI, tax and exits, while they work full-time for you.
               </p>
-              <ol className="service-index" aria-label="Services">
-                {stages.map((stage) => (
-                  <li key={stage.id}>
-                    <Link prefetch={false} className="index-row" href={stage.href}>
-                      <span className="index-n" aria-hidden="true">{String(stage.number).padStart(2, "0")}</span>
-                      <span className="index-name">{stage.label}<span className="sr-only">:</span></span>
-                      <span className="index-svc">
-                        {stage.services.map((s, i) => (
-                          <span key={s.id}>
-                            {i > 0 && <span className="sr-only">, </span>}
-                            {s.name}
-                          </span>
-                        ))}
-                      </span>
-                      <ArrowRight className="index-arrow" aria-hidden="true" />
-                    </Link>
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <div className="hero-actions hero-cta">
-              <Link prefetch={false} className="btn btn-primary" href="/contact/">
-                Book a call
-                <ArrowRight aria-hidden="true" />
-              </Link>
+              <div className="hero-actions">
+                <Link prefetch={false} className="btn btn-primary" href="/contact/">
+                  Book a call
+                  <ArrowRight aria-hidden="true" />
+                </Link>
+                <Link prefetch={false} className="btn btn-secondary" href="/pricing/">
+                  See pricing
+                </Link>
+              </div>
               <p className="hero-price">
-                Employer of Record: <strong>{eorPlans[0].eur}</strong> {eorPlans[0].unit}, or <strong>{eorPlans[1].eur}</strong> from six employees.
+                From <strong>{eorPlans[1].eur}</strong> {eorPlans[1].unit}. No Indian entity needed.
               </p>
             </div>
-          </div>
-
-
-          <div className="hero-scene frame">
-            <Art name="hero" className="hero-art" priority sizes="(max-width: 1440px) 100vw, 1360px" />
-            <LiveClock />
-            <div className="float float-filings" aria-hidden="true">
-              <div className="float-head">
-                November filings
-                <span className="float-ex">Example</span>
-              </div>
-              <ul className="rows">
-                <li><span className="d">7</span><span>TDS for October</span><span className="badge badge-done">Filed</span></li>
-                <li><span className="d">15</span><span>PF and ESI</span><span className="badge badge-done">Filed</span></li>
-                <li><span className="d">30</span><span>November salaries</span><span className="badge badge-due">Scheduled</span></li>
-              </ul>
-            </div>
-            <div className="float float-pay" aria-hidden="true">
-              <div className="float-head">
-                October payroll
-                <span className="float-ex">Example</span>
-              </div>
-              <p className="money">₹38,42,600</p>
-              <p className="money-sub">
-                Net salaries to 18 people <span className="badge badge-done"><Check strokeWidth={3} />Paid 30 Oct</span>
-              </p>
+            <div className="hero-visual frame frame-fill">
+              <Art name="hero" className="hero-art" priority sizes="(max-width: 960px) 100vw, 50vw" />
+              <LiveClock />
             </div>
           </div>
         </div>
@@ -140,6 +101,14 @@ export default function Home() {
                     </div>
                     <div className="stage-body">
                       <h3 className="stage-name">{stage.label}</h3>
+                      <p className="stage-services dot-list">
+                        {stage.services.map((s, i) => (
+                          <span key={s.id}>
+                            {i > 0 && <span className="sr-only">, </span>}
+                            {s.name}
+                          </span>
+                        ))}
+                      </p>
                       <p className="stage-handoff">{handoff[stage.id]}</p>
                     </div>
                     <div className="stage-foot">

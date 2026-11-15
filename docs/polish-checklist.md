@@ -65,7 +65,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [ ] Service blocks and check lists
 - [ ] "Who does what" table: align the header with the row labels.
 - [ ] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
-- [ ] Pricing page
+- [x] Pricing page: rebuilt with the real Employer of Record prices (see docs/decisions.md).
 - [ ] About page
 - [ ] Contact page and enquiry form, including error and sent states
 - [ ] Glossary page
@@ -117,3 +117,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Stage cards (user's choice: hand-off story): the cards keep their art, badges and thread but no longer repeat the hero index's service names and descriptions. Each card now gives its stage's existing hand-off line ("Once they accept, we can employ them." …), and the details stay on the stage pages. Removed the unused `.stage-svc` styles.
   - The FAQ now has the same content-aligned rule as the three sections above it; this is opt-in via `FaqSection ruled`, because on stage pages it follows a band. The rule spans the FAQ grid, and its margin subtracts the grid row gap, so rule-to-title spacing matches the ledger exactly (131px at 1440px, 81px at 390px).
   - Journey checks re-run: no hover transform, card click opens the page, focus ring on the card, visible without JS. No sideways scroll at 375–1920px.
+- Hero slimmed after user feedback ("bloated"): a split hero with headline, one sentence, two buttons and a price line on the left, and the illustration on the right, cropped to the text height, with the time card. The service index and the two example cards are gone; stage cards now show their services. The hero fits in 1440×900 (ends at 755px). Pricing page rebuilt with real EOR prices: plan cards, a ₹50,000 receipt with notes, a two-column coverage checklist, a ruled price list for the other services, and EUR/INR offers in JSON-LD and llms.txt. No sideways scroll at 375–1920px.

@@ -119,8 +119,6 @@
   --section-y-after-hero: clamp(24px, 3vw, 48px); /* section that follows a page hero */
   --header-h: 68px;
   --hero-group-gap: var(--space-8);   /* between the intro and the action group in a hero */
-  --hero-cap-offset: var(--space-1);  /* optical: side column's first line meets the headline's cap height */
-  --hero-baseline-offset: var(--space-2); /* optical: action row ends on the headline's last baseline */
 
   /* ---- Grid: one 12-column grid under every section ----
      Two equal halves with --grid-gap turn exactly at column 7, and 3 or 4
@@ -220,6 +218,7 @@
   --size-chevron: 12px;     /* select arrow, FAQ marker */
   --size-art-min: 200px;    /* next-stage card art, min height */
   --size-art-max: 300px;    /* CTA art height on phones */
+  --size-hero-visual-min: 420px; /* hero picture never gets shorter than this beside the copy */
   --size-float-w: 300px;    /* floating cards over the hero */
   --size-float-w-lg: 320px;
   --size-table-min: 720px;  /* comparison table before it scrolls */
@@ -234,7 +233,6 @@
   --col-label: 7rem;        /* key/value labels, duties table columns */
   --col-label-sm: 4.5rem;
   --col-label-lg: 8.25rem;  /* comparison labels on phones */
-  --col-stage: 6rem;        /* stage name in the hero service index */
 
   /* ---- Layers ---- */
   --z-below: -1;          /* backdrop pseudo-elements */
