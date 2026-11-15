@@ -36,11 +36,11 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
                 </p>
               ))}
               <div className="hero-actions">
-                <Link className="btn btn-primary" href={`/contact/?need=${stage.id}`}>
+                <Link prefetch={false} className="btn btn-primary" href={`/contact/?need=${stage.id}`}>
                   Book a call
                   <ArrowRight aria-hidden="true" />
                 </Link>
-                <Link className="btn btn-secondary" href="/pricing/">
+                <Link prefetch={false} className="btn btn-secondary" href="/pricing/">
                   Pricing
                 </Link>
               </div>
@@ -78,7 +78,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
               Each stage hands over cleanly to the next, so your people never fall between vendors.
             </p>
           </div>
-          <Link className="next-card" href={next.href}>
+          <Link prefetch={false} className="next-card" href={next.href}>
             <div className="stage-art">
               <Art name={next.id} sizes="(max-width: 520px) 100vw, 25vw" />
               <span className="stage-num" aria-hidden="true">{next.number}</span>

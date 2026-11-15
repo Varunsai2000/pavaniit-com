@@ -44,7 +44,7 @@ export default function NeedPicker() {
         </div>
       </fieldset>
       <div className="hero-actions">
-        <Link className="btn btn-primary" href={href}>
+        <Link prefetch={false} className="btn btn-primary" href={href}>
           Book a call
           <ArrowRight aria-hidden="true" />
         </Link>

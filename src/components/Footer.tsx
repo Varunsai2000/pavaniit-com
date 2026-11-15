@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="wrap-wide">
         <div className="footer-top">
           <div className="footer-brand">
-            <Link className="brand" href="/" aria-label="Pavani IT home">
+            <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
               <Logo inverse />
               Pavani IT
             </Link>
@@ -25,7 +25,7 @@ export default function Footer() {
               {stages.flatMap((stage) =>
                 stage.services.map((s) => (
                   <li key={s.id}>
-                    <Link href={`${stage.href}#${s.id}`}>{s.name}</Link>
+                    <Link prefetch={false} href={`${stage.href}#${s.id}`}>{s.name}</Link>
                   </li>
                 )),
               )}
@@ -35,9 +35,9 @@ export default function Footer() {
           <div className="footer-col">
             <h2>Company</h2>
             <ul>
-              <li><Link href="/about/">About</Link></li>
-              <li><Link href="/pricing/">Pricing</Link></li>
-              <li><Link href="/contact/">Contact</Link></li>
+              <li><Link prefetch={false} href="/about/">About</Link></li>
+              <li><Link prefetch={false} href="/pricing/">Pricing</Link></li>
+              <li><Link prefetch={false} href="/contact/">Contact</Link></li>
               <li><a href={`mailto:${site.careersEmail}`}>Careers</a></li>
             </ul>
           </div>
@@ -45,10 +45,10 @@ export default function Footer() {
           <div className="footer-col">
             <h2>Resources</h2>
             <ul>
-              <li><Link href="/glossary/">Glossary of Indian HR terms</Link></li>
-              <li><Link href="/employer-of-record-india/#eor-vs-entity">EOR or your own entity?</Link></li>
+              <li><Link prefetch={false} href="/glossary/">Glossary of Indian HR terms</Link></li>
+              <li><Link prefetch={false} href="/employer-of-record-india/#eor-vs-entity">EOR or your own entity?</Link></li>
               <li><a href="/llms.txt">llms.txt</a></li>
-              <li><Link href="/privacy/">Privacy notice</Link></li>
+              <li><Link prefetch={false} href="/privacy/">Privacy notice</Link></li>
             </ul>
           </div>
         </div>

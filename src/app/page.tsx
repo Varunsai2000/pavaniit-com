@@ -116,7 +116,7 @@ export default function Home() {
             <ol className="journey-grid">
               {stages.map((stage) => (
                 <li key={stage.id}>
-                  <Link className="stage" href={stage.href}>
+                  <Link prefetch={false} className="stage" href={stage.href}>
                     <div className="stage-art">
                       <Art name={stage.id} />
                       <span className="stage-num" aria-hidden="true">{stage.number}</span>

@@ -166,7 +166,7 @@ export default function EnquiryForm() {
         {state === "sending" ? "Sending…" : "Send enquiry"}
       </button>
       <p className="form-note">
-        We use these details only to reply to you. Read our <Link href="/privacy/">privacy notice</Link>.
+        We use these details only to reply to you. Read our <Link prefetch={false} href="/privacy/">privacy notice</Link>.
         {!canPost && " Sending opens your email app with your details filled in."}
       </p>
     </form>

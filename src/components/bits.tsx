@@ -26,16 +26,15 @@ export const stageIcon: Record<StageId, LucideIcon> = {
 export function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" rx="9" fill={inverse ? "#ffffff" : "#0e4d3c"} />
+      <rect width="32" height="32" rx="8" fill={inverse ? "#ffffff" : "#0a0a0a"} />
       <path
         d="M11.5 24V8.5h6a5.25 5.25 0 0 1 0 10.5h-6"
         fill="none"
-        stroke={inverse ? "#0e4d3c" : "#ffffff"}
+        stroke={inverse ? "#0a0a0a" : "#ffffff"}
         strokeWidth="3.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="22.5" cy="23.5" r="2" fill={inverse ? "#0e4d3c" : "#f2b33d"} />
     </svg>
   );
 }
@@ -111,11 +110,11 @@ export function CtaBand({
               {body} Prefer email? Write to <a href="mailto:hello@pavaniit.com">hello@pavaniit.com</a>.
             </p>
             <div className="cta-actions">
-              <Link className="btn btn-marigold" href="/contact/">
+              <Link prefetch={false} className="btn btn-light" href="/contact/">
                 Book a call
                 <ArrowRight aria-hidden="true" />
               </Link>
-              <Link className="btn btn-ghost-light" href="/pricing/">
+              <Link prefetch={false} className="btn btn-ghost-light" href="/pricing/">
                 See pricing
               </Link>
             </div>
@@ -131,7 +130,7 @@ export function CtaBand({
 
 export function MoreLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link className="text-link" href={href}>
+    <Link prefetch={false} className="text-link" href={href}>
       {children}
       <ArrowRight aria-hidden="true" />
     </Link>
@@ -145,7 +144,7 @@ export function Crumbs({ items }: { items: { name: string; href?: string }[] }) 
         {items.map((item) =>
           item.href ? (
             <li key={item.name}>
-              <Link href={item.href}>{item.name}</Link>
+              <Link prefetch={false} href={item.href}>{item.name}</Link>
             </li>
           ) : (
             <li key={item.name} aria-current="page">

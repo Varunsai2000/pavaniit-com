@@ -2,7 +2,7 @@
 
 Generated on 15 November 2026 with ChatGPT image generation, then converted to WebP (`cwebp -q 80`) at two widths each.
 
-Shared style prompt: risograph-style editorial illustration printed in exactly two inks, deep forest green (#0E4D3C) and marigold yellow (#F2B33D), on bright white paper; visible riso grain, halftone texture and slight misregistration; flat shapes, no text, no logos.
+Shared style prompt: black ink line drawing on pure white, as if drawn with a fine technical pen by an editorial illustrator; light cross-hatching for shadows; pure monochrome, no colour, no grey washes, no text, no logos. (Redrawn on 15 November 2026 from an earlier two-colour riso set, keeping the same compositions.)
 
 | File | Scene |
 | --- | --- |

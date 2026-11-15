@@ -55,7 +55,7 @@ export default function Header() {
   return (
     <header className="site-header" ref={headerRef}>
       <div className="wrap-wide header-row">
-        <Link className="brand" href="/" aria-label="Pavani IT home">
+        <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
           <Logo />
           Pavani IT
         </Link>
@@ -73,7 +73,7 @@ export default function Header() {
             <ChevronDown aria-hidden="true" />
           </button>
           {primary.map((item) => (
-            <Link
+            <Link prefetch={false}
               key={item.href}
               className="nav-link"
               href={item.href}
@@ -85,10 +85,10 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link className="nav-link header-contact" href="/contact/">
+          <Link prefetch={false} className="nav-link header-contact" href="/contact/">
             Contact
           </Link>
-          <Link className="btn btn-primary btn-sm" href="/contact/">
+          <Link prefetch={false} className="btn btn-primary btn-sm" href="/contact/">
             Book a call
           </Link>
           <button
@@ -110,7 +110,7 @@ export default function Header() {
           <div className="services-grid">
             {stages.map((stage) => {
               return (
-                <Link key={stage.id} className="services-col" href={stage.href} tabIndex={servicesOpen ? 0 : -1}>
+                <Link prefetch={false} key={stage.id} className="services-col" href={stage.href} tabIndex={servicesOpen ? 0 : -1}>
                   <img src={`/illustrations/${stage.id}-600.webp`} alt="" width={76} height={57} loading="lazy" />
                   <div>
                     <span className="services-col-title">
@@ -129,7 +129,7 @@ export default function Header() {
           </div>
           <div className="services-foot">
             <span>HR advisory: handbooks, policies, POSH committees and the labour-code transition.</span>
-            <Link href="/contact/" tabIndex={servicesOpen ? 0 : -1}>
+            <Link prefetch={false} href="/contact/" tabIndex={servicesOpen ? 0 : -1}>
               Ask about HR advisory
             </Link>
           </div>
@@ -140,7 +140,7 @@ export default function Header() {
         <div className="mobile-group">
           <p className="mobile-group-title">Services</p>
           {stages.map((stage) => (
-            <Link key={stage.id} className="mobile-link" href={stage.href}>
+            <Link prefetch={false} key={stage.id} className="mobile-link" href={stage.href}>
               {stage.label}
               <span>{servicesLine(stage)}</span>
             </Link>
@@ -148,13 +148,13 @@ export default function Header() {
         </div>
         <div className="mobile-group">
           {[...primary, { href: "/contact/", label: "Contact" }].map((item) => (
-            <Link key={item.href} className="mobile-link" href={item.href}>
+            <Link prefetch={false} key={item.href} className="mobile-link" href={item.href}>
               {item.label}
             </Link>
           ))}
         </div>
         <div className="mobile-actions">
-          <Link className="btn btn-primary btn-block" href="/contact/">
+          <Link prefetch={false} className="btn btn-primary btn-block" href="/contact/">
             Book a call
           </Link>
         </div>

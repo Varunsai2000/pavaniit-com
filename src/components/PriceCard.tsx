@@ -26,7 +26,7 @@ export default function PriceCard({ price, lead = false, cta = true }: { price: 
       )}
       {cta && (
         <div className="price-cta">
-          <Link className={`btn btn-sm ${lead ? "btn-marigold" : "btn-secondary"}`} href={`/contact/?need=${stageParam(price.stage)}`}>
+          <Link prefetch={false} className={`btn btn-sm ${lead ? "btn-light" : "btn-secondary"}`} href={`/contact/?need=${stageParam(price.stage)}`}>
             Get a quote
           </Link>
         </div>
