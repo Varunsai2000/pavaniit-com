@@ -3,7 +3,7 @@ import type { QA, Stage } from "./stages";
 
 /** Structured data helpers. Placeholder values are omitted so nothing false ships. */
 
-const abs = (path: string) => new URL(path, site.url).toString();
+export const abs = (path: string) => new URL(path, site.url).toString();
 
 export function organizationSchema() {
   const sameAs = [real(site.linkedin)].filter(Boolean);

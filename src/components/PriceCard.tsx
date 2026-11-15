@@ -10,15 +10,20 @@ export default function PriceCard({ price, lead = false, cta = true }: { price: 
       <p className="price-amount">
         <V>{price.amount}</V>
       </p>
-      <p className="price-unit">{price.unit}</p>
-      <ul className="price-includes">
-        {price.includes.map((item) => (
-          <li key={item}>
-            <Check aria-hidden="true" strokeWidth={2.4} />
-            {item}
-          </li>
-        ))}
-      </ul>
+      <p className="price-unit">
+        {price.amountLocal && <span className="price-local">{price.amountLocal} </span>}
+        {price.unit}
+      </p>
+      {price.includes.length > 0 && (
+        <ul className="price-includes">
+          {price.includes.map((item) => (
+            <li key={item}>
+              <Check aria-hidden="true" strokeWidth={2.4} />
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
       {price.note && (
         <p className="price-note">
           <V>{price.note}</V>
@@ -27,7 +32,7 @@ export default function PriceCard({ price, lead = false, cta = true }: { price: 
       {cta && (
         <div className="price-cta">
           <Link prefetch={false} className={`btn btn-sm ${lead ? "btn-light" : "btn-secondary"}`} href={`/contact/?need=${stageParam(price.stage)}`}>
-            Get a quote
+            Get a quote<span className="sr-only"> for {price.service}</span>
           </Link>
         </div>
       )}

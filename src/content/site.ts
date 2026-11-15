@@ -40,6 +40,8 @@ export type Price = {
   service: string;
   stage: "Hire" | "Employ" | "Pay" | "Grow";
   amount: string;
+  /** The same price in rupees, shown under the main amount. */
+  amountLocal?: string;
   unit: string;
   includes: string[];
   note?: string;
@@ -50,16 +52,17 @@ export const prices: Price[] = [
     id: "eor",
     service: "Employer of Record",
     stage: "Employ",
-    amount: "[$ amount]",
+    amount: "€78",
+    amountLocal: "₹8,200",
     unit: "per employee per month",
     includes: [
-      "Employment contract under Indian law",
-      "Monthly payroll, payslips and income tax deduction",
-      "PF, ESI, gratuity, professional tax and labour welfare fund",
-      "Statutory leave and health insurance",
-      "Onboarding, exits and full-and-final settlement",
+      "Onboarding and employment documentation",
+      "Monthly payroll and salary disbursement",
+      "PF, ESI (where applicable), TDS and professional tax",
+      "GST invoicing and statutory filings",
+      "Exit formalities and full-and-final settlement",
     ],
-    note: "[Deposit terms]",
+    note: "€62 per employee from six employees. A one-month refundable salary deposit may apply.",
   },
   {
     id: "recruitment",
@@ -114,6 +117,52 @@ export const prices: Price[] = [
     unit: "per graduate who joins your team",
     includes: ["Graduate selection against your role", "Training on your stack", "Placement on your team"],
   },
+];
+
+/* ---------------------------------------------------------------------------
+   Employer of Record pricing, from Pavani IT's price sheet (November 2026).
+   EUR figures are approximate conversions of the INR prices.
+   --------------------------------------------------------------------------- */
+
+export type Plan = { id: string; name: string; eur: string; inr: string; unit: string; priceEur: number; priceInr: number };
+
+export const eorPlans: Plan[] = [
+  { id: "eor-employee", name: "Full-time employee", eur: "€78", inr: "₹8,200", unit: "per employee per month", priceEur: 78, priceInr: 8200 },
+  { id: "eor-team", name: "Six or more employees", eur: "€62", inr: "₹6,500", unit: "per employee per month", priceEur: 62, priceInr: 6500 },
+  { id: "eor-contractor", name: "Independent contractor", eur: "€23", inr: "₹2,400", unit: "per contractor per month", priceEur: 23, priceInr: 2400 },
+];
+
+/** Worked example: what a company pays in a month for one employee on ₹50,000. */
+export const eorExample = {
+  salary: "₹50,000",
+  rows: [
+    { label: "Employee salary", eur: "€475", inr: "₹50,000" },
+    { label: "Employer PF (8%)", eur: "€38", inr: "₹4,000" },
+    { label: "EOR service fee", eur: "€78", inr: "₹8,200" },
+    { label: "GST (18% on the EOR fee)", eur: "€14", inr: "₹1,476" },
+    { label: "FX conversion fee (1%)", eur: "€6", inr: "₹637" },
+  ],
+  total: { label: "Estimated monthly cost", eur: "€611", inr: "₹64,313" },
+};
+
+/** What the Employer of Record fee covers. */
+export const eorCovered = [
+  "Employee onboarding and employment documentation",
+  "Monthly payroll and salary disbursement",
+  "PF registration, calculations and remittances",
+  "ESI administration (where applicable)",
+  "TDS and professional tax compliance",
+  "GST invoicing and statutory filings",
+  "Employee records and leave administration",
+  "Exit formalities and full-and-final settlements",
+];
+
+/** The terms that sit under the price. */
+export const eorNotes = [
+  "The employee's PF (8%), professional tax (₹200) and TDS are deducted from their salary.",
+  "Employer PF (8%), ESI (where applicable) and GST are included in the company cost.",
+  "An FX conversion fee of 1% applies to payments from abroad.",
+  "A one-month refundable salary deposit may apply.",
 ];
 
 export type Person = { name: string; role: string; background: string };

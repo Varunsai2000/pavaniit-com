@@ -9,7 +9,7 @@ import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
-import { prices } from "@/content/site";
+import { eorPlans, prices } from "@/content/site";
 import { handoff, homeFaq, stages } from "@/content/stages";
 
 export const metadata: Metadata = {
@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const eor = prices.find((p) => p.id === "eor")!;
 const homePrices = ["eor", "recruitment", "payroll"].map((id) => prices.find((p) => p.id === id)!);
 
 const monthly = [
@@ -84,7 +83,7 @@ export default function Home() {
                 <ArrowRight aria-hidden="true" />
               </Link>
               <p className="hero-price">
-                Employer of Record from <strong><V>{eor.amount}</V></strong> {eor.unit}.
+                Employer of Record: <strong>{eorPlans[0].eur}</strong> {eorPlans[0].unit}, or <strong>{eorPlans[1].eur}</strong> from six employees.
               </p>
             </div>
           </div>

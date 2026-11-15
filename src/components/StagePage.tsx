@@ -34,7 +34,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
             <div className="page-hero-meta">
               {stagePrices.map((p) => (
                 <p className="hero-price" key={p.id}>
-                  {p.service}: <strong><V>{p.amount}</V></strong> {p.unit}
+                  {p.service}: <strong><V>{p.amount}</V></strong>{p.amountLocal && ` (${p.amountLocal})`} {p.unit}
                 </p>
               ))}
               <div className="hero-actions">

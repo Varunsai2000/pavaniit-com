@@ -73,9 +73,12 @@ export function FaqSection({ items, title = "Questions buyers ask us", ruled = f
 export function CtaBand({
   title = "Tell us who you want to hire in India.",
   body = "A 30-minute call is enough to tell you which services you need, what they cost and how soon someone could start.",
+  pricingLink = true,
 }: {
   title?: string;
   body?: string;
+  /** Off on the pricing page itself. */
+  pricingLink?: boolean;
 }) {
   return (
     <section className="section-tight" aria-labelledby="cta-title">
@@ -93,9 +96,11 @@ export function CtaBand({
                 Book a call
                 <ArrowRight aria-hidden="true" />
               </Link>
-              <Link prefetch={false} className="btn btn-ghost-light" href="/pricing/">
-                See pricing
-              </Link>
+              {pricingLink && (
+                <Link prefetch={false} className="btn btn-ghost-light" href="/pricing/">
+                  See pricing
+                </Link>
+              )}
             </div>
           </div>
           <div className="cta-art frame frame-inset frame-fill">

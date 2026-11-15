@@ -420,6 +420,38 @@ table { font-variant-numeric: tabular-nums; }
 .price-card.is-lead .price-note { border-top-color: var(--color-inverse-line); }
 .price-card.is-lead .ph, .site-footer .ph, .cta-band .ph { background: var(--color-chip-inverse); color: var(--color-on-inverse); outline-color: var(--color-line-muted); }
 @media (max-width: 980px) { .price-grid { grid-template-columns: minmax(0, 1fr); } }
+.price-local { color: var(--color-ink); font-weight: var(--weight-semibold); }
+.price-card.is-lead .price-local { color: var(--color-on-inverse); }
+
+/* Pricing: worked monthly cost, set like a receipt. */
+.receipt-wrap { display: grid; gap: var(--space-6); }
+.receipt { width: 100%; border-collapse: collapse; font-size: var(--text-md); font-variant-numeric: tabular-nums; }
+.receipt th, .receipt td { padding-block: var(--space-3); text-align: left; vertical-align: baseline; border-bottom: var(--border-hairline) solid var(--color-line-strong); }
+.receipt td, .receipt thead th + th { width: var(--col-label); text-align: right; }
+.receipt td { color: var(--color-ink-2); }
+.receipt thead th { padding-top: 0; border-bottom: var(--border-strong) solid var(--color-ink); font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-ink-3); }
+.receipt tbody th { font-weight: var(--weight-medium); }
+.receipt tfoot th, .receipt tfoot td { padding-top: var(--space-4); border-bottom: 0; border-top: var(--border-strong) solid var(--color-ink); font-size: var(--text-lg); font-weight: var(--weight-heavy); color: var(--color-ink); }
+.receipt-notes { display: grid; gap: var(--space-2); padding-left: var(--space-4); font-size: var(--text-sm); color: var(--color-ink-2); }
+.receipt-notes li::marker { color: var(--color-ink-3); }
+
+/* Two-column ruled checklist (pricing: what the fee covers). */
+.check-list-2 .check-list { display: grid; grid-template-columns: var(--grid-half); column-gap: var(--grid-gap); }
+@media (max-width: 860px) { .check-list-2 .check-list { grid-template-columns: minmax(0, 1fr); } }
+
+/* Ruled price list on the grid: service / price / includes / link. */
+.price-list { list-style: none; border-top: var(--border-strong) solid var(--color-ink); }
+.price-list > li { display: grid; grid-template-columns: var(--grid); gap: var(--space-3) var(--grid-gap); align-items: baseline; padding-block: var(--space-6); border-bottom: var(--border-hairline) solid var(--color-line); }
+.pl-name { grid-column: 1 / 4; }
+.pl-price { grid-column: 4 / 7; }
+.pl-includes { grid-column: 7 / 11; list-style: none; display: grid; gap: var(--space-1); font-size: var(--text-md); color: var(--color-ink-2); }
+.pl-cta { grid-column: 11 / -1; justify-self: end; }
+.pl-name h3, .pl-amount { font-size: var(--text-xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-title); line-height: var(--leading-snug); }
+.pl-name p, .pl-price p + p { margin-top: var(--space-1); font-size: var(--text-sm); color: var(--color-ink-2); }
+@media (max-width: 860px) {
+  .price-list > li { grid-template-columns: minmax(0, 1fr); }
+  .pl-name, .pl-price, .pl-includes, .pl-cta { grid-column: 1; justify-self: start; }
+}
 
 /* ---------- India details ---------- */
 

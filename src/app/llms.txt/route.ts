@@ -1,5 +1,5 @@
 import { glossary } from "@/content/glossary";
-import { prices, real, site } from "@/content/site";
+import { eorExample, eorPlans, prices, real, site } from "@/content/site";
 import { homeFaq, stages } from "@/content/stages";
 
 export const dynamic = "force-static";
@@ -30,7 +30,10 @@ export function GET() {
   const published = prices.filter((p) => real(p.amount));
   lines.push("## Pricing", "");
   if (published.length) {
-    for (const p of published) lines.push(`- ${p.service}: ${p.amount} ${p.unit}`);
+    for (const p of published) lines.push(`- ${p.service}: ${p.amount}${p.amountLocal ? ` (${p.amountLocal})` : ""} ${p.unit}`);
+    lines.push(`- Employer of Record packages: ${eorPlans.map((p) => `${p.name} ${p.eur} (${p.inr}) ${p.unit}`).join("; ")}`);
+    lines.push(`- Example: one employee on ${eorExample.salary} a month costs about ${eorExample.total.inr} (${eorExample.total.eur}) a month in total: ${eorExample.rows.map((r) => `${r.label} ${r.inr}`).join(", ")}.`);
+    lines.push(`- [Full pricing](${url("/pricing/")})`);
   } else {
     lines.push(`- [Pricing](${url("/pricing/")}): published fees for every service`);
   }
