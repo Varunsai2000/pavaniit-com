@@ -599,9 +599,10 @@ select.input { appearance: none; padding-right: var(--space-10); background: var
 .footer-col { grid-column: var(--span-link-col); }
 .footer-brand .brand { color: var(--color-on-inverse); }
 .footer-brand p { margin-top: var(--space-4); max-width: var(--measure-note); }
-.footer-col h2 { font-size: var(--text-sm); font-weight: var(--weight-heavy); color: var(--color-on-inverse); margin-bottom: var(--space-4); }
-.footer-col ul { list-style: none; display: grid; gap: var(--space-3); }
-.footer-col a { text-decoration: none; }
+.footer-col h2 { font-size: var(--text-sm); font-weight: var(--weight-heavy); color: var(--color-on-inverse); margin-bottom: var(--space-2); }
+.footer-col ul { list-style: none; display: grid; }
+/* Each link fills a 32px row, so rows are easy to scan and to tap. */
+.footer-col a { display: flex; align-items: center; min-height: var(--link-row); text-decoration: none; }
 .footer-col a:hover { color: var(--color-on-inverse); text-decoration: underline; }
 .footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3) var(--space-8); margin-top: var(--space-14); padding-top: var(--space-6); border-top: var(--border-hairline) solid var(--color-inverse-line); font-size: var(--text-sm); color: var(--color-on-inverse-2); }
 @media (max-width: 900px) { .footer-top { grid-template-columns: var(--grid-half); } .footer-brand { grid-column: 1 / -1; } .footer-col { grid-column: auto; } }

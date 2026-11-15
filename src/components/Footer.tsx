@@ -46,7 +46,6 @@ export default function Footer() {
             <ul>
               <li><Link prefetch={false} href="/glossary/">Glossary of Indian HR terms</Link></li>
               <li><Link prefetch={false} href="/employer-of-record-india/#eor-vs-entity">EOR or your own entity?</Link></li>
-              <li><a href="/llms.txt">llms.txt</a></li>
               <li><Link prefetch={false} href="/privacy/">Privacy notice</Link></li>
             </ul>
           </div>

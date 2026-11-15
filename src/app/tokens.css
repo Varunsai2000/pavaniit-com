@@ -197,6 +197,7 @@
   --control-h-sm: 42px;
   --control-h-input: 48px;
   --tap: 44px;            /* minimum touch target */
+  --link-row: 32px;       /* one link per row in link lists (footer) */
   --icon-sm: 16px;
   --icon-md: 18px;
   --icon-lg: 20px;
