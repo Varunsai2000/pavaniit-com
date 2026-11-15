@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <StagePage stage={stage}>
-      <section className="section on-mist" aria-labelledby="calendar-title">
+      <section className="section ruled" aria-labelledby="calendar-title">
         <div className="wrap cycle">
           <div className="cycle-copy">
             <div className="section-head">

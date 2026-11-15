@@ -12,6 +12,7 @@ A running log of section-level changes made by the polish loop, and the question
 
 ## Log
 
+- **Stage pages share one structure.** Same split hero as the home page. White content sections, each starting with a thin rule: services, then the stage's own section. One grey band (what comes next), then the FAQ and the call-to-action band. The stage-specific sections used to sit on grey right before the grey next-stage band, which merged into one block.
 - **Hero slimmed (your feedback: "bloated").** It's now a split hero like Deel: headline, one sentence, Book a call and See pricing, and one price line on the left; the illustration on the right, cropped to the text's height, with the live time card on it. Removed the four-row service index and the filings and payroll example cards. The whole hero now fits in a 1440×900 window.
 - **Stage cards carry the services.** With the index out of the hero, each card shows its services ("Recruitment · Contract staffing") above the hand-off line, so the four stages are described once, in one place.
 - **Real Employer of Record pricing**, from your price sheet:

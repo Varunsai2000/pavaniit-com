@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <StagePage stage={stage}>
-      <section className="section on-mist" aria-labelledby="duties-title">
+      <section className="section ruled" aria-labelledby="duties-title">
         <div className="wrap depth">
           <div className="section-head">
             <h2 className="h2" id="duties-title">Who does what</h2>
@@ -27,7 +27,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section" id="eor-vs-entity" aria-labelledby="compare-title">
+      <section className="section ruled" id="eor-vs-entity" aria-labelledby="compare-title">
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="compare-title">Employer of Record, your own entity, or contractors?</h2>

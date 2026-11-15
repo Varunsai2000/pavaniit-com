@@ -20,7 +20,7 @@ const tracks = [
 export default function Page() {
   return (
     <StagePage stage={stage}>
-      <section className="section on-mist" aria-labelledby="tracks-title">
+      <section className="section ruled" aria-labelledby="tracks-title">
         <div className="wrap depth">
           <div className="section-head">
             <h2 className="h2" id="tracks-title">Training that matches what you hire for</h2>

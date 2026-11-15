@@ -179,6 +179,8 @@ table { font-variant-numeric: tabular-nums; }
 .hero-copy .lead { margin-top: var(--space-6); font-size: var(--text-lg); text-wrap: balance; }
 .hero-copy .hero-actions { margin-top: var(--space-8); }
 .hero-copy .hero-price { margin-top: var(--space-4); }
+.hero-copy .hero-price + .hero-price { margin-top: var(--space-1); }
+.hero-copy .crumbs + .h1 { margin-top: var(--space-5); max-width: var(--measure-heading); }
 .hero-price { font-size: var(--text-md); color: var(--color-ink-2); }
 .hero-price strong { color: var(--color-ink); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); }
@@ -186,11 +188,6 @@ table { font-variant-numeric: tabular-nums; }
 .hero-art { object-position: 50% 50%; }
 .hero-visual .float-time { left: var(--space-4); right: auto; top: auto; bottom: var(--space-4); width: min(var(--size-float-w-lg), calc(100% - var(--space-8))); }
 
-/* Hero copy on stage pages: an intro group on top (aligned to the art's top),
-   an action group at the bottom behind a hairline (aligned to the art's bottom). */
-.page-hero-copy { display: flex; flex-direction: column; justify-content: space-between; gap: var(--hero-group-gap); }
-.hero-intro { display: grid; gap: var(--space-3); }
-.page-hero-meta { padding-top: var(--space-6); border-top: var(--border-hairline) solid var(--color-line); }
 
 /* Floating product UI over the illustration */
 .float { position: absolute; z-index: var(--z-float); border-radius: var(--radius-control); background: var(--color-bg); color: var(--color-ink); box-shadow: var(--shadow-float); padding: var(--space-4) var(--space-4); font-size: var(--text-sm); }
@@ -302,10 +299,8 @@ table { font-variant-numeric: tabular-nums; }
 /* ---------- Monthly cycle ---------- */
 
 /* Sections separated by a rule aligned to the content, instead of grey bands. */
-.ruled { padding-top: 0; }
-.ruled > .wrap::before { content: ""; display: block; grid-column: 1 / -1; height: var(--border-hairline); background: var(--color-line-strong); margin-bottom: var(--section-y); }
-/* In a grid wrap (FAQ) the row gap adds to the rule's spacing, so take it off the margin. */
-.ruled > .faq-layout::before { margin-bottom: calc(var(--section-y) - var(--space-8)); }
+.ruled > .wrap { position: relative; }
+.ruled > .wrap::before { content: ""; position: absolute; top: calc(var(--section-y) * -1); left: var(--gutter); right: var(--gutter); height: var(--border-hairline); background: var(--color-line-strong); }
 
 /* The one dark band on the page: the monthly cycle. */
 .on-ink { background: var(--color-ink); color: var(--color-on-inverse); }
@@ -485,14 +480,8 @@ table { font-variant-numeric: tabular-nums; }
 .crumbs li + li::before { content: "/"; margin-right: var(--space-1-5); color: var(--color-ink-3); }
 
 .page-hero { padding-block: clamp(var(--space-8), 4vw, var(--space-14)) clamp(var(--space-10), 5vw, var(--space-20)); }
-.page-hero-grid { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-8) var(--grid-gap); align-items: stretch; }
-.page-hero-art { align-self: start; }
-.page-hero-grid .h1 { margin-top: var(--space-2); max-width: var(--measure-heading); }
-.page-hero-grid .lead { margin-top: var(--space-2); }
-.page-hero-meta { display: grid; gap: var(--space-4); }
 .page-hero-plain .h1 { margin-top: var(--space-5); max-width: var(--measure-title); }
 .page-hero-plain .lead { margin-top: var(--space-5); }
-@media (max-width: 900px) { .page-hero-grid { grid-template-columns: minmax(0, 1fr); } }
 
 .service-block { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); padding-block: clamp(var(--space-10), 5vw, var(--space-16)); border-top: var(--border-hairline) solid var(--color-line); }
 .service-block:first-child { border-top: 0; padding-top: 0; }

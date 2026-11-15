@@ -21,7 +21,7 @@ const steps = [
 export default function Page() {
   return (
     <StagePage stage={stage}>
-      <section className="section on-mist" aria-labelledby="how-title">
+      <section className="section ruled" aria-labelledby="how-title">
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="how-title">How a hire runs</h2>

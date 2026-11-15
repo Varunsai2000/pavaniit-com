@@ -118,7 +118,6 @@
   --section-y-page-top: clamp(40px, 5vw, 72px);  /* top of pages without a hero: contact, privacy */
   --section-y-after-hero: clamp(24px, 3vw, 48px); /* section that follows a page hero */
   --header-h: 68px;
-  --hero-group-gap: var(--space-8);   /* between the intro and the action group in a hero */
 
   /* ---- Grid: one 12-column grid under every section ----
      Two equal halves with --grid-gap turn exactly at column 7, and 3 or 4

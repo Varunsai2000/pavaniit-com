@@ -34,7 +34,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 ## Page structure (before the remaining component polish)
 - [x] Hero rethink: replace the Hire / Employ / Pay / Grow toggle chips with a structure that informs. The chips read as a form control, and they duplicate the four stage cards directly below. The direction is agreed with the user first; the need picker can live on the contact page, which already has the same choice.
 - [x] Home page structure: audit the order and anatomy of every section (hero, stages, calendar, comparison, prices, India details, FAQ, CTA). Each section gets one job and one primary component; merge or cut repeats (for example, the stages appearing in the hero and in the cards, or prices teased in two places). Make the background bands follow the page's chapters.
-- [ ] Stage-page template structure: hero, service blocks, the stage-specific section, next stage, FAQ, CTA. Make every stage-specific section use a standard component (ruled list, steps, table or calendar), with the same order and anatomy on all four pages.
+- [x] Stage-page template structure: hero, service blocks, the stage-specific section, next stage, FAQ, CTA. Make every stage-specific section use a standard component (ruled list, steps, table or calendar), with the same order and anatomy on all four pages.
 - [ ] Inner-page structure: Pricing, About, Contact, Glossary, Privacy and 404 each get the same audit (one job per section, standard components, a clear reading order) before their polish items below.
 
 ## Global
@@ -61,7 +61,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [ ] Footer: 32px link rows, drop "llms.txt" from the visible links (keep the file).
 
 ## Components (inner pages)
-- [ ] Stage page hero (all four)
+- [x] Stage page hero (all four): now the same split hero as the home page.
 - [ ] Service blocks and check lists
 - [ ] "Who does what" table: align the header with the row labels.
 - [ ] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
@@ -118,3 +118,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - The FAQ now has the same content-aligned rule as the three sections above it; this is opt-in via `FaqSection ruled`, because on stage pages it follows a band. The rule spans the FAQ grid, and its margin subtracts the grid row gap, so rule-to-title spacing matches the ledger exactly (131px at 1440px, 81px at 390px).
   - Journey checks re-run: no hover transform, card click opens the page, focus ring on the card, visible without JS. No sideways scroll at 375–1920px.
 - Hero slimmed after user feedback ("bloated"): a split hero with headline, one sentence, two buttons and a price line on the left, and the illustration on the right, cropped to the text height, with the time card. The service index and the two example cards are gone; stage cards now show their services. The hero fits in 1440×900 (ends at 755px). Pricing page rebuilt with real EOR prices: plan cards, a ₹50,000 receipt with notes, a two-column coverage checklist, a ruled price list for the other services, and EUR/INR offers in JSON-LD and llms.txt. No sideways scroll at 375–1920px.
+- Stage-page template structure: all four stage pages now share the home hero (breadcrumb, title, lead, Book a call and See pricing, then the price line; the art on the right, cropped to the copy's height), so the hairline action group is gone. A content-aligned rule starts the services. Each stage-specific section (how a hire runs, who does what, the comparison, the statutory calendar, training tracks) moved from grey to white with a rule, so the only grey band is the next-stage hand-off and two greys never merge. The section rule is now drawn outside the flow (absolute, at the section's top edge), so grid wraps need no compensation; rule-to-heading is 130px on every ruled section at 1440px. Removed the unused page-hero-grid, page-hero-meta and hero-intro CSS and the `--hero-group-gap` token. No sideways scroll at 375–1920px.
