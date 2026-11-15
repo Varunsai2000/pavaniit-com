@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const TASKS = [
   "Onboarding a new joiner",
@@ -59,23 +59,38 @@ export default function LiveClock() {
   const [task, setTask] = useState(0);
   const [swapping, setSwapping] = useState(false);
 
+  const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setTz(Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC");
     setNow(new Date());
     const tick = setInterval(() => setNow(new Date()), 15000);
+
+    // Reduced motion: no auto-updating text at all (WCAG 2.2.2).
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let rotate: ReturnType<typeof setInterval> | undefined;
     let swap: ReturnType<typeof setTimeout> | undefined;
-    const rotate = setInterval(() => {
-      if (reduce || document.hidden) return setTask((t) => (t + 1) % TASKS.length);
-      setSwapping(true);
-      swap = setTimeout(() => {
-        setTask((t) => (t + 1) % TASKS.length);
-        setSwapping(false);
-      }, 240);
-    }, 3400);
+    const start = () => {
+      if (reduce || rotate) return;
+      rotate = setInterval(() => {
+        setSwapping(true);
+        swap = setTimeout(() => {
+          setTask((t) => (t + 1) % TASKS.length);
+          setSwapping(false);
+        }, 200);
+      }, 3400);
+    };
+    const stop = () => {
+      if (rotate) clearInterval(rotate);
+      rotate = undefined;
+    };
+    // Only rotate while the card is on screen.
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start() : stop()));
+    if (ref.current) io.observe(ref.current);
     return () => {
       clearInterval(tick);
-      clearInterval(rotate);
+      stop();
+      io.disconnect();
       if (swap) clearTimeout(swap);
     };
   }, []);
@@ -93,9 +108,10 @@ export default function LiveClock() {
           : "No shared hours: handover overnight";
 
   return (
-    <div className="float float-time" aria-label="Your time and India time">
+    <div className="float float-time" ref={ref} aria-label="Your time and India time">
       <div className="float-head">
         {overlapText}
+        <span className="float-ex">Example</span>
       </div>
       <div className="clockpair">
         <div>

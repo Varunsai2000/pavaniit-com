@@ -27,10 +27,10 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 
 ## Components (home)
 - [x] Header and services menu
-- [ ] Hero: headline, lead and price line
-- [ ] Hero: need picker. 2×2 on phones; checked state in monochrome.
-- [ ] Hero scene: crop the art so faces sit above the fold at 1440×900. Put "Example" on each floating card. Float-ins at 500ms, transform and opacity only.
-- [ ] Live clock card: reduced motion means no rotating text. Pause while off-screen. Compositor-only pulse.
+- [x] Hero: headline, lead and price line
+- [x] Hero: need picker. 2×2 on phones; checked state in monochrome.
+- [x] Hero scene: crop the art so faces sit above the fold at 1440×900. Put "Example" on each floating card. Float-ins at 500ms, transform and opacity only.
+- [x] Live clock card: reduced motion means no rotating text. Pause while off-screen. Compositor-only pulse.
 - [ ] Journey cards: the thread hangs from the badge rings instead of crossing the numerals. No hover-lift or zoom. Short link names: link only the "More on…" text, stretched over the card. Reveal must not hide content without JS.
 - [x] Monthly calendar section: make it the page's centrepiece, full-bleed black band.
 - [ ] Comparison table
@@ -64,3 +64,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - Illustrations: grow redrawn; the full set is now black ink line art.
 - Section rhythm: calendar is now a full-width black band with the cycle as four numbered steps; comparison, pricing and India details sit on white separated by content-aligned rules; India details became a numbered full-width ledger. Checked at 1440 and 390px, no sideways scroll.
 - Header: services-menu thumbnails now 160px WebP (about 5 KB each, was about 65 KB); removed the duplicate Contact link (Book a call goes to the same page). Phone menu verified full-height.
+- First viewport: picker moved beside the lead; tighter spacing and a 2:1 crop put the illustration at 493px on a 1440×900 screen (was 635), faces visible; hero stacks below 1100px; "Example" label on each floating card; float-ins 500ms transform/opacity only; compositor-only pulse; clock text doesn't rotate under reduced motion and pauses off-screen; need chips 2×2 on phones. Checked at 1440, 820 and 390px.

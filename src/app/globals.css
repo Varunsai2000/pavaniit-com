@@ -211,19 +211,19 @@ table { font-variant-numeric: tabular-nums; }
 
 /* ---------- Hero ---------- */
 
-.hero { padding-block: clamp(40px, 6vw, 88px) clamp(64px, 7vw, 104px); }
-.hero-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 28px clamp(32px, 5vw, 80px); align-items: end; }
+.hero { padding-block: clamp(28px, 4vw, 56px) clamp(64px, 7vw, 104px); }
+.hero-top { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 28px clamp(32px, 5vw, 80px); align-items: end; }
 .hero-top .display { max-width: 12.5em; }
-.hero-side { display: grid; gap: 22px; padding-bottom: 6px; }
+.hero-side { display: grid; gap: 18px; padding-bottom: 4px; }
 .hero-side .lead { font-size: 1.125rem; }
 .hero-price { font-size: 0.9375rem; color: var(--ink-2); }
 .hero-price strong { color: var(--ink); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .hero-hint { font-size: 0.875rem; color: var(--ink-2); }
-@media (max-width: 900px) { .hero-top { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1100px) { .hero-top { grid-template-columns: minmax(0, 1fr); align-items: start; } .hero-side { max-width: 40rem; } }
 
-.hero-scene { position: relative; margin-top: clamp(36px, 5vw, 64px); border-radius: var(--r-xl); background: var(--paper); overflow: hidden; isolation: isolate; }
-.hero-art { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 42%; }
+.hero-scene { position: relative; margin-top: clamp(28px, 3.5vw, 48px); border-radius: var(--r-xl); background: var(--paper); overflow: hidden; isolation: isolate; }
+.hero-art { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: 50% 62%; }
 .hero-scene::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(20, 23, 22, 0.06); pointer-events: none; }
 
 /* Floating product UI over the illustration */
@@ -232,7 +232,8 @@ table { font-variant-numeric: tabular-nums; }
 .float-time { left: 2.5%; top: 5%; width: min(320px, 32%); }
 .float-filings { right: 2.5%; top: 5%; width: min(300px, 30%); }
 .float-pay { right: 2.5%; bottom: 6%; width: min(300px, 30%); }
-.float-example { position: absolute; left: 16px; bottom: 14px; z-index: 2; padding: 4px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.9); font-size: 0.75rem; font-weight: 700; color: var(--ink-2); }
+.float-ex { padding: 2px 8px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-strong); font-size: 0.75rem; font-weight: 700; color: var(--ink-3); }
+.money-sub { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 
 .money { margin-top: 8px; font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem); font-weight: 800; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; line-height: 1.1; }
 .money-sub { font-size: 0.875rem; color: var(--ink-2); margin-top: 2px; }
@@ -254,33 +255,32 @@ table { font-variant-numeric: tabular-nums; }
 .clockpair b { font-size: 1.375rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .clockpair .sep { background: var(--line); }
 .now-line { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 8px; font-size: 0.875rem; font-weight: 600; min-height: 2.6em; }
-.now-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--ink); flex: none; }
-.now-text { display: inline-block; transition: opacity 240ms ease, filter 240ms ease, transform 240ms var(--ease-out); }
-.now-text[data-swapping="true"] { opacity: 0; filter: blur(3px); transform: translateY(3px); }
+.now-dot { position: relative; width: 8px; height: 8px; border-radius: 999px; background: var(--ink); flex: none; }
+.now-dot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--ink); opacity: 0; }
+.now-text { display: inline-block; transition: opacity 200ms ease, transform 200ms var(--ease-out); }
+.now-text[data-swapping="true"] { opacity: 0; transform: translateY(3px); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .now-dot { animation: pulse 2.4s var(--ease-out) infinite; }
-  .float { animation: float-in 800ms var(--ease-out) both; }
-  .float-time { animation-delay: 200ms; }
-  .float-filings { animation-delay: 380ms; }
-  .float-pay { animation-delay: 560ms; }
+  .now-dot::after { animation: pulse 2.4s var(--ease-out) infinite; }
+  .float { animation: float-in 500ms var(--ease-out) both; }
+  .float-time { animation-delay: 120ms; }
+  .float-filings { animation-delay: 180ms; }
+  .float-pay { animation-delay: 240ms; }
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.35); }
-  70% { box-shadow: 0 0 0 8px rgba(10, 10, 10, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(10, 10, 10, 0); }
+  0% { transform: scale(1); opacity: 0.35; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
 }
 @keyframes float-in {
-  from { transform: translateY(14px) scale(0.97); filter: blur(4px); opacity: 0.001; }
-  to { transform: none; filter: none; opacity: 1; }
+  from { transform: translateY(10px) scale(0.98); opacity: 0; }
+  to { transform: none; opacity: 1; }
 }
 
 @media (max-width: 960px) {
   .hero-scene { display: grid; }
-  .hero-art { aspect-ratio: 4 / 3; }
+  .hero-art { aspect-ratio: 4 / 3; object-position: 50% 55%; }
   .float-filings, .float-pay { display: none; }
   .float-time { position: relative; left: auto; top: auto; width: auto; margin: -36px 12px 12px; }
-  .float-example { left: auto; right: 12px; top: 12px; bottom: auto; }
 }
 @media (max-width: 480px) { .hero-art { object-position: 40% 50%; } }
 
@@ -288,6 +288,7 @@ table { font-variant-numeric: tabular-nums; }
 .need { border: 0; padding: 0; margin: 0; min-width: 0; }
 .need legend { padding: 0; margin-bottom: 10px; font-size: 0.9375rem; font-weight: 700; }
 .need-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 480px) { .need-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } .need-chip label { width: 100%; } }
 .need-chip { position: relative; }
 .need-chip input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
 .need-chip label {

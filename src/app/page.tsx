@@ -62,12 +62,10 @@ export default function Home() {
               <p className="hero-price">
                 Employer of Record from <strong><V>{eor.amount}</V></strong> {eor.unit}.
               </p>
+              <NeedPicker />
             </div>
           </div>
 
-          <div style={{ marginTop: 32 }}>
-            <NeedPicker />
-          </div>
 
           <div className="hero-scene">
             <Art name="hero" className="hero-art" priority sizes="(max-width: 1440px) 100vw, 1360px" />
@@ -75,9 +73,7 @@ export default function Home() {
             <div className="float float-filings" aria-hidden="true">
               <div className="float-head">
                 November filings
-                <span className="badge badge-done">
-                  <Check strokeWidth={3} />2 of 3
-                </span>
+                <span className="float-ex">Example</span>
               </div>
               <ul className="rows">
                 <li><span className="d">7</span><span>TDS for October</span><span className="badge badge-done">Filed</span></li>
@@ -88,14 +84,13 @@ export default function Home() {
             <div className="float float-pay" aria-hidden="true">
               <div className="float-head">
                 October payroll
-                <span className="badge badge-done">
-                  <Check strokeWidth={3} />Paid 30 Oct
-                </span>
+                <span className="float-ex">Example</span>
               </div>
               <p className="money">₹38,42,600</p>
-              <p className="money-sub">Net salaries to 18 people</p>
+              <p className="money-sub">
+                Net salaries to 18 people <span className="badge badge-done"><Check strokeWidth={3} />Paid 30 Oct</span>
+              </p>
             </div>
-            <span className="float-example">Example</span>
           </div>
         </div>
       </section>
