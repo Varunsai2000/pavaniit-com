@@ -574,18 +574,26 @@ table { font-variant-numeric: tabular-nums; }
 .input[aria-invalid="true"] { border-color: var(--color-danger); }
 textarea.input { min-height: calc(var(--control-h-input) * 2.5); resize: vertical; }
 select.input { appearance: none; padding-right: var(--space-10); background: var(--color-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%230a0a0a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 14px center / var(--size-chevron) var(--space-2) no-repeat; }
-.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); border: 0; padding: 0; margin: 0; min-width: 0; }
+.chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); border: 0; padding: 0; margin: 0; min-width: 0; }
+.chips .field-error { grid-column: 1 / -1; }
+@media (max-width: 560px) { .chips { grid-template-columns: minmax(0, 1fr); } }
 .chips legend { padding: 0; margin-bottom: var(--space-2); }
 .chip { position: relative; }
-.chip input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
-.chip label { display: inline-flex; align-items: center; min-height: var(--control-h-sm); padding: var(--space-2) var(--space-4); border: var(--border-hairline) solid var(--color-line-strong); border-radius: var(--radius-control); background: var(--color-bg); font-size: var(--text-md); font-weight: var(--weight-bold); line-height: var(--leading-ui); cursor: pointer; transition: transform var(--dur-press) var(--ease-out); }
+/* The input stays above the label even while :active scales the label (a transform would otherwise lift the
+   label over it, so mouse-up lands on the label and the click never reaches the checkbox). */
+.chip input { position: absolute; inset: 0; z-index: var(--z-raised); opacity: 0; margin: 0; cursor: pointer; }
+/* Service options: a 2×2 grid of equal tiles, stage name over its services. */
+.chip label { display: grid; align-content: start; gap: var(--space-0-5); width: 100%; height: 100%; min-height: var(--control-h); padding: var(--space-3) var(--space-4); line-height: var(--leading-ui); border: var(--border-hairline) solid var(--color-line-strong); border-radius: var(--radius-control); background: var(--color-bg); cursor: pointer; transition: transform var(--dur-press) var(--ease-out); }
+.chip label b { font-size: var(--text-md); font-weight: var(--weight-heavy); }
+.chip label span { font-size: var(--text-sm); color: var(--color-ink-2); }
+.chip input:checked + label span { color: var(--color-on-inverse-2); }
 .chip:active label { transform: scale(var(--press-scale)); }
 .chip input:checked + label { background: var(--color-inverse); border-color: var(--color-inverse); color: var(--color-on-inverse); }
 .chip input:focus-visible + label { outline: var(--border-strong) solid var(--color-inverse); outline-offset: var(--focus-offset-tight); }
 .chips[aria-invalid="true"] .chip label { border-color: var(--color-danger); }
 .field-error { color: var(--color-danger); font-size: var(--text-sm); font-weight: var(--weight-semibold); flex-basis: 100%; }
 .form-error { padding: var(--space-3) var(--space-4); border-radius: var(--radius-control); background: var(--color-danger-soft); color: var(--color-danger); font-size: var(--text-md); font-weight: var(--weight-semibold); }
-.form-note { font-size: var(--text-sm); color: var(--color-ink-2); text-align: center; }
+.form-note { font-size: var(--text-sm); color: var(--color-ink-2); }
 .form-note a { font-weight: var(--weight-bold); color: var(--color-inverse); }
 .hp { display: none; }
 .form-done { display: grid; justify-items: start; gap: var(--space-3); padding: clamp(var(--space-7), 4vw, var(--space-12)); border-radius: var(--radius-card); background: var(--color-surface); }

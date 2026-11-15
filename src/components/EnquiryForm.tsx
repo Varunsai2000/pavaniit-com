@@ -48,7 +48,7 @@ export default function EnquiryForm() {
     if (!email) next.email = "Enter your work email.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = "Check the email address: it should look like name@company.com.";
     if (!company) next.company = "Enter your company name.";
-    if (need.length === 0) next.need = "Choose at least one service, or pick Not sure.";
+    if (need.length === 0) next.need = "Choose at least one service.";
     setErrors(next);
     if (Object.keys(next).length) {
       const first = Object.keys(next)[0];
@@ -124,7 +124,8 @@ export default function EnquiryForm() {
           <div className="chip" key={s.id}>
             <input type="checkbox" id={`need-${s.id}`} checked={need.includes(s.id)} onChange={() => toggle(s.id)} />
             <label htmlFor={`need-${s.id}`}>
-              {s.label}: {s.services.map((x) => x.name.toLowerCase()).join(", ")}
+              <b>{s.label}</b>
+              <span>{s.services.map((x) => x.name).join(", ")}</span>
             </label>
           </div>
         ))}

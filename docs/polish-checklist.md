@@ -67,7 +67,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
 - [x] Pricing page: rebuilt with the real Employer of Record prices (see docs/decisions.md).
 - [x] About page
-- [ ] Contact page and enquiry form, including error and sent states
+- [x] Contact page and enquiry form, including error and sent states
 - [ ] Glossary page
 - [ ] Privacy page
 - [ ] 404 page
@@ -140,3 +140,9 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Its accessible name used to be a 30-word run of alt text, the stage, the services and the page title; it's now just the link. The services line was printed twice and isn't any more.
   - No hover lift. Keyboard focus rings the card, and clicking anywhere on it opens the page. The arrow stays with its last word (ArrowText). No sideways scroll.
 - About page: the "How we work" descriptions went from 15px to body size (the training page's tracks list shares that component and benefits too). While a name is still a placeholder, the avatar is an empty dashed circle in the site's placeholder style, not a "?"; initials appear once a real name is in. On phones the person card stacks the avatar above the text instead of squeezing the text into a narrow column. No sideways scroll.
+- Contact form:
+  - Fixed a real bug: mouse and touch clicks on the service options did nothing (only the keyboard worked). The `:active` press scale put a transform on the label, which lifted it over the invisible checkbox, so mouse-up landed on the label and no click reached the input. The checkbox now sits above the label (`--z-raised`). Tested with real mouse clicks at 1440px and touch taps at 390px.
+  - The service options are now a 2×2 grid of equal tiles (stage name in bold, its services underneath), one column on phones, instead of four uneven run-on pills.
+  - The missing-service error no longer points to a non-existent "Not sure" option.
+  - The form's small print is left-aligned like everything else.
+  - Checked: preselect from `?need=employ`, the four errors on an empty submit, focus moving to the first error field, and the keyboard toggle. The sent state can't be shown until a Web3Forms key is set (without one the form opens the email app), but its markup is unchanged and reviewed. No sideways scroll.
