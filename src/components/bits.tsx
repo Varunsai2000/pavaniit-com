@@ -114,11 +114,24 @@ export function CtaBand({
   );
 }
 
-export function MoreLink({ href, children }: { href: string; children: React.ReactNode }) {
+/** Link text with a trailing arrow; the last word and the arrow never wrap apart. */
+export function ArrowText({ children }: { children: string }) {
+  const i = children.lastIndexOf(" ");
+  return (
+    <>
+      {children.slice(0, i + 1)}
+      <span className="nowrap">
+        {children.slice(i + 1)}
+        <ArrowRight aria-hidden="true" />
+      </span>
+    </>
+  );
+}
+
+export function MoreLink({ href, children }: { href: string; children: string }) {
   return (
     <Link prefetch={false} className="text-link" href={href}>
-      {children}
-      <ArrowRight aria-hidden="true" />
+      <ArrowText>{children}</ArrowText>
     </Link>
   );
 }

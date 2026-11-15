@@ -210,6 +210,8 @@
   --size-tick: 22px;        /* round check mark */
   --size-tick-lg: 40px;     /* check mark on the sent state */
   --size-badge: 34px;       /* numbered stage badge */
+  --badge-ring: var(--space-1);   /* paper ring around the badge; the journey thread starts on it */
+  --thread-rise: var(--space-16); /* how high the journey thread arches between badges */
   --size-step: 32px;        /* numbered step chip */
   --size-avatar: 64px;      /* person placeholder */
   --size-thumb-w: 76px;     /* services menu thumbnail */

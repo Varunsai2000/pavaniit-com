@@ -4,7 +4,7 @@ import { prices } from "@/content/site";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/content/schema";
 import { handoff, servicesLine, stages, type Stage } from "@/content/stages";
 import Art from "./Art";
-import { CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V } from "./bits";
+import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V } from "./bits";
 
 /** Shared layout for the four stage pages. `children` slots in stage-specific sections. */
 export default function StagePage({ stage, children }: { stage: Stage; children?: React.ReactNode }) {
@@ -89,8 +89,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
               <p className="stage-name">{next.label}</p>
               <p className="muted">{servicesLine(next)}</p>
               <span className="text-link">
-                {next.title}
-                <ArrowRight aria-hidden="true" />
+                <ArrowText>{next.title}</ArrowText>
               </span>
             </div>
           </Link>

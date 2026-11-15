@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import Art from "@/components/Art";
 import Journey from "@/components/Journey";
 import LiveClock from "@/components/LiveClock";
@@ -8,7 +8,7 @@ import MonthCycle from "@/components/MonthCycle";
 import NeedPicker from "@/components/NeedPicker";
 import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
-import { CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
+import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
 import { prices } from "@/content/site";
 import { homeFaq, stages } from "@/content/stages";
@@ -113,7 +113,7 @@ export default function Home() {
             <ol className="journey-grid">
               {stages.map((stage) => (
                 <li key={stage.id}>
-                  <Link prefetch={false} className="stage" href={stage.href}>
+                  <article className="stage">
                     <div className="stage-art frame frame-inset">
                       <Art name={stage.id} />
                       <span className="stage-num" aria-hidden="true">{stage.number}</span>
@@ -128,12 +128,13 @@ export default function Home() {
                       ))}
                     </div>
                     <div className="stage-foot">
-                      <span className="text-link">
-                        {stage.label === "Employ" ? "How Employer of Record works" : `More on ${stage.label.toLowerCase()}`}
-                        <ArrowRight aria-hidden="true" />
-                      </span>
+                      <Link prefetch={false} className="text-link stage-link" href={stage.href}>
+                        <ArrowText>
+                          {stage.label === "Employ" ? "How Employer of Record works" : `More on ${stage.label.toLowerCase()}`}
+                        </ArrowText>
+                      </Link>
                     </div>
-                  </Link>
+                  </article>
                 </li>
               ))}
             </ol>
