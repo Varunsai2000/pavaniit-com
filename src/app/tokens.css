@@ -132,7 +132,7 @@
   --span-aside: 1 / 5;      /* reading pages: sticky aside */
   --span-doc: 5 / -1;       /* reading pages: the document */
   --span-link-col: span 2;  /* footer link columns */
-  --measure-prose: 42em;    /* long-form pages: privacy, glossary terms */
+  --measure-prose: 36em;    /* long-form reading (privacy, glossary sources): about 75 characters a line */
   --measure: 40em;          /* max line length for body copy */
   --measure-lead: 36em;     /* max line length for leads */
   --measure-cta: 32em;      /* paragraph in the dark CTA band */
@@ -197,6 +197,8 @@
   --control-h-sm: 42px;
   --control-h-input: 48px;
   --tap: 44px;            /* minimum touch target */
+  --ph-pad-x: 0.3em;      /* placeholder chip side padding, scales with its text */
+  --now-line-h: 2.6em;    /* time card's rotating task line: room for two lines so the card never jumps */
   --link-row: 32px;       /* one link per row in link lists (footer) */
   --icon-sm: 16px;
   --icon-md: 18px;
