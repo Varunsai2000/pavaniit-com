@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/content/site";
 import { stages } from "@/content/stages";
-import { Logo, V } from "./bits";
+import { V } from "./bits";
 
 export default function Footer() {
   return (
@@ -10,7 +10,6 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
-              <Logo inverse />
               Pavani IT
             </Link>
             <p>Recruitment, Employer of Record, payroll, compliance and training in India.</p>

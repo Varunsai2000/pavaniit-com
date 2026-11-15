@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Young_Serif } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/bits";
@@ -15,6 +15,14 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
+// Wordmark only. Swap with the name when the trade name changes.
+const wordmark = Young_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-wordmark",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -25,7 +33,10 @@ export const metadata: Metadata = {
   applicationName: site.name,
   alternates: { canonical: "/" },
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
@@ -46,7 +57,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={manrope.variable} suppressHydrationWarning>
+    <html lang="en-IN" className={`${manrope.variable} ${wordmark.variable}`} suppressHydrationWarning>
       <head>
         {/* Marks JS as available before first paint so scroll reveals don't flash. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />

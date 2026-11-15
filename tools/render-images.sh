@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Renders public/og-image.png and public/apple-touch-icon.png from the HTML
+# Renders public/og-image.png and the app icon/favicons from the HTML
 # sources in this folder with headless Google Chrome. Run: tools/render-images.sh
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -14,4 +14,7 @@ render() { # <source.html> <output.png> <width> <height>
   echo "wrote $2"
 }
 render "$ROOT/tools/og-image.html" "$ROOT/public/og-image.png" 1200 630
-render "$ROOT/tools/apple-touch-icon.html" "$ROOT/public/apple-touch-icon.png" 180 180
+render "$ROOT/tools/icon.html" "$ROOT/public/icon-512.png" 512 512
+sips -z 192 192 "$ROOT/public/icon-512.png" --out "$ROOT/public/icon-192.png" >/dev/null && echo "wrote $ROOT/public/icon-192.png"
+sips -z 180 180 "$ROOT/public/icon-512.png" --out "$ROOT/public/apple-touch-icon.png" >/dev/null && echo "wrote $ROOT/public/apple-touch-icon.png"
+sips -z 32 32 "$ROOT/public/icon-512.png" --out "$ROOT/public/favicon-32.png" >/dev/null && echo "wrote $ROOT/public/favicon-32.png"

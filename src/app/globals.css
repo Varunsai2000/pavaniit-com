@@ -164,8 +164,7 @@ table { font-variant-numeric: tabular-nums; }
   backdrop-filter: saturate(1.4) blur(14px);
 }
 .header-row { display: flex; align-items: center; gap: 28px; height: var(--header-h); }
-.brand { display: inline-flex; align-items: center; gap: 10px; flex: none; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.035em; text-decoration: none; color: var(--ink); }
-.brand svg { width: 30px; height: 30px; }
+.brand { display: inline-flex; align-items: baseline; flex: none; font-family: var(--font-wordmark), Georgia, "Times New Roman", serif; font-size: 1.625rem; font-weight: 400; line-height: 1; letter-spacing: -0.02em; text-decoration: none; color: var(--ink); }
 .nav { display: flex; align-items: center; gap: 2px; }
 .nav-link {
   display: inline-flex; align-items: center; gap: 4px; height: 40px; padding: 0 12px;

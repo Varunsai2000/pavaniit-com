@@ -46,9 +46,9 @@ Content is data, not markup: services and FAQs in `src/content/stages.ts`, gloss
 
 Original design, informed by the best EOR sites (Deel was the reference for polish, not layout):
 
-- **Type:** Manrope only, self-hosted at build time by `next/font`, so visitors never request Google Fonts.
-- **Colour:** forest `#0e4d3c` and marigold `#f2b33d` are the brand's two inks, on a white canvas with mist-green (`#f2f6f3`) alternating sections. Mint means done and marigold means due. Tokens are at the top of `src/app/globals.css`.
-- **Illustrations:** a matching set of two-ink risograph illustrations (hero plus one per stage) in `public/illustrations/`, generated with ChatGPT and shipped as WebP at two widths. They are illustrations, not staff photos; see the README in that folder.
+- **Type:** Manrope for all text, self-hosted at build time by `next/font`. The logo is a text-only wordmark, "Pavani IT" in Young Serif (`--font-wordmark` in `src/app/layout.tsx`), so a future name change is a text edit plus `tools/render-images.sh` for the icons.
+- **Colour:** pure monochrome (white, neutral greys, black). Status is shown by shape: done is solid black, due is outlined. Tokens are at the top of `src/app/globals.css`.
+- **Illustrations:** a matching set of black ink line drawings (hero plus one per stage) in `public/illustrations/`, generated with ChatGPT and shipped as WebP. They are illustrations, not staff photos; see the README in that folder.
 - **Motion** (following Emil Kowalski's design-engineering rules):
   - Custom ease-out curves, interface transitions under 300ms, and buttons that scale down slightly on press.
   - Hover effects only on devices with a mouse or trackpad, and every animation switched off when the visitor asks for reduced motion.

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { stages } from "@/content/stages";
-import { Logo } from "./bits";
 import { servicesLine } from "@/content/stages";
 
 const primary = [
@@ -56,7 +55,6 @@ export default function Header() {
     <header className="site-header" ref={headerRef}>
       <div className="wrap-wide header-row">
         <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
-          <Logo />
           Pavani IT
         </Link>
 

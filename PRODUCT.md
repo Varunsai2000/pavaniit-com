@@ -52,7 +52,7 @@ Undecided or not yet supplied (must not be invented; kept in one content file wi
 - Name: Pavani IT is both the legal name and the trade name for now (confirmed by the user, 15 Nov 2026). Domain pavaniit.com is owned by the user.
 
 - Deel (deel.com) is the user's reference for polish only. The site must not look like a copy of Deel or any EOR platform: original layout, Pavani IT's own forest-and-marigold identity, and a matching set of two-ink risograph illustrations.
-- Typeface fixed by the user: Manrope, for everything. Do not substitute or add faces.
+- Typeface fixed by the user: Manrope for all text. The logo is a text-only wordmark in Young Serif (user asked for a text logo in a good font). Palette: pure monochrome (user rejected accent palettes as looking AI-generated).
 - Anti-slop is a hard requirement: the site must read as designed by a person, not generated. No indigo/violet primary, no cream-and-serif look, no invented stats, logos or testimonials.
 - Voice: plain, specific, sentence case. Copy for the four stages was approved by the user and stays as written.
 

@@ -23,22 +23,6 @@ export const stageIcon: Record<StageId, LucideIcon> = {
   grow: GraduationCap,
 };
 
-export function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill={inverse ? "#ffffff" : "#0a0a0a"} />
-      <path
-        d="M11.5 24V8.5h6a5.25 5.25 0 0 1 0 10.5h-6"
-        fill="none"
-        stroke={inverse ? "#0a0a0a" : "#ffffff"}
-        strokeWidth="3.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function Tick() {
   return (
     <span className="tick" aria-hidden="true">
