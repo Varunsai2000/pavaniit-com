@@ -1,0 +1,102 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { prices } from "@/content/site";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "@/content/schema";
+import { handoff, servicesLine, stages, type Stage } from "@/content/stages";
+import Art from "./Art";
+import { CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V } from "./bits";
+
+/** Shared layout for the four stage pages. `children` slots in stage-specific sections. */
+export default function StagePage({ stage, children }: { stage: Stage; children?: React.ReactNode }) {
+  const stagePrices = prices.filter((p) => stage.priceIds.includes(p.id));
+  const next = stages.find((s) => s.number === stage.number + 1) ?? stages[0];
+  const crumbs = [
+    { name: "Home", href: "/" },
+    { name: stage.label, href: stage.href },
+  ];
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema(crumbs)} />
+      {serviceSchema(stage).map((s) => (
+        <JsonLd key={s.name} data={s} />
+      ))}
+      <JsonLd data={faqSchema(stage.faq)} />
+
+      <section className="page-hero">
+        <div className="wrap-wide page-hero-grid">
+          <div>
+            <Crumbs items={[{ name: "Home", href: "/" }, { name: `${stage.number}. ${stage.label}: ${servicesLine(stage)}` }]} />
+            <h1 className="h1">{stage.title}</h1>
+            <p className="lead">{stage.lead}</p>
+            <div className="page-hero-meta">
+              {stagePrices.map((p) => (
+                <p className="hero-price" key={p.id}>
+                  {p.service}: <strong><V>{p.amount}</V></strong> {p.unit}
+                </p>
+              ))}
+              <div className="hero-actions">
+                <Link className="btn btn-primary" href={`/contact/?need=${stage.id}`}>
+                  Book a call
+                  <ArrowRight aria-hidden="true" />
+                </Link>
+                <Link className="btn btn-secondary" href="/pricing/">
+                  Pricing
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="page-hero-art">
+            <Art name={stage.id} priority sizes="(max-width: 900px) 100vw, 45vw" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section" aria-label={`${stage.label} services`} style={{ paddingTop: "clamp(24px, 3vw, 48px)" }}>
+        <div className="wrap">
+          {stage.services.map((service) => (
+            <div className="service-block" id={service.id} key={service.id}>
+              <div>
+                <h2 className="h2">{service.name}</h2>
+                <p className="lead">{service.short}</p>
+              </div>
+              <CheckList items={service.details} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {children}
+
+      <section className="section-tight on-mist" aria-labelledby="next-stage">
+        <div className="wrap next-stage">
+          <div>
+            <h2 className="h2" id="next-stage">
+              {handoff[stage.id]}
+            </h2>
+            <p className="lead" style={{ marginTop: 16 }}>
+              Each stage hands over cleanly to the next, so your people never fall between vendors.
+            </p>
+          </div>
+          <Link className="next-card" href={next.href}>
+            <div className="stage-art">
+              <Art name={next.id} sizes="(max-width: 520px) 100vw, 25vw" />
+              <span className="stage-num" aria-hidden="true">{next.number}</span>
+            </div>
+            <div className="next-card-body">
+              <p className="stage-name">{next.label}</p>
+              <p className="muted">{servicesLine(next)}</p>
+              <span className="text-link">
+                {next.title}
+                <ArrowRight aria-hidden="true" />
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      <FaqSection items={stage.faq} title={`${stage.label}: common questions`} />
+      <CtaBand />
+    </>
+  );
+}

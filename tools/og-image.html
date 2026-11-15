@@ -1,58 +1,46 @@
 <!doctype html>
-<!-- Source for og-image.png (1200x630). Regenerate with tools/render-images.sh -->
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..800&family=Mukta:wght@400;500;600&display=block">
+<!-- Source for public/og-image.png (1200x630). Regenerate with tools/render-images.sh -->
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=block">
 <style>
-  * { box-sizing: border-box; margin: 0; }
-  html, body { width: 1200px; height: 630px; overflow: hidden; }
-  body {
-    background: #161E4E;
-    color: #fff;
-    font-family: "Mukta", sans-serif;
-    position: relative;
-  }
-  .brand { position: absolute; left: 72px; top: 64px; display: flex; align-items: center; gap: 16px;
-    font-family: "Anek Latin", sans-serif; font-stretch: 122%; font-weight: 700; font-size: 34px; letter-spacing: -0.01em; }
-  .brand svg { width: 52px; height: 52px; }
-  h1 { position: absolute; left: 72px; top: 178px; width: 640px;
-    font-family: "Anek Latin", sans-serif; font-stretch: 118%; font-weight: 680; font-size: 74px; line-height: 0.98; letter-spacing: -0.015em; }
-  .sub { position: absolute; left: 72px; bottom: 64px; width: 600px; font-size: 25px; line-height: 1.4; color: #B3BADB; }
-
-  .cal { position: absolute; left: 790px; top: 96px; width: 400px; height: 600px;
-    background: #fff; border-top: 8px solid #F4A51C; border-radius: 14px 0 0 0; padding: 30px 34px; color: #161E4E; }
-  .cal h2 { font-family: "Anek Latin", sans-serif; font-stretch: 116%; font-weight: 650; font-size: 30px; }
-  .cal p { color: #4A5384; font-size: 19px; margin-top: 2px; }
-  .grid { display: grid; grid-template-columns: repeat(7, 44px); gap: 6px 4px; margin-top: 24px;
-    font-family: "Anek Latin", sans-serif; font-size: 19px; }
-  .grid span { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; }
-  .dow { color: #9AA1C2; font-size: 15px; height: 26px !important; }
-  .past { color: #9AA1C2; }
-  .done { background: #1D7A57; color: #fff; font-weight: 650; }
-  .due { background: #F4A51C; font-weight: 650; }
-  .today { box-shadow: inset 0 0 0 2px #161E4E; font-weight: 700; }
-</style>
-</head>
-<body>
-  <div class="brand">
-    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#F3F5FA"/><path d="M23 50V15h11.5a10.5 10.5 0 0 1 0 21H23" fill="none" stroke="#161E4E" stroke-width="7.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
-    <span>Pavani IT</span>
+*{box-sizing:border-box;margin:0}
+html,body{width:1200px;height:630px;overflow:hidden;background:#fff;font-family:Manrope,sans-serif;color:#18191d}
+.wrap{display:grid;grid-template-columns:600px 1fr;gap:16px;padding:16px;height:100%}
+.copy{border-radius:22px;background:linear-gradient(155deg,#f8ebdc 0%,#f1efe6 48%,#e3eeee 100%);padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:28px;letter-spacing:-.03em}
+.brand svg{width:40px;height:40px}
+h1{font-size:58px;font-weight:600;line-height:1.04;letter-spacing:-.035em}
+.sub{font-size:21px;color:#45474e;line-height:1.4}
+.ex{position:absolute;top:22px;right:24px;border:1px solid rgba(230,240,236,.25);color:#a9c4bb;border-radius:999px;padding:4px 12px;font-size:15px;font-weight:600}
+.stage{position:relative;border-radius:22px;background:radial-gradient(120% 80% at 100% 0%,rgba(41,122,96,.55) 0%,rgba(14,77,60,0) 60%),#0e4d3c;display:grid;place-items:center;padding:36px}
+.card{width:100%;background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 12px 32px -14px rgba(5,25,19,.45)}
+.head{display:flex;justify-content:space-between;align-items:center;font-size:17px;font-weight:600;color:#54565e}
+.badge{background:#e2f3ea;color:#1f8a5b;border-radius:999px;padding:4px 12px;font-size:15px;font-weight:700}
+.money{font-size:50px;font-weight:700;letter-spacing:-.03em;margin-top:14px}
+.ms{font-size:17px;color:#54565e;margin-top:2px}
+.rows{margin-top:18px}
+.rows div{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid #e7e5e1;font-size:17px}
+.rows b{font-weight:600}
+.due{background:#fdf1d6;color:#6b4a06}
+</style></head><body>
+<div class="wrap">
+  <div class="copy">
+    <div class="brand"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#0e4d3c"/><path d="M11.5 24V8.5h6a5.25 5.25 0 0 1 0 10.5h-6" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22.5" cy="23.5" r="2" fill="#f2b33d"/></svg>Pavani IT</div>
+    <h1>Hire your team in India without setting up a company.</h1>
+    <p class="sub">Employer of Record, recruitment, payroll and compliance, run in India.</p>
   </div>
-  <h1>Hire, employ, pay and train your team in India.</h1>
-  <p class="sub">Recruitment, Employer of Record, payroll, compliance and training, with or without an Indian entity.</p>
-
-  <div class="cal">
-    <h2>Every month</h2>
-    <p>Payroll and filings, handled</p>
-    <div class="grid">
-      <span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="dow">S</span>
-      <span class="past">1</span><span class="past">2</span><span class="past">3</span><span class="past">4</span><span class="past">5</span><span class="past">6</span><span class="done">7</span>
-      <span class="past">8</span><span class="past">9</span><span class="past">10</span><span class="past">11</span><span class="today">12</span><span>13</span><span>14</span>
-      <span class="due">15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
-      <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
-      <span>29</span><span class="due">30</span>
+  <div class="stage">
+    <span class="ex">Example</span>
+    <div class="card">
+      <div class="head">October payroll<span class="badge">Paid 30 Oct</span></div>
+      <p class="money">₹38,42,600</p>
+      <p class="ms">Net salaries to 18 people</p>
+      <div class="rows">
+        <div><span>TDS for October</span><b class="badge">Filed 7 Nov</b></div>
+        <div><span>PF and ESI</span><b class="badge">Filed 13 Nov</b></div>
+        <div><span>November salaries</span><b class="badge due">Scheduled</b></div>
+      </div>
     </div>
   </div>
-</body>
-</html>
+</div>
+</body></html>

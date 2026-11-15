@@ -1,0 +1,169 @@
+import Link from "next/link";
+import { ArrowRight, BriefcaseBusiness, Check, GraduationCap, IdCard, Plus, Wallet } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { isPlaceholder } from "@/content/site";
+import type { QA, StageId } from "@/content/stages";
+import Art from "./Art";
+
+/** Renders a site.ts value; placeholders get a dashed outline so they're easy to find. */
+export function V({ children }: { children: string }) {
+  return isPlaceholder(children) ? (
+    <span className="ph" title="Placeholder: set in src/content/site.ts">
+      {children}
+    </span>
+  ) : (
+    <>{children}</>
+  );
+}
+
+export const stageIcon: Record<StageId, LucideIcon> = {
+  hire: BriefcaseBusiness,
+  employ: IdCard,
+  pay: Wallet,
+  grow: GraduationCap,
+};
+
+export function Logo({ inverse = false }: { inverse?: boolean }) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="9" fill={inverse ? "#ffffff" : "#0e4d3c"} />
+      <path
+        d="M11.5 24V8.5h6a5.25 5.25 0 0 1 0 10.5h-6"
+        fill="none"
+        stroke={inverse ? "#0e4d3c" : "#ffffff"}
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="22.5" cy="23.5" r="2" fill={inverse ? "#0e4d3c" : "#f2b33d"} />
+    </svg>
+  );
+}
+
+export function Tick() {
+  return (
+    <span className="tick" aria-hidden="true">
+      <Check strokeWidth={3} />
+    </span>
+  );
+}
+
+export function CheckList({ items }: { items: string[] }) {
+  return (
+    <ul className="check-list">
+      {items.map((item) => (
+        <li key={item}>
+          <Check aria-hidden="true" strokeWidth={2.4} />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function Faq({ items }: { items: QA[] }) {
+  return (
+    <div className="faq">
+      {items.map((item) => (
+        <details key={item.q}>
+          <summary>
+            {item.q}
+            <Plus aria-hidden="true" />
+          </summary>
+          <div className="answer">
+            <p>{item.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  );
+}
+
+export function FaqSection({ items, title = "Questions buyers ask us" }: { items: QA[]; title?: string }) {
+  return (
+    <section className="section" aria-labelledby="faq-title">
+      <div className="wrap faq-layout">
+        <h2 className="h2" id="faq-title">
+          {title}
+        </h2>
+        <Faq items={items} />
+      </div>
+    </section>
+  );
+}
+
+export function CtaBand({
+  title = "Tell us who you want to hire in India.",
+  body = "A 30-minute call is enough to tell you which services you need, what they cost and how soon someone could start.",
+}: {
+  title?: string;
+  body?: string;
+}) {
+  return (
+    <section className="section-tight" aria-labelledby="cta-title">
+      <div className="wrap-wide">
+        <div className="cta-band">
+          <div className="cta-copy">
+            <h2 className="h2" id="cta-title">
+              {title}
+            </h2>
+            <p>
+              {body} Prefer email? Write to <a href="mailto:hello@pavaniit.com">hello@pavaniit.com</a>.
+            </p>
+            <div className="cta-actions">
+              <Link className="btn btn-marigold" href="/contact/">
+                Book a call
+                <ArrowRight aria-hidden="true" />
+              </Link>
+              <Link className="btn btn-ghost-light" href="/pricing/">
+                See pricing
+              </Link>
+            </div>
+          </div>
+          <div className="cta-art">
+            <Art name="hire" decorative sizes="(max-width: 860px) 100vw, 45vw" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function MoreLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link className="text-link" href={href}>
+      {children}
+      <ArrowRight aria-hidden="true" />
+    </Link>
+  );
+}
+
+export function Crumbs({ items }: { items: { name: string; href?: string }[] }) {
+  return (
+    <nav aria-label="Breadcrumb">
+      <ol className="crumbs">
+        {items.map((item) =>
+          item.href ? (
+            <li key={item.name}>
+              <Link href={item.href}>{item.name}</Link>
+            </li>
+          ) : (
+            <li key={item.name} aria-current="page">
+              {item.name}
+            </li>
+          ),
+        )}
+      </ol>
+    </nav>
+  );
+}
+
+export function JsonLd({ data }: { data: object }) {
+  return (
+    <script
+      type="application/ld+json"
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
+    />
+  );
+}

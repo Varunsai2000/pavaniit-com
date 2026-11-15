@@ -1,69 +1,89 @@
 # pavaniit-site
 
-Website for **Pavani IT**: recruitment, contract staffing, Employer of Record (EOR), payroll and statutory compliance, corporate training and HR advisory in India.
+Website for **Pavani IT**, an Indian Employer of Record and HR services company: recruitment, contract staffing, Employer of Record, onboarding, payroll, statutory compliance, corporate training and hire-train-deploy.
 
-Plain HTML, CSS and JavaScript. No build step and no dependencies.
+Next.js (React) with **static export**: every page is prerendered to plain HTML in `out/`, so Google and AI crawlers, most of which don't run JavaScript, read the full content.
 
-## Run locally
+## Run it
 
 ```bash
-python3 -m http.server 4173
+npm install
+npm run dev        # http://localhost:4173, live reload
+npm run build      # static site in out/
+npm run preview    # serve out/ on http://localhost:4174
 ```
 
-Then open http://localhost:4173. This server doesn't send the security headers in `_headers`; your host will.
+## Before launch: fill in the placeholders
 
-## Files
+Every company fact lives in **`src/content/site.ts`**. Values in square brackets, like `"[City]"`, render on the site with a dashed yellow outline and are left out of structured data and `llms.txt`. Replace each one with the real value, without brackets, and the outline disappears everywhere.
 
-| File | What it is |
+| What | Where in `site.ts` |
 | --- | --- |
-| `index.html` | Landing page: hero, services, EOR, training, process, FAQ, contact |
-| `privacy.html` | Privacy notice (DPDP Act, 2023) |
-| `404.html` | Not-found page, served automatically by Cloudflare Pages and Netlify |
-| `styles.css` | Design tokens at the top (`:root`), then one block per section |
-| `main.js` | Mobile menu, the live compliance calendar in the hero, and the enquiry form |
-| `favicon.svg`, `apple-touch-icon.png` | Browser and home-screen icons |
-| `og-image.png` | 1200×630 image shown when the link is shared on LinkedIn, WhatsApp, Slack and so on |
-| `robots.txt`, `sitemap.xml` | For search engines |
-| `_headers` | Security headers (CSP and others) for Cloudflare Pages and Netlify |
-| `tools/` | HTML sources for the two PNGs and `render-images.sh` to regenerate them (needs Google Chrome) |
+| Prices for every service, deposit terms, replacement guarantee | `prices` |
+| Founder and advisor names, roles, credentials | `people` |
+| City, state, office address, phone | `site.city`, `site.state`, `site.address`, `site.phone` |
+| Registered company name, CIN, GSTIN | `site.legalName`, `site.cin`, `site.gstin` |
+| LinkedIn page | `site.linkedin` |
+| Enquiry form delivery | `site.web3formsKey`, from web3forms.com (free); until set, the form opens the visitor's email app |
 
-The hero calendar is generated for the current month in the visitor's browser. It marks the 7th (TDS deposit), the 15th (PF and ESI) and the last working day (salaries), and shows each as done or due.
+The domain is assumed to be `pavaniit.com` (`site.url`, plus the two email addresses).
 
-## Enquiry form
+## Structure
 
-The form sends enquiries through [Web3Forms](https://web3forms.com), which emails each one to you. It's free for up to 250 submissions a month and needs no backend.
+| Route | Purpose |
+| --- | --- |
+| `/` | Home, led for foreign companies hiring in India |
+| `/recruitment-staffing-india/` | Hire: recruitment and contract staffing |
+| `/employer-of-record-india/` | Employ: Employer of Record and onboarding |
+| `/payroll-compliance-india/` | Pay: payroll and statutory compliance |
+| `/corporate-training-india/` | Grow: corporate training and hire-train-deploy |
+| `/pricing/`, `/about/`, `/contact/`, `/glossary/`, `/privacy/` | Supporting pages |
+| `/llms.txt`, `/robots.txt`, `/sitemap.xml` | Generated from content at build time |
 
-1. Go to web3forms.com, enter the inbox that should receive enquiries, and copy the access key they email you.
-2. In `index.html`, paste it into `<input type="hidden" name="access_key" value="">`.
-3. Deploy, then send a test enquiry.
-
-The access key is meant to be public, so it's fine in the HTML. Until a key is set, the form opens the visitor's email app addressed to `data-mailto` instead, so it never silently drops an enquiry.
-
-If you switch to a different form service, change `data-endpoint` on the form and update `connect-src` in `_headers`. Otherwise the browser will block the request.
-
-## Domain
-
-The site assumes **pavaniit.com**. If the domain is different, search and replace `pavaniit.com` across `index.html`, `privacy.html`, `robots.txt` and `sitemap.xml`. That covers the email addresses, canonical URLs, sharing image URL and sitemap.
+Content is data, not markup: services and FAQs in `src/content/stages.ts`, glossary in `src/content/glossary.ts`, structured data in `src/content/schema.ts`.
 
 ## Design
 
-- Colours: indigo ink `#161E4E` on cool paper `#F3F5FA`, marigold `#F4A51C` for actions and due dates, leaf green `#1D7A57` for completed items.
-- Type: [Anek Latin](https://fonts.google.com/specimen/Anek+Latin) for headings (variable width, wide for headlines and condensed for numerals) and [Mukta](https://fonts.google.com/specimen/Mukta) for body text. Both are by Ek Type, an Indian foundry. Anek also covers Telugu, Tamil, Kannada and other Indic scripts if you add regional-language pages later.
+Original design, informed by the best EOR sites (Deel was the reference for polish, not layout):
 
-## Before going live
+- **Type:** Manrope only, self-hosted at build time by `next/font`, so visitors never request Google Fonts.
+- **Colour:** forest `#0e4d3c` and marigold `#f2b33d` are the brand's two inks, on a white canvas with mist-green (`#f2f6f3`) alternating sections. Mint means done and marigold means due. Tokens are at the top of `src/app/globals.css`.
+- **Illustrations:** a matching set of two-ink risograph illustrations (hero plus one per stage) in `public/illustrations/`, generated with ChatGPT and shipped as WebP at two widths. They are illustrations, not staff photos; see the README in that folder.
+- **Motion** (following Emil Kowalski's design-engineering rules):
+  - Custom ease-out curves, interface transitions under 300ms, and buttons that scale down slightly on press.
+  - Hover effects only on devices with a mouse or trackpad, and every animation switched off when the visitor asks for reduced motion.
+  - Illustrative moments: product cards settling over the hero, a live "your time / Pune time" card with the real working-hour overlap and a rotating "now in Pune" task, a marigold thread that draws itself between the four stage badges on scroll, and this month's statutory calendar computed live.
+- **Honesty:** product UI over the illustration is labelled "Example". There are no invented customers, logos, stats or testimonials; add real ones when you have them.
+- **Records:** `PRODUCT.md` holds product truth.
 
-- [ ] Confirm the domain (see above) and that `hello@` and `careers@` mailboxes exist.
-- [ ] Add the Web3Forms access key and send a test enquiry from the live site.
-- [ ] Once incorporated, add the registered company name, CIN and registered address to the footer of `index.html` and `privacy.html`, and name the company in the privacy notice.
-- [ ] Have the privacy notice reviewed, especially the retention periods (12 months for enquiries and CVs), which are a starting point, not legal advice.
-- [ ] Review the copy against what you offer at launch, especially "reply within one working day".
-- [ ] After deploying, check the sharing preview with LinkedIn's Post Inspector and submit `sitemap.xml` in Google Search Console.
+## SEO, AEO and GEO
 
-## Deploying
+What's built in:
 
-The repo is private, so GitHub Pages needs a paid GitHub plan. These host private repos on their free tiers and read `_headers` and `404.html`:
+- **Crawlable HTML:** static export, one H1 per page, ordered headings, unique titles and descriptions, self-referencing canonicals, trailing-slash URLs that describe the page (`/employer-of-record-india/`).
+- **Structured data (JSON-LD):** Organization and WebSite on every page; BreadcrumbList, Service and FAQPage on service pages; DefinedTermSet on the glossary. Placeholder values are never emitted. FAQPage no longer earns rich results in Google (since 2026), but it still labels Q&A for other engines.
+- **Answer-first copy (AEO):** each page and glossary term opens with a direct one- or two-sentence answer, for example "An Employer of Record (EOR) is…", followed by detail, with real HTML tables (EOR vs entity vs contractors, who does what).
+- **AI assistants (GEO):** `robots.txt` allows all crawlers, including OAI-SearchBot, Claude-SearchBot and PerplexityBot. `/llms.txt` summarises services, prices and FAQs for agents (it doesn't affect Google). Prices are published as text, because assistants skip "contact sales".
+- **Sitemap** with honest `lastmod` dates (update `UPDATED` in `src/app/sitemap.ts` when content really changes).
 
-- **Cloudflare Pages** (recommended): connect the repo, leave the build command empty, set the output directory to `/`.
-- **Netlify**: import the repo with no build command and publish directory `/`.
+Next steps that make the biggest difference:
 
-Point the domain's DNS at the host and turn on HTTPS.
+1. Fill in real prices, people (with credentials) and the address. These are the strongest trust and citation signals.
+2. After deploying: verify the domain in Google Search Console and Bing Webmaster Tools, submit `sitemap.xml`, and set up a Google Business Profile with the same name, address and phone as the site.
+3. Write the India hiring guide (notice periods, statutory benefits, probation, termination, labour codes), reviewed by a named CA or labour-law adviser, with links to EPFO, ESIC and the labour ministry and a visible "last reviewed" date. Payroll and compliance count as money/legal ("YMYL") topics, so named expertise matters.
+4. Add state pages only where they hold genuinely state-specific facts (professional tax slabs, labour welfare fund, shops and establishments).
+5. Track 20 buyer prompts ("best employer of record in India for a US startup", etc.) in ChatGPT, Perplexity and Google AI Overviews monthly.
+
+## Deploy
+
+`out/` is a plain static site. Cloudflare Pages (recommended; free for private repos) and Netlify both read `public/_headers` (security headers and caching) and serve `404.html`:
+
+- Build command `npm run build`, output directory `out`.
+
+## Regenerating images
+
+`public/og-image.png` (link previews) and `public/apple-touch-icon.png` are rendered from the HTML in `tools/` with headless Chrome:
+
+```bash
+tools/render-images.sh
+```
