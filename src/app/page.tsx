@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Art from "@/components/Art";
 import Journey from "@/components/Journey";
-import LiveClock from "@/components/LiveClock";
 import MonthCycle from "@/components/MonthCycle";
 import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
@@ -71,7 +70,6 @@ export default function Home() {
             </div>
             <div className="hero-visual frame frame-fill">
               <Art name="hero" className="hero-art" priority sizes="(max-width: 960px) 100vw, 50vw" />
-              <LiveClock />
             </div>
           </div>
         </div>

@@ -201,9 +201,7 @@
   --dur-draw: 1600ms;     /* journey thread */
   --stagger: 60ms;        /* gap between staggered items */
   --press-scale: 0.97;
-  --nudge: 3px;           /* arrow hover nudge, text swap offset */
-  --enter-y: 10px;        /* entrance offset */
-  --enter-scale: 0.98;
+  --nudge: 3px;           /* arrow hover nudge, menu and answer entrance offset */
   --reveal-y: 20px;       /* scroll-reveal offset */
   --dur-none: 0.01ms;     /* reduced motion */
 
@@ -213,14 +211,12 @@
   --control-h-input: 48px;
   --tap: 44px;            /* minimum touch target */
   --ph-pad-x: 0.3em;      /* placeholder chip side padding, scales with its text */
-  --now-line-h: 2.6em;    /* time card's rotating task line: room for two lines so the card never jumps */
   --link-row: 32px;       /* one link per row in link lists (footer) */
   --icon-sm: 16px;
   --icon-md: 18px;
   --icon-lg: 20px;
 
   /* ---- Component sizes (fixed geometry) ---- */
-  --size-dot: 8px;          /* live status dot */
   --size-tick: 22px;        /* round check mark */
   --size-tick-lg: 40px;     /* check mark on the sent state */
   --size-badge: 34px;       /* numbered stage badge */
@@ -234,8 +230,6 @@
   --size-chevron: 12px;     /* select arrow, FAQ marker */
   --size-art-min: 200px;    /* next-stage card art, min height */
   --size-hero-visual-min: 420px; /* hero picture never gets shorter than this beside the copy */
-  --size-float-w: 300px;    /* floating cards over the hero */
-  --size-float-w-lg: 320px;
   --size-table-min: 720px;  /* comparison table before it scrolls */
 
   /* ---- Label columns in grid rows ---- */
@@ -253,7 +247,7 @@
   --z-below: -1;          /* backdrop pseudo-elements */
   --z-base: 0;
   --z-raised: 1;          /* content above a decorative layer */
-  --z-float: 2;           /* floating cards, journey thread */
+  --z-float: 2;           /* journey thread */
   --z-menu: 49;
   --z-header: 50;
   --z-skip: 100;

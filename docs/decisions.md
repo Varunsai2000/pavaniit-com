@@ -5,7 +5,7 @@
 Every item in `docs/polish-checklist.md` is ticked, and every change is pushed to `main`, one commit per round. Check the five open questions below first; they're the only things the site needs from you before launch.
 
 **What changed overnight**
-- **Home hero:** now a slim split, like Deel. Headline, one sentence, Book a call and See pricing, and "From €62 per employee per month" on the left; the illustration with the live time card on the right. The whole hero fits in a 1440×900 window.
+- **Home hero:** now a slim split, like Deel. Headline, one sentence, Book a call and See pricing, and "From €62 per employee per month" on the left; the illustration on the right, with nothing laid over it. The whole hero fits in a 1440×900 window.
 - **Real pricing:** your price sheet is now on the site:
   - the pricing page shows the three packages, a ₹50,000 monthly cost receipt, the eight covered services and your four notes;
   - the home page shows the three packages;
@@ -56,6 +56,7 @@ A running log of section-level changes made by the polish loop, and the question
 
 ## Log
 
+- **No cards over the hero illustration** (your request). The live time card on the home hero is gone, along with its component, styles and tokens, so the picture stands on its own at every width.
 - **Price cards stay three across on tablets** (they used to stack into wide, mostly empty slabs below 980px; now only below 640px).
 - **All raw values are tokens.** The last fluid paddings and viewport heights moved into a "Fluid spacing" group in `tokens.css`.
 - **Fixed: contact-form service options couldn't be ticked with a mouse or by tapping** (only the keyboard worked). They're now a tidy 2×2 grid. The form still opens the visitor's email app until a Web3Forms access key is added to `src/content/site.ts`.
