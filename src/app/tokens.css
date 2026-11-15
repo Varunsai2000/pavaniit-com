@@ -33,6 +33,7 @@
   --color-inverse-line: #3a3a3a;    /* rules on dark bands */
   --color-on-inverse: #fafafa;      /* text on dark bands */
   --color-on-inverse-2: #a3a3a3;    /* secondary text on dark bands */
+  --color-chip-inverse: rgba(255, 255, 255, 0.1); /* placeholder chips on dark bands */
   --color-danger: #b42318;          /* form errors only */
   --color-danger-soft: #fdecea;
 
@@ -71,11 +72,14 @@
   --weight-heavy: 800;
 
   /* ---- Line heights ---- */
+  --leading-numeral: 0.9;   /* big light step numerals */
   --leading-none: 1;
   --leading-heading: 1.05;
+  --leading-tight: 1.1;     /* money figures */
   --leading-snug: 1.2;
   --leading-ui: 1.35;
   --leading-normal: 1.5;
+  --leading-lead: 1.55;
   --leading-relaxed: 1.6;
 
   /* ---- Letter spacing ---- */
@@ -112,8 +116,20 @@
   --section-y-tight: clamp(56px, 6vw, 96px);
   --section-head-gap: clamp(40px, 5vw, 64px);
   --header-h: 68px;
-  --measure: 40em;        /* max line length for body copy */
-  --measure-lead: 36em;   /* max line length for leads */
+  --measure-prose: 42em;    /* long-form pages: privacy, glossary terms */
+  --measure: 40em;          /* max line length for body copy */
+  --measure-lead: 36em;     /* max line length for leads */
+  --measure-cta: 32em;      /* paragraph in the dark CTA band */
+  --measure-step: 30em;     /* numbered calendar steps */
+  --measure-note: 26em;     /* footer blurb */
+  --measure-title: 16em;    /* inner-page h1 without art */
+  --measure-heading-wide: 14em; /* CTA band heading */
+  --measure-heading: 13em;  /* inner-page h1 beside art */
+  --measure-display: 12.5em; /* home hero display line */
+  --measure-section: 46rem; /* max width of a section heading block */
+  --measure-panel: 40rem;   /* hero side column once it stacks */
+  --ratio-hero: 2 / 1;      /* hero illustration, desktop */
+  --ratio-art: 4 / 3;       /* stage illustrations, hero on tablet/phone */
 
   /* ---- Shape ---- */
   --radius-card: 16px;    /* cards, panels, image frames */
@@ -122,6 +138,10 @@
   --radius-pill: 999px;   /* badges, dots */
   --border-hairline: 1px;
   --border-strong: 2px;
+  --border-dashed: 1.5px;   /* placeholder chip outline */
+  --focus-offset: 3px;
+  --focus-offset-tight: 2px;
+  --underline-offset: 4px;
 
   /* ---- Elevation ---- */
   --shadow-card: 0 1px 2px rgba(10, 10, 10, 0.04), 0 10px 30px -18px rgba(10, 10, 10, 0.22);
@@ -129,6 +149,7 @@
   --shadow-menu: 0 30px 60px -40px rgba(10, 10, 10, 0.45);
   --shadow-focus: 0 0 0 3px rgba(10, 10, 10, 0.15);
   --header-glass: rgba(255, 255, 255, 0.88);
+  --header-blur: saturate(1.4) blur(14px);
 
   /* ---- Motion (Emil Kowalski's rules: ease-out, short, transform/opacity) ---- */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -141,6 +162,11 @@
   --dur-draw: 1600ms;     /* journey thread */
   --stagger: 60ms;        /* gap between staggered items */
   --press-scale: 0.97;
+  --nudge: 3px;           /* arrow hover nudge, text swap offset */
+  --enter-y: 10px;        /* entrance offset */
+  --enter-scale: 0.98;
+  --reveal-y: 20px;       /* scroll-reveal offset */
+  --dur-none: 0.01ms;     /* reduced motion */
 
   /* ---- Controls and icons ---- */
   --control-h: 50px;
@@ -150,6 +176,34 @@
   --icon-sm: 16px;
   --icon-md: 18px;
   --icon-lg: 20px;
+
+  /* ---- Component sizes (fixed geometry) ---- */
+  --size-dot: 8px;          /* live status dot */
+  --size-tick: 22px;        /* round check mark */
+  --size-tick-lg: 40px;     /* check mark on the sent state */
+  --size-badge: 34px;       /* numbered stage badge */
+  --size-step: 32px;        /* numbered step chip */
+  --size-avatar: 64px;      /* person placeholder */
+  --size-thumb-w: 76px;     /* services menu thumbnail */
+  --size-thumb-h: 57px;
+  --size-day: 40px;         /* calendar day cell, max */
+  --size-chevron: 12px;     /* select arrow, FAQ marker */
+  --size-art-min: 200px;    /* next-stage card art, min height */
+  --size-art-max: 300px;    /* CTA art height on phones */
+  --size-float-w: 300px;    /* floating cards over the hero */
+  --size-float-w-lg: 320px;
+  --size-table-min: 720px;  /* comparison table before it scrolls */
+
+  /* ---- Label columns in grid rows ---- */
+  --col-date: 1.75rem;      /* day number in filings rows */
+  --col-day: 2.5rem;        /* day number in calendar list */
+  --col-index-sm: 2.75rem;  /* ledger number, phones */
+  --col-index: 4rem;        /* ledger number */
+  --col-step-sm: 3.25rem;   /* big step numeral, phones */
+  --col-step: 4.5rem;       /* big step numeral */
+  --col-label: 7rem;        /* key/value labels, duties table columns */
+  --col-label-sm: 4.5rem;
+  --col-label-lg: 8.25rem;  /* comparison labels on phones */
 
   /* ---- Layers ---- */
   --z-menu: 49;
