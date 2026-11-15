@@ -57,7 +57,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Pricing cards
 - [x] "We only work in India" list: a numbered full-width ledger.
 - [x] FAQ
-- [ ] CTA band: art panel framed inside the black band.
+- [x] CTA band: art panel framed inside the black band (since reworked: text only).
 - [ ] Footer: 32px link rows, drop "llms.txt" from the visible links (keep the file).
 
 ## Components (inner pages)
@@ -128,3 +128,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Removed the unused `.section-after-hero` and its token. No sideways scroll at 375–1920px.
 - Pricing cards: the home section now shows the three real Employer of Record packages (shared `eorPlanCards`, the same cards as the pricing page) instead of one real card next to two placeholder cards. Cards are uniform (name, price, rupee price and unit, Get a quote), and the price went up from 28px to 36px. The foot link points to all prices and the monthly cost example. Checked at 1440 and 390px; no sideways scroll.
 - FAQ: on opening, the answer fades in and drops 3px (300ms, ease-out, transform and opacity only, none under reduced motion); closing stays instant. The answer stops in line with the end of the question text, clear of the icon column. Mouse users get a hairline underline on hover. Native details/summary is kept; checked open-with-Enter, the focus ring and reduced motion. No sideways scroll.
+- CTA band: now text only. The headline sits in the left half, and the sentence plus Book a call and See pricing start exactly on the page's column 7 (measured 736 = 736 at 1440px, 976 = 976 at 1920px). The Hire illustration it used to carry was repeated on every page, including next to the same picture on the home and recruitment pages. The band is 284px tall instead of 577px. The email now comes from `site.email`. Removed the unused `--size-art-max` token and the leftover imports. No sideways scroll at 375–1920px.

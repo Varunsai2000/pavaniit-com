@@ -215,7 +215,6 @@
   --size-day: 40px;         /* calendar day cell, max */
   --size-chevron: 12px;     /* select arrow, FAQ marker */
   --size-art-min: 200px;    /* next-stage card art, min height */
-  --size-art-max: 300px;    /* CTA art height on phones */
   --size-hero-visual-min: 420px; /* hero picture never gets shorter than this beside the copy */
   --size-float-w: 300px;    /* floating cards over the hero */
   --size-float-w-lg: 320px;

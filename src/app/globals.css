@@ -467,14 +467,12 @@ table { font-variant-numeric: tabular-nums; }
 
 /* ---------- CTA band ---------- */
 
-.cta-band { position: relative; overflow: hidden; display: grid; grid-template-columns: var(--grid-half); column-gap: var(--grid-gap); align-items: stretch; border-radius: var(--radius-card); background: var(--color-inverse); color: var(--color-on-inverse); }
-.cta-copy { padding: clamp(var(--space-10), 5vw, var(--space-16)); align-self: center; }
+.cta-band { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); align-items: end; padding: clamp(var(--space-10), 5vw, var(--space-16)); border-radius: var(--radius-card); background: var(--color-inverse); color: var(--color-on-inverse); }
 .cta-band .h2 { color: var(--color-on-inverse); max-width: var(--measure-heading-wide); }
-.cta-band p { margin-top: var(--space-4); color: var(--color-on-inverse-2); max-width: var(--measure-cta); }
+.cta-band p { color: var(--color-on-inverse-2); max-width: var(--measure-cta); }
 .cta-band p a { color: var(--color-on-inverse); }
-.cta-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-7); }
-.cta-art { align-self: stretch; }
-@media (max-width: 860px) { .cta-band { grid-template-columns: minmax(0, 1fr); } .cta-art { order: -1; max-height: var(--size-art-max); } }
+.cta-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+@media (max-width: 860px) { .cta-band { grid-template-columns: minmax(0, 1fr); align-items: start; } }
 
 /* ---------- Inner pages ---------- */
 

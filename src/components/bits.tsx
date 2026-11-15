@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Check, Plus } from "lucide-react";
-import { isPlaceholder } from "@/content/site";
-import type { QA, StageId } from "@/content/stages";
-import Art from "./Art";
+import { isPlaceholder, site } from "@/content/site";
+import type { QA } from "@/content/stages";
 
 /** Renders a site.ts value; placeholders get a dashed outline so they're easy to find. */
 export function V({ children }: { children: string }) {
@@ -83,13 +82,14 @@ export function CtaBand({
   return (
     <section className="section-tight" aria-labelledby="cta-title">
       <div className="wrap">
+        {/* Text only: the headline in the left half, the offer and buttons from column 7. */}
         <div className="cta-band">
-          <div className="cta-copy">
-            <h2 className="h2" id="cta-title">
-              {title}
-            </h2>
+          <h2 className="h2" id="cta-title">
+            {title}
+          </h2>
+          <div className="cta-body">
             <p>
-              {body} Prefer email? Write to <a href="mailto:hello@pavaniit.com">hello@pavaniit.com</a>.
+              {body} Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a>.
             </p>
             <div className="cta-actions">
               <Link prefetch={false} className="btn btn-light" href="/contact/">
@@ -102,9 +102,6 @@ export function CtaBand({
                 </Link>
               )}
             </div>
-          </div>
-          <div className="cta-art frame frame-inset frame-fill">
-            <Art name="hire" decorative sizes="(max-width: 860px) 100vw, 45vw" />
           </div>
         </div>
       </div>
