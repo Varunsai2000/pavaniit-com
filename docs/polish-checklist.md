@@ -21,7 +21,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Mobile menu is a 40px strip: `backdrop-filter` on `.site-header` traps the fixed `.mobile-menu`. Move background and blur to `.site-header::before`.
 - [x] Type scale: cut about 13 text sizes to 6 steps. Merge `--ink-2` and `--ink-3` if they're indistinguishable.
 - [x] Radius scale: reduce to 3 values (cards, controls, pills).
-- [ ] Section rhythm: replace alternating mist bands with rules where it helps, and break the repeated split-heading pattern in at least two sections.
+- [x] Section rhythm: replace alternating mist bands with rules where it helps, and break the repeated split-heading pattern in at least two sections.
 - [x] Prefetch: `prefetch={false}` on header, footer and card links so other pages' hero images don't load. Services-menu thumbnails at about 160px wide.
 - [x] Hover and press on chips: move `:hover`/`:active` to the chip wrapper (the input covers the label).
 
@@ -32,10 +32,10 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [ ] Hero scene: crop the art so faces sit above the fold at 1440×900. Put "Example" on each floating card. Float-ins at 500ms, transform and opacity only.
 - [ ] Live clock card: reduced motion means no rotating text. Pause while off-screen. Compositor-only pulse.
 - [ ] Journey cards: the thread hangs from the badge rings instead of crossing the numerals. No hover-lift or zoom. Short link names: link only the "More on…" text, stretched over the card. Reveal must not hide content without JS.
-- [ ] Monthly calendar section: make it the page's centrepiece, full-bleed black band.
+- [x] Monthly calendar section: make it the page's centrepiece, full-bleed black band.
 - [ ] Comparison table
 - [ ] Pricing cards
-- [ ] "We only work in India" list: a numbered full-width ledger.
+- [x] "We only work in India" list: a numbered full-width ledger.
 - [ ] FAQ
 - [ ] CTA band: art panel framed inside the black band.
 - [ ] Footer: 32px link rows, drop "llms.txt" from the visible links (keep the file).
@@ -62,3 +62,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - Illustrations: employ redrawn as ink line art.
 - Illustrations: pay redrawn as ink line art.
 - Illustrations: grow redrawn; the full set is now black ink line art.
+- Section rhythm: calendar is now a full-width black band with the cycle as four numbered steps; comparison, pricing and India details sit on white separated by content-aligned rules; India details became a numbered full-width ledger. Checked at 1440 and 390px, no sideways scroll.

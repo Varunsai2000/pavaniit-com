@@ -359,16 +359,27 @@ table { font-variant-numeric: tabular-nums; }
 
 /* ---------- Monthly cycle ---------- */
 
-.cycle { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
-.cycle-copy .lead { margin-top: 20px; }
-.cycle-points { list-style: none; margin-top: 28px; border-top: 1px solid var(--line-strong); }
-.cycle-points li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line-strong); font-size: 0.9375rem; }
-.cycle-points b { font-weight: 800; }
-@media (max-width: 900px) { .cycle { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 480px) { .cycle-points li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+/* Sections separated by a rule aligned to the content, instead of grey bands. */
+.ruled { padding-top: 0; }
+.ruled > .wrap::before, .ruled > .wrap-wide::before { content: ""; display: block; height: 1px; background: var(--line-strong); margin-bottom: var(--section); }
+
+/* The one dark band on the page: the monthly cycle. */
+.on-ink { background: var(--ink); color: #fff; }
+.on-ink .h2 { color: #fff; }
+.on-ink .lead { color: #a3a3a3; }
+.ink-head { display: grid; gap: 18px; max-width: 46rem; margin-bottom: clamp(40px, 5vw, 72px); }
+.cycle { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+.cycle-steps { list-style: none; display: grid; border-top: 1px solid #3a3a3a; }
+.cycle-steps li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 20px; padding-block: 24px; border-bottom: 1px solid #3a3a3a; }
+.cycle-n { font-size: 2.75rem; font-weight: 300; line-height: 0.9; letter-spacing: -0.04em; color: #fff; font-variant-numeric: tabular-nums; }
+.cycle-steps .h4 { color: #fff; }
+.cycle-steps p { margin-top: 6px; color: #a3a3a3; font-size: 0.9375rem; max-width: 30em; }
+.on-ink .month { background: transparent; padding: 0; }
+@media (max-width: 960px) { .cycle { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .cycle-steps li { grid-template-columns: 3.25rem minmax(0, 1fr); gap: 14px; } .cycle-n { font-size: 2.25rem; } }
 
 .month { position: relative; border-radius: var(--r-xl); background: var(--forest); padding: clamp(16px, 3vw, 32px); overflow: hidden; }
-.month-card { position: relative; border-radius: var(--r-lg); background: #fff; padding: clamp(20px, 3vw, 28px); box-shadow: var(--shadow-float); }
+.month-card { position: relative; border-radius: var(--r-lg); background: #fff; color: var(--ink); padding: clamp(20px, 3vw, 28px); box-shadow: var(--shadow-float); }
 .month-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .month-name { font-size: 1.375rem; font-weight: 800; letter-spacing: -0.03em; }
 .month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin-block: 18px 12px; font-variant-numeric: tabular-nums; }
@@ -443,6 +454,14 @@ table { font-variant-numeric: tabular-nums; }
 .depth-list b { font-weight: 800; letter-spacing: -0.015em; }
 .depth-list p { color: var(--ink-2); font-size: 0.9375rem; }
 @media (max-width: 860px) { .depth { grid-template-columns: minmax(0, 1fr); } .depth-list li { grid-template-columns: minmax(0, 1fr); } }
+
+/* Numbered ledger: full-width rows, number / topic / detail. */
+.ledger { list-style: none; border-top: 2px solid var(--ink); }
+.ledger li { display: grid; grid-template-columns: 4rem minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 8px 32px; align-items: baseline; padding-block: 26px; border-bottom: 1px solid var(--line-strong); }
+.ledger-n { font-size: 0.9375rem; font-weight: 700; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ledger-k { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; }
+.ledger p { color: var(--ink-2); max-width: 40em; }
+@media (max-width: 760px) { .ledger li { grid-template-columns: 2.75rem minmax(0, 1fr); } .ledger p { grid-column: 2; } }
 
 /* ---------- FAQ ---------- */
 

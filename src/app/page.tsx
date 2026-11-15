@@ -144,9 +144,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="cycle-title">
-        <div className="wrap cycle">
-          <div className="cycle-copy">
+      <section className="section on-ink" aria-labelledby="cycle-title">
+        <div className="wrap-wide">
+          <div className="ink-head">
             <h2 className="h2" id="cycle-title">
               Every month in India runs to the same calendar.
             </h2>
@@ -154,20 +154,25 @@ export default function Home() {
               Employing someone in India means a fixed cycle of salary payments and statutory filings, with state rules
               on top. We run all of it and send you one report.
             </p>
-            <ul className="cycle-points">
-              {monthly.map((m) => (
+          </div>
+          <div className="cycle">
+            <MonthCycle />
+            <ol className="cycle-steps">
+              {monthly.map((m, i) => (
                 <li key={m.k}>
-                  <b>{m.k}</b>
-                  <span className="muted">{m.v}</span>
+                  <span className="cycle-n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="h4">{m.k}</h3>
+                    <p>{m.v}</p>
+                  </div>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
-          <MonthCycle />
         </div>
       </section>
 
-      <section className="section on-mist" aria-labelledby="compare-title">
+      <section className="section ruled" aria-labelledby="compare-title">
         <div className="wrap">
           <div className="section-head-split">
             <h2 className="h2" id="compare-title">
@@ -185,7 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="pricing-title">
+      <section className="section ruled" aria-labelledby="pricing-title">
         <div className="wrap">
           <div className="section-head-split">
             <h2 className="h2" id="pricing-title">
@@ -206,24 +211,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section on-mist" aria-labelledby="depth-title">
-        <div className="wrap depth">
-          <div>
+      <section className="section ruled" aria-labelledby="depth-title">
+        <div className="wrap">
+          <div className="section-head">
             <h2 className="h2" id="depth-title">
               We only work in India, so we know the details.
             </h2>
-            <p className="lead" style={{ marginTop: 16 }}>
-              These are the details that decide whether employing someone in India goes smoothly.
-            </p>
+            <p className="lead">These are the details that decide whether employing someone in India goes smoothly.</p>
           </div>
-          <ul className="depth-list">
-            {depth.map((d) => (
+          <ol className="ledger">
+            {depth.map((d, i) => (
               <li key={d.k}>
-                <b>{d.k}</b>
+                <span className="ledger-n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="ledger-k">{d.k}</h3>
                 <p>{d.v}</p>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </section>
 
