@@ -172,7 +172,7 @@ table { font-variant-numeric: tabular-nums; }
 /* ---------- Hero ---------- */
 
 /* Copy in the left half; one visual in the right half, cropped to the copy's height. */
-.hero { padding-block: clamp(var(--space-7), 3vw, var(--space-10)) clamp(var(--space-16), 7vw, var(--space-24)); }
+.hero { padding-block: var(--fluid-hero-top) var(--fluid-hero-bottom); }
 .hero-split { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-10) var(--grid-gap); align-items: stretch; }
 .hero-copy { align-self: center; }
 .hero-copy .display { max-width: var(--measure-display); }
@@ -315,8 +315,8 @@ table { font-variant-numeric: tabular-nums; }
 @media (max-width: 960px) { .cycle { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 480px) { .cycle-steps li { grid-template-columns: var(--col-step-sm) minmax(0, 1fr); gap: var(--space-4); } .cycle-n { font-size: var(--text-4xl); } }
 
-.month { position: relative; border-radius: var(--radius-card); background: var(--color-inverse); padding: clamp(var(--space-4), 3vw, var(--space-8)); overflow: hidden; }
-.month-card { position: relative; border-radius: var(--radius-card); background: var(--color-bg); color: var(--color-ink); padding: clamp(var(--space-5), 3vw, var(--space-7)); box-shadow: var(--shadow-float); }
+.month { position: relative; border-radius: var(--radius-card); background: var(--color-inverse); padding: var(--fluid-tray); overflow: hidden; }
+.month-card { position: relative; border-radius: var(--radius-card); background: var(--color-bg); color: var(--color-ink); padding: var(--fluid-card); box-shadow: var(--shadow-float); }
 .month-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); flex-wrap: wrap; }
 .month-name { font-size: var(--text-2xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-heading); }
 .month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-1); margin-block: var(--space-5) var(--space-3); font-variant-numeric: tabular-nums; }
@@ -469,7 +469,7 @@ table { font-variant-numeric: tabular-nums; }
 
 /* ---------- CTA band ---------- */
 
-.cta-band { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); align-items: end; padding: clamp(var(--space-10), 5vw, var(--space-16)); border-radius: var(--radius-card); background: var(--color-inverse); color: var(--color-on-inverse); }
+.cta-band { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); align-items: end; padding: var(--fluid-band); border-radius: var(--radius-card); background: var(--color-inverse); color: var(--color-on-inverse); }
 .cta-band .h2 { color: var(--color-on-inverse); max-width: var(--measure-heading-wide); }
 .cta-band p { color: var(--color-on-inverse-2); max-width: var(--measure-cta); }
 .cta-band p a { color: var(--color-on-inverse); }
@@ -483,11 +483,11 @@ table { font-variant-numeric: tabular-nums; }
 .crumbs a:hover { text-decoration: underline; }
 .crumbs li + li::before { content: "/"; margin-right: var(--space-1-5); color: var(--color-ink-3); }
 
-.page-hero { padding-block: clamp(var(--space-8), 4vw, var(--space-14)) clamp(var(--space-10), 5vw, var(--space-20)); }
+.page-hero { padding-block: var(--fluid-page-top) var(--fluid-page-bottom); }
 .page-hero-plain .h1 { margin-top: var(--space-5); max-width: var(--measure-title); }
 .page-hero-plain .lead { margin-top: var(--space-5); }
 
-.service-block { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); padding-block: clamp(var(--space-10), 5vw, var(--space-16)); border-top: var(--border-hairline) solid var(--color-line); }
+.service-block { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); padding-block: var(--fluid-band); border-top: var(--border-hairline) solid var(--color-line); }
 .service-block:first-child { border-top: 0; padding-top: 0; }
 .service-block .h2 { font-size: var(--text-h2-sm); }
 .check-list { list-style: none; display: grid; border-top: var(--border-hairline) solid var(--color-line); }
@@ -516,7 +516,7 @@ table { font-variant-numeric: tabular-nums; }
 .doc > :first-child { grid-column: var(--span-aside); }
 .doc > :last-child { grid-column: var(--span-doc); }
 .doc-aside { position: sticky; top: calc(var(--header-h) + var(--space-8)); display: grid; gap: var(--space-4); }
-.doc-aside nav { display: grid; gap: var(--space-0-5); margin-top: var(--space-2); max-height: calc(100vh - var(--header-h) * 3); overflow-y: auto; margin-inline: calc(var(--space-3) * -1); }
+.doc-aside nav { display: grid; gap: var(--space-0-5); margin-top: var(--space-2); max-height: var(--aside-max-h); overflow-y: auto; margin-inline: calc(var(--space-3) * -1); }
 /* Links keep their hover pad but their text lines up with the label above. */
 .doc-aside nav a { padding: var(--space-1-5) var(--space-3); border-radius: var(--radius-control); font-size: var(--text-md); color: var(--color-ink-2); text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { .doc-aside nav a:hover { background: var(--color-surface); color: var(--color-ink); } }
@@ -564,7 +564,7 @@ table { font-variant-numeric: tabular-nums; }
 .contact-facts li > span:first-child { color: var(--color-ink-2); }
 .cycle-points b { font-weight: var(--weight-bold); }
 .contact-facts a { font-weight: var(--weight-bold); color: var(--color-inverse); }
-.form-card { display: grid; gap: var(--space-5); padding: clamp(var(--space-6), 3.5vw, var(--space-10)); border-radius: var(--radius-card); background: var(--color-surface); }
+.form-card { display: grid; gap: var(--space-5); padding: var(--fluid-card-lg); border-radius: var(--radius-card); background: var(--color-surface); }
 .field { display: grid; gap: var(--space-1-5); }
 .field-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-5); }
 @media (max-width: 560px) { .field-row { grid-template-columns: minmax(0, 1fr); } }
@@ -598,7 +598,7 @@ select.input { appearance: none; padding-right: var(--space-10); background: var
 .form-note { font-size: var(--text-sm); color: var(--color-ink-2); }
 .form-note a { font-weight: var(--weight-bold); color: var(--color-inverse); }
 .hp { display: none; }
-.form-done { display: grid; justify-items: start; gap: var(--space-3); padding: clamp(var(--space-7), 4vw, var(--space-12)); border-radius: var(--radius-card); background: var(--color-surface); }
+.form-done { display: grid; justify-items: start; gap: var(--space-3); padding: var(--fluid-done); border-radius: var(--radius-card); background: var(--color-surface); }
 .form-done:focus { outline: none; }
 .form-done .tick { width: var(--size-tick-lg); height: var(--size-tick-lg); }
 .form-done .tick svg { width: var(--icon-lg); height: var(--icon-lg); }
@@ -606,7 +606,7 @@ select.input { appearance: none; padding-right: var(--space-10); background: var
 
 /* ---------- Footer ---------- */
 
-.site-footer { margin-top: clamp(var(--space-12), 6vw, var(--space-24)); background: var(--color-inverse); color: var(--color-on-inverse-2); padding-block: clamp(var(--space-14), 7vw, var(--space-24)) calc(var(--space-8) + env(safe-area-inset-bottom, 0)); font-size: var(--text-md); }
+.site-footer { margin-top: var(--fluid-footer-gap); background: var(--color-inverse); color: var(--color-on-inverse-2); padding-block: var(--fluid-footer-top) calc(var(--space-8) + env(safe-area-inset-bottom, 0)); font-size: var(--text-md); }
 .footer-top { display: grid; grid-template-columns: var(--grid); gap: var(--space-10) var(--grid-gap); }
 .footer-brand { grid-column: var(--span-main); }
 .footer-col { grid-column: var(--span-link-col); }
@@ -622,7 +622,7 @@ select.input { appearance: none; padding-right: var(--space-10); background: var
 
 /* ---------- 404 ---------- */
 
-.nf { min-height: 60vh; display: grid; align-content: center; justify-items: start; gap: var(--space-4); padding-block: var(--section-y); }
+.nf { min-height: var(--nf-min-h); display: grid; align-content: center; justify-items: start; gap: var(--space-4); padding-block: var(--section-y); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: var(--dur-none) !important; }

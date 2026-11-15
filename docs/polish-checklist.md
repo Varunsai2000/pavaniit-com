@@ -70,7 +70,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Contact page and enquiry form, including error and sent states
 - [x] Glossary page
 - [x] Privacy page
-- [ ] 404 page
+- [x] 404 page
 
 ## Done log
 - Mobile menu: moved header background and blur to `::before` so the fixed menu sizes to the viewport.
@@ -148,3 +148,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Checked: preselect from `?need=employ`, the four errors on an empty submit, focus moving to the first error field, and the keyboard toggle. The sent state can't be shown until a Web3Forms key is set (without one the form opens the email app), but its markup is unchanged and reviewed. No sideways scroll.
 - Glossary: definitions are capped at the lead measure, about 76 characters per line (they ran to 93). Related terms are one quiet "Related:" line of underlined links instead of unlabelled grey pills. Checked that anchor jumps clear the sticky header (the heading lands at 117px, below the header's bottom at 69px). No sideways scroll.
 - Privacy page: the prose measure token is now 36em (612px), so lines run to at most 75 characters (they ran to 93). Found and tokenised the last three raw values the refactor's px/rem search had missed, all in `em`: the prose list indent (now `--space-5`), the placeholder chip padding (`--ph-pad-x`) and the time card's task line height (`--now-line-h`). A search for raw em/px/rem/hex values outside tokens.css and media queries now comes back empty. No sideways scroll.
+- 404 page: already one job (headline, one line, Home and Contact buttons, on the shared content edge), so its layout is unchanged. The audit for it found the last raw values in the CSS: twelve fluid clamps with raw vw slopes, the 404's 60vh and the sidebar's 100vh. All now come from a new "Fluid spacing" group in tokens.css (`--fluid-*`, `--nf-min-h`, `--aside-max-h`). Computed values are identical. A search for raw px, rem, em, ms, vw and vh in globals.css (outside media queries) now finds only the inline SVG data-URI for the select chevron, which is an asset.

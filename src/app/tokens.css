@@ -118,6 +118,21 @@
   --section-y-page-top: clamp(40px, 5vw, 72px);  /* top of pages without a hero: contact, privacy */
   --header-h: 68px;
 
+  /* ---- Fluid spacing: grows with the viewport between two space steps ---- */
+  --fluid-hero-top: clamp(var(--space-7), 3vw, var(--space-10)); /* home hero, top */
+  --fluid-hero-bottom: clamp(var(--space-16), 7vw, var(--space-24)); /* home hero, bottom */
+  --fluid-page-top: clamp(var(--space-8), 4vw, var(--space-14)); /* page hero, top */
+  --fluid-page-bottom: clamp(var(--space-10), 5vw, var(--space-20)); /* page hero, bottom */
+  --fluid-band: clamp(var(--space-10), 5vw, var(--space-16)); /* service blocks, CTA band */
+  --fluid-card-lg: clamp(var(--space-6), 3.5vw, var(--space-10)); /* enquiry form card */
+  --fluid-card: clamp(var(--space-5), 3vw, var(--space-7)); /* calendar card */
+  --fluid-tray: clamp(var(--space-4), 3vw, var(--space-8)); /* dark tray around the calendar */
+  --fluid-done: clamp(var(--space-7), 4vw, var(--space-12)); /* form sent state */
+  --fluid-footer-gap: clamp(var(--space-12), 6vw, var(--space-24)); /* space above the footer */
+  --fluid-footer-top: clamp(var(--space-14), 7vw, var(--space-24)); /* footer, top */
+  --aside-max-h: calc(100vh - var(--header-h) * 3); /* reading-page sidebar before it scrolls */
+  --nf-min-h: 60vh;       /* 404 page, keeps the footer low */
+
   /* ---- Grid: one 12-column grid under every section ----
      Two equal halves with --grid-gap turn exactly at column 7, and 3 or 4
      equal columns with the same gap land on grid lines too, so every split,
