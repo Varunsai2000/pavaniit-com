@@ -84,6 +84,12 @@ export function ComparisonTable() {
     <div className="table-wrap">
       <table className="table">
         <caption className="sr-only">Employer of Record compared with your own Indian entity and independent contractors</caption>
+        <colgroup>
+          <col className="col-span-3" />
+          <col className="col-span-3" />
+          <col className="col-span-3" />
+          <col />
+        </colgroup>
         <thead>
           <tr>
             <th scope="col"><span className="sr-only">Question</span></th>

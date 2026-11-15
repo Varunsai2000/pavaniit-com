@@ -46,7 +46,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Live clock card: reduced motion means no rotating text. Pause while off-screen. Compositor-only pulse.
 - [x] Journey cards: the thread hangs from the badge rings instead of crossing the numerals. No hover-lift or zoom. Short link names: link only the "More on…" text, stretched over the card. Reveal must not hide content without JS.
 - [x] Monthly calendar section: make it the page's centrepiece, full-bleed black band.
-- [ ] Comparison table: its columns are sized by the table, so they don't sit on the grid. Use fixed layout with four equal columns (label, EOR, entity, contractors) so they line up with columns 1, 4, 7 and 10.
+- [x] Comparison table: its columns are sized by the table, so they don't sit on the grid. Use fixed layout with four equal columns (label, EOR, entity, contractors) so they line up with columns 1, 4, 7 and 10.
 - [ ] Pricing cards
 - [x] "We only work in India" list: a numbered full-width ledger.
 - [ ] FAQ
@@ -94,3 +94,8 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Even stagger (1, 2, 3).
   - Also: `.text-link` is now inline and the new `ArrowText` keeps the last word and arrow together, so wrapped links never strand the arrow (journey cards, next-stage card, MoreLink).
   - Checked at 1440 and 390px; no sideways scroll at 375–1920px.
+- Comparison table:
+  - Fixed layout with a `<colgroup>`; the first three columns each span 3 grid columns and 3 gaps. Tables ignore `calc(% + px)`, so the wrapper is a size container and the widths use `cqw`. Measured: column edges land on grid lines 1, 4, 7 and 10 within 1px at 768, 1100, 1440 and 1920px (they were up to 24px off).
+  - Header row is now white with a 2px ink rule; only the Employer of Record header is black.
+  - Phone cards have a white title with a rule, so the tinted Employer of Record row no longer merges into it.
+  - Rows turn into cards below 860px (was 640px), so no column hides behind a sideways scroll at 641–860px. Checked: no scrolling inside the table at 700–1024px, and no page sideways scroll at 375–1920px.
