@@ -68,7 +68,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Pricing page: rebuilt with the real Employer of Record prices (see docs/decisions.md).
 - [x] About page
 - [x] Contact page and enquiry form, including error and sent states
-- [ ] Glossary page
+- [x] Glossary page
 - [ ] Privacy page
 - [ ] 404 page
 
@@ -146,3 +146,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - The missing-service error no longer points to a non-existent "Not sure" option.
   - The form's small print is left-aligned like everything else.
   - Checked: preselect from `?need=employ`, the four errors on an empty submit, focus moving to the first error field, and the keyboard toggle. The sent state can't be shown until a Web3Forms key is set (without one the form opens the email app), but its markup is unchanged and reviewed. No sideways scroll.
+- Glossary: definitions are capped at the lead measure, about 76 characters per line (they ran to 93). Related terms are one quiet "Related:" line of underlined links instead of unlabelled grey pills. Checked that anchor jumps clear the sticky header (the heading lands at 117px, below the header's bottom at 69px). No sideways scroll.

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { Crumbs, CtaBand, JsonLd } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
 import { glossary, glossaryReviewed, glossarySources } from "@/content/glossary";
@@ -63,8 +64,12 @@ export default function Page() {
                   <p>{t.definition}</p>
                   {t.related && (
                     <p className="term-related">
-                      {t.related.map((r) => (
-                        <a key={r} href={`#${r}`}>{byId.get(r)?.term ?? r}</a>
+                      Related:{" "}
+                      {t.related.map((r, i) => (
+                        <Fragment key={r}>
+                          {i > 0 && ", "}
+                          <a href={`#${r}`}>{byId.get(r)?.term ?? r}</a>
+                        </Fragment>
                       ))}
                     </p>
                   )}
