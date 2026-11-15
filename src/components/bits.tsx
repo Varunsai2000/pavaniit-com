@@ -103,7 +103,7 @@ export function CtaBand({
               </Link>
             </div>
           </div>
-          <div className="cta-art">
+          <div className="cta-art frame frame-inset frame-fill">
             <Art name="hire" decorative sizes="(max-width: 860px) 100vw, 45vw" />
           </div>
         </div>

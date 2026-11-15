@@ -46,7 +46,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
               </div>
             </div>
           </div>
-          <div className="page-hero-art">
+          <div className="page-hero-art frame">
             <Art name={stage.id} priority sizes="(max-width: 900px) 100vw, 45vw" />
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
             </p>
           </div>
           <Link prefetch={false} className="next-card" href={next.href}>
-            <div className="stage-art">
+            <div className="stage-art frame frame-inset frame-fill">
               <Art name={next.id} sizes="(max-width: 520px) 100vw, 25vw" />
               <span className="stage-num" aria-hidden="true">{next.number}</span>
             </div>

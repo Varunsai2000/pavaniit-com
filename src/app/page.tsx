@@ -67,7 +67,7 @@ export default function Home() {
           </div>
 
 
-          <div className="hero-scene">
+          <div className="hero-scene frame">
             <Art name="hero" className="hero-art" priority sizes="(max-width: 1440px) 100vw, 1360px" />
             <LiveClock />
             <div className="float float-filings" aria-hidden="true">
@@ -112,7 +112,7 @@ export default function Home() {
               {stages.map((stage) => (
                 <li key={stage.id}>
                   <Link prefetch={false} className="stage" href={stage.href}>
-                    <div className="stage-art">
+                    <div className="stage-art frame frame-inset">
                       <Art name={stage.id} />
                       <span className="stage-num" aria-hidden="true">{stage.number}</span>
                     </div>
