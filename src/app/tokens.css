@@ -117,6 +117,21 @@
   --section-y-page-top: clamp(40px, 5vw, 72px);  /* top of pages without a hero: contact, privacy */
   --section-y-after-hero: clamp(24px, 3vw, 48px); /* section that follows a page hero */
   --header-h: 68px;
+
+  /* ---- Grid: one 12-column grid under every section ----
+     Two equal halves with --grid-gap turn exactly at column 7, and 3 or 4
+     equal columns with the same gap land on grid lines too, so every split,
+     card row and footer column shares the same vertical lines. */
+  --grid-cols: 12;
+  --grid-gap: clamp(var(--space-5), 2.4vw, var(--space-8));
+  --grid: repeat(var(--grid-cols), minmax(0, 1fr));
+  --grid-half: repeat(2, minmax(0, 1fr));
+  --span-main: 1 / 7;       /* left half */
+  --span-side: 7 / -1;      /* right half: every split turns at column 7 */
+  --span-topic: 2 / 7;      /* ledger topic, after the index column */
+  --span-aside: 1 / 5;      /* reading pages: sticky aside */
+  --span-doc: 5 / -1;       /* reading pages: the document */
+  --span-link-col: span 2;  /* footer link columns */
   --measure-prose: 42em;    /* long-form pages: privacy, glossary terms */
   --measure: 40em;          /* max line length for body copy */
   --measure-lead: 36em;     /* max line length for leads */
