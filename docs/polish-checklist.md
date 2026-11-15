@@ -8,6 +8,8 @@ Rules for every item:
 - Anti-slop: no decorative gradients or glows, no hover-lift-and-zoom, fewer radius sizes, no template "heading left, text right" on every section, real alignment.
 - Accessibility: AA contrast, visible focus, tap targets of at least 44px, short link names, correct heading order.
 - No sideways scroll at 375, 768, 1440 or 1920px.
+- One source of truth: every colour, font, size, weight, line height, letter spacing, space, width, radius, border, shadow and duration comes from `src/app/tokens.css`. No raw px/rem/hex/rgba/ms values in `globals.css` or components, and no inline `style` in TSX. The only exceptions are media-query breakpoints (480, 640, 860, 1100px; CSS can't use variables there) and 1px hairlines inside tokens.
+- Top-notch standard for every section: the same container and gutters, a consistent heading stack (title, then lead), vertical rhythm from the section tokens, every image in the shared frame, optical alignment checked against the grid, and type that wraps well at every width (no orphans in headings, balanced lines).
 
 ## Illustrations (black ink line art, redrawn in ChatGPT)
 Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositions, "identical black ink line style: fine technical pen, light cross-hatching, pure black on white, no colour, no grey washes, no text". Download each from a fresh Chrome tab (Chrome blocks repeat downloads per tab), move it out of Downloads, then `cwebp -q 80 -resize` to `public/illustrations/<name>-<w>.webp` (hero 1536 and 960; others 1200 and 600).
@@ -16,6 +18,13 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] employ
 - [x] pay
 - [x] grow
+
+## Design system (do these first, in order)
+- [ ] Tokens file: create `src/app/tokens.css`, the single source for colour, font families (`--font-manrope`, `--font-wordmark` from layout.tsx), type scale (12/14/15/16/17/18/20/22/28px plus fluid display, h1, h2 and lead), weights, line heights, tracking, a 4px space scale, container widths, gutter, section padding, header height, radii (card 16, control 10, inline 6, pill), borders, shadows, motion (ease-out, ease-in-out, 160/200/300/500ms) and control sizes. Import it before `globals.css`. Document each group in a comment.
+- [ ] Refactor `globals.css` onto the tokens. Measured today: 18 font sizes, 6 weights, 8 letter-spacings, 14 line heights, 22 spacing values (incl. off-scale 3, 6, 10, 11, 14, 18, 22, 26, 36px), stray hex/rgba colours (including leftover green rgba in shadows and focus rings) and 15 durations. Snap spacing to the 4px scale and line heights to the token set. Then grep to prove no raw values remain outside tokens.css.
+- [ ] Remove all 17 inline styles from TSX (page.tsx, contact, privacy, training, about, glossary, EOR, StagePage, EnquiryForm, Journey, NeedPicker) in favour of token-based classes.
+- [ ] Frames: one `.frame` primitive (border, radius, paper background, overflow) used by every illustration surface: hero scene, stage cards, page-hero art, next-stage card and CTA art. Same treatment everywhere.
+- [ ] Section scaffold: one `.section` / `.section-head` pattern (title then lead, the same max-width and spacing) used by every section on every page. Remove one-off heading wrappers.
 
 ## Global
 - [x] Mobile menu is a 40px strip: `backdrop-filter` on `.site-header` traps the fixed `.mobile-menu`. Move background and blur to `.site-header::before`.
