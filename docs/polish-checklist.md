@@ -64,7 +64,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Stage page hero (all four): now the same split hero as the home page.
 - [x] Service blocks and check lists
 - [x] "Who does what" table: align the header with the row labels.
-- [ ] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
+- [x] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
 - [x] Pricing page: rebuilt with the real Employer of Record prices (see docs/decisions.md).
 - [ ] About page
 - [ ] Contact page and enquiry form, including error and sent states
@@ -135,3 +135,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - The header now starts on the row labels' left edge (it was 12px in at 1440px and 6px in on phones; now 736 = 736 and 20 = 20).
   - Header cells no longer wrap ("Pavani IT" broke over two lines on phones), and a 2px ink rule sits under the header, as in the comparison table and the cost receipt.
   - Rows went up to body size (17px), matching the checklists. No sideways scroll.
+- Next-stage card:
+  - It now shares the home stage cards' anatomy: an `<article>` with decorative art and a badge, an h3 stage name, the services once as a middle-dot list, and one short link ("More on pay", from the new shared `stageLinkLabel`) stretched over the card.
+  - Its accessible name used to be a 30-word run of alt text, the stage, the services and the page title; it's now just the link. The services line was printed twice and isn't any more.
+  - No hover lift. Keyboard focus rings the card, and clicking anywhere on it opens the page. The arrow stays with its last word (ArrowText). No sideways scroll.
