@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { prices } from "@/content/site";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/content/schema";
-import { handoff, servicesLine, stages, type Stage } from "@/content/stages";
+import { handoff, servicesLine, stageLinkLabel, stages, type Stage } from "@/content/stages";
 import Art from "./Art";
 import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V } from "./bits";
 
@@ -77,19 +77,27 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
               Each stage hands over cleanly to the next, so your people never fall between vendors.
             </p>
           </div>
-          <Link prefetch={false} className="next-card" href={next.href}>
+          {/* Same anatomy as the home stage cards: one short link stretched over the card. */}
+          <article className="next-card">
             <div className="stage-art frame frame-inset frame-fill">
-              <Art name={next.id} sizes="(max-width: 520px) 100vw, 25vw" />
+              <Art name={next.id} decorative sizes="(max-width: 520px) 100vw, 25vw" />
               <span className="stage-num" aria-hidden="true">{next.number}</span>
             </div>
             <div className="next-card-body">
-              <p className="stage-name">{next.label}</p>
-              <p className="muted">{servicesLine(next)}</p>
-              <span className="text-link">
-                <ArrowText>{next.title}</ArrowText>
-              </span>
+              <h3 className="stage-name">{next.label}</h3>
+              <p className="stage-services dot-list">
+                {next.services.map((s, i) => (
+                  <span key={s.id}>
+                    {i > 0 && <span className="sr-only">, </span>}
+                    {s.name}
+                  </span>
+                ))}
+              </p>
+              <Link prefetch={false} className="text-link stage-link" href={next.href}>
+                <ArrowText>{stageLinkLabel(next)}</ArrowText>
+              </Link>
             </div>
-          </Link>
+          </article>
         </div>
       </section>
 

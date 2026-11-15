@@ -10,7 +10,7 @@ import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
 import { eorPlanCards, eorPlans } from "@/content/site";
-import { handoff, homeFaq, stages } from "@/content/stages";
+import { handoff, homeFaq, stageLinkLabel, stages } from "@/content/stages";
 
 export const metadata: Metadata = {
   title: "Employer of Record in India | Pavani IT",
@@ -112,9 +112,7 @@ export default function Home() {
                     </div>
                     <div className="stage-foot">
                       <Link prefetch={false} className="text-link stage-link" href={stage.href}>
-                        <ArrowText>
-                          {stage.label === "Employ" ? "How Employer of Record works" : `More on ${stage.label.toLowerCase()}`}
-                        </ArrowText>
+                        <ArrowText>{stageLinkLabel(stage)}</ArrowText>
                       </Link>
                     </div>
                   </article>

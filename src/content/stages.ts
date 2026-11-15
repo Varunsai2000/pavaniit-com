@@ -248,6 +248,10 @@ export const stages: Stage[] = [
 export const servicesLine = (stage: Stage) =>
   stage.services.map((s, i) => (i === 0 ? s.name : s.name.charAt(0).toLowerCase() + s.name.slice(1))).join(" and ");
 
+/** The short link label for a stage card (home journey and next-stage cards). */
+export const stageLinkLabel = (stage: Stage) =>
+  stage.id === "employ" ? "How Employer of Record works" : `More on ${stage.label.toLowerCase()}`;
+
 /** Authored hand-offs between stages (never built from the stage verbs). */
 export const handoff: Record<StageId, string> = {
   hire: "Once they accept, we can employ them.",

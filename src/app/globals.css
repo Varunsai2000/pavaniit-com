@@ -265,7 +265,7 @@ table { font-variant-numeric: tabular-nums; }
 }
 .stage-link::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius-card); }
 .stage-link:focus-visible { outline: none; }
-.stage:has(.stage-link:focus-visible) { outline: var(--border-strong) solid var(--color-inverse); outline-offset: var(--focus-offset); }
+:is(.stage, .next-card):has(.stage-link:focus-visible) { outline: var(--border-strong) solid var(--color-inverse); outline-offset: var(--focus-offset); }
 .stage-num {
   position: absolute; left: var(--space-3); top: var(--space-3);
   display: grid; place-items: center; width: var(--size-badge); height: var(--size-badge); border-radius: var(--radius-pill);
@@ -504,10 +504,9 @@ table { font-variant-numeric: tabular-nums; }
 @media (max-width: 520px) { .steps { grid-template-columns: minmax(0, 1fr); } }
 
 .next-stage { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-8) var(--grid-gap); align-items: center; }
-.next-card { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); border-radius: var(--radius-card); background: var(--color-bg); box-shadow: var(--shadow-card); overflow: hidden; text-decoration: none; color: inherit; transition: transform var(--dur-panel) var(--ease-out); }
+.next-card { position: relative; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); border-radius: var(--radius-card); background: var(--color-bg); box-shadow: var(--shadow-card); }
 .next-card .stage-art { min-height: var(--size-art-min); }
 .next-card-body { padding: var(--space-6); display: grid; gap: var(--space-3); align-content: center; }
-@media (hover: hover) and (pointer: fine) { .next-card:hover { transform: translateY(calc(var(--nudge) * -1)); } }
 @media (max-width: 860px) { .next-stage { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 520px) { .next-card { grid-template-columns: minmax(0, 1fr); } .next-card .stage-art { min-height: 0; }
   .next-card .stage-art > img { height: auto; aspect-ratio: var(--frame-ratio); } }
