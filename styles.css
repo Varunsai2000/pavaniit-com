@@ -749,13 +749,87 @@ a { color: inherit; }
   color: #8C1D18;
   font-size: 0.9688rem;
 }
-.form-note { color: var(--ink-faint); font-size: 0.875rem; text-align: center; margin-top: -6px; }
+.form-note { color: var(--ink-soft); font-size: 0.875rem; text-align: center; margin-top: -6px; }
+.form-note a { color: var(--ink); text-underline-offset: 3px; }
+.hp { display: none; }
+.btn:disabled { opacity: 0.7; cursor: progress; }
+
+.enquiry-done {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: clamp(28px, 4vw, 44px);
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-top: 5px solid var(--leaf);
+  border-radius: 10px;
+}
+.enquiry-done:focus { outline: none; }
+.enquiry-done p { color: var(--ink-soft); max-width: 30em; }
+.enquiry-done .btn { margin-top: 12px; }
+.done-mark { width: 44px; height: 44px; }
 
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 480px) {
   .field-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Inner pages (privacy, 404) ---------- */
+
+.page { padding-block: clamp(48px, 7vw, 96px) var(--section); }
+
+.page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 32px clamp(48px, 6vw, 96px);
+  align-items: start;
+}
+.page-head { position: sticky; top: calc(var(--header-h) + 24px); }
+.page-meta { margin-top: 14px; color: var(--ink-soft); font-size: 0.9688rem; }
+
+.prose { max-width: 40em; }
+.prose-lede { font-size: 1.1875rem; line-height: 1.55; color: var(--ink); }
+.prose h2 {
+  margin-top: 44px;
+  margin-bottom: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--display);
+  font-stretch: 108%;
+  font-size: 1.4375rem;
+  font-weight: 640;
+  line-height: 1.2;
+}
+.prose p, .prose ul { color: var(--ink-soft); }
+.prose p + p, .prose p + ul, .prose ul + p { margin-top: 14px; }
+.prose ul { margin: 0; padding-left: 1.25em; display: grid; gap: 8px; }
+.prose li::marker { color: var(--marigold); }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration-color: var(--marigold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .page-grid { grid-template-columns: minmax(0, 1fr); }
+  .page-head { position: static; }
+}
+
+.not-found { min-height: 70vh; display: grid; align-content: center; }
+.not-found > .wrap { width: 100%; }
+.not-found p:not(.not-found-code) { margin-top: 16px; color: var(--ink-soft); max-width: 32em; }
+.not-found-code {
+  font-family: var(--display);
+  font-stretch: 75%;
+  font-weight: 300;
+  font-size: clamp(6rem, 4rem + 8vw, 11rem);
+  line-height: 0.8;
+  margin-bottom: 24px;
 }
 
 /* ---------- Footer ---------- */

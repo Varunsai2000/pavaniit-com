@@ -6,10 +6,35 @@
   <title>Pavani IT | Hiring, Employer of Record, payroll and training in India</title>
   <meta name="description" content="Pavani IT helps companies hire, employ, pay and train teams in India: recruitment, contract staffing, Employer of Record, payroll and statutory compliance, corporate training and HR advisory.">
   <meta name="theme-color" content="#F3F5FA">
+  <link rel="canonical" href="https://pavaniit.com/">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Pavani IT">
-  <meta property="og:description" content="Hire, employ, pay and train your team in India, with or without your own Indian entity.">
+  <meta property="og:site_name" content="Pavani IT">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://pavaniit.com/">
+  <meta property="og:title" content="Pavani IT | Hire, employ, pay and train your team in India">
+  <meta property="og:description" content="Recruitment, Employer of Record, payroll, compliance and training, with or without your own Indian entity.">
+  <meta property="og:image" content="https://pavaniit.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pavani IT: Hire, employ, pay and train your team in India.">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Pavani IT",
+    "url": "https://pavaniit.com/",
+    "logo": "https://pavaniit.com/apple-touch-icon.png",
+    "email": "hello@pavaniit.com",
+    "description": "Recruitment, contract staffing, Employer of Record, payroll and statutory compliance, corporate training and HR advisory in India.",
+    "areaServed": { "@type": "Country", "name": "India" },
+    "knowsAbout": ["Recruitment", "Contract staffing", "Employer of Record", "Payroll", "Statutory compliance", "Corporate training", "HR advisory"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..800&family=Mukta:wght@400;500;600&display=swap">
@@ -290,7 +315,7 @@
           </dl>
         </div>
 
-        <form class="enquiry" data-enquiry data-mailto="hello@pavaniit.com" novalidate>
+        <form class="enquiry" data-enquiry data-mailto="hello@pavaniit.com" data-endpoint="https://api.web3forms.com/submit" novalidate>
           <div class="field">
             <label for="f-name">Your name</label>
             <input id="f-name" name="name" type="text" autocomplete="name" required data-label="your name">
@@ -332,10 +357,24 @@
             <label for="f-msg">Anything else we should know? <span class="optional">Optional</span></label>
             <textarea id="f-msg" name="message" rows="4"></textarea>
           </div>
+          <!-- Form delivery: paste your Web3Forms access key below (see README).
+               Until a key is set, the form opens the visitor's email app instead. -->
+          <input type="hidden" name="access_key" value="">
+          <input type="hidden" name="subject" value="">
+          <input type="hidden" name="from_name" value="Pavani IT website">
+          <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
           <p class="form-error" data-form-error role="alert" hidden></p>
-          <button class="btn btn-primary btn-block" type="submit">Send enquiry</button>
-          <p class="form-note">This opens your email app with your details filled in.</p>
+          <button class="btn btn-primary btn-block" type="submit" data-submit>Send enquiry</button>
+          <p class="form-note">We use these details only to reply to you. Read our <a href="privacy.html">privacy notice</a>.<span data-mailto-note hidden> Sending opens your email app with your details filled in.</span></p>
         </form>
+
+        <div class="enquiry-done" data-enquiry-done tabindex="-1" hidden>
+          <svg class="done-mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#1D7A57"/><path d="M14 24.5l7 7 13-14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 class="h3">Enquiry sent</h3>
+          <p data-done-text>We’ll reply within one working day.</p>
+          <button class="btn btn-quiet" type="button" data-enquiry-reset>Send another enquiry</button>
+        </div>
       </div>
     </section>
   </main>
@@ -355,6 +394,7 @@
         <a href="#training">Training</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </nav>
       <p class="footer-legal">© <span data-year>2026</span> Pavani IT. All rights reserved.</p>
     </div>

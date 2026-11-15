@@ -106,14 +106,32 @@
     return svg;
   }
 
-  /* ---------- Enquiry form: compose an email (no backend yet) ---------- */
+  /* ---------- Enquiry form ----------
+     With a Web3Forms access key in the form, enquiries are posted to
+     data-endpoint and arrive in your inbox. Without one, the form falls back
+     to opening the visitor's email app addressed to data-mailto. */
   const form = document.querySelector('[data-enquiry]');
   if (form) {
     const errorBox = form.querySelector('[data-form-error]');
+    const submitBtn = form.querySelector('[data-submit]');
+    const done = document.querySelector('[data-enquiry-done]');
+    const accessKey = form.elements.access_key?.value.trim();
+    const canPost = Boolean(form.dataset.endpoint && accessKey);
     const listOf = (items) =>
       items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`;
 
-    form.addEventListener('submit', (e) => {
+    if (!canPost) form.querySelector('[data-mailto-note]').hidden = false;
+
+    const showError = (msg) => { errorBox.textContent = msg; errorBox.hidden = false; };
+
+    done?.querySelector('[data-enquiry-reset]').addEventListener('click', () => {
+      form.reset();
+      done.hidden = true;
+      form.hidden = false;
+      form.elements.name.focus();
+    });
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const invalid = [...form.elements].filter((el) => el.willValidate && !el.checkValidity());
       form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
@@ -122,11 +140,11 @@
         invalid.forEach((el) => el.setAttribute('aria-invalid', 'true'));
         const missing = invalid.filter((el) => !el.value).map((el) => el.dataset.label);
         const emailBad = invalid.some((el) => el.type === 'email' && el.value);
-        errorBox.textContent = missing.length
+        let msg = missing.length
           ? `Add ${listOf(missing)} to send your enquiry.`
           : 'Check the work email address, then send again.';
-        if (missing.length && emailBad) errorBox.textContent += ' Also check the email address.';
-        errorBox.hidden = false;
+        if (missing.length && emailBad) msg += ' Also check the email address.';
+        showError(msg);
         invalid[0].focus();
         return;
       }
@@ -134,17 +152,45 @@
 
       const data = Object.fromEntries(new FormData(form));
       const subject = `Enquiry: ${data.need} for ${data.company}`;
-      const body = [
-        `Name: ${data.name}`,
-        `Email: ${data.email}`,
-        `Company: ${data.company}`,
-        `Need: ${data.need}`,
-        `Team size: ${data.size || 'Not sure'}`,
-        '',
-        data.message || '',
-      ].join('\n');
-      window.location.href =
-        `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      if (!canPost) {
+        const body = [
+          `Name: ${data.name}`,
+          `Email: ${data.email}`,
+          `Company: ${data.company}`,
+          `Need: ${data.need}`,
+          `Team size: ${data.size || 'Not sure'}`,
+          '',
+          data.message || '',
+        ].join('\n');
+        window.location.href =
+          `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        return;
+      }
+
+      form.elements.subject.value = subject;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.dataset.endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false) throw new Error(json.message || res.statusText);
+
+        done.querySelector('[data-done-text]').textContent =
+          `Thanks, ${data.name.split(' ')[0]}. We’ll reply to ${data.email} within one working day.`;
+        form.hidden = true;
+        done.hidden = false;
+        done.focus();
+      } catch {
+        showError(`Your enquiry didn’t send. Check your connection and try again, or email us at ${form.dataset.mailto}.`);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send enquiry';
+      }
     });
   }
 
