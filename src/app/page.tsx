@@ -55,13 +55,15 @@ export default function Home() {
               Hire your team in India without setting up a company.
             </h1>
             <div className="hero-side">
-              <p className="lead">
-                Pavani IT is an Indian Employer of Record. We employ your people under Indian law and run their
-                contracts, payroll, PF, ESI, tax and exits, while they work full-time for you.
-              </p>
-              <p className="hero-price">
-                Employer of Record from <strong><V>{eor.amount}</V></strong> {eor.unit}.
-              </p>
+              <div className="hero-intro">
+                <p className="lead">
+                  Pavani IT is an Indian Employer of Record. We employ your people under Indian law and run their
+                  contracts, payroll, PF, ESI, tax and exits, while they work full-time for you.
+                </p>
+                <p className="hero-price">
+                  Employer of Record from <strong><V>{eor.amount}</V></strong> {eor.unit}.
+                </p>
+              </div>
               <NeedPicker />
             </div>
           </div>

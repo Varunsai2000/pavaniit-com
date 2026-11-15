@@ -25,10 +25,12 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
 
       <section className="page-hero">
         <div className="wrap page-hero-grid">
-          <div>
-            <Crumbs items={[{ name: "Home", href: "/" }, { name: `${stage.number}. ${stage.label}: ${servicesLine(stage)}` }]} />
-            <h1 className="h1">{stage.title}</h1>
-            <p className="lead">{stage.lead}</p>
+          <div className="page-hero-copy">
+            <div className="hero-intro">
+              <Crumbs items={[{ name: "Home", href: "/" }, { name: `${stage.number}. ${stage.label}: ${servicesLine(stage)}` }]} />
+              <h1 className="h1">{stage.title}</h1>
+              <p className="lead">{stage.lead}</p>
+            </div>
             <div className="page-hero-meta">
               {stagePrices.map((p) => (
                 <p className="hero-price" key={p.id}>
