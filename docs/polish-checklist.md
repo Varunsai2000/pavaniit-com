@@ -63,7 +63,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 ## Components (inner pages)
 - [x] Stage page hero (all four): now the same split hero as the home page.
 - [x] Service blocks and check lists
-- [ ] "Who does what" table: align the header with the row labels.
+- [x] "Who does what" table: align the header with the row labels.
 - [ ] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
 - [x] Pricing page: rebuilt with the real Employer of Record prices (see docs/decisions.md).
 - [ ] About page
@@ -131,3 +131,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - CTA band: now text only. The headline sits in the left half, and the sentence plus Book a call and See pricing start exactly on the page's column 7 (measured 736 = 736 at 1440px, 976 = 976 at 1920px). The Hire illustration it used to carry was repeated on every page, including next to the same picture on the home and recruitment pages. The band is 284px tall instead of 577px. The email now comes from `site.email`. Removed the unused `--size-art-max` token and the leftover imports. No sideways scroll at 375–1920px.
 - Footer: every link fills a 32px row (new `--link-row` token; was 21px with gaps), and the column headings sit closer to their lists. The visible "llms.txt" link is gone; the file still ships at /llms.txt, the path AI crawlers check. Brand in the left half and link columns from column 7 are unchanged. Checked at 1440 and 390px; no sideways scroll.
 - Service blocks and check lists: checklist items went from 15px to body size (17px) with normal leading; they're the block's main content but read like fine print next to a 20px lead. Each tick is centred on its first line of text (measured 854 = 854). The structure was already right: heading and lead on the left, the list from column 7 with its top rule level with the heading, and blocks divided by hairlines. The pricing page's coverage list benefits too. No sideways scroll.
+- "Who does what" table:
+  - The header now starts on the row labels' left edge (it was 12px in at 1440px and 6px in on phones; now 736 = 736 and 20 = 20).
+  - Header cells no longer wrap ("Pavani IT" broke over two lines on phones), and a 2px ink rule sits under the header, as in the comparison table and the cost receipt.
+  - Rows went up to body size (17px), matching the checklists. No sideways scroll.
