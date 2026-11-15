@@ -269,16 +269,16 @@ table { font-variant-numeric: tabular-nums; }
 /* ---------- Sections ---------- */
 
 .section { padding-block: var(--section-y); }
-.section-tight { padding-block: clamp(var(--space-14), 6vw, var(--space-24)); }
+.section-tight { padding-block: var(--section-y-tight); }
 .section-page-top { padding-top: var(--section-y-page-top); }
 .section-after-hero { padding-top: var(--section-y-after-hero); }
 .section-foot { margin-top: var(--space-6); }
-.heading-stack { display: grid; gap: var(--space-4); align-content: start; }
 .page-intro .h1, .page-intro .lead { margin-top: var(--space-5); }
 .on-mist { background: var(--color-surface); }
-.section-head { display: grid; gap: var(--space-4); max-width: var(--measure-section); margin-bottom: clamp(var(--space-10), 5vw, var(--space-16)); }
-.section-head-split { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-5) var(--grid-gap); align-items: end; margin-bottom: clamp(var(--space-10), 5vw, var(--space-16)); }
-@media (max-width: 860px) { .section-head-split { grid-template-columns: minmax(0, 1fr); } }
+/* Section scaffold: one heading block (title, then lead) in one of two layouts.
+   Stacked: above the content, one gap below it. Side: the left half of a split, content in the right half. */
+.section-head { display: grid; gap: var(--head-gap); align-content: start; max-width: var(--measure-section); margin-bottom: var(--section-head-gap); }
+:is(.depth, .next-stage, .service-block, .faq-layout) > .section-head { margin-bottom: 0; }
 
 /* ---------- Journey (four stages) ---------- */
 
@@ -333,7 +333,6 @@ table { font-variant-numeric: tabular-nums; }
 .on-ink { background: var(--color-ink); color: var(--color-on-inverse); }
 .on-ink .h2 { color: var(--color-on-inverse); }
 .on-ink .lead { color: var(--color-on-inverse-2); }
-.ink-head { display: grid; gap: var(--space-5); max-width: var(--measure-section); margin-bottom: clamp(var(--space-10), 5vw, var(--space-20)); }
 .cycle { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-10) var(--grid-gap); align-items: start; }
 .cycle-steps { list-style: none; display: grid; border-top: var(--border-hairline) solid var(--color-inverse-line); }
 .cycle-steps li { display: grid; grid-template-columns: var(--col-step) minmax(0, 1fr); gap: var(--space-5); padding-block: var(--space-6); border-bottom: var(--border-hairline) solid var(--color-inverse-line); }
@@ -433,7 +432,7 @@ table { font-variant-numeric: tabular-nums; }
 /* ---------- FAQ ---------- */
 
 .faq-layout { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-8) var(--grid-gap); align-items: start; }
-.faq-layout > .h2 { position: sticky; top: calc(var(--header-h) + var(--space-8)); }
+.faq-layout > .section-head { position: sticky; top: calc(var(--header-h) + var(--space-8)); }
 .faq { border-top: var(--border-hairline) solid var(--color-line-strong); }
 .faq details { border-bottom: var(--border-hairline) solid var(--color-line-strong); }
 .faq summary { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); padding-block: var(--space-6); list-style: none; cursor: pointer; font-size: var(--text-lg); font-weight: var(--weight-bold); letter-spacing: var(--tracking-tight); }
@@ -441,7 +440,7 @@ table { font-variant-numeric: tabular-nums; }
 .faq summary svg { width: var(--icon-lg); height: var(--icon-lg); flex: none; color: var(--color-inverse); transition: transform var(--dur-ui) var(--ease-out); }
 .faq details[open] summary svg { transform: rotate(45deg); }
 .faq .answer { padding-bottom: var(--space-6); color: var(--color-ink-2); max-width: var(--measure); }
-@media (max-width: 860px) { .faq-layout { grid-template-columns: minmax(0, 1fr); } .faq-layout > .h2 { position: static; } }
+@media (max-width: 860px) { .faq-layout { grid-template-columns: minmax(0, 1fr); } .faq-layout > .section-head { position: static; } }
 
 /* ---------- Frame: the one treatment for every illustration ---------- */
 
@@ -484,7 +483,6 @@ table { font-variant-numeric: tabular-nums; }
 .service-block { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); padding-block: clamp(var(--space-10), 5vw, var(--space-16)); border-top: var(--border-hairline) solid var(--color-line); }
 .service-block:first-child { border-top: 0; padding-top: 0; }
 .service-block .h2 { font-size: var(--text-h2-sm); }
-.service-block .lead { margin-top: var(--space-4); }
 .check-list { list-style: none; display: grid; border-top: var(--border-hairline) solid var(--color-line); }
 .check-list li { display: grid; grid-template-columns: var(--size-tick) minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-4); border-bottom: var(--border-hairline) solid var(--color-line); font-size: var(--text-md); }
 .check-list li svg { width: var(--icon-lg); height: var(--icon-lg); color: var(--color-ink); margin-top: var(--space-0-5); }
@@ -548,9 +546,12 @@ table { font-variant-numeric: tabular-nums; }
 
 .contact-layout { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-10) var(--grid-gap); align-items: start; }
 @media (max-width: 900px) { .contact-layout { grid-template-columns: minmax(0, 1fr); } }
-.contact-facts { list-style: none; display: grid; margin-top: var(--space-8); border-top: var(--border-hairline) solid var(--color-line); }
-.contact-facts li { display: grid; grid-template-columns: var(--col-label) minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-4); border-bottom: var(--border-hairline) solid var(--color-line); font-size: var(--text-md); }
+/* Ruled key/value lists: contact details, payroll due dates. */
+.contact-facts, .cycle-points { list-style: none; display: grid; border-top: var(--border-hairline) solid var(--color-line); }
+.contact-facts { margin-top: var(--space-8); }
+.contact-facts li, .cycle-points li { display: grid; grid-template-columns: var(--col-label) minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-4); border-bottom: var(--border-hairline) solid var(--color-line); font-size: var(--text-md); }
 .contact-facts li > span:first-child { color: var(--color-ink-2); }
+.cycle-points b { font-weight: var(--weight-bold); }
 .contact-facts a { font-weight: var(--weight-bold); color: var(--color-inverse); }
 .form-card { display: grid; gap: var(--space-5); padding: clamp(var(--space-6), 3.5vw, var(--space-10)); border-radius: var(--radius-card); background: var(--color-surface); }
 .field { display: grid; gap: var(--space-1-5); }

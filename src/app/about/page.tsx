@@ -60,7 +60,7 @@ export default function Page() {
 
       <section className="section on-mist" aria-labelledby="how-title">
         <div className="wrap depth">
-          <div>
+          <div className="section-head">
             <h2 className="h2" id="how-title">How we work</h2>
           </div>
           <ul className="depth-list">

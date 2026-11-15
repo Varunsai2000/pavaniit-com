@@ -18,11 +18,13 @@ export default function Page() {
       <section className="section on-mist" aria-labelledby="calendar-title">
         <div className="wrap cycle">
           <div className="cycle-copy">
-            <h2 className="h2" id="calendar-title">This month&apos;s statutory calendar</h2>
-            <p className="lead">
-              The national due dates are fixed; state ones vary. This calendar is calculated for today, so you can see
-              what is done and what is coming up.
-            </p>
+            <div className="section-head">
+              <h2 className="h2" id="calendar-title">This month&apos;s statutory calendar</h2>
+              <p className="lead">
+                The national due dates are fixed; state ones vary. This calendar is calculated for today, so you can see
+                what is done and what is coming up.
+              </p>
+            </div>
             <ul className="cycle-points">
               <li><b>7th</b><span className="muted">TDS on salaries deducted last month is deposited (30 April for March).</span></li>
               <li><b>15th</b><span className="muted">PF and ESI contributions for last month are paid and returns filed.</span></li>

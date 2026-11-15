@@ -58,7 +58,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
         <div className="wrap">
           {stage.services.map((service) => (
             <div className="service-block" id={service.id} key={service.id}>
-              <div>
+              <div className="section-head">
                 <h2 className="h2">{service.name}</h2>
                 <p className="lead">{service.short}</p>
               </div>
@@ -72,7 +72,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
 
       <section className="section-tight on-mist" aria-labelledby="next-stage">
         <div className="wrap next-stage">
-          <div className="heading-stack">
+          <div className="section-head">
             <h2 className="h2" id="next-stage">
               {handoff[stage.id]}
             </h2>

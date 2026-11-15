@@ -66,9 +66,11 @@ export function FaqSection({ items, title = "Questions buyers ask us" }: { items
   return (
     <section className="section" aria-labelledby="faq-title">
       <div className="wrap faq-layout">
-        <h2 className="h2" id="faq-title">
-          {title}
-        </h2>
+        <div className="section-head">
+          <h2 className="h2" id="faq-title">
+            {title}
+          </h2>
+        </div>
         <Faq items={items} />
       </div>
     </section>

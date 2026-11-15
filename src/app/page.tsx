@@ -99,7 +99,7 @@ export default function Home() {
 
       <section className="section on-mist" aria-labelledby="stages-title">
         <div className="wrap">
-          <div className="section-head-split">
+          <div className="section-head">
             <h2 className="h2" id="stages-title">
               From offer letter to appraisal
             </h2>
@@ -143,7 +143,7 @@ export default function Home() {
 
       <section className="section on-ink" aria-labelledby="cycle-title">
         <div className="wrap">
-          <div className="ink-head">
+          <div className="section-head">
             <h2 className="h2" id="cycle-title">
               Every month in India runs to the same calendar.
             </h2>
@@ -171,7 +171,7 @@ export default function Home() {
 
       <section className="section ruled" aria-labelledby="compare-title">
         <div className="wrap">
-          <div className="section-head-split">
+          <div className="section-head">
             <h2 className="h2" id="compare-title">
               Employer of Record, your own entity, or contractors?
             </h2>
@@ -189,7 +189,7 @@ export default function Home() {
 
       <section className="section ruled" aria-labelledby="pricing-title">
         <div className="wrap">
-          <div className="section-head-split">
+          <div className="section-head">
             <h2 className="h2" id="pricing-title">
               Prices, in writing
             </h2>
