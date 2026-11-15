@@ -56,6 +56,7 @@ A running log of section-level changes made by the polish loop, and the question
 
 ## Log
 
+- **Monthly calendar section lined up** (your feedback: misaligned). The calendar card ran about 125px below the four steps beside it. Now the steps share the card's height in four equal rows, so both columns start and end on the same line, and the first step's text starts level with the month name. Inside the card, the calendar spans the card's full width: Monday lines up with the month name, Sunday with the status badges, and the list's dates sit centred under Monday. Checked at 390, 961, 1024, 1280, 1440 and 1920px; the payroll page's calendar gets the same alignment inside the card.
 - **No cards over the hero illustration** (your request). The live time card on the home hero is gone, along with its component, styles and tokens, so the picture stands on its own at every width.
 - **Price cards stay three across on tablets** (they used to stack into wide, mostly empty slabs below 980px; now only below 640px).
 - **All raw values are tokens.** The last fluid paddings and viewport heights moved into a "Fluid spacing" group in `tokens.css`.
