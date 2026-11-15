@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Crumbs, CtaBand, JsonLd, V } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
-import { people, site } from "@/content/site";
+import { people, site, isPlaceholder } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About Pavani IT",
@@ -17,8 +17,8 @@ const principles = [
   { k: "Answer first", v: "Ask us a question and you get the answer, then the detail. Most of them are already on this site." },
 ];
 
-const initials = (name: string) =>
-  name.startsWith("[") ? "?" : name.split(" ").map((p) => p[0]).slice(0, 2).join("");
+/** Initials once a real name is in; an empty dashed circle while it is still a placeholder. */
+const initials = (name: string) => (isPlaceholder(name) ? "" : name.split(" ").map((p) => p[0]).slice(0, 2).join(""));
 
 export default function Page() {
   return (
@@ -59,7 +59,7 @@ export default function Page() {
           <div className="people">
             {people.map((p) => (
               <article className="person-card" key={p.role}>
-                <span className="avatar" aria-hidden="true">{initials(p.name)}</span>
+                <span className={`avatar${isPlaceholder(p.name) ? " is-empty" : ""}`} aria-hidden="true">{initials(p.name)}</span>
                 <div>
                   <h3 className="h3"><V>{p.name}</V></h3>
                   <p className="person-role"><V>{p.role}</V></p>

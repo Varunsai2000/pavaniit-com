@@ -66,7 +66,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] "Who does what" table: align the header with the row labels.
 - [x] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
 - [x] Pricing page: rebuilt with the real Employer of Record prices (see docs/decisions.md).
-- [ ] About page
+- [x] About page
 - [ ] Contact page and enquiry form, including error and sent states
 - [ ] Glossary page
 - [ ] Privacy page
@@ -139,3 +139,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - It now shares the home stage cards' anatomy: an `<article>` with decorative art and a badge, an h3 stage name, the services once as a middle-dot list, and one short link ("More on pay", from the new shared `stageLinkLabel`) stretched over the card.
   - Its accessible name used to be a 30-word run of alt text, the stage, the services and the page title; it's now just the link. The services line was printed twice and isn't any more.
   - No hover lift. Keyboard focus rings the card, and clicking anywhere on it opens the page. The arrow stays with its last word (ArrowText). No sideways scroll.
+- About page: the "How we work" descriptions went from 15px to body size (the training page's tracks list shares that component and benefits too). While a name is still a placeholder, the avatar is an empty dashed circle in the site's placeholder style, not a "?"; initials appear once a real name is in. On phones the person card stacks the avatar above the text instead of squeezing the text into a narrow column. No sideways scroll.
