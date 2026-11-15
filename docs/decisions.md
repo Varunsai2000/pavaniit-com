@@ -12,6 +12,7 @@ A running log of section-level changes made by the polish loop, and the question
 
 ## Log
 
+- **Home prices show only real numbers.** The home section lists the three Employer of Record packages. The placeholder recruitment and payroll prices live only on the pricing page's price list until you have real numbers.
 - **Reading pages share one template** (About, Pricing, Glossary, Privacy): a plain hero, then white sections, each starting with a thin rule. About now leads with "How we work" and puts the people (still placeholders) last. The privacy notice's title moved out of the sidebar into a proper hero, matching the glossary.
 - **Stage pages share one structure.** Same split hero as the home page. White content sections, each starting with a thin rule: services, then the stage's own section. One grey band (what comes next), then the FAQ and the call-to-action band. The stage-specific sections used to sit on grey right before the grey next-stage band, which merged into one block.
 - **Hero slimmed (your feedback: "bloated").** It's now a split hero like Deel: headline, one sentence, Book a call and See pricing, and one price line on the left; the illustration on the right, cropped to the text's height, with the live time card on it. Removed the four-row service index and the filings and payroll example cards. The whole hero now fits in a 1440×900 window.

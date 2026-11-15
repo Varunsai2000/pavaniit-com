@@ -3,7 +3,7 @@ import Link from "next/link";
 import PriceCard from "@/components/PriceCard";
 import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V } from "@/components/bits";
 import { abs, breadcrumbSchema } from "@/content/schema";
-import { eorCovered, eorExample, eorNotes, eorPlans, prices, type Price } from "@/content/site";
+import { eorCovered, eorExample, eorNotes, eorPlanCards, eorPlans, prices } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Pricing: Employer of Record in India from €62 a month | Pavani IT",
@@ -30,17 +30,6 @@ const faq = [
     a: "One invoice a month covering salaries, statutory costs and our fee, raised before payroll runs so salaries are paid on time.",
   },
 ];
-
-/** The three EOR packages, shown with the shared price card. */
-const planCards: Price[] = eorPlans.map((p) => ({
-  id: p.id,
-  service: p.name,
-  stage: "Employ",
-  amount: p.eur,
-  amountLocal: p.inr,
-  unit: p.unit,
-  includes: [],
-}));
 
 const others = prices.filter((p) => p.id !== "eor");
 
@@ -88,7 +77,7 @@ export default function Page() {
             <p className="lead">One monthly fee per person, on top of their salary and statutory costs.</p>
           </div>
           <div className="price-grid">
-            {planCards.map((p, i) => (
+            {eorPlanCards.map((p, i) => (
               <PriceCard key={p.id} price={p} lead={i === 0} />
             ))}
           </div>

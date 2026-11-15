@@ -132,6 +132,17 @@ export const eorPlans: Plan[] = [
   { id: "eor-contractor", name: "Independent contractor", eur: "€23", inr: "₹2,400", unit: "per contractor per month", priceEur: 23, priceInr: 2400 },
 ];
 
+/** The three packages as price cards (home and pricing pages). */
+export const eorPlanCards: Price[] = eorPlans.map((p) => ({
+  id: p.id,
+  service: p.name,
+  stage: "Employ",
+  amount: p.eur,
+  amountLocal: p.inr,
+  unit: p.unit,
+  includes: [],
+}));
+
 /** Worked example: what a company pays in a month for one employee on ₹50,000. */
 export const eorExample = {
   salary: "₹50,000",

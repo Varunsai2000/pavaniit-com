@@ -9,7 +9,7 @@ import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
-import { eorPlans, prices } from "@/content/site";
+import { eorPlanCards, eorPlans } from "@/content/site";
 import { handoff, homeFaq, stages } from "@/content/stages";
 
 export const metadata: Metadata = {
@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const homePrices = ["eor", "recruitment", "payroll"].map((id) => prices.find((p) => p.id === id)!);
 
 const monthly = [
   { k: "Inputs", v: "Attendance, leave, new joiners and exits collected from you and checked." },
@@ -179,16 +178,17 @@ export default function Home() {
               Prices, in writing
             </h2>
             <p className="lead">
-              What you pay for the services most companies start with. Every fee is in the proposal before you sign.
+              Employer of Record is one monthly fee per person, on top of their salary and statutory costs. Every fee is
+              in the proposal before you sign.
             </p>
           </div>
           <div className="price-grid">
-            {homePrices.map((p, i) => (
+            {eorPlanCards.map((p, i) => (
               <PriceCard key={p.id} price={p} lead={i === 0} />
             ))}
           </div>
           <div className="section-foot">
-            <MoreLink href="/pricing/">All prices, including staffing and training</MoreLink>
+            <MoreLink href="/pricing/">All prices, with a monthly cost example</MoreLink>
           </div>
         </div>
       </section>

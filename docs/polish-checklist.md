@@ -54,7 +54,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Journey cards: the thread hangs from the badge rings instead of crossing the numerals. No hover-lift or zoom. Short link names: link only the "More on…" text, stretched over the card. Reveal must not hide content without JS.
 - [x] Monthly calendar section: make it the page's centrepiece, full-bleed black band.
 - [x] Comparison table: its columns are sized by the table, so they don't sit on the grid. Use fixed layout with four equal columns (label, EOR, entity, contractors) so they line up with columns 1, 4, 7 and 10.
-- [ ] Pricing cards
+- [x] Pricing cards
 - [x] "We only work in India" list: a numbered full-width ledger.
 - [ ] FAQ
 - [ ] CTA band: art panel framed inside the black band.
@@ -126,3 +126,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Privacy: moved its title out of the sidebar into a hero like the glossary's, and the opening sentence became the lead. The sidebar is labelled "On this page", its link text aligns with the label, and it hides on phones (it used to leave a lone label there).
   - Contact and 404 already do one job each and stay as they are.
   - Removed the unused `.section-after-hero` and its token. No sideways scroll at 375–1920px.
+- Pricing cards: the home section now shows the three real Employer of Record packages (shared `eorPlanCards`, the same cards as the pricing page) instead of one real card next to two placeholder cards. Cards are uniform (name, price, rupee price and unit, Get a quote), and the price went up from 28px to 36px. The foot link points to all prices and the monthly cost example. Checked at 1440 and 390px; no sideways scroll.

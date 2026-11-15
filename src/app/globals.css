@@ -374,7 +374,7 @@ table { font-variant-numeric: tabular-nums; }
 .price-card.is-lead { background: var(--color-inverse); border-color: var(--color-inverse); color: var(--color-on-inverse); position: relative; overflow: hidden; }
 .price-card > * { position: relative; }
 .price-name { font-size: var(--text-xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-title); }
-.price-amount { margin-top: var(--space-5); font-size: var(--text-3xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-display); line-height: var(--leading-tight); }
+.price-amount { margin-top: var(--space-5); font-size: var(--text-4xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-display); line-height: var(--leading-tight); }
 .price-unit { margin-top: var(--space-1); font-size: var(--text-sm); color: var(--color-ink-2); }
 .price-includes { list-style: none; margin-top: var(--space-5); display: grid; gap: var(--space-3); align-content: start; flex: 1; }
 .price-includes li { display: grid; grid-template-columns: var(--icon-md) minmax(0, 1fr); gap: var(--space-3); font-size: var(--text-md); color: var(--color-ink-2); line-height: var(--leading-normal); }
