@@ -26,7 +26,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Hover and press on chips: move `:hover`/`:active` to the chip wrapper (the input covers the label).
 
 ## Components (home)
-- [ ] Header and services menu
+- [x] Header and services menu
 - [ ] Hero: headline, lead and price line
 - [ ] Hero: need picker. 2×2 on phones; checked state in monochrome.
 - [ ] Hero scene: crop the art so faces sit above the fold at 1440×900. Put "Example" on each floating card. Float-ins at 500ms, transform and opacity only.
@@ -63,3 +63,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - Illustrations: pay redrawn as ink line art.
 - Illustrations: grow redrawn; the full set is now black ink line art.
 - Section rhythm: calendar is now a full-width black band with the cycle as four numbered steps; comparison, pricing and India details sit on white separated by content-aligned rules; India details became a numbered full-width ledger. Checked at 1440 and 390px, no sideways scroll.
+- Header: services-menu thumbnails now 160px WebP (about 5 KB each, was about 65 KB); removed the duplicate Contact link (Book a call goes to the same page). Phone menu verified full-height.

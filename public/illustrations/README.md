@@ -1,6 +1,6 @@
 # Illustrations
 
-Generated on 15 November 2026 with ChatGPT image generation, then converted to WebP (`cwebp -q 80`) at two widths each.
+Generated on 15 November 2026 with ChatGPT image generation, then converted to WebP (`cwebp -q 80`) at two widths each, plus 160px thumbnails of the four stage images for the services menu.
 
 Shared style prompt: black ink line drawing on pure white, as if drawn with a fine technical pen by an editorial illustrator; light cross-hatching for shadows; pure monochrome, no colour, no grey washes, no text, no logos. (Redrawn on 15 November 2026 from an earlier two-colour riso set, keeping the same compositions.)
 

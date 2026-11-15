@@ -85,9 +85,6 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link prefetch={false} className="nav-link header-contact" href="/contact/">
-            Contact
-          </Link>
           <Link prefetch={false} className="btn btn-primary btn-sm" href="/contact/">
             Book a call
           </Link>
@@ -111,7 +108,7 @@ export default function Header() {
             {stages.map((stage) => {
               return (
                 <Link prefetch={false} key={stage.id} className="services-col" href={stage.href} tabIndex={servicesOpen ? 0 : -1}>
-                  <img src={`/illustrations/${stage.id}-600.webp`} alt="" width={76} height={57} loading="lazy" />
+                  <img src={`/illustrations/${stage.id}-160.webp`} alt="" width={76} height={57} loading="lazy" />
                   <div>
                     <span className="services-col-title">
                       <span>0{stage.number}</span>
