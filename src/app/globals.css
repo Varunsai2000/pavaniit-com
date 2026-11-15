@@ -309,8 +309,8 @@ table { font-variant-numeric: tabular-nums; }
 }
 .stage-body { padding: var(--space-6) var(--space-6) var(--space-2); display: grid; gap: var(--space-4); align-content: start; }
 .stage-name { font-size: var(--text-3xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-display); line-height: var(--leading-none); }
-.stage-svc h4 { font-size: var(--text-md); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-snug); }
-.stage-svc p { margin-top: var(--space-1); font-size: var(--text-md); line-height: var(--leading-normal); color: var(--color-ink-2); }
+/* Each card says how its stage hands over to the next; service details live on the stage pages. */
+.stage-handoff { font-size: var(--text-lg); line-height: var(--leading-ui); color: var(--color-ink-2); text-wrap: pretty; }
 .stage-foot { padding: var(--space-4) var(--space-6) var(--space-6); }
 @media (max-width: 1100px) { .journey-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .journey-path { display: none; } }
 @media (max-width: 620px) { .journey-grid { grid-template-columns: minmax(0, 1fr); } }
@@ -331,7 +331,9 @@ table { font-variant-numeric: tabular-nums; }
 
 /* Sections separated by a rule aligned to the content, instead of grey bands. */
 .ruled { padding-top: 0; }
-.ruled > .wrap::before { content: ""; display: block; height: var(--border-hairline); background: var(--color-line-strong); margin-bottom: var(--section-y); }
+.ruled > .wrap::before { content: ""; display: block; grid-column: 1 / -1; height: var(--border-hairline); background: var(--color-line-strong); margin-bottom: var(--section-y); }
+/* In a grid wrap (FAQ) the row gap adds to the rule's spacing, so take it off the margin. */
+.ruled > .faq-layout::before { margin-bottom: calc(var(--section-y) - var(--space-8)); }
 
 /* The one dark band on the page: the monthly cycle. */
 .on-ink { background: var(--color-ink); color: var(--color-on-inverse); }

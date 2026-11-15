@@ -54,9 +54,10 @@ export function Faq({ items }: { items: QA[] }) {
   );
 }
 
-export function FaqSection({ items, title = "Questions buyers ask us" }: { items: QA[]; title?: string }) {
+/** `ruled` adds the content-aligned rule used between white sections (home page). */
+export function FaqSection({ items, title = "Questions buyers ask us", ruled = false }: { items: QA[]; title?: string; ruled?: boolean }) {
   return (
-    <section className="section" aria-labelledby="faq-title">
+    <section className={ruled ? "section ruled" : "section"} aria-labelledby="faq-title">
       <div className="wrap faq-layout">
         <div className="section-head">
           <h2 className="h2" id="faq-title">

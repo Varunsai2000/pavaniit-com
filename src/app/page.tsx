@@ -10,7 +10,7 @@ import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
 import { prices } from "@/content/site";
-import { homeFaq, stages } from "@/content/stages";
+import { handoff, homeFaq, stages } from "@/content/stages";
 
 export const metadata: Metadata = {
   title: "Employer of Record in India | Pavani IT",
@@ -141,12 +141,7 @@ export default function Home() {
                     </div>
                     <div className="stage-body">
                       <h3 className="stage-name">{stage.label}</h3>
-                      {stage.services.map((s) => (
-                        <div className="stage-svc" key={s.id}>
-                          <h4>{s.name}</h4>
-                          <p>{s.short}</p>
-                        </div>
-                      ))}
+                      <p className="stage-handoff">{handoff[stage.id]}</p>
                     </div>
                     <div className="stage-foot">
                       <Link prefetch={false} className="text-link stage-link" href={stage.href}>
@@ -250,7 +245,7 @@ export default function Home() {
         </div>
       </section>
 
-      <FaqSection items={homeFaq} />
+      <FaqSection items={homeFaq} ruled />
       <CtaBand />
     </>
   );
