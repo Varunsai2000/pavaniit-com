@@ -44,10 +44,12 @@ Undecided or not yet supplied (must not be invented; kept in one content file wi
 - Published prices (user confirmed prices exist and can be published; values not yet provided)
 - City, office address, phone (user confirmed these exist; values not yet provided)
 - Named expert(s) for authorship and About page (user confirmed; names and credentials not yet provided)
-- Domain (assumed pavaniit.com), mailboxes hello@ and careers@, legal entity name, CIN, GSTIN
+- Mailboxes hello@ and careers@ (to be created), legal entity name, CIN, GSTIN
 - Web3Forms access key for the enquiry form
 
 ## Brand Commitments
+
+- Name: Pavani IT is both the legal name and the trade name for now (confirmed by the user, 15 Nov 2026). Domain pavaniit.com is owned by the user.
 
 - Deel (deel.com) is the user's reference for polish only. The site must not look like a copy of Deel or any EOR platform: original layout, Pavani IT's own forest-and-marigold identity, and a matching set of two-ink risograph illustrations.
 - Typeface fixed by the user: Manrope, for everything. Do not substitute or add faces.
