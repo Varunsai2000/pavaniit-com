@@ -81,7 +81,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section section-after-hero" aria-labelledby="eor-title">
+      <section className="section ruled" aria-labelledby="eor-title">
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="eor-title">Employer of Record</h2>

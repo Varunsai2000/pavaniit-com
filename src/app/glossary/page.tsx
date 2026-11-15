@@ -45,7 +45,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section ruled">
         <div className="wrap doc">
           <aside className="doc-aside">
             <p className="h4">{glossary.length} terms</p>

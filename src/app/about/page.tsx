@@ -37,7 +37,20 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="people-title">
+      <section className="section ruled" aria-labelledby="how-title">
+        <div className="wrap depth">
+          <div className="section-head">
+            <h2 className="h2" id="how-title">How we work</h2>
+          </div>
+          <ul className="depth-list">
+            {principles.map((p) => (
+              <li key={p.k}><b>{p.k}</b><p>{p.v}</p></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section ruled" aria-labelledby="people-title">
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="people-title">Who you will work with</h2>
@@ -55,19 +68,6 @@ export default function Page() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section on-mist" aria-labelledby="how-title">
-        <div className="wrap depth">
-          <div className="section-head">
-            <h2 className="h2" id="how-title">How we work</h2>
-          </div>
-          <ul className="depth-list">
-            {principles.map((p) => (
-              <li key={p.k}><b>{p.k}</b><p>{p.v}</p></li>
-            ))}
-          </ul>
         </div>
       </section>
 

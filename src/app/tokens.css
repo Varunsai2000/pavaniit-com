@@ -116,7 +116,6 @@
   --section-head-gap: clamp(40px, 5vw, 64px); /* section heading block to its content */
   --head-gap: var(--space-4);                  /* title to lead inside a heading block */
   --section-y-page-top: clamp(40px, 5vw, 72px);  /* top of pages without a hero: contact, privacy */
-  --section-y-after-hero: clamp(24px, 3vw, 48px); /* section that follows a page hero */
   --header-h: 68px;
 
   /* ---- Grid: one 12-column grid under every section ----

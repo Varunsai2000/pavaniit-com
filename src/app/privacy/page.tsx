@@ -25,12 +25,23 @@ export default function Page() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: "Home", href: "/" }, { name: "Privacy notice", href: "/privacy/" }])} />
-      <section className="section section-page-top">
+      <section className="page-hero">
+        <div className="wrap page-hero-plain">
+          <Crumbs items={[{ name: "Home", href: "/" }, { name: "Privacy notice" }]} />
+          <div>
+            <h1 className="h1">Privacy notice</h1>
+            <p className="lead">
+              What personal data Pavani IT collects through this website, why, and what you can ask us to do with it.
+              Last updated 15 November 2026.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section ruled">
         <div className="wrap doc">
           <aside className="doc-aside">
-            <Crumbs items={[{ name: "Home", href: "/" }, { name: "Privacy notice" }]} />
-            <h1 className="h2">Privacy notice</h1>
-            <p className="small muted">Last updated 15 November 2026</p>
+            <p className="h4">On this page</p>
             <nav aria-label="Sections">
               {sections.map(([id, label]) => (
                 <a key={id} href={`#${id}`}>{label}</a>
@@ -40,9 +51,7 @@ export default function Page() {
 
           <article className="prose">
             <p className="prose-lead">
-              This notice explains what personal data Pavani IT collects through this website, why, and what you can
-              ask us to do with it. It follows India&apos;s Digital Personal Data Protection Act, 2023 and the rules made
-              under it.
+              This notice follows India&apos;s Digital Personal Data Protection Act, 2023 and the rules made under it.
             </p>
 
             <h2 id="who">Who we are</h2>

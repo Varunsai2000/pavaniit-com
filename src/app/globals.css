@@ -242,7 +242,6 @@ table { font-variant-numeric: tabular-nums; }
 .section { padding-block: var(--section-y); }
 .section-tight { padding-block: var(--section-y-tight); }
 .section-page-top { padding-top: var(--section-y-page-top); }
-.section-after-hero { padding-top: var(--section-y-after-hero); }
 .section-foot { margin-top: var(--space-6); }
 .page-intro .h1, .page-intro .lead { margin-top: var(--space-5); }
 .on-mist { background: var(--color-surface); }
@@ -513,10 +512,11 @@ table { font-variant-numeric: tabular-nums; }
 .doc > :first-child { grid-column: var(--span-aside); }
 .doc > :last-child { grid-column: var(--span-doc); }
 .doc-aside { position: sticky; top: calc(var(--header-h) + var(--space-8)); display: grid; gap: var(--space-4); }
-.doc-aside nav { display: grid; gap: var(--space-0-5); margin-top: var(--space-2); max-height: calc(100vh - var(--header-h) * 3); overflow-y: auto; }
+.doc-aside nav { display: grid; gap: var(--space-0-5); margin-top: var(--space-2); max-height: calc(100vh - var(--header-h) * 3); overflow-y: auto; margin-inline: calc(var(--space-3) * -1); }
+/* Links keep their hover pad but their text lines up with the label above. */
 .doc-aside nav a { padding: var(--space-1-5) var(--space-3); border-radius: var(--radius-control); font-size: var(--text-md); color: var(--color-ink-2); text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { .doc-aside nav a:hover { background: var(--color-surface); color: var(--color-ink); } }
-@media (max-width: 900px) { .doc { grid-template-columns: minmax(0, 1fr); } .doc > :first-child, .doc > :last-child { grid-column: auto; } .doc-aside { position: static; } .doc-aside nav { display: none; } }
+@media (max-width: 900px) { .doc { grid-template-columns: minmax(0, 1fr); } .doc > :first-child, .doc > :last-child { grid-column: auto; } .doc-aside { display: none; } }
 .prose { max-width: var(--measure-prose); }
 .prose h2 { margin-top: var(--space-12); margin-bottom: var(--space-3); font-size: var(--text-2xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-title); }
 .prose h2:first-child { margin-top: 0; }
