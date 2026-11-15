@@ -62,7 +62,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 
 ## Components (inner pages)
 - [x] Stage page hero (all four): now the same split hero as the home page.
-- [ ] Service blocks and check lists
+- [x] Service blocks and check lists
 - [ ] "Who does what" table: align the header with the row labels.
 - [ ] Next-stage card: the arrow detaches and shrinks (`.text-link svg { flex: none }`).
 - [x] Pricing page: rebuilt with the real Employer of Record prices (see docs/decisions.md).
@@ -130,3 +130,4 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - FAQ: on opening, the answer fades in and drops 3px (300ms, ease-out, transform and opacity only, none under reduced motion); closing stays instant. The answer stops in line with the end of the question text, clear of the icon column. Mouse users get a hairline underline on hover. Native details/summary is kept; checked open-with-Enter, the focus ring and reduced motion. No sideways scroll.
 - CTA band: now text only. The headline sits in the left half, and the sentence plus Book a call and See pricing start exactly on the page's column 7 (measured 736 = 736 at 1440px, 976 = 976 at 1920px). The Hire illustration it used to carry was repeated on every page, including next to the same picture on the home and recruitment pages. The band is 284px tall instead of 577px. The email now comes from `site.email`. Removed the unused `--size-art-max` token and the leftover imports. No sideways scroll at 375–1920px.
 - Footer: every link fills a 32px row (new `--link-row` token; was 21px with gaps), and the column headings sit closer to their lists. The visible "llms.txt" link is gone; the file still ships at /llms.txt, the path AI crawlers check. Brand in the left half and link columns from column 7 are unchanged. Checked at 1440 and 390px; no sideways scroll.
+- Service blocks and check lists: checklist items went from 15px to body size (17px) with normal leading; they're the block's main content but read like fine print next to a 20px lead. Each tick is centred on its first line of text (measured 854 = 854). The structure was already right: heading and lead on the left, the list from column 7 with its top rule level with the heading, and blocks divided by hairlines. The pricing page's coverage list benefits too. No sideways scroll.
