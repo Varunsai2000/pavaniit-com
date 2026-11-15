@@ -24,7 +24,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
       <JsonLd data={faqSchema(stage.faq)} />
 
       <section className="page-hero">
-        <div className="wrap-wide page-hero-grid">
+        <div className="wrap page-hero-grid">
           <div>
             <Crumbs items={[{ name: "Home", href: "/" }, { name: `${stage.number}. ${stage.label}: ${servicesLine(stage)}` }]} />
             <h1 className="h1">{stage.title}</h1>

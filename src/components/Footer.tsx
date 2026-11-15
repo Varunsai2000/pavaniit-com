@@ -6,7 +6,7 @@ import { V } from "./bits";
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="wrap-wide">
+      <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
             <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">

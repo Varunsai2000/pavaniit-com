@@ -54,7 +54,6 @@ table { font-variant-numeric: tabular-nums; }
 .skip:focus { top: var(--space-3); }
 
 .wrap { width: 100%; max-width: calc(var(--container) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
-.wrap-wide { width: 100%; max-width: calc(var(--container-wide) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
 
 /* ---------- Type ---------- */
 
@@ -324,7 +323,7 @@ table { font-variant-numeric: tabular-nums; }
 
 /* Sections separated by a rule aligned to the content, instead of grey bands. */
 .ruled { padding-top: 0; }
-.ruled > .wrap::before, .ruled > .wrap-wide::before { content: ""; display: block; height: var(--border-hairline); background: var(--color-line-strong); margin-bottom: var(--section-y); }
+.ruled > .wrap::before { content: ""; display: block; height: var(--border-hairline); background: var(--color-line-strong); margin-bottom: var(--section-y); }
 
 /* The one dark band on the page: the monthly cycle. */
 .on-ink { background: var(--color-ink); color: var(--color-on-inverse); }

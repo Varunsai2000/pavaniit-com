@@ -53,7 +53,7 @@ export default function Header() {
 
   return (
     <header className="site-header" ref={headerRef}>
-      <div className="wrap-wide header-row">
+      <div className="wrap header-row">
         <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
           Pavani IT
         </Link>
@@ -101,7 +101,7 @@ export default function Header() {
 
       {/* Services menu: links stay in the HTML for crawlers; visibility is CSS. */}
       <div className="services-menu" id="services-menu" data-open={servicesOpen}>
-        <div className="wrap-wide">
+        <div className="wrap">
           <div className="services-grid">
             {stages.map((stage) => {
               return (

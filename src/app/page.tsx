@@ -49,7 +49,7 @@ export default function Home() {
       <JsonLd data={faqSchema(homeFaq)} />
 
       <section className="hero" aria-labelledby="hero-title">
-        <div className="wrap-wide">
+        <div className="wrap">
           <div className="hero-top">
             <h1 className="display" id="hero-title">
               Hire your team in India without setting up a company.
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       <section className="section on-mist" aria-labelledby="stages-title">
-        <div className="wrap-wide">
+        <div className="wrap">
           <div className="section-head-split">
             <h2 className="h2" id="stages-title">
               From offer letter to appraisal
@@ -140,7 +140,7 @@ export default function Home() {
       </section>
 
       <section className="section on-ink" aria-labelledby="cycle-title">
-        <div className="wrap-wide">
+        <div className="wrap">
           <div className="ink-head">
             <h2 className="h2" id="cycle-title">
               Every month in India runs to the same calendar.

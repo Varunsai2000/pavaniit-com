@@ -84,7 +84,7 @@ export function CtaBand({
 }) {
   return (
     <section className="section-tight" aria-labelledby="cta-title">
-      <div className="wrap-wide">
+      <div className="wrap">
         <div className="cta-band">
           <div className="cta-copy">
             <h2 className="h2" id="cta-title">
