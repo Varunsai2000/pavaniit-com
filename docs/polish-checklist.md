@@ -32,7 +32,7 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
 - [x] Section scaffold: one `.section` / `.section-head` pattern (title then lead, the same max-width and spacing) used by every section on every page, with at most two heading layouts (stacked, or split on the grid) and one heading-to-content gap. Remove one-off heading wrappers.
 
 ## Page structure (before the remaining component polish)
-- [ ] Hero rethink: replace the Hire / Employ / Pay / Grow toggle chips with a structure that informs. The chips read as a form control, and they duplicate the four stage cards directly below. The direction is agreed with the user first; the need picker can live on the contact page, which already has the same choice.
+- [x] Hero rethink: replace the Hire / Employ / Pay / Grow toggle chips with a structure that informs. The chips read as a form control, and they duplicate the four stage cards directly below. The direction is agreed with the user first; the need picker can live on the contact page, which already has the same choice.
 - [ ] Home page structure: audit the order and anatomy of every section (hero, stages, calendar, comparison, prices, India details, FAQ, CTA). Each section gets one job and one primary component; merge or cut repeats (for example, the stages appearing in the hero and in the cards, or prices teased in two places). Make the background bands follow the page's chapters.
 - [ ] Stage-page template structure: hero, service blocks, the stage-specific section, next stage, FAQ, CTA. Make every stage-specific section use a standard component (ruled list, steps, table or calendar), with the same order and anatomy on all four pages.
 - [ ] Inner-page structure: Pricing, About, Contact, Glossary, Privacy and 404 each get the same audit (one job per section, standard components, a clear reading order) before their polish items below.
@@ -106,3 +106,9 @@ Chat: https://chatgpt.com/c/6af98cde-1580-83ec-a95e-ce6010283eff, same compositi
   - Header row is now white with a 2px ink rule; only the Employer of Record header is black.
   - Phone cards have a white title with a rule, so the tinted Employer of Record row no longer merges into it.
   - Rows turn into cards below 860px (was 640px), so no column hides behind a sideways scroll at 641–860px. Checked: no scrolling inside the table at 700–1024px, and no page sideways scroll at 375–1920px.
+- Hero rethink (direction chosen by the user: service index):
+  - Removed the Hire / Employ / Pay / Grow toggle chips (NeedPicker, its CSS, `needPhrase` and the now-unused `stageIcon`). The contact form already asks the same question.
+  - The hero is now: headline (left half), then Book a call with the price line beside it; lead (right half), then a numbered, ruled service index: 01–04, stage name, services separated by a middle dot, and an arrow. Each row links to its stage page.
+  - Measured: the lead's first line meets the headline's cap height (0.9px off), and the call-to-action group ends on the index's last rule at 1280, 1440 and 1920px. Hero padding and the crop were tuned so the illustration starts at 551px and both faces sit above the fold at 1440×900.
+  - Link names read "Hire: Recruitment, Contract staffing", with hidden commas between services.
+  - Phones: one column (headline, lead, index, call to action), with the services under each stage name. No sideways scroll at 375–1920px.

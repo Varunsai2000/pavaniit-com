@@ -20,7 +20,7 @@ export default function EnquiryForm() {
   const doneRef = useRef<HTMLDivElement>(null);
   const canPost = Boolean(site.web3formsKey);
 
-  // Preselect services passed from the hero picker or a pricing card (?need=employ,pay).
+  // Preselect services passed from a stage page or a pricing card (?need=employ,pay).
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get("need");
     if (!param) return;

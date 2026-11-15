@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import Art from "@/components/Art";
 import Journey from "@/components/Journey";
 import LiveClock from "@/components/LiveClock";
 import MonthCycle from "@/components/MonthCycle";
-import NeedPicker from "@/components/NeedPicker";
 import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
@@ -51,20 +50,42 @@ export default function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap">
           <div className="hero-top">
-            <h1 className="display" id="hero-title">
+            <h1 className="display hero-title" id="hero-title">
               Hire your team in India without setting up a company.
             </h1>
             <div className="hero-side">
-              <div className="hero-intro">
-                <p className="lead">
-                  Pavani IT is an Indian Employer of Record. We employ your people under Indian law and run their
-                  contracts, payroll, PF, ESI, tax and exits, while they work full-time for you.
-                </p>
-                <p className="hero-price">
-                  Employer of Record from <strong><V>{eor.amount}</V></strong> {eor.unit}.
-                </p>
-              </div>
-              <NeedPicker />
+              <p className="lead">
+                Pavani IT is an Indian Employer of Record. We employ your people under Indian law and run their
+                contracts, payroll, PF, ESI, tax and exits, while they work full-time for you.
+              </p>
+              <ol className="service-index" aria-label="Services">
+                {stages.map((stage) => (
+                  <li key={stage.id}>
+                    <Link prefetch={false} className="index-row" href={stage.href}>
+                      <span className="index-n" aria-hidden="true">{String(stage.number).padStart(2, "0")}</span>
+                      <span className="index-name">{stage.label}<span className="sr-only">:</span></span>
+                      <span className="index-svc">
+                        {stage.services.map((s, i) => (
+                          <span key={s.id}>
+                            {i > 0 && <span className="sr-only">, </span>}
+                            {s.name}
+                          </span>
+                        ))}
+                      </span>
+                      <ArrowRight className="index-arrow" aria-hidden="true" />
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div className="hero-actions hero-cta">
+              <Link prefetch={false} className="btn btn-primary" href="/contact/">
+                Book a call
+                <ArrowRight aria-hidden="true" />
+              </Link>
+              <p className="hero-price">
+                Employer of Record from <strong><V>{eor.amount}</V></strong> {eor.unit}.
+              </p>
             </div>
           </div>
 

@@ -234,6 +234,7 @@
   --col-label: 7rem;        /* key/value labels, duties table columns */
   --col-label-sm: 4.5rem;
   --col-label-lg: 8.25rem;  /* comparison labels on phones */
+  --col-stage: 6rem;        /* stage name in the hero service index */
 
   /* ---- Layers ---- */
   --z-below: -1;          /* backdrop pseudo-elements */

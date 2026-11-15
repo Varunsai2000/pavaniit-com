@@ -256,14 +256,6 @@ export const handoff: Record<StageId, string> = {
   grow: "Need more people? Start with hiring.",
 };
 
-/** What the hero picker says it will prepare for. */
-export const needPhrase: Record<StageId, string> = {
-  hire: "hiring",
-  employ: "employing your team",
-  pay: "payroll and compliance",
-  grow: "training",
-};
-
 export const stageById = (id: StageId): Stage => {
   const stage = stages.find((s) => s.id === id);
   if (!stage) throw new Error(`Unknown stage ${id}`);

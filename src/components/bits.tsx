@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Check, GraduationCap, IdCard, Plus, Wallet } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowRight, Check, Plus } from "lucide-react";
 import { isPlaceholder } from "@/content/site";
 import type { QA, StageId } from "@/content/stages";
 import Art from "./Art";
@@ -15,13 +14,6 @@ export function V({ children }: { children: string }) {
     <>{children}</>
   );
 }
-
-export const stageIcon: Record<StageId, LucideIcon> = {
-  hire: BriefcaseBusiness,
-  employ: IdCard,
-  pay: Wallet,
-  grow: GraduationCap,
-};
 
 export function Tick() {
   return (
