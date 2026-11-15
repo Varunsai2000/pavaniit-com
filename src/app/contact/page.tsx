@@ -14,12 +14,12 @@ export default function Page() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: "Home", href: "/" }, { name: "Contact", href: "/contact/" }])} />
-      <section className="section" style={{ paddingTop: "clamp(40px, 5vw, 72px)" }}>
+      <section className="section section-page-top">
         <div className="wrap contact-layout">
-          <div>
+          <div className="page-intro">
             <Crumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
-            <h1 className="h1" style={{ marginTop: 20 }}>Tell us who you want to hire</h1>
-            <p className="lead" style={{ marginTop: 20 }}>
+            <h1 className="h1">Tell us who you want to hire</h1>
+            <p className="lead">
               Share a few details and we&apos;ll reply within one working day to set up a 30-minute call.
             </p>
             <ul className="contact-facts">

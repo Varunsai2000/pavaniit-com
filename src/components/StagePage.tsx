@@ -52,7 +52,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
         </div>
       </section>
 
-      <section className="section" aria-label={`${stage.label} services`} style={{ paddingTop: "clamp(24px, 3vw, 48px)" }}>
+      <section className="section section-after-hero" aria-label={`${stage.label} services`}>
         <div className="wrap">
           {stage.services.map((service) => (
             <div className="service-block" id={service.id} key={service.id}>
@@ -70,11 +70,11 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
 
       <section className="section-tight on-mist" aria-labelledby="next-stage">
         <div className="wrap next-stage">
-          <div>
+          <div className="heading-stack">
             <h2 className="h2" id="next-stage">
               {handoff[stage.id]}
             </h2>
-            <p className="lead" style={{ marginTop: 16 }}>
+            <p className="lead">
               Each stage hands over cleanly to the next, so your people never fall between vendors.
             </p>
           </div>

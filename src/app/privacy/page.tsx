@@ -25,7 +25,7 @@ export default function Page() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: "Home", href: "/" }, { name: "Privacy notice", href: "/privacy/" }])} />
-      <section className="section" style={{ paddingTop: "clamp(40px, 5vw, 72px)" }}>
+      <section className="section section-page-top">
         <div className="wrap doc">
           <aside className="doc-aside">
             <Crumbs items={[{ name: "Home", href: "/" }, { name: "Privacy notice" }]} />
@@ -39,7 +39,7 @@ export default function Page() {
           </aside>
 
           <article className="prose">
-            <p style={{ color: "var(--color-ink)", fontSize: "1.125rem" }}>
+            <p className="prose-lead">
               This notice explains what personal data Pavani IT collects through this website, why, and what you can
               ask us to do with it. It follows India&apos;s Digital Personal Data Protection Act, 2023 and the rules made
               under it.

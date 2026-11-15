@@ -117,7 +117,7 @@ table { font-variant-numeric: tabular-nums; }
   border-bottom: var(--border-hairline) solid var(--color-line);
 }
 .site-header::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
+  content: ""; position: absolute; inset: 0; z-index: var(--z-below);
   background: var(--header-glass);
   -webkit-backdrop-filter: var(--header-blur);
   backdrop-filter: var(--header-blur);
@@ -186,7 +186,7 @@ table { font-variant-numeric: tabular-nums; }
 .hero-scene::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 var(--border-hairline) var(--color-line); pointer-events: none; }
 
 /* Floating product UI over the illustration */
-.float { position: absolute; z-index: 2; border-radius: var(--radius-control); background: var(--color-bg); color: var(--color-ink); box-shadow: var(--shadow-float); padding: var(--space-4) var(--space-4); font-size: var(--text-sm); }
+.float { position: absolute; z-index: var(--z-float); border-radius: var(--radius-control); background: var(--color-bg); color: var(--color-ink); box-shadow: var(--shadow-float); padding: var(--space-4) var(--space-4); font-size: var(--text-sm); }
 .float-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-ink-2); }
 .float-time { left: 2.5%; top: 5%; width: min(var(--size-float-w-lg), 32%); }
 .float-filings { right: 2.5%; top: 5%; width: min(var(--size-float-w), 30%); }
@@ -244,6 +244,7 @@ table { font-variant-numeric: tabular-nums; }
 @media (max-width: 480px) { .hero-art { object-position: 40% 50%; } }
 
 /* Need picker (hero) */
+.need-picker { display: grid; gap: var(--space-5); }
 .need { border: 0; padding: 0; margin: 0; min-width: 0; }
 .need legend { padding: 0; margin-bottom: var(--space-3); font-size: var(--text-md); font-weight: var(--weight-bold); }
 .need-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
@@ -266,6 +267,11 @@ table { font-variant-numeric: tabular-nums; }
 
 .section { padding-block: var(--section-y); }
 .section-tight { padding-block: clamp(var(--space-14), 6vw, var(--space-24)); }
+.section-page-top { padding-top: var(--section-y-page-top); }
+.section-after-hero { padding-top: var(--section-y-after-hero); }
+.section-foot { margin-top: var(--space-6); }
+.heading-stack { display: grid; gap: var(--space-4); align-content: start; }
+.page-intro .h1, .page-intro .lead { margin-top: var(--space-5); }
 .on-mist { background: var(--color-surface); }
 .section-head { display: grid; gap: var(--space-4); max-width: var(--measure-section); margin-bottom: clamp(var(--space-10), 5vw, var(--space-16)); }
 .section-head-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: var(--space-5) var(--space-16); align-items: end; margin-bottom: clamp(var(--space-10), 5vw, var(--space-16)); }
@@ -275,10 +281,10 @@ table { font-variant-numeric: tabular-nums; }
 /* ---------- Journey (four stages) ---------- */
 
 .journey { position: relative; }
-.journey-path { position: absolute; left: 0; width: 100%; top: 0; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
+.journey-path { position: absolute; left: 0; width: 100%; top: 0; height: 100%; pointer-events: none; z-index: var(--z-float); overflow: visible; }
 .journey-path .track { fill: none; stroke: var(--color-line-strong); stroke-width: 1.5; stroke-dasharray: 2 7; stroke-linecap: round; }
 .journey-path .draw { fill: none; stroke: var(--color-ink); stroke-width: 1.5; stroke-linecap: round; }
-.journey-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); list-style: none; }
+.journey-grid { position: relative; z-index: var(--z-raised); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); list-style: none; }
 .stage {
   display: grid; grid-template-rows: auto 1fr auto; height: 100%;
   border-radius: var(--radius-card); background: var(--color-bg); box-shadow: var(--shadow-card);
@@ -501,6 +507,8 @@ table { font-variant-numeric: tabular-nums; }
 .prose h2 { margin-top: var(--space-12); margin-bottom: var(--space-3); font-size: var(--text-2xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-title); }
 .prose h2:first-child { margin-top: 0; }
 .prose p, .prose ul { color: var(--color-ink-2); }
+.prose .prose-lead { color: var(--color-ink); font-size: var(--text-lg); }
+.glossary-sources { margin-top: var(--space-12); padding-top: var(--space-6); border-top: var(--border-hairline) solid var(--color-line); }
 .prose p + p, .prose p + ul, .prose ul + p { margin-top: var(--space-4); }
 .prose ul { padding-left: 1.2em; display: grid; gap: var(--space-1-5); }
 .prose li::marker { color: var(--color-inverse); }
@@ -520,6 +528,7 @@ table { font-variant-numeric: tabular-nums; }
 .person-card { display: grid; grid-template-columns: var(--size-avatar) minmax(0, 1fr); gap: var(--space-5); padding: var(--space-7); border-radius: var(--radius-card); background: var(--color-surface); }
 .avatar { display: grid; place-items: center; width: var(--size-avatar); height: var(--size-avatar); border-radius: var(--radius-pill); background: var(--color-bg); color: var(--color-ink-3); font-size: var(--text-lg); font-weight: var(--weight-heavy); }
 .person-card p { margin-top: var(--space-2); color: var(--color-ink-2); font-size: var(--text-md); }
+.person-card .person-role { margin-top: var(--space-1); font-weight: var(--weight-semibold); }
 @media (max-width: 760px) { .people { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Forms ---------- */

@@ -71,7 +71,7 @@ export default function Page() {
                 </article>
               ))}
             </div>
-            <div className="prose" style={{ marginTop: 48, paddingTop: 24, borderTop: "1px solid var(--color-line)" }}>
+            <div className="prose glossary-sources">
               <h2>Sources</h2>
               <ul>
                 {glossarySources.map((s) => (

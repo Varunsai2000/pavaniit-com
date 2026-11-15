@@ -179,7 +179,7 @@ export default function Home() {
             </p>
           </div>
           <ComparisonTable />
-          <div style={{ marginTop: 24 }}>
+          <div className="section-foot">
             <MoreLink href="/employer-of-record-india/">How Employer of Record works in India</MoreLink>
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function Home() {
               <PriceCard key={p.id} price={p} lead={i === 0} />
             ))}
           </div>
-          <div style={{ marginTop: 24 }}>
+          <div className="section-foot">
             <MoreLink href="/pricing/">All prices, including staffing and training</MoreLink>
           </div>
         </div>

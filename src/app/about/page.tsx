@@ -49,7 +49,7 @@ export default function Page() {
                 <span className="avatar" aria-hidden="true">{initials(p.name)}</span>
                 <div>
                   <h3 className="h3"><V>{p.name}</V></h3>
-                  <p className="small" style={{ marginTop: 4, fontWeight: 600 }}><V>{p.role}</V></p>
+                  <p className="person-role"><V>{p.role}</V></p>
                   <p><V>{p.background}</V></p>
                 </div>
               </article>

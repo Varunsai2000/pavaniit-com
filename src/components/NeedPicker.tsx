@@ -24,7 +24,7 @@ export default function NeedPicker() {
         }.`;
 
   return (
-    <div style={{ display: "grid", gap: 18 }}>
+    <div className="need-picker">
       <fieldset className="need">
         <legend>What do you need help with?</legend>
         <div className="need-chips">

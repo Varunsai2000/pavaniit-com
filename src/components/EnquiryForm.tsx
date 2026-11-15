@@ -129,7 +129,7 @@ export default function EnquiryForm() {
           </div>
         ))}
         {errors.need && (
-          <p className="small" id="need-error" style={{ color: "var(--color-danger)", flexBasis: "100%" }}>
+          <p className="field-error" id="need-error">
             {errors.need}
           </p>
         )}
@@ -206,7 +206,7 @@ function Field({
         aria-describedby={error ? `${id}-error` : undefined}
       />
       {error && (
-        <p className="small" id={`${id}-error`} style={{ color: "var(--color-danger)" }}>
+        <p className="field-error" id={`${id}-error`}>
           {error}
         </p>
       )}

@@ -80,7 +80,7 @@ export default function MonthCycle() {
                 .filter(Boolean)
                 .join(" ");
               return (
-                <span key={day} className={cls} style={dueIndex >= 0 ? ({ "--i": dueIndex } as React.CSSProperties) : undefined}>
+                <span key={day} className={cls}>
                   {day}
                 </span>
               );

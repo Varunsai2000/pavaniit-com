@@ -57,7 +57,7 @@ export default function Journey({ children }: { children: React.ReactNode }) {
   return (
     <div className="journey" ref={ref} data-reveal={state}>
       {geo && (
-        <svg className="journey-path" viewBox={`0 0 ${geo.w} ${geo.h}`} aria-hidden="true" style={{ zIndex: 2 }}>
+        <svg className="journey-path" viewBox={`0 0 ${geo.w} ${geo.h}`} aria-hidden="true">
           <path className="track" d={geo.d} />
           <path className="draw" d={geo.d} pathLength={1} />
         </svg>

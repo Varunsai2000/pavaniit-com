@@ -22,9 +22,9 @@ export default function Page() {
     <StagePage stage={stage}>
       <section className="section on-mist" aria-labelledby="tracks-title">
         <div className="wrap depth">
-          <div>
+          <div className="heading-stack">
             <h2 className="h2" id="tracks-title">Training that matches what you hire for</h2>
-            <p className="lead" style={{ marginTop: 16 }}>
+            <p className="lead">
               We build programmes from the skills your teams use every day, so time in training turns into project work.
             </p>
           </div>

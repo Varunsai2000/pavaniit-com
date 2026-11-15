@@ -17,9 +17,9 @@ export default function Page() {
     <StagePage stage={stage}>
       <section className="section on-mist" aria-labelledby="duties-title">
         <div className="wrap depth">
-          <div>
+          <div className="heading-stack">
             <h2 className="h2" id="duties-title">Who does what</h2>
-            <p className="lead" style={{ marginTop: 16 }}>
+            <p className="lead">
               You direct the work. Pavani IT carries the employer&apos;s legal obligations in India.
             </p>
           </div>
