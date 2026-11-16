@@ -30,7 +30,7 @@ export default function Page() {
           <ol className="steps">
             {steps.map((s, i) => (
               <li key={s.t}>
-                <span className="step-n">Step {i + 1}</span>
+                <span className="step-n"><span className="sr-only">Step </span>{i + 1}</span>
                 <h3 className="h4">{s.t}</h3>
                 <p>{s.d}</p>
               </li>
