@@ -18,7 +18,7 @@ const faq = [
   },
   {
     q: "What do we pay on top of the salary?",
-    a: `Employer PF (8%), ESI where applicable, our fee, 18% GST on the fee, and a 1% FX conversion fee on payments from abroad. For a ${eorExample.salary} monthly salary that comes to about ${eorExample.total.inr} (${eorExample.total.usd}) a month.`,
+    a: `Employer PF (12% of basic pay), ESI where applicable, our fee, 18% GST on the fee, and a 1% FX conversion fee on payments from abroad. For a ${eorExample.salary} monthly salary that comes to about ${eorExample.total.inr} (${eorExample.total.usd}) a month.`,
   },
   {
     q: "Is there a deposit?",

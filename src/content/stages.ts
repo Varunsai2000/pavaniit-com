@@ -91,7 +91,7 @@ export const stages: Stage[] = [
     metaTitle: "Employer of Record (EOR) in India | Pavani IT",
     metaDescription:
       "Hire full-time employees in India without an Indian entity. Pavani IT is the legal employer and runs contracts, payroll, PF, ESI, tax and exits under Indian law.",
-    lead: "An Employer of Record (EOR) is a company that legally employs people on your behalf. With Pavani IT as your Employer of Record in India, your team works full-time for you while we hold the employment contract and run payroll, taxes, benefits and statutory filings under Indian law. You don't need an Indian entity.",
+    lead: "An Employer of Record (EOR) is a company that legally employs people on your behalf. With Pavani IT as your Employer of Record in India, your team works full-time for you while we hold the employment contract and run payroll, taxes, statutory benefits and filings under Indian law. You don't need an Indian entity.",
     services: [
       {
         id: "employer-of-record",
@@ -103,7 +103,7 @@ export const stages: Stage[] = [
           "Salary paid in rupees every month, with payslips",
           "Income tax (TDS), PF, ESI, professional tax and labour welfare fund deducted and filed",
           "Statutory leave, bonus and gratuity where they apply",
-          "Health insurance for your employees",
+          "Employee records and leave administration",
           "Exits handled, including full-and-final settlement within the legal deadline",
         ],
       },
@@ -111,12 +111,12 @@ export const stages: Stage[] = [
         id: "onboarding",
         name: "Onboarding",
         short:
-          "Offer letters, employment contracts, background checks, PF and ESI enrolment and health cover, finished before day one.",
+          "Offer letters, employment contracts, background checks and PF and ESI enrolment, finished before day one.",
         details: [
           "Offer letter and employment contract",
           "Background, education and employment checks",
           "PF enrolment and UAN linking, ESI where the salary is eligible",
-          "Health insurance cover",
+          "Employee record set up for payroll and leave",
           "A first-day checklist shared with you and the new hire",
         ],
       },
@@ -269,7 +269,7 @@ export const stageById = (id: StageId): Stage => {
 export const homeFaq: QA[] = [
   {
     q: "What is an Employer of Record?",
-    a: "An Employer of Record is a company that legally employs someone on your behalf. The person works for you full-time, while the Employer of Record holds the employment contract and handles payroll, taxes, benefits and statutory filings in India.",
+    a: "An Employer of Record is a company that legally employs someone on your behalf. The person works for you full-time, while the Employer of Record holds the employment contract and handles payroll, taxes, statutory benefits and filings in India.",
   },
   {
     q: "Do we need an Indian company to hire through Pavani IT?",

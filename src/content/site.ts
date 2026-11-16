@@ -85,7 +85,7 @@ export const eorPlans: Plan[] = [
     so the receipt adds up in both currencies. */
 const exampleRows = [
   { label: "Employee salary", inr: 50000 },
-  { label: "Employer PF (8%)", inr: 4000 },
+  { label: "Employer PF (12% of basic pay)", inr: 4000 },
   { label: "EOR service fee", inr: 8200 },
   { label: "GST (18% on the EOR fee)", inr: 1476 },
   { label: "FX conversion fee (1%)", inr: 637 },
@@ -180,6 +180,13 @@ export const prices: Price[] = [
   },
 ];
 
+/** One line of scope under each package, from the price sheet's covered services. */
+const planScope: Record<string, string> = {
+  "eor-employee": "Onboarding, monthly payroll, PF, ESI, TDS and professional tax, statutory filings and exit, for one employee.",
+  "eor-team": "The same service for every employee, at a lower rate once you employ six or more people in India.",
+  "eor-contractor": "A contract under Indian law, monthly payment in rupees with invoices, and TDS deducted where the law requires it.",
+};
+
 /** The three packages as price cards (home and pricing pages). */
 export const eorPlanCards: Price[] = eorPlans.map((p) => ({
   id: p.id,
@@ -189,6 +196,7 @@ export const eorPlanCards: Price[] = eorPlans.map((p) => ({
   amountLocal: p.inr,
   unit: p.unit,
   includes: [],
+  note: planScope[p.id],
 }));
 
 /** What the Employer of Record fee covers. */
@@ -205,8 +213,9 @@ export const eorCovered = [
 
 /** The terms that sit under the price. */
 export const eorNotes = [
-  "The employee's PF (8%), professional tax (₹200) and TDS are deducted from their salary.",
-  "Employer PF (8%), ESI (where applicable) and GST are included in the company cost.",
+  "The example assumes basic pay of ₹33,333, two-thirds of the salary. PF is 12% of basic pay, which is ₹4,000 here.",
+  "The employee's own PF (also 12% of basic pay), professional tax (₹200) and TDS are deducted from their salary.",
+  "Employer PF, ESI (where applicable) and GST are included in the company cost.",
   "An FX conversion fee of 1% applies to payments from abroad.",
   "A one-month refundable salary deposit may apply.",
 ];

@@ -38,7 +38,7 @@ Every item in `docs/polish-checklist.md` is ticked, and every change is pushed t
 1. **Company details** in `src/content/site.ts`: registered company name, CIN, GSTIN, street address and phone. Until they're set the site leaves them out (no placeholders show); each appears in the footer, contact page and structured data as soon as it's filled. Indian company law expects a company's website to show its name, registered office, CIN, phone and email (Companies Act 2013, section 12(3)(c)); worth confirming with your CA. City is set: Vijayawada, Andhra Pradesh.
 2. **Confirm the researched prices** for the other services (see the log), since they are published offers.
 3. **People on the About page** (founder and compliance advisor). The section is hidden until a name, role and background are set for someone.
-4. **Open questions 1 to 4 below** (PF wording, benefits mentioned outside the price sheet, what the contractor package covers, which price the hero leads with).
+4. **Check the settled open questions below** (PF wording, health insurance removed, contractor package scope, hero price).
 5. **Domain:** pavaniit.com pointed at the host. Email is settled: biz@pavaniit.com is the one address on the site.
 6. **Contact form:** a free Web3Forms access key, so enquiries arrive by email instead of opening the visitor's email app. The privacy notice then needs to name Web3Forms as a service that receives form data.
 7. **Hosting:** Cloudflare Pages or Netlify. Both read the security headers already in `public/_headers`. Build command `npm run build`, output folder `out`, then point the domain at it.
@@ -51,14 +51,17 @@ A running log of section-level changes made by the polish loop, and the question
 
 ## Open questions
 
-1. **Employer PF rate.** The price sheet shows "Employer PF (8%)" and "Employee's PF (8%)", so the site shows 8%. The statutory rate is 12% of basic wages; 8% of gross matches that only when basic is two-thirds of gross. Consider wording such as "Employer PF (12% of basic wages)" so it can't be read as a non-statutory rate.
-2. **Health insurance, gratuity and labour welfare fund.** Older Employer of Record copy (the EOR page's service list, its FAQ, the glossary) mentions these. They are not in the price sheet's "Services covered", so they were taken off the price card. Confirm whether they are offered; if not, they should come off the EOR page too.
-3. **Independent contractor package ($26 / ₹2,400).** The site shows the price only. What does it cover (contracts, invoicing, payments)?
-4. **Hero price line.** It reads "From $69 per employee per month", the six-employee rate. Switch it to "$87 per employee per month" if you'd rather lead with the single-hire price.
-5. ~~Other prices~~ Set from research on 16 November 2026 (see the log). Confirm or adjust them before launch: they are published offers.
+Settled on 16 November 2026 (launch loop, round 3). Each is a conservative call; change any of them in `src/content/site.ts` or `src/content/stages.ts`.
+
+1. **Employer PF rate: settled.** Your numbers are unchanged. The worked example now labels the ₹4,000 as "Employer PF (12% of basic pay)", the statutory rate, and a note says the example assumes basic pay of ₹33,333 (two-thirds of the ₹50,000 salary), on which 12% is ₹4,000. "8%" could have been read as a non-statutory rate.
+2. **Health insurance: removed.** It isn't in the price sheet, so it no longer appears in the Employer of Record and onboarding service lists or the duties table. Gratuity, statutory leave and the labour welfare fund stay, because the law requires them. If you do offer health insurance, add it back with its price.
+3. **Contractor package: scoped.** The $26 card says: a contract under Indian law, monthly payment in rupees with invoices, and TDS deducted where the law requires it. Confirm this matches what you provide.
+4. **Hero price line: kept** as "From $69 per employee per month", the lowest real per-employee price.
+5. **Other prices: set from research** (see the log). Confirm or adjust them before launch: they are published offers.
 
 ## Log
 
+- **Open questions settled** (launch loop). PF shown as 12% of basic pay with your ₹4,000 figure and the basic-pay assumption stated; health insurance removed everywhere it was implied as included; "benefits" now says "statutory benefits"; each EOR package card carries one line of scope from the price sheet (the contractor line is a conservative scope to confirm); the price cards' buttons line up along the bottom of the rail.
 - **No placeholders anywhere** (your request). Nothing in square brackets shows on any page, in meta tags or in structured data (checked on all 11 pages). Company facts are not invented: the footer reads "© 2026 Pavani IT." until the registered name is set, and adds the CIN, GSTIN and phone (as a tap-to-call link) once each is set; the contact page's phone row and the street address appear the same way; the privacy notice names the registered company once it's set; the About page's "Who you will work with" section appears once a person's name, role and background are set.
 - **Prices for every service** (your request: research them and anchor them to the EOR pricing). Shown in dollars converted from rupees at ₹94, with rupees beside them; all fees are before 18% GST. Reasoning and sources:
   - **Recruitment: 8.33% of annual CTC** (one month's salary), charged when the person joins, with a 90-day replacement guarantee. Indian agencies charge 8.33% to 12.5% for junior and mid-level roles and 15% to 20% for senior roles; 90 days is the most common guarantee ([Hyring](https://hyring.com/blog/recruitment-agency-fees-india/), [GoodSpace](https://goodspace.ai/blogs/recruitment-agency-fees-india)). The bottom of the range fits your low-fee EOR positioning.

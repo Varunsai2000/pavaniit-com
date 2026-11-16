@@ -362,7 +362,7 @@ table, .price-amount, .pl-amount, .cycle-n, .month-grid, .month-list .d { font-v
 .price-includes li { display: grid; grid-template-columns: var(--icon-md) minmax(0, 1fr); gap: var(--space-3); font-size: var(--text-md); color: var(--color-ink-2); line-height: var(--leading-normal); }
 .price-includes li svg { width: var(--icon-md); height: var(--icon-md); color: var(--color-ink); margin-top: var(--space-0-5); }
 .price-note { margin-top: var(--space-5); padding-top: var(--space-4); border-top: var(--border-hairline) solid var(--color-line); font-size: var(--text-sm); color: var(--color-ink-2); }
-.price-cta { margin-top: var(--space-6); }
+.price-cta { margin-top: auto; padding-top: var(--space-6); } /* buttons line up along the bottom of the rail */
 .price-card.is-lead .price-unit, .price-card.is-lead .price-includes li, .price-card.is-lead .price-note { color: var(--color-on-inverse-2); }
 .price-card.is-lead .price-includes li svg { color: var(--color-on-inverse); }
 .price-card.is-lead .price-note { border-top-color: var(--color-inverse-line); }

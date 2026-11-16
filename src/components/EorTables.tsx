@@ -6,7 +6,7 @@ const duties: { task: string; who: "you" | "us" }[] = [
   { task: "Employment contract that follows Indian labour law", who: "us" },
   { task: "Monthly payroll, income tax deduction and payslips", who: "us" },
   { task: "PF, ESI, gratuity and professional tax", who: "us" },
-  { task: "Health insurance and statutory leave", who: "us" },
+  { task: "Statutory leave and leave records", who: "us" },
   { task: "Exit paperwork and full-and-final settlement", who: "us" },
 ];
 
