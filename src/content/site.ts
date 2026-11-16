@@ -146,7 +146,7 @@ export const prices: Price[] = [
       "All statutory costs and filings",
       "Option to move them onto your payroll",
     ],
-    note: `Minimum ${usd(toUsd(6500))} (${inr(6500)}) per person per month, our Employer of Record rate for six or more people.`,
+    note: `Minimum ${usd(toUsd(8200))} (${inr(8200)}) per person per month, the same as our Employer of Record fee, since we carry the same employer duties.`,
   },
   {
     id: "payroll",
