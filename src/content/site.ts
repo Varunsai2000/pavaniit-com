@@ -122,14 +122,15 @@ export const prices: Price[] = [
     id: "recruitment",
     service: "Recruitment",
     stage: "Hire",
-    amount: "8.33%",
-    unit: "of annual CTC, once the person joins",
+    amount: "One month's salary",
+    amountLocal: "8.33% of annual CTC",
+    unit: "charged once the person joins",
     includes: [
       "Role brief, sourcing and screening",
       "Shortlist with salary and notice-period details",
       "Offer negotiation and follow-up through notice period",
     ],
-    note: "That is one month's salary. If the person leaves within 90 days of joining, we find a replacement at no extra fee.",
+    note: "If the person leaves within 90 days of joining, we find a replacement at no extra fee.",
   },
   {
     id: "staffing",

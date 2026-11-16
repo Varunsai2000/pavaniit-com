@@ -256,7 +256,7 @@ export const stageLinkLabel = (stage: Stage) =>
 export const handoff: Record<StageId, string> = {
   hire: "Once they accept, we can employ them.",
   employ: "Once they're on board, we run their payroll.",
-  pay: "Once payroll runs, help them grow.",
+  pay: "Once payroll runs, we help them grow.",
   grow: "Need more people? Start with hiring.",
 };
 

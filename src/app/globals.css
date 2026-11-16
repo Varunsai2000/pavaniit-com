@@ -310,6 +310,7 @@ table, .price-amount, .pl-amount, .cycle-n, .month-grid, .month-list .d { font-v
 .month-list li > :first-child { justify-self: center; text-align: center; }
 .month-list .d { font-size: var(--text-lg); font-weight: var(--weight-heavy); font-variant-numeric: tabular-nums; }
 .month-list .d-small { font-size: var(--text-xs); font-weight: var(--weight-bold); color: var(--color-ink-3); }
+.month-foot { padding-top: var(--space-3); border-top: var(--border-hairline) solid var(--color-line); font-size: var(--text-sm); color: var(--color-ink-3); text-wrap: pretty; }
 
 /* ---------- Tables ---------- */
 

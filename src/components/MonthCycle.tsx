@@ -136,6 +136,9 @@ export default function MonthCycle() {
             <span className="badge badge-neutral">Tracked</span>
           </li>
         </ul>
+        <p className="month-foot">
+          These are the legal deadlines. Tax and PF/ESI paid this month are for last month&apos;s salaries.
+        </p>
       </div>
     </div>
   );

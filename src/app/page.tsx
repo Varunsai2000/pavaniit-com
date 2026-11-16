@@ -34,7 +34,7 @@ const monthly = [
 const depth = [
   { k: "Notice periods", v: "Most candidates serve 30 to 90 days' notice. We stay in touch through it, so accepted offers turn into people who join." },
   { k: "State rules", v: "Professional tax, labour welfare fund and shops and establishments rules differ by state. We register and file in each state you employ in." },
-  { k: "The labour codes", v: "In force since 21 November 2025, with states still issuing their rules. Salary structures have to meet the new definition of wages." },
+  { k: "The labour codes", v: "In force since 21 November 2025, with each state's own rules on top. Salary structures have to meet the new definition of wages." },
   { k: "Exit deadlines", v: "Under the Code on Wages, dues on exit must be paid within two working days, so we plan the full-and-final settlement before the last day." },
   { k: "CTC offers", v: "Indian offers are quoted as annual cost to company. We show you and the candidate what monthly take-home pay will be before anyone signs." },
 ];

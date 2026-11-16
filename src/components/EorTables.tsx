@@ -61,7 +61,7 @@ const rows: { label: string; eor: string; entity: string; contractors: string }[
   },
   {
     label: "PF, ESI, gratuity, leave",
-    eor: "Yes, from day one",
+    eor: "Yes, set up from day one",
     entity: "Yes",
     contractors: "No statutory benefits",
   },
