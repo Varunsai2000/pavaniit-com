@@ -234,7 +234,7 @@ export const stages: Stage[] = [
     faq: [
       {
         q: "How long is a hire-train-deploy cohort?",
-        a: "It depends on the role and the gap between graduate skills and your stack. We agree the length and curriculum with you before selection starts.",
+        a: "Up to 12 weeks, depending on the role and the gap between graduate skills and your stack. We agree the length and curriculum with you before selection starts.",
       },
       {
         q: "Do you run POSH training?",

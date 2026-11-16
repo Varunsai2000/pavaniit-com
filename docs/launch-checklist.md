@@ -1,0 +1,37 @@
+# Launch checklist
+
+Work top to bottom, one item per round. For each item: review it at 1440px and 390px, fix what's wrong, rebuild, re-check both widths, tick it, add a line to the Done log, log section-level changes in `docs/decisions.md`, then commit and push to `main`.
+
+## Rules for every round
+
+- **No visible placeholders.** No bracketed text anywhere on the site. Facts only Pavani IT can supply (registered company name, CIN, GSTIN, street address, phone, people's names and backgrounds, LinkedIn URL) are never invented: whatever depends on them is hidden until the real value is set in `src/content/site.ts`, and appears automatically once it is.
+- **Real information only.** Prices follow the EOR price sheet and the researched prices recorded in `docs/decisions.md`. No invented clients, logos, testimonials, statistics, awards or certifications.
+- **Every animation explains something.** Motion follows the existing system (tokens, reduced motion, nothing hidden without JavaScript).
+- **Design system.** Every value comes from `src/app/tokens.css`; one content edge and the 12-column grid; pure monochrome; Manrope only.
+- **Accessibility and layout.** WCAG 2.2 AA, keyboard and focus, 44px touch targets, no sideways scroll from 375 to 1920px.
+
+## Items
+
+- [x] **Prices.** Set researched prices for recruitment, contract staffing, payroll, training and hire-train-deploy, anchored to the EOR fee, in dollars with rupees beside them. Show the rupee amount and the note in the pricing page's price list. Say that fees exclude GST.
+- [ ] **No placeholders.** Footer, contact page, About page, privacy notice and structured data render only real company details; the About page's people section is hidden until names are set.
+- [ ] **Open questions settled.** Benefits mentioned outside the price sheet, the contractor package scope, PF wording, hero price line. Decide conservatively and log each decision.
+- [ ] **Home page review**, every section: hero, stages, monthly calendar, comparison, prices, India details, FAQ, call to action.
+- [ ] **Recruitment and staffing page review**, every section.
+- [ ] **Employer of Record page review**, every section.
+- [ ] **Payroll and compliance page review**, every section.
+- [ ] **Training page review**, every section.
+- [ ] **Pricing page review**, every section.
+- [ ] **About page review**, every section.
+- [ ] **Glossary review**: definitions accurate as of November 2026, labour-codes wording current.
+- [ ] **Contact page and form**: validation, errors, success state, email fallback without a Web3Forms key, keyboard and screen-reader behaviour.
+- [ ] **Privacy notice**: matches what the site actually does (no analytics, form handling, hosting, email), DPDP Act 2023 points, a way to contact for privacy requests.
+- [ ] **404 page review.**
+- [ ] **Header, menus and footer review** on every width: services menu, mobile menu, focus order, Escape, links.
+- [ ] **Search and sharing**: titles and descriptions per page, canonical URLs, sitemap, robots, structured data validity, Open Graph image (no outdated prices or currency), favicon set.
+- [ ] **Accessibility audit**: automated scan of every page plus keyboard pass; fix every finding.
+- [ ] **Performance**: image weights, fonts, unused CSS or JS, load metrics on phone.
+- [ ] **Final check**: all pages at 375, 768, 1440 and 1920px; no placeholders, console errors, broken links or sideways scroll. Write a short launch summary at the top of `docs/decisions.md` listing what Pavani IT still needs to supply and the hosting steps. Then stop the loop.
+
+## Done log
+
+- Prices: researched rates for recruitment (8.33% of annual CTC, 90-day replacement), contract staffing (12% of monthly CTC, minimum the EOR fee), payroll ($5 / ₹500 per employee, minimum ₹5,000), training ($638 / ₹60,000 a day for up to 20) and hire-train-deploy ($1,596 / ₹1,50,000 per graduate who joins). Rupees and terms now show in the pricing page list; fees noted as before GST. Checked at 1440 and 390px.

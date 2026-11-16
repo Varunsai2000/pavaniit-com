@@ -144,7 +144,7 @@ export default function Page() {
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="others-title">Other services</h2>
-            <p className="lead">Recruitment, contract staffing, payroll for your own entity, and training.</p>
+            <p className="lead">Recruitment, contract staffing, payroll for your own entity, and training. Fees are before 18% GST.</p>
           </div>
           <ul className="price-list">
             {others.map((p) => (
@@ -155,7 +155,8 @@ export default function Page() {
                 </div>
                 <div className="pl-price">
                   <p className="pl-amount"><V>{p.amount}</V></p>
-                  <p>{p.unit}</p>
+                  <p>{p.amountLocal && <span className="price-local">{p.amountLocal} </span>}{p.unit}</p>
+                  {p.note && <p className="pl-note">{p.note}</p>}
                 </div>
                 <ul className="pl-includes">
                   {p.includes.map((item) => (
