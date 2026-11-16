@@ -26,7 +26,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - [x] **Contact page and form**: validation, errors, success state, email fallback without a Web3Forms key, keyboard and screen-reader behaviour.
 - [x] **Privacy notice**: matches what the site actually does (no analytics, form handling, hosting, email), DPDP Act 2023 points, a way to contact for privacy requests.
 - [x] **AI-run positioning and lower prices** (your answers): one plain line on AI plus people where fees are explained; other services about 35% below market; AI providers in the privacy notice.
-- [ ] **404 page review.**
+- [x] **404 page review.**
 - [ ] **Header, menus and footer review** on every width: services menu, mobile menu, focus order, Escape, links.
 - [ ] **Search and sharing**: titles and descriptions per page, canonical URLs, sitemap, robots, structured data validity, Open Graph image (no outdated prices or currency), favicon set.
 - [ ] **Accessibility audit**: automated scan of every page plus keyboard pass; fix every finding.
@@ -49,3 +49,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - Contact form: on-screen fallback (address plus copy button) when no email app opens; fields stay aligned when one shows an error. Validation, focus, keyboard, hand-off and copy tested at 1440 and 390px.
 - Privacy notice: enquiry handling described as it really works (email app now, Web3Forms once its key is set); host logs, data outside India and adults-only added; dated 16 November 2026. 1440 and 390px.
 - AI-run positioning: line on home prices, pricing intro, About, a new FAQ and llms.txt; human-team overstatements reworded; prices lowered (5%, 8% with ₹6,500 minimum, ₹300 with ₹3,000 minimum, ₹40,000 a day, ₹1,00,000 per graduate); privacy notice lists AI providers. 1440 and 390px.
+- 404 page: own title, one noindex tag, direct links to the four stages and pricing. 1440 and 390px.

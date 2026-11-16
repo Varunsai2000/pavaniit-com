@@ -657,6 +657,10 @@ select.input { appearance: none; padding-right: var(--space-10); background: var
 /* ---------- 404 ---------- */
 
 .nf { min-height: var(--nf-min-h); display: grid; align-content: center; justify-items: start; gap: var(--space-4); padding-block: var(--section-y); }
+.nf .cta-actions { margin-top: var(--space-2); }
+.nf-links { margin-top: var(--space-4); font-size: var(--text-md); color: var(--color-ink-3); }
+.nf-links a { font-weight: var(--weight-semibold); color: var(--color-ink); text-decoration: underline; text-decoration-thickness: var(--border-hairline); text-underline-offset: var(--underline-offset); text-decoration-color: var(--color-line-strong); }
+@media (hover: hover) and (pointer: fine) { .nf-links a:hover { text-decoration-color: var(--color-ink); } }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: var(--dur-none) !important; }

@@ -1,5 +1,11 @@
-import { Words } from "@/components/bits";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { Words } from "@/components/bits";
+import { stages } from "@/content/stages";
+
+export const metadata: Metadata = {
+  title: "Page not found | Pavani IT",
+};
 
 export default function NotFound() {
   return (
@@ -10,6 +16,15 @@ export default function NotFound() {
         <Link prefetch={false} className="btn btn-primary" href="/">Go to the home page</Link>
         <Link prefetch={false} className="btn btn-secondary" href="/contact/">Contact us</Link>
       </div>
+      <p className="nf-links">
+        Or go straight to{" "}
+        {stages.map((s) => (
+          <span key={s.id}>
+            <Link prefetch={false} href={s.href}>{s.label}</Link>,{" "}
+          </span>
+        ))}
+        or <Link prefetch={false} href="/pricing/">Pricing</Link>.
+      </p>
     </section>
   );
 }
