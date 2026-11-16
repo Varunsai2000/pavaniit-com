@@ -180,7 +180,6 @@ table, .price-amount, .pl-amount, .cycle-n, .month-grid, .month-list .d { font-v
 .mobile-group-title { font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-ink-3); margin-bottom: var(--space-1-5); }
 .mobile-link { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding-block: var(--space-3); font-size: var(--text-lg); font-weight: var(--weight-bold); text-decoration: none; }
 .mobile-link span { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-ink-2); text-align: right; }
-.mobile-actions { display: grid; gap: var(--space-3); margin-top: var(--space-6); }
 @media (max-width: 1040px) { .nav, .header-actions .header-contact, .services-menu { display: none; } .menu-toggle { display: inline-flex; } }
 @media (max-width: 400px) { .header-actions .btn { padding: 0 var(--space-3); } }
 

@@ -79,6 +79,37 @@ export default function Header() {
             Services
             <ChevronDown aria-hidden="true" />
           </button>
+          {/* Services menu: right after its button, so Tab moves into it when open. Links stay in the HTML for crawlers; visibility is CSS. */}
+          <div className="services-menu" id="services-menu" data-open={servicesOpen}>
+            <div className="wrap">
+              <div className="services-grid">
+                {stages.map((stage) => {
+                  return (
+                    <Link prefetch={false} key={stage.id} className="services-col" href={stage.href} tabIndex={servicesOpen ? 0 : -1}>
+                      <img src={`/illustrations/${stage.id}-160.webp`} alt="" width={76} height={57} loading="lazy" />
+                      <div>
+                        <span className="services-col-title">
+                          <span>0{stage.number}</span>
+                          {stage.label}
+                        </span>
+                        <ul>
+                          {stage.services.map((s) => (
+                            <li key={s.id}>{s.name}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="services-foot">
+                <span>HR advisory: handbooks, policies, POSH committees and the labour-code transition.</span>
+                <Link prefetch={false} href="/contact/" tabIndex={servicesOpen ? 0 : -1}>
+                  Ask about HR advisory
+                </Link>
+              </div>
+            </div>
+          </div>
           {primary.map((item) => (
             <Link prefetch={false}
               key={item.href}
@@ -108,38 +139,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Services menu: links stay in the HTML for crawlers; visibility is CSS. */}
-      <div className="services-menu" id="services-menu" data-open={servicesOpen}>
-        <div className="wrap">
-          <div className="services-grid">
-            {stages.map((stage) => {
-              return (
-                <Link prefetch={false} key={stage.id} className="services-col" href={stage.href} tabIndex={servicesOpen ? 0 : -1}>
-                  <img src={`/illustrations/${stage.id}-160.webp`} alt="" width={76} height={57} loading="lazy" />
-                  <div>
-                    <span className="services-col-title">
-                      <span>0{stage.number}</span>
-                      {stage.label}
-                    </span>
-                    <ul>
-                      {stage.services.map((s) => (
-                        <li key={s.id}>{s.name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          <div className="services-foot">
-            <span>HR advisory: handbooks, policies, POSH committees and the labour-code transition.</span>
-            <Link prefetch={false} href="/contact/" tabIndex={servicesOpen ? 0 : -1}>
-              Ask about HR advisory
-            </Link>
-          </div>
-        </div>
-      </div>
-
       <div className="mobile-menu" id="mobile-menu" hidden={!mobileOpen}>
         <div className="mobile-group">
           <p className="mobile-group-title">Services</p>
@@ -156,11 +155,6 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-        </div>
-        <div className="mobile-actions">
-          <Link prefetch={false} className="btn btn-primary btn-block" href="/contact/">
-            Book a call
-          </Link>
         </div>
       </div>
     </header>
