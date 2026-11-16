@@ -8,7 +8,7 @@ import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V, Words } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
-import { eorPlanCards, eorPlans } from "@/content/site";
+import { eorPlanCards, eorPlans, howWeWork } from "@/content/site";
 import { handoff, homeFaq, stageLinkLabel, stages } from "@/content/stages";
 
 export const metadata: Metadata = {
@@ -174,8 +174,7 @@ export default function Home() {
               Prices, in writing
             </h2>
             <p className="lead">
-              Employer of Record is one monthly fee per person, on top of their salary and statutory costs. Every fee is
-              in the proposal before you sign.
+              Employer of Record is one monthly fee per person, on top of their salary and statutory costs. {howWeWork}
             </p>
           </div>
           <div className="price-grid">

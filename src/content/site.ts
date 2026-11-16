@@ -37,6 +37,10 @@ export const site = {
   web3formsKey: "",
 } as const;
 
+/** Why the fees are low, said plainly: AI does the routine work, people do the rest. */
+export const howWeWork =
+  "AI handles the routine work, such as calculations, reminders and paperwork, and our people handle the rest and talk to you. That is why our fees are a fraction of the usual.";
+
 /** The office location from whichever parts are real: street address, city, state. */
 export const officeLine = (): string =>
   [site.address, site.city, site.state].map((v) => real(v)).filter(Boolean).join(", ");
@@ -122,49 +126,48 @@ export const prices: Price[] = [
     id: "recruitment",
     service: "Recruitment",
     stage: "Hire",
-    amount: "One month's salary",
-    amountLocal: "8.33% of annual CTC",
-    unit: "charged once the person joins",
+    amount: "5%",
+    unit: "of annual CTC, charged once the person joins",
     includes: [
       "Role brief, sourcing and screening",
       "Shortlist with salary and notice-period details",
       "Offer negotiation and follow-up through notice period",
     ],
-    note: "If the person leaves within 90 days of joining, we find a replacement at no extra fee.",
+    note: "That is about two and a half weeks' salary. If the person leaves within 90 days of joining, we find a replacement at no extra fee.",
   },
   {
     id: "staffing",
     service: "Contract staffing",
     stage: "Hire",
-    amount: "12%",
+    amount: "8%",
     unit: "of each person's monthly CTC",
     includes: [
       "We find the person and employ them on our payroll",
       "All statutory costs and filings",
       "Option to move them onto your payroll",
     ],
-    note: `Minimum ${usd(toUsd(8200))} (${inr(8200)}) per person per month, the same as our Employer of Record fee.`,
+    note: `Minimum ${usd(toUsd(6500))} (${inr(6500)}) per person per month, our Employer of Record rate for six or more people.`,
   },
   {
     id: "payroll",
     service: "Payroll and compliance",
     stage: "Pay",
-    amount: usd(toUsd(500)),
-    amountLocal: inr(500),
+    amount: usd(toUsd(300)),
+    amountLocal: inr(300),
     unit: "per employee per month",
     includes: [
       "Monthly payroll and payslips for your Indian entity",
       "TDS, PF, ESI, professional tax and labour welfare fund filings",
       "Labour-code registers and returns",
     ],
-    note: `Minimum ${usd(toUsd(5000))} (${inr(5000)}) a month.`,
+    note: `Minimum ${usd(toUsd(3000))} (${inr(3000)}) a month.`,
   },
   {
     id: "training",
     service: "Corporate training",
     stage: "Grow",
-    amount: usd(toUsd(60000)),
-    amountLocal: inr(60000),
+    amount: usd(toUsd(40000)),
+    amountLocal: inr(40000),
     unit: "per training day, for up to 20 people",
     includes: ["Curriculum built on your stack", "Live online or on-site", "End-of-programme assessment"],
     note: "Travel for on-site sessions outside Vijayawada is billed at cost.",
@@ -173,8 +176,8 @@ export const prices: Price[] = [
     id: "htd",
     service: "Hire, train, deploy",
     stage: "Grow",
-    amount: usd(toUsd(150000)),
-    amountLocal: inr(150000),
+    amount: usd(toUsd(100000)),
+    amountLocal: inr(100000),
     unit: "per graduate who joins your team",
     includes: ["Graduate selection against your role", "Up to 12 weeks of training on your stack", "Placement on your team"],
     note: "No fee for anyone who doesn't join. If a graduate leaves within 90 days, we place a replacement at no extra fee.",

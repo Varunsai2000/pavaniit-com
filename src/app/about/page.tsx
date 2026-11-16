@@ -13,7 +13,8 @@ export const metadata: Metadata = {
 const principles = [
   { k: "Prove it in writing", v: "Prices, scope and timelines go in the proposal before you sign. If it isn't written down, we don't charge for it." },
   { k: "India only", v: "We don't spread across 150 countries. Every rule we handle is one we work with every month." },
-  { k: "One partner, four stages", v: "Hiring, employing, paying and training are handled by the same team, so nothing is lost between vendors." },
+  { k: "AI for the routine, people for the rest", v: "Software and AI handle calculations, reminders and paperwork. Our people handle the rest and talk to you. That keeps fees low without cutting corners on Indian law." },
+  { k: "One partner, four stages", v: "Hiring, employing, paying and training run through one company, so nothing is lost between vendors." },
   { k: "Answer first", v: "Ask us a question and you get the answer, then the detail. Most of them are already on this site." },
 ];
 

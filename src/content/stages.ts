@@ -48,7 +48,7 @@ export const stages: Stage[] = [
         details: [
           "A scoping call and a written role brief before we start",
           "Sourcing from our network, job boards and referrals",
-          "Screening interviews and skills checks before anyone reaches you",
+          "Screening and skills checks before anyone reaches you",
           "A shortlist with notes on each candidate, salary expectations and notice period",
           "Offer negotiation, and follow-up through the notice period so accepted offers turn into joiners",
         ],
@@ -283,6 +283,10 @@ export const homeFaq: QA[] = [
   {
     q: "What do the new labour codes change?",
     a: "The four labour codes took effect on 21 November 2025. PF and gratuity are now calculated on a wider definition of wages, fixed-term employees qualify for gratuity after one year, and registrations and returns are consolidated. We review your salary structures and policies and tell you what needs to change.",
+  },
+  {
+    q: "How are your fees this low?",
+    a: "AI handles the routine work, such as calculations, reminders, document checks and drafts. Our people handle the rest and talk to you. That takes fewer hours per employee, so the fee is lower; the legal work and the filings are the same.",
   },
   {
     q: "We already use payroll software. Why use Pavani IT?",

@@ -88,8 +88,8 @@ export default function Page() {
               <li>
                 <strong>Service providers</strong> that run parts of our business:{" "}
                 {site.web3formsKey
-                  ? "our website host, our email provider, and Web3Forms, which delivers website enquiries to our inbox"
-                  : "our website host and our email provider"}
+                  ? "our website host, our email provider, Web3Forms, which delivers website enquiries to our inbox, and AI service providers that help us read enquiries and review CVs"
+                  : "our website host, our email provider, and AI service providers that help us read enquiries and review CVs"}
                 . They may only use your
                 data to provide that service. Some of them may store data outside India, which the law allows.
               </li>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import PriceCard from "@/components/PriceCard";
 import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V, Words } from "@/components/bits";
 import { abs, breadcrumbSchema } from "@/content/schema";
-import { eorCovered, eorExample, eorNotes, eorPlanCards, eorPlans, inrPerUsd, prices } from "@/content/site";
+import { eorCovered, eorExample, eorNotes, eorPlanCards, eorPlans, howWeWork, inrPerUsd, prices } from "@/content/site";
 
 export const metadata: Metadata = {
   title: `Pricing: Employer of Record in India from ${eorPlans[1].usd} a month | Pavani IT`,
@@ -63,7 +63,7 @@ export default function Page() {
             <h1 className="h1"><Words>Pricing</Words></h1>
             <p className="lead">
               Every fee for every service, in writing. Salaries and statutory employer costs are passed through at
-              cost; what you see here is what Pavani IT charges on top.
+              cost; what you see here is what Pavani IT charges on top. {howWeWork}
             </p>
           </div>
         </div>
