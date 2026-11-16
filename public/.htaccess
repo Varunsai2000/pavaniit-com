@@ -1,0 +1,48 @@
+# Server rules for Hostinger (LiteSpeed, Apache-compatible). Next.js copies this file into out/.
+# The same headers live in public/_headers for Cloudflare Pages and Netlify; change both together.
+# HTTPS is forced with hPanel's "Force HTTPS" switch, not here: a rule here can loop behind Hostinger's CDN.
+
+DirectoryIndex index.html
+Options -Indexes
+ErrorDocument 404 /404.html
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+  AddCharset UTF-8 .txt .xml
+</IfModule>
+
+# www.pavaniit.com goes to pavaniit.com, the address in the canonical tags and the sitemap.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.pavaniit\.com$ [NC]
+  RewriteRule ^ https://pavaniit.com%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # Next.js static export inlines small scripts and styles, so script-src and style-src allow 'unsafe-inline'.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'"
+
+  # Scripts, styles and fonts all come from /_next/static with a content hash in the name: cache for a year.
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Pages and text files: check for a newer copy every time, so an update shows at once.
+  <FilesMatch "\.(html|txt|xml)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Images keep their names between releases: cache for a day.
+  <FilesMatch "\.(webp|png|jpg|svg|ico)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
+
+# LiteSpeed compresses on its own; this covers a plain Apache server.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>

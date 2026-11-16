@@ -76,9 +76,18 @@ Next steps that make the biggest difference:
 
 ## Deploy
 
-`out/` is a plain static site. Cloudflare Pages (recommended; free for private repos) and Netlify both read `public/_headers` (security headers and caching) and serve `404.html`:
+The site is hosted free on Netlify. pavaniit.com is registered at Hostinger, and its DNS is managed there. `out/` is a plain static site.
 
-- Build command `npm run build`, output directory `out`.
+1. In Netlify, import `niteshballa/pavaniit-site` from GitHub. `netlify.toml` sets the build: `npm run build`, publish folder `out`, Node 22, and `NETLIFY_NEXT_PLUGIN_SKIP=true`, because a static export needs no Next.js server runtime. Netlify reads `public/_headers` (security headers and caching) and serves `404.html`. Every push to `main` deploys.
+2. Add `pavaniit.com` (primary) and `www.pavaniit.com` under the project's Domain management.
+3. In Hostinger's hPanel (Domains → pavaniit.com → DNS / Nameservers):
+   - **A record**, name `@`: change the value to `75.2.60.5` (Netlify's load balancer). It points at Hostinger's parking page today.
+   - **CNAME record**, name `www`: change the value to the site's `<name>.netlify.app` address.
+   - Leave every email record exactly as it is. biz@pavaniit.com runs on Google Workspace: the MX record (`smtp.google.com`), the SPF and DMARC TXT records and the `google._domainkey` DKIM record must not change.
+
+HTTPS is issued by Netlify automatically once DNS has spread. Full go-live steps are in `docs/decisions.md`.
+
+**Fallback, Hostinger web hosting:** `npm run zip` builds the site into `pavaniit-com.zip`; extract it into `public_html`. `public/.htaccess` gives Hostinger's server the same headers and caching as `public/_headers`; keep the two in step.
 
 ## Regenerating images
 

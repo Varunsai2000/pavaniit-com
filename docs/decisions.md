@@ -33,14 +33,22 @@ The site is ready to go live. Every item in `docs/launch-checklist.md` is done, 
    - the researched prices;
    - the privacy notice. Have someone qualified review it against the DPDP Act 2023 and Rules 2025.
 
-**Going live:**
-1. Create a Cloudflare Pages (or Netlify) project from the GitHub repository `niteshballa/pavaniit-site`. Build command `npm run build`, output folder `out`, Node 20 or later. Both hosts read the security headers in `public/_headers` and compress files automatically.
-2. Add the custom domain pavaniit.com (and www) in the host's dashboard, and point the DNS records it shows you at it. HTTPS is issued automatically.
-3. After the first deploy:
+**Going live on Netlify (free)**. The domain stays registered at Hostinger, and its DNS stays there too:
+1. In Netlify, choose **Add new project → Import an existing project → GitHub**, and pick `niteshballa/pavaniit-site`. The build settings come from `netlify.toml` (`npm run build`, publish folder `out`, Node 22, Next.js plugin skipped because the site is a static export). Every push to `main` then deploys on its own.
+   - If Netlify doesn't list the repository, the repository owner has to allow Netlify's GitHub app on their account.
+2. In the project's **Domain management**, add `pavaniit.com` as the primary domain, and `www.pavaniit.com` too.
+3. In Hostinger's hPanel, go to **Domains → pavaniit.com → DNS / Nameservers** and change two records:
+   - **A record**, name `@`: change the value to `75.2.60.5` (Netlify's load balancer). It points at Hostinger's parking page today.
+   - **CNAME record**, name `www`: change the value to the site's `<name>.netlify.app` address.
+   - Leave every email record exactly as it is. biz@pavaniit.com runs on Google Workspace: the MX record (`smtp.google.com`), the SPF and DMARC TXT records and the `google._domainkey` DKIM record must not change.
+4. Netlify issues the HTTPS certificate once the DNS change has spread, usually within an hour and sometimes up to 48 hours.
+5. After it's live:
    - open every page once;
    - send one test enquiry;
    - submit `https://pavaniit.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools;
    - paste the home URL into LinkedIn's Post Inspector to check the link preview.
+
+Hostinger web hosting stays possible as a fallback: `npm run zip` builds an upload for `public_html`, and `public/.htaccess` carries the same headers for Hostinger's server.
 
 ---
 
@@ -59,6 +67,8 @@ Settled on 16 November 2026 (launch loop, round 3). Each is a conservative call;
 
 ## Log
 
+- **Hosting: Netlify, free** (your choice, 16 November 2026). The Hostinger account has the domain but no hosting plan. The site is plain pages with no server code, so free hosting covers it, and every push deploys on its own. `netlify.toml` holds the build settings, and the domain's DNS stays at Hostinger. The steps are in the launch summary above.
+- **Hostinger fallback** (16 November 2026). Hostinger runs LiteSpeed, which ignores `public/_headers`, so `public/.htaccess` now carries the same rules. It sets the security headers (the 404 page included) and caches hashed scripts, styles and fonts for a year, images for a day and pages not at all, so updates show at once. It also serves `404.html` for missing pages, sets UTF-8 so ₹ shows correctly in `llms.txt`, and redirects www.pavaniit.com to pavaniit.com. HTTPS is left to hPanel's Force HTTPS switch. The rules were tested on Apache 2.4: every page loads with no blocked scripts or styles, and in-site navigation works. `npm run zip` builds the upload. Going-live steps are in the launch summary above.
 - **Pavani IT is an Employer of Record and hiring company; training comes from partners** (your direction, 16 November 2026: training "by people who excel at it"). The company description (meta tags, structured data, llms.txt), About, the footer and the pricing page no longer say Pavani IT trains people; they say it recruits, employs and pays, and brings in specialist partners for training. The training page says trainers come from specialist training partners chosen for the topic and stack, with a new FAQ "Who delivers the training?"; POSH sessions are arranged through partners; in hire-train-deploy, Pavani IT recruits and places, and partners train. About's principle "One partner, four stages" became "Do what we're best at". A `trainingPartners` list in `src/content/site.ts` is empty; add each partner once they agree to be named and the training page lists them (tested with a sample name, then removed).
 - **Performance** (launch loop). Measured on a throttled phone (slow 4G: 1.6 Mbps, 150 ms latency, 4× slower CPU, 3× screen). Inner pages paint their largest element in 0.8 to 1.4 s with no layout shift. The home page took 7.2 s because high-resolution phones downloaded the 1536px hero (341 KB) and 1200px stage pictures; there are now in-between sizes (hero 768 and 1200px, stage pictures 900px) and accurate size hints, so a phone gets the 1200px hero (171 KB) and a laptop gets 600px stage pictures. Home now paints in 3.6 s in the same test, which counts JavaScript uncompressed (479 KB here, about 188 KB gzipped): Cloudflare Pages and Netlify compress automatically, so real numbers will be lower. Fonts are self-hosted (59 KB); no analytics or third-party scripts. A preload hint for the hero was tried and removed: it made no measurable difference.
 - **Accessibility audit** (launch loop). axe-core 4.10 (WCAG 2.0, 2.1 and 2.2 A and AA, plus best practice) on all 11 pages at 1440 and 390px: one finding, the "On this page" sidebar on the glossary and privacy notice was an aside landmark inside the main landmark; it is now a plain container around its labelled navigation. Re-scan: no violations, colour contrast included. Keyboard pass on five pages (home, EOR, pricing, contact, glossary; 39 to 73 stops each): every stop shows a visible focus indicator, the skip link comes first, and focus order follows the page. Earlier rounds covered the menus (Escape, focus return), the form (errors announced, focus on the first error), reduced motion and no-JavaScript.
