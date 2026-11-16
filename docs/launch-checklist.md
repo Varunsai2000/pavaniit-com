@@ -28,7 +28,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - [x] **AI-run positioning and lower prices** (your answers): one plain line on AI plus people where fees are explained; other services about 35% below market; AI providers in the privacy notice.
 - [x] **404 page review.**
 - [x] **Header, menus and footer review** on every width: services menu, mobile menu, focus order, Escape, links.
-- [ ] **Search and sharing**: titles and descriptions per page, canonical URLs, sitemap, robots, structured data validity, Open Graph image (no outdated prices or currency), favicon set.
+- [x] **Search and sharing**: titles and descriptions per page, canonical URLs, sitemap, robots, structured data validity, Open Graph image (no outdated prices or currency), favicon set.
 - [ ] **Accessibility audit**: automated scan of every page plus keyboard pass; fix every finding.
 - [ ] **Performance**: image weights, fonts, unused CSS or JS, load metrics on phone.
 - [ ] **Final check**: all pages at 375, 768, 1440 and 1920px; no placeholders, console errors, broken links or sideways scroll. Write a short launch summary at the top of `docs/decisions.md` listing what Pavani IT still needs to supply and the hosting steps. Then stop the loop.
@@ -51,3 +51,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - AI-run positioning: line on home prices, pricing intro, About, a new FAQ and llms.txt; human-team overstatements reworded; prices lowered (5%, 8% with ₹6,500 minimum, ₹300 with ₹3,000 minimum, ₹40,000 a day, ₹1,00,000 per graduate); privacy notice lists AI providers. 1440 and 390px.
 - 404 page: own title, one noindex tag, direct links to the four stages and pricing. 1440 and 390px.
 - Header, menus and footer: services menu moved after its button so Tab enters it; duplicate phone-menu button removed; Escape, outside click, scroll lock, focus return and footer links checked at 1440 and 390px.
+- Search and sharing: link-preview image on every page; new sharing image with real prices (no invented example); home and pricing descriptions trimmed; company address in structured data; sitemap dated 16 November 2026.

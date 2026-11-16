@@ -7,16 +7,16 @@ export const abs = (path: string) => new URL(path, site.url).toString();
 
 export function organizationSchema() {
   const sameAs = [real(site.linkedin)].filter(Boolean);
-  const address =
-    real(site.address) && real(site.city)
-      ? {
-          "@type": "PostalAddress",
-          streetAddress: site.address,
-          addressLocality: site.city,
-          addressRegion: real(site.state),
-          addressCountry: "IN",
-        }
-      : undefined;
+  // City and state are enough for a valid address; the street joins once it's set.
+  const address = real(site.city)
+    ? {
+        "@type": "PostalAddress",
+        ...(real(site.address) ? { streetAddress: site.address } : {}),
+        addressLocality: site.city,
+        addressRegion: real(site.state),
+        addressCountry: "IN",
+      }
+    : undefined;
   return {
     "@context": "https://schema.org",
     "@type": "Organization",

@@ -4,6 +4,7 @@ import { ComparisonTable, DutiesTable } from "@/components/EorTables";
 import PriceCard from "@/components/PriceCard";
 import { MoreLink } from "@/components/bits";
 import { eorPlanCards } from "@/content/site";
+import { ogImage } from "@/content/site";
 import { stageById } from "@/content/stages";
 
 const stage = stageById("employ");
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: stage.metaTitle,
   description: stage.metaDescription,
   alternates: { canonical: stage.href },
-  openGraph: { title: stage.title, description: stage.metaDescription, url: stage.href },
+  openGraph: { title: stage.title, description: stage.metaDescription, url: stage.href, images: [ogImage] },
 };
 
 export default function Page() {

@@ -37,6 +37,15 @@ export const site = {
   web3formsKey: "",
 } as const;
 
+/** The sharing image (link previews on LinkedIn, WhatsApp, Slack). Every page's openGraph must include it,
+    because a page that sets its own openGraph replaces the layout's, image included. */
+export const ogImage = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "Pavani IT: Employer of Record in India from $69 per employee per month, no Indian entity needed",
+};
+
 /** Why the fees are low, said plainly: AI does the routine work, people do the rest. */
 export const howWeWork =
   "AI handles the routine work, such as calculations, reminders and paperwork, and our people handle the rest and talk to you. That is why our fees are a fraction of the usual.";

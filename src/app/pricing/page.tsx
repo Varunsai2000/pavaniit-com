@@ -7,7 +7,7 @@ import { eorCovered, eorExample, eorNotes, eorPlanCards, eorPlans, howWeWork, in
 
 export const metadata: Metadata = {
   title: `Pricing: Employer of Record in India from ${eorPlans[1].usd} a month | Pavani IT`,
-  description: `Employer of Record in India: ${eorPlans[0].usd} (${eorPlans[0].inr}) per employee per month, ${eorPlans[1].usd} from six employees, ${eorPlans[2].usd} per contractor. See a full monthly cost example and what the fee covers.`,
+  description: `Employer of Record in India: ${eorPlans[0].usd} (${eorPlans[0].inr}) per employee per month, ${eorPlans[1].usd} from six employees, ${eorPlans[2].usd} per contractor, plus every other service's fee and a worked monthly cost.`,
   alternates: { canonical: "/pricing/" },
 };
 

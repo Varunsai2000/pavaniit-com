@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Reveals from "@/components/Reveals";
 import { JsonLd } from "@/components/bits";
 import { organizationSchema, websiteSchema } from "@/content/schema";
-import { site } from "@/content/site";
+import { ogImage, site } from "@/content/site";
 import "./tokens.css";
 import "./globals.css";
 
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: "en_IN",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pavani IT: hire your team in India without an Indian entity" }],
+    images: [ogImage],
   },
   twitter: { card: "summary_large_image" },
 };

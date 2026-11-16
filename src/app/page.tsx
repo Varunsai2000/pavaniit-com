@@ -8,18 +8,18 @@ import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V, Words } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
-import { eorPlanCards, eorPlans, howWeWork } from "@/content/site";
+import { eorPlanCards, eorPlans, howWeWork, ogImage } from "@/content/site";
 import { handoff, homeFaq, stageLinkLabel, stages } from "@/content/stages";
 
 export const metadata: Metadata = {
   title: "Employer of Record in India | Pavani IT",
-  description:
-    "Hire full-time employees in India without an Indian entity. Pavani IT recruits, employs, pays and trains your team under Indian law, with payroll and compliance run in-house.",
+  description: `Hire full-time employees in India without an Indian entity. Pavani IT is your Employer of Record from ${eorPlans[1].usd} a month, with payroll and compliance included.`,
   alternates: { canonical: "/" },
   openGraph: {
     title: "Hire your team in India without setting up a company",
     description: "Pavani IT is an Indian Employer of Record: contracts, payroll, PF, ESI, tax and exits handled under Indian law.",
     url: "/",
+    images: [ogImage],
   },
 };
 
