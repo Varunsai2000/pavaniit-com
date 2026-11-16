@@ -187,7 +187,7 @@ export const stages: Stage[] = [
       },
       {
         q: "What do the new labour codes change for payroll?",
-        a: "The four labour codes took effect on 21 November 2025. PF and gratuity are now calculated on a wider definition of wages, so allowances above half of total pay count towards them; fixed-term employees qualify for gratuity after one year; and registrations and returns are being consolidated as states issue their rules. We review salary structures and tell you what has to change.",
+        a: "The four labour codes took effect on 21 November 2025. PF and gratuity are now calculated on a wider definition of wages, so allowances above half of total pay count towards them; fixed-term employees qualify for gratuity after one year; and registrations and returns are consolidated, with each state's own rules on top. We review salary structures and tell you what has to change.",
       },
       {
         q: "Can you run payroll for employees in different states?",
@@ -281,7 +281,7 @@ export const homeFaq: QA[] = [
   },
   {
     q: "What do the new labour codes change?",
-    a: "The four labour codes took effect on 21 November 2025. PF and gratuity are now calculated on a wider definition of wages, fixed-term employees qualify for gratuity after one year, and registrations and returns are being consolidated. We review your salary structures and policies and tell you what needs to change.",
+    a: "The four labour codes took effect on 21 November 2025. PF and gratuity are now calculated on a wider definition of wages, fixed-term employees qualify for gratuity after one year, and registrations and returns are consolidated. We review your salary structures and policies and tell you what needs to change.",
   },
   {
     q: "We already use payroll software. Why use Pavani IT?",
