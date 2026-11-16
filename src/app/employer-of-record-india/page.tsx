@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import StagePage from "@/components/StagePage";
 import { ComparisonTable, DutiesTable } from "@/components/EorTables";
+import PriceCard from "@/components/PriceCard";
+import { MoreLink } from "@/components/bits";
+import { eorPlanCards } from "@/content/site";
 import { stageById } from "@/content/stages";
 
 const stage = stageById("employ");
@@ -37,6 +40,26 @@ export default function Page() {
             </p>
           </div>
           <ComparisonTable />
+        </div>
+      </section>
+
+      <section className="section ruled" id="eor-pricing" aria-labelledby="eor-pricing-title">
+        <div className="wrap">
+          <div className="section-head">
+            <h2 className="h2" id="eor-pricing-title">What it costs</h2>
+            <p className="lead">
+              One monthly fee per person, on top of their salary and statutory costs. Every fee is in the proposal before
+              you sign.
+            </p>
+          </div>
+          <div className="price-grid">
+            {eorPlanCards.map((p, i) => (
+              <PriceCard key={p.id} price={p} lead={i === 0} />
+            ))}
+          </div>
+          <div className="section-foot">
+            <MoreLink href="/pricing/">What a month costs, worked through for one employee</MoreLink>
+          </div>
         </div>
       </section>
     </StagePage>

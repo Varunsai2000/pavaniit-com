@@ -17,7 +17,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - [x] **Open questions settled.** Benefits mentioned outside the price sheet, the contractor package scope, PF wording, hero price line. Decide conservatively and log each decision.
 - [x] **Home page review**, every section: hero, stages, monthly calendar, comparison, prices, India details, FAQ, call to action.
 - [x] **Recruitment and staffing page review**, every section.
-- [ ] **Employer of Record page review**, every section.
+- [x] **Employer of Record page review**, every section.
 - [ ] **Payroll and compliance page review**, every section.
 - [ ] **Training page review**, every section.
 - [ ] **Pricing page review**, every section.
@@ -39,3 +39,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - Open questions: PF labelled as 12% of basic pay (₹4,000 on an assumed ₹33,333 basic, stated in the notes); health insurance removed from EOR and onboarding lists and the duties table; "statutory benefits" wording; scope line on each EOR package card; card buttons aligned. Checked at 1440, 768 and 390px.
 - Home page: fixed the Pay hand-off line, the "from day one" gratuity claim, and dated labour-codes wording; added a legal-deadlines line to the calendar; recruitment shown as one month's salary. Every section read at 1440 and 390px; no sideways scroll.
 - Recruitment and staffing page: step badges showed overflowing "Step" text; now the number, with "Step" for screen readers. Every section read at 1440 and 390px.
+- Employer of Record page: added "What it costs" with the three EOR packages and a link to the monthly example; rest of the page checked. 1440 and 390px.
