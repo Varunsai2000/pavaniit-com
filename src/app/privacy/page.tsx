@@ -40,14 +40,14 @@ export default function Page() {
 
       <section className="section ruled">
         <div className="wrap doc">
-          <aside className="doc-aside">
+          <div className="doc-aside">
             <p className="h4">On this page</p>
             <nav aria-label="Sections">
               {sections.map(([id, label]) => (
                 <a key={id} href={`#${id}`}>{label}</a>
               ))}
             </nav>
-          </aside>
+          </div>
 
           <article className="prose">
             <p className="prose-lead">

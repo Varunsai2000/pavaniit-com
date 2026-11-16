@@ -48,14 +48,14 @@ export default function Page() {
 
       <section className="section ruled">
         <div className="wrap doc">
-          <aside className="doc-aside">
+          <div className="doc-aside">
             <p className="h4">{glossary.length} terms</p>
             <nav aria-label="Terms">
               {glossary.map((t) => (
                 <a key={t.id} href={`#${t.id}`}>{t.term}</a>
               ))}
             </nav>
-          </aside>
+          </div>
           <div>
             <div className="terms">
               {glossary.map((t) => (

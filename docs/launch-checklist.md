@@ -29,7 +29,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - [x] **404 page review.**
 - [x] **Header, menus and footer review** on every width: services menu, mobile menu, focus order, Escape, links.
 - [x] **Search and sharing**: titles and descriptions per page, canonical URLs, sitemap, robots, structured data validity, Open Graph image (no outdated prices or currency), favicon set.
-- [ ] **Accessibility audit**: automated scan of every page plus keyboard pass; fix every finding.
+- [x] **Accessibility audit**: automated scan of every page plus keyboard pass; fix every finding.
 - [ ] **Performance**: image weights, fonts, unused CSS or JS, load metrics on phone.
 - [ ] **Final check**: all pages at 375, 768, 1440 and 1920px; no placeholders, console errors, broken links or sideways scroll. Write a short launch summary at the top of `docs/decisions.md` listing what Pavani IT still needs to supply and the hosting steps. Then stop the loop.
 
@@ -53,3 +53,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - Header, menus and footer: services menu moved after its button so Tab enters it; duplicate phone-menu button removed; Escape, outside click, scroll lock, focus return and footer links checked at 1440 and 390px.
 - Search and sharing: link-preview image on every page; new sharing image with real prices (no invented example); home and pricing descriptions trimmed; company address in structured data; sitemap dated 16 November 2026.
 - Training and hire-train-deploy quoted per programme (your decision); pricing page says "Every standard fee, in writing" and explains the exception; worded prices join their terms with a comma on stage pages and in llms.txt; pricing description back to 141 characters.
+- Accessibility: axe-core on 11 pages at two widths, one landmark finding fixed, now clean; keyboard pass on five pages with a visible focus indicator at every stop.
