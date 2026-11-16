@@ -216,6 +216,7 @@ export const stages: Stage[] = [
           "Labs built on your own stack",
           "Live online or on-site at your office",
           "An assessment at the end so you can see what changed",
+          "POSH awareness sessions, which the POSH Act requires employers to run regularly, plus induction and first-time manager programmes",
         ],
       },
       {
