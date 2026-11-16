@@ -7,7 +7,7 @@
 
 export type Term = { id: string; term: string; definition: string; related?: string[] };
 
-export const glossaryReviewed = "2026-11-15";
+export const glossaryReviewed = "2026-11-16";
 
 export const glossary: Term[] = [
   {
@@ -35,7 +35,7 @@ export const glossary: Term[] = [
     id: "provident-fund",
     term: "Provident Fund (PF, EPF)",
     definition:
-      "The Employees' Provident Fund is a retirement savings scheme run by EPFO. The employee and employer each contribute 12% of the employee's basic wages and dearness allowance, commonly calculated on a wage ceiling of ₹15,000 a month, and part of the employer's share goes to the Employees' Pension Scheme.",
+      "The Employees' Provident Fund is a retirement savings scheme run by EPFO. The employee and employer each contribute 12% of the employee's basic wages and dearness allowance, commonly calculated on a wage ceiling of ₹25,000 a month (raised from ₹15,000 on 17 September 2026), and part of the employer's share goes to the Employees' Pension Scheme.",
     related: ["uan", "wages-50-percent-rule"],
   },
   {
@@ -115,7 +115,7 @@ export const glossary: Term[] = [
     id: "labour-codes",
     term: "Labour codes",
     definition:
-      "The labour codes are four laws that consolidate 29 central labour laws: the Code on Wages (2019), the Industrial Relations Code (2020), the Code on Social Security (2020) and the Occupational Safety, Health and Working Conditions Code (2020). They took effect on 21 November 2025; central rules were notified in May 2026 and states are issuing their own.",
+      "The labour codes are four laws that consolidate 29 central labour laws: the Code on Wages (2019), the Industrial Relations Code (2020), the Code on Social Security (2020) and the Occupational Safety, Health and Working Conditions Code (2020). They took effect on 21 November 2025; the central rules were notified on 8 and 9 May 2026, and states have been notifying their own.",
     related: ["wages-50-percent-rule"],
   },
   {
