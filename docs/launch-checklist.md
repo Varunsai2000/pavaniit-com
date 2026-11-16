@@ -23,7 +23,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - [x] **Pricing page review**, every section.
 - [x] **About page review**, every section.
 - [x] **Glossary review**: definitions accurate as of November 2026, labour-codes wording current.
-- [ ] **Contact page and form**: validation, errors, success state, email fallback without a Web3Forms key, keyboard and screen-reader behaviour.
+- [x] **Contact page and form**: validation, errors, success state, email fallback without a Web3Forms key, keyboard and screen-reader behaviour.
 - [ ] **Privacy notice**: matches what the site actually does (no analytics, form handling, hosting, email), DPDP Act 2023 points, a way to contact for privacy requests.
 - [ ] **404 page review.**
 - [ ] **Header, menus and footer review** on every width: services menu, mobile menu, focus order, Escape, links.
@@ -45,3 +45,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - Pricing page: all figures verified; EOR price sections now say fees are before 18% GST. 1440 and 390px.
 - About page: added a company details list (trading name, office, where we work, email; registered name, CIN and GSTIN appear when set). 1440 and 390px.
 - Glossary: PF wage ceiling updated to ₹25,000 (from 17 September 2026); central labour-code rules dated 8 and 9 May 2026; last reviewed 16 November 2026. 1440 and 390px.
+- Contact form: on-screen fallback (address plus copy button) when no email app opens; fields stay aligned when one shows an error. Validation, focus, keyboard, hand-off and copy tested at 1440 and 390px.

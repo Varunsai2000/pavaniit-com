@@ -14,7 +14,9 @@ type Errors = Partial<Record<"name" | "email" | "company" | "need", string>>;
 export default function EnquiryForm() {
   const [need, setNeed] = useState<StageId[]>([]);
   const [errors, setErrors] = useState<Errors>({});
-  const [state, setState] = useState<"idle" | "sending" | "sent" | "failed">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "sent" | "failed" | "mailto">("idle");
+  const [draft, setDraft] = useState("");
+  const [copied, setCopied] = useState(false);
   const [sentTo, setSentTo] = useState({ name: "", email: "" });
   const formRef = useRef<HTMLFormElement>(null);
   const doneRef = useRef<HTMLDivElement>(null);
@@ -70,6 +72,11 @@ export default function EnquiryForm() {
     ].join("\n");
 
     if (!canPost) {
+      // No form service yet: hand the enquiry to the visitor's email app, and keep a copy on screen
+      // in case no email app opens.
+      setDraft(`Subject: ${subject}\n\n${body}`);
+      setCopied(false);
+      setState("mailto");
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       return;
     }
@@ -156,6 +163,29 @@ export default function EnquiryForm() {
       </div>
 
       <input className="hp" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+
+      {state === "mailto" && (
+        <div className="form-status" role="status">
+          <p>
+            Your email app should open with this enquiry filled in. If it didn&apos;t, send it to{" "}
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
+          </p>
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm"
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(draft);
+                setCopied(true);
+              } catch {
+                setCopied(false);
+              }
+            }}
+          >
+            {copied ? "Enquiry copied" : "Copy the enquiry"}
+          </button>
+        </div>
+      )}
 
       {state === "failed" && (
         <p className="form-error" role="alert">
