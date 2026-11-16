@@ -21,7 +21,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - [x] **Payroll and compliance page review**, every section.
 - [x] **Training page review**, every section.
 - [x] **Pricing page review**, every section.
-- [ ] **About page review**, every section.
+- [x] **About page review**, every section.
 - [ ] **Glossary review**: definitions accurate as of November 2026, labour-codes wording current.
 - [ ] **Contact page and form**: validation, errors, success state, email fallback without a Web3Forms key, keyboard and screen-reader behaviour.
 - [ ] **Privacy notice**: matches what the site actually does (no analytics, form handling, hosting, email), DPDP Act 2023 points, a way to contact for privacy requests.
@@ -43,3 +43,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - Payroll and compliance page: removed the due-date list that repeated the calendar (its unique facts moved into the intro); time-proofed the labour-codes FAQ here and on the home page. 1440 and 390px.
 - Training page: removed a section that repeated the service blocks; its POSH, induction and first-time manager line moved into the corporate training list. 1440 and 390px.
 - Pricing page: all figures verified; EOR price sections now say fees are before 18% GST. 1440 and 390px.
+- About page: added a company details list (trading name, office, where we work, email; registered name, CIN and GSTIN appear when set). 1440 and 390px.

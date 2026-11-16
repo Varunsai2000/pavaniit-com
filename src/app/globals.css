@@ -541,6 +541,7 @@ table, .price-amount, .pl-amount, .cycle-n, .month-grid, .month-list .d { font-v
 /* Ruled key/value list: contact details. */
 .contact-facts { list-style: none; display: grid; border-top: var(--border-hairline) solid var(--color-line); }
 .contact-facts { margin-top: var(--space-8); }
+.depth > .contact-facts { margin-top: 0; } /* beside a heading block, it starts level with the title */
 .contact-facts li { display: grid; grid-template-columns: var(--col-label) minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-4); border-bottom: var(--border-hairline) solid var(--color-line); font-size: var(--text-md); }
 .contact-facts li > span:first-child { color: var(--color-ink-2); }
 .contact-facts a { font-weight: var(--weight-bold); color: var(--color-inverse); }

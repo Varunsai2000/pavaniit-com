@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Crumbs, CtaBand, JsonLd, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
-import { people, real, site } from "@/content/site";
+import { officeLine, people, real, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About Pavani IT",
@@ -17,11 +17,21 @@ const principles = [
   { k: "Answer first", v: "Ask us a question and you get the answer, then the detail. Most of them are already on this site." },
 ];
 
-/** Initials once a real name is in; an empty dashed circle while it is still a placeholder. */
+/** Initials for the avatar circle. */
 const initials = (name: string) => name.split(" ").map((p) => p[0]).slice(0, 2).join("");
 
 /** Only people whose name and background are set; the section is left out until then. */
 const team = people.filter((p) => real(p.name) && real(p.role) && real(p.background));
+
+/** Company details for due diligence. Registered name, CIN and GSTIN appear once they're set in site.ts. */
+const details = [
+  { k: "Trading name", v: site.name },
+  { k: "Registered name", v: real(site.legalName) },
+  { k: "CIN", v: real(site.cin) },
+  { k: "GSTIN", v: real(site.gstin) },
+  { k: "Office", v: officeLine() },
+  { k: "Works in", v: "India only, in every state where you employ people" },
+].filter((d): d is { k: string; v: string } => Boolean(d.v));
 
 export default function Page() {
   return (
@@ -75,6 +85,21 @@ export default function Page() {
           </div>
         </section>
       )}
+
+      <section className="section ruled" aria-labelledby="details-title">
+        <div className="wrap depth">
+          <div className="section-head">
+            <h2 className="h2" id="details-title">Company details</h2>
+            <p className="lead">For your supplier checks.</p>
+          </div>
+          <ul className="contact-facts">
+            {details.map((d) => (
+              <li key={d.k}><span>{d.k}</span><span>{d.v}</span></li>
+            ))}
+            <li><span>Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          </ul>
+        </div>
+      </section>
 
       <CtaBand />
     </>
