@@ -31,7 +31,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - [x] **Search and sharing**: titles and descriptions per page, canonical URLs, sitemap, robots, structured data validity, Open Graph image (no outdated prices or currency), favicon set.
 - [x] **Accessibility audit**: automated scan of every page plus keyboard pass; fix every finding.
 - [x] **Performance**: image weights, fonts, unused CSS or JS, load metrics on phone.
-- [ ] **Final check**: all pages at 375, 768, 1440 and 1920px; no placeholders, console errors, broken links or sideways scroll. Write a short launch summary at the top of `docs/decisions.md` listing what Pavani IT still needs to supply and the hosting steps. Then stop the loop.
+- [x] **Final check**: all pages at 375, 768, 1440 and 1920px; no placeholders, console errors, broken links or sideways scroll. Write a short launch summary at the top of `docs/decisions.md` listing what Pavani IT still needs to supply and the hosting steps. Then stop the loop.
 
 ## Done log
 
@@ -55,3 +55,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - Training and hire-train-deploy quoted per programme (your decision); pricing page says "Every standard fee, in writing" and explains the exception; worded prices join their terms with a comma on stage pages and in llms.txt; pricing description back to 141 characters.
 - Accessibility: axe-core on 11 pages at two widths, one landmark finding fixed, now clean; keyboard pass on five pages with a visible focus indicator at every stop.
 - Performance: in-between picture sizes and accurate size hints; home LCP on a throttled phone 7.2 s to 3.6 s (uncompressed test server); inner pages 0.8 to 1.4 s; no layout shift.
+- Final check: 11 pages at four widths; no sideways scroll (375 to 1920px), placeholders, console errors or axe violations; links and images all load. Launch summary written at the top of `docs/decisions.md`.

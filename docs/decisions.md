@@ -1,49 +1,46 @@
 # Decisions and open questions
 
-## Morning summary (16 November 2026)
+## Launch summary (16 November 2026)
 
-Every item in `docs/polish-checklist.md` is ticked, and every change is pushed to `main`, one commit per round. Check the five open questions below first; they're the only things the site needs from you before launch.
+The site is ready to go live. Every item in `docs/launch-checklist.md` is done, and every change is pushed to `main`, one commit per round.
 
-**What changed overnight**
-- **Home hero:** now a slim split, like Deel. Headline, one sentence, Book a call and See pricing, and "From $69 per employee per month" on the left; the illustration on the right, with nothing laid over it. The whole hero fits in a 1440×900 window.
-- **Real pricing:** your price sheet is now on the site:
-  - the pricing page shows the three packages, a ₹50,000 monthly cost receipt, the eight covered services and your four notes;
-  - the home page shows the three packages;
-  - the Employer of Record page, `llms.txt` and the structured data use the real numbers too.
-- **One structure everywhere:**
-  - one content edge and one 12-column grid;
-  - one hero pattern and one section-heading pattern;
-  - sections separated by thin rules, with grey bands only to mark a new chapter.
-- **Stage cards:** each stage now appears once on the home page, as illustrated cards with its services and how it hands over to the next.
-- **Closing band:** text only, half the old height, no repeated illustration.
-- **Fixed:** on the contact form, the service options couldn't be ticked with a mouse or a tap. They work now and sit in a 2×2 grid.
-- **Smaller fixes:**
-  - readable line lengths on the privacy page and glossary;
-  - body-size checklists;
-  - table headers aligned;
-  - placeholder avatars on About;
-  - 32px footer link rows;
-  - no hover lifts.
-- **Design tokens:** every size, colour, space and timing in the CSS comes from `src/app/tokens.css`. Nothing is hard-coded elsewhere.
-
-**Checked:**
+**Final check (16 November 2026):**
 - all 11 pages at 375, 768, 1440 and 1920px;
-- no sideways scroll at any width, and no element past the screen edge;
-- exactly one h1 per page;
-- no console errors;
-- all internal links resolve;
-- images load.
+- no sideways scroll at any width from 375 to 1920px;
+- no bracketed placeholders in visible text, meta tags or structured data;
+- no console errors, one h1 per page, all internal links return 200, every image loads;
+- no axe-core accessibility violations at desktop or phone width (WCAG 2.2 AA plus best practice), and a visible focus indicator at every keyboard stop;
+- no layout shift; inner pages paint their main content in 0.8 to 1.4 s and the home page in 3.6 s on a throttled phone, before the host's compression.
 
-**Before launch** (16 November 2026). Every item below needs something from Pavani IT; the design work is done.
-1. **Company details** in `src/content/site.ts`: registered company name, CIN, GSTIN, street address and phone. Until they're set the site leaves them out (no placeholders show); each appears in the footer, contact page and structured data as soon as it's filled. Indian company law expects a company's website to show its name, registered office, CIN, phone and email (Companies Act 2013, section 12(3)(c)); worth confirming with your CA. City is set: Vijayawada, Andhra Pradesh.
-2. **Confirm the researched prices** for the other services (see the log), since they are published offers.
-3. **People on the About page** (founder and compliance advisor). The section is hidden until a name, role and background are set for someone.
-4. **Check the settled open questions below** (PF wording, health insurance removed, contractor package scope, hero price).
-5. **Domain:** pavaniit.com pointed at the host. Email is settled: biz@pavaniit.com is the one address on the site.
-6. **Contact form:** a free Web3Forms access key, so enquiries arrive by email instead of opening the visitor's email app. The privacy notice then needs to name Web3Forms as a service that receives form data.
-7. **Hosting:** Cloudflare Pages or Netlify. Both read the security headers already in `public/_headers`. Build command `npm run build`, output folder `out`, then point the domain at it.
-8. **Privacy notice:** name the hosting provider and the form service, add a named contact for privacy requests, and have someone qualified check it against the DPDP Act 2023.
-9. **After launch:** submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools, check link previews (LinkedIn Post Inspector), and send one test enquiry through the form.
+**What the site says now:**
+- Prices in dollars (₹94 to the dollar) with rupees beside them:
+  - Employer of Record $87 / $69 from six / $26 per contractor, from your price sheet;
+  - recruitment 5% of annual CTC;
+  - contract staffing 8% of monthly CTC, minimum $87 (₹8,200);
+  - payroll and compliance $5 (₹500) per employee, minimum $53 (₹5,000);
+  - training and hire-train-deploy quoted per programme.
+- Office: Vijayawada, Andhra Pradesh. Email: biz@pavaniit.com.
+- AI handles the routine work and your people handle the rest; that is how the fees stay low.
+
+**What Pavani IT still needs to supply** (each is one line in `src/content/site.ts`; until it's set, the site leaves it out rather than showing a placeholder):
+1. Registered company name, CIN and GSTIN. Companies Act 2013, section 12(3)(c) expects them on the site; they appear in the footer and on About.
+2. Street address and phone. They appear on the contact page, in the footer and in structured data.
+3. A free Web3Forms access key (`web3formsKey`). Until then, the form opens the visitor's email app, with an on-screen copy if none opens. Once the key is set, the privacy notice names Web3Forms automatically.
+4. Optional: LinkedIn page URL, and the founder's and advisor's names, roles and backgrounds (the About page's people section appears once set).
+5. Check the decisions marked for confirmation below:
+   - the contractor package scope;
+   - the PF wording;
+   - the researched prices;
+   - the privacy notice. Have someone qualified review it against the DPDP Act 2023 and Rules 2025.
+
+**Going live:**
+1. Create a Cloudflare Pages (or Netlify) project from the GitHub repository `niteshballa/pavaniit-site`. Build command `npm run build`, output folder `out`, Node 20 or later. Both hosts read the security headers in `public/_headers` and compress files automatically.
+2. Add the custom domain pavaniit.com (and www) in the host's dashboard, and point the DNS records it shows you at it. HTTPS is issued automatically.
+3. After the first deploy:
+   - open every page once;
+   - send one test enquiry;
+   - submit `https://pavaniit.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools;
+   - paste the home URL into LinkedIn's Post Inspector to check the link preview.
 
 ---
 
