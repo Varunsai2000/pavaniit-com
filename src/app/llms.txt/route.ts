@@ -15,7 +15,7 @@ export function GET() {
   lines.push(`# ${site.name}`, "");
   lines.push(`> ${site.description}`, "");
   lines.push(
-    "Pavani IT works only in India. AI handles the routine work and people handle the rest, which keeps fees low. Services are organised as four stages: Hire (recruitment, contract staffing), Employ (Employer of Record, onboarding), Pay (payroll, statutory compliance) and Grow (corporate training, hire-train-deploy).",
+    "Pavani IT works only in India. AI handles the routine work and people handle the rest, which keeps fees low. Services are organised as four stages: Hire (recruitment, contract staffing), Employ (Employer of Record, onboarding), Pay (payroll, statutory compliance) and Grow (corporate training and hire-train-deploy, with training delivered by specialist partners).",
   );
   const location = [real(site.city), real(site.state)].filter(Boolean).join(", ");
   if (location) lines.push(`Based in ${location}, India.`);

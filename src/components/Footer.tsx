@@ -11,7 +11,7 @@ export default function Footer() {
             <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
               Pavani IT
             </Link>
-            <p>Recruitment, Employer of Record, payroll, compliance and training in India.</p>
+            <p>Employer of Record, recruitment and payroll in India. Training through specialist partners.</p>
             <p>{officeLine()}</p>
           </div>
 
