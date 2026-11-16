@@ -32,7 +32,7 @@ export default function Page() {
             <h1 className="h1"><Words>Privacy notice</Words></h1>
             <p className="lead">
               What personal data Pavani IT collects through this website, why, and what you can ask us to do with it.
-              Last updated 15 November 2026.
+              Last updated 16 November 2026.
             </p>
           </div>
         </div>
@@ -64,8 +64,15 @@ export default function Page() {
             <h2 id="collect">What we collect</h2>
             <p><strong>When you send an enquiry,</strong> we receive your name, work email, company, country, the services you are interested in, approximate team size and anything you write in the message box.</p>
             <p><strong>When you send us your CV,</strong> we receive what it contains, usually your contact details, work history, education and skills.</p>
-            <p><strong>When you visit the site,</strong> we don&apos;t use analytics, advertising or tracking cookies, and our fonts are served from our own domain.</p>
+            <p><strong>When you visit the site,</strong> we don&apos;t use analytics, advertising or tracking cookies, and our fonts are served from our own domain. Our website host keeps standard server logs, such as your IP address, browser type and the pages you request, to keep the site secure and working.</p>
+            <p>
+              <strong>How enquiries reach us:</strong>{" "}
+              {site.web3formsKey
+                ? "the enquiry form sends your details through Web3Forms, a form service, which delivers them to our inbox."
+                : "sending the enquiry form opens your own email app with your details filled in, and the enquiry reaches us as an ordinary email. Nothing is sent until you send that email."}
+            </p>
             <p>Please don&apos;t send government ID numbers, bank details or health information through the website. If we need them later, for example to employ you, we will ask through a secure channel and explain why.</p>
+            <p>This website is meant for adults. We don&apos;t knowingly collect personal data from children.</p>
 
             <h2 id="why">Why we use it</h2>
             <ul>
@@ -78,7 +85,14 @@ export default function Page() {
 
             <h2 id="share">Who we share it with</h2>
             <ul>
-              <li><strong>Service providers</strong> that run parts of our business: the form service that delivers website enquiries to our inbox, and our email provider. They may only use your data to provide that service.</li>
+              <li>
+                <strong>Service providers</strong> that run parts of our business:{" "}
+                {site.web3formsKey
+                  ? "our website host, our email provider, and Web3Forms, which delivers website enquiries to our inbox"
+                  : "our website host and our email provider"}
+                . They may only use your
+                data to provide that service. Some of them may store data outside India, which the law allows.
+              </li>
               <li><strong>Clients,</strong> only for candidates, and only after you agree to be put forward for a specific role.</li>
               <li><strong>Government authorities,</strong> when the law requires it.</li>
             </ul>
