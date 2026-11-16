@@ -50,6 +50,10 @@ export const ogImage = {
 export const howWeWork =
   "AI handles the routine work, such as calculations, reminders and paperwork, and our people handle the rest and talk to you. That is why our fees are a fraction of the usual.";
 
+/** Joins a price to its terms on one line: "$5 (₹500) per employee per month", or, for a worded price,
+    "Quoted per programme, based on the topic". */
+export const unitJoin = (p: Price): string => (/^[\d$₹]/.test(p.amount) ? " " : ", ");
+
 /** The office location from whichever parts are real: street address, city, state. */
 export const officeLine = (): string =>
   [site.address, site.city, site.state].map((v) => real(v)).filter(Boolean).join(", ");
@@ -175,19 +179,17 @@ export const prices: Price[] = [
     id: "training",
     service: "Corporate training",
     stage: "Grow",
-    amount: usd(toUsd(40000)),
-    amountLocal: inr(40000),
-    unit: "per training day, for up to 20 people",
+    amount: "Quoted per programme",
+    unit: "based on the topic, number of days, cohort size and location",
     includes: ["Curriculum built on your stack", "Live online or on-site", "End-of-programme assessment"],
-    note: "Travel for on-site sessions outside Vijayawada is billed at cost.",
+    note: "You get a written quote before anything is booked. Travel for on-site sessions outside Vijayawada is billed at cost.",
   },
   {
     id: "htd",
     service: "Hire, train, deploy",
     stage: "Grow",
-    amount: usd(toUsd(100000)),
-    amountLocal: inr(100000),
-    unit: "per graduate who joins your team",
+    amount: "Quoted per cohort",
+    unit: "charged per graduate who joins your team",
     includes: ["Graduate selection against your role", "Up to 12 weeks of training on your stack", "Placement on your team"],
     note: "No fee for anyone who doesn't join. If a graduate leaves within 90 days, we place a replacement at no extra fee.",
   },

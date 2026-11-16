@@ -52,3 +52,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 - 404 page: own title, one noindex tag, direct links to the four stages and pricing. 1440 and 390px.
 - Header, menus and footer: services menu moved after its button so Tab enters it; duplicate phone-menu button removed; Escape, outside click, scroll lock, focus return and footer links checked at 1440 and 390px.
 - Search and sharing: link-preview image on every page; new sharing image with real prices (no invented example); home and pricing descriptions trimmed; company address in structured data; sitemap dated 16 November 2026.
+- Training and hire-train-deploy quoted per programme (your decision); pricing page says "Every standard fee, in writing" and explains the exception; worded prices join their terms with a comma on stage pages and in llms.txt; pricing description back to 141 characters.

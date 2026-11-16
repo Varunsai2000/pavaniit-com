@@ -7,7 +7,7 @@ import { eorCovered, eorExample, eorNotes, eorPlanCards, eorPlans, howWeWork, in
 
 export const metadata: Metadata = {
   title: `Pricing: Employer of Record in India from ${eorPlans[1].usd} a month | Pavani IT`,
-  description: `Employer of Record in India: ${eorPlans[0].usd} (${eorPlans[0].inr}) per employee per month, ${eorPlans[1].usd} from six employees, ${eorPlans[2].usd} per contractor, plus every other service's fee and a worked monthly cost.`,
+  description: `Employer of Record in India: ${eorPlans[0].usd} (${eorPlans[0].inr}) per employee per month, ${eorPlans[1].usd} from six employees, ${eorPlans[2].usd} per contractor. Every standard fee, in writing.`,
   alternates: { canonical: "/pricing/" },
 };
 
@@ -62,7 +62,7 @@ export default function Page() {
           <div>
             <h1 className="h1"><Words>Pricing</Words></h1>
             <p className="lead">
-              Every fee for every service, in writing. Salaries and statutory employer costs are passed through at
+              Every standard fee, in writing. Salaries and statutory employer costs are passed through at
               cost; what you see here is what Pavani IT charges on top. {howWeWork}
             </p>
           </div>
@@ -144,7 +144,7 @@ export default function Page() {
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="others-title">Other services</h2>
-            <p className="lead">Recruitment, contract staffing, payroll for your own entity, and training. Fees are before 18% GST.</p>
+            <p className="lead">Recruitment, contract staffing, payroll for your own entity, and training. Training and hire-train-deploy are quoted per programme, because each one is built around your stack. Fees are before 18% GST.</p>
           </div>
           <ul className="price-list">
             {others.map((p) => (

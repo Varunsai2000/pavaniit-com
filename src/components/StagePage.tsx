@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { prices } from "@/content/site";
+import { prices, unitJoin } from "@/content/site";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/content/schema";
 import { handoff, servicesLine, stageLinkLabel, stages, type Stage } from "@/content/stages";
 import Art from "./Art";
@@ -41,7 +41,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
             </div>
             {stagePrices.map((p) => (
               <p className="hero-price" key={p.id}>
-                {p.service}: <strong><V>{p.amount}</V></strong>{p.amountLocal && ` (${p.amountLocal})`} {p.unit}
+                {p.service}: <strong><V>{p.amount}</V></strong>{p.amountLocal && ` (${p.amountLocal})`}{unitJoin(p)}{p.unit}
               </p>
             ))}
           </div>
