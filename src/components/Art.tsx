@@ -7,7 +7,7 @@ export type ArtName = "hero" | "hire" | "employ" | "pay" | "grow";
 
 const ART: Record<ArtName, { alt: string; w: number; h: number; sizes: [number, number] }> = {
   hero: {
-    alt: "Illustration: two colleagues at a laptop in a Pune office, a clock on the wall behind them",
+    alt: "Illustration: two colleagues at a laptop in an office, a clock on the wall behind them",
     w: 1536,
     h: 1024,
     sizes: [960, 1536],

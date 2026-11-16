@@ -34,13 +34,16 @@ Every item in `docs/polish-checklist.md` is ticked, and every change is pushed t
 - all internal links resolve;
 - images load.
 
-**Still to do before launch** (not design work): answer the open questions below, and fill the bracketed placeholders in `src/content/site.ts`:
-- company name, CIN, GSTIN, address, city and phone;
-- the founder and advisor;
-- the other services' prices;
-- the Web3Forms access key, so the form sends without opening an email app.
-
-Then choose hosting.
+**Before launch** (16 November 2026). Every item below needs something from Pavani IT; the design work is done.
+1. **Company details** in `src/content/site.ts`: registered company name, CIN, GSTIN, street address and phone. They show in the footer of every page. Indian company law expects a company's website to show its name, registered office, CIN, phone and email (Companies Act 2013, section 12(3)(c)); worth confirming with your CA. City is set: Vijayawada, Andhra Pradesh.
+2. **Other service prices** (recruitment, contract staffing, payroll for your own entity, training, hire-train-deploy), or hide those rows until you have them.
+3. **People on the About page** (founder and compliance advisor), or hide that section.
+4. **Open questions 1 to 4 below** (PF wording, benefits mentioned outside the price sheet, what the contractor package covers, which price the hero leads with).
+5. **Domain and email:** pavaniit.com, with working hello@ and careers@ mailboxes (both are on every page).
+6. **Contact form:** a free Web3Forms access key, so enquiries arrive by email instead of opening the visitor's email app. The privacy notice then needs to name Web3Forms as a service that receives form data.
+7. **Hosting:** Cloudflare Pages or Netlify. Both read the security headers already in `public/_headers`. Build command `npm run build`, output folder `out`, then point the domain at it.
+8. **Privacy notice:** name the hosting provider and the form service, add a named contact for privacy requests, and have someone qualified check it against the DPDP Act 2023.
+9. **After launch:** submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools, check link previews (LinkedIn Post Inspector), and send one test enquiry through the form.
 
 ---
 
@@ -56,6 +59,7 @@ A running log of section-level changes made by the polish loop, and the question
 
 ## Log
 
+- **Office city: Vijayawada, Andhra Pradesh** (your confirmation). Shown on About, Contact, the footer and `llms.txt`, with the state so readers abroad can place it. The street address is still a placeholder; the structured-data address appears once it is filled. Two old mentions of Pune (the hero picture's description and an example in the contact form) were removed, since the office isn't there.
 - **Premium pass** (your request: high-end corporate feel, every animation clear, nothing overdone). Built from an independent Codex review of the code and screenshots, plus a study of Stripe, Linear, Vercel, Mercury, Attio, Deel and Ramp (their live CSS). Rule kept throughout: motion must explain something real, and nothing is invented.
   - **Type and space:** headings at a lighter weight (640, was 700) read calmer at large sizes; the content width is 1280px (was 1360) so lines and cards sit tighter; section spacing tops out at 120px (was 140); lead paragraphs wrap without orphans; prices and dates use tabular figures.
   - **Header:** clear at the top of the page, then frosted glass with a hairline once you scroll (without JavaScript it stays frosted). Nav hover and the current page show a thin underline instead of grey pills. Small buttons are 44px tall, the touch-target size.

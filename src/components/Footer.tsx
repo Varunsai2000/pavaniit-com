@@ -14,7 +14,7 @@ export default function Footer() {
             </Link>
             <p>Recruitment, Employer of Record, payroll, compliance and training in India.</p>
             <p>
-              <V>{site.address}</V>, <V>{site.city}</V>
+              <V>{site.address}</V>, <V>{site.city}</V>, <V>{site.state}</V>
             </p>
           </div>
 

@@ -31,7 +31,7 @@ export default function Page() {
               <h1 className="h1"><Words>An Indian employer for teams built from anywhere</Words></h1>
               <p className="lead">
                 Pavani IT recruits, employs, pays and trains people in India for companies abroad and for Indian
-                businesses. We are based in <V>{site.city}</V> and run payroll and statutory compliance ourselves.
+                businesses. We are based in <V>{site.city}</V>, <V>{site.state}</V>, and run payroll and statutory compliance ourselves.
               </p>
             </div>
         </div>

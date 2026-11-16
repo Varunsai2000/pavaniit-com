@@ -152,7 +152,7 @@ export default function EnquiryForm() {
         <label className="label" htmlFor="f-msg">
           Roles, locations and timing <span className="opt">Optional</span>
         </label>
-        <textarea className="input" id="f-msg" name="message" rows={4} placeholder="For example: two backend engineers in Pune, starting in February" />
+        <textarea className="input" id="f-msg" name="message" rows={4} placeholder="For example: two backend engineers, starting in February" />
       </div>
 
       <input className="hp" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" />

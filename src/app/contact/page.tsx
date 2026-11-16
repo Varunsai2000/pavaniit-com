@@ -25,7 +25,7 @@ export default function Page() {
             <ul className="contact-facts">
               <li><span>Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
               <li><span>Phone</span><span><V>{site.phone}</V></span></li>
-              <li><span>Office</span><span><V>{site.address}</V>, <V>{site.city}</V></span></li>
+              <li><span>Office</span><span><V>{site.address}</V>, <V>{site.city}</V>, <V>{site.state}</V></span></li>
               <li><span>Job seekers</span><span>Send your CV to <a href={`mailto:${site.careersEmail}`}>{site.careersEmail}</a></span></li>
             </ul>
           </div>
