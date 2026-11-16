@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Young_Serif } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Reveals from "@/components/Reveals";
 import { JsonLd } from "@/components/bits";
 import { organizationSchema, websiteSchema } from "@/content/schema";
 import { site } from "@/content/site";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <Reveals />
       </body>
     </html>
   );

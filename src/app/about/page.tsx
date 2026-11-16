@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Crumbs, CtaBand, JsonLd, V } from "@/components/bits";
+import { Crumbs, CtaBand, JsonLd, V, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
 import { people, site, isPlaceholder } from "@/content/site";
 
@@ -28,7 +28,7 @@ export default function Page() {
         <div className="wrap page-hero-plain">
             <Crumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
             <div>
-              <h1 className="h1">An Indian employer for teams built from anywhere</h1>
+              <h1 className="h1"><Words>An Indian employer for teams built from anywhere</Words></h1>
               <p className="lead">
                 Pavani IT recruits, employs, pays and trains people in India for companies abroad and for Indian
                 businesses. We are based in <V>{site.city}</V> and run payroll and statutory compliance ourselves.

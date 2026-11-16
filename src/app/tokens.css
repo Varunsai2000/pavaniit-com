@@ -33,7 +33,6 @@
   --color-inverse-line: #3a3a3a;    /* rules on dark bands */
   --color-on-inverse: #fafafa;      /* text on dark bands */
   --color-on-inverse-2: #a3a3a3;    /* secondary text on dark bands */
-  --color-chip-inverse: rgba(255, 255, 255, 0.1); /* placeholder chips on dark bands */
   --color-danger: #b42318;          /* form errors only */
   --color-danger-soft: #fdecea;
 
@@ -69,7 +68,8 @@
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
-  --weight-heavy: 800;
+  --weight-heavy: 760;
+  --weight-display: 640;  /* display, h1, h2: lighter than bold reads calmer at large sizes */
 
   /* ---- Line heights ---- */
   --leading-numeral: 0.9;   /* big light step numerals */
@@ -109,11 +109,11 @@
   --space-24: 96px;
 
   /* ---- Layout ---- */
-  --container: 1360px;      /* the one content width: header, every section, footer */
+  --container: 1280px;      /* the one content width: header, every section, footer */
   --gutter: clamp(20px, 4vw, 40px);
-  --section-y: clamp(80px, 9vw, 140px);
+  --section-y: clamp(72px, 8vw, 120px);
   --section-y-tight: clamp(56px, 6vw, 96px);
-  --section-head-gap: clamp(40px, 5vw, 64px); /* section heading block to its content */
+  --section-head-gap: clamp(32px, 4.5vw, 56px); /* section heading block to its content */
   --head-gap: var(--space-4);                  /* title to lead inside a heading block */
   --section-y-page-top: clamp(40px, 5vw, 72px);  /* top of pages without a hero: contact, privacy */
   --header-h: 68px;
@@ -173,6 +173,7 @@
   --focus-offset: 3px;
   --focus-offset-tight: 2px;
   --underline-offset: 4px;
+  --nav-line: 1.5px;       /* nav hover and current-page underline */
 
   /* ---- Frames: every illustration sits in one (.frame in globals.css) ---- */
   --frame-bg: var(--color-paper);
@@ -183,11 +184,14 @@
   --frame-ratio: var(--ratio-art);           /* default crop; the hero overrides it */
 
   /* ---- Elevation ---- */
-  --shadow-card: 0 1px 2px rgba(10, 10, 10, 0.04), 0 10px 30px -18px rgba(10, 10, 10, 0.22);
+  --shadow-card: 0 0 0 1px rgba(10, 10, 10, 0.06), 0 1px 2px rgba(10, 10, 10, 0.04), 0 12px 32px -20px rgba(10, 10, 10, 0.24); /* hairline ring, contact shadow, soft fall-off */
+  --shadow-btn: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 2px rgba(10, 10, 10, 0.24); /* primary button: lit top edge, contact shadow */
   --shadow-float: 0 1px 1px rgba(10, 10, 10, 0.06), 0 18px 40px -18px rgba(10, 10, 10, 0.35);
   --shadow-menu: 0 30px 60px -40px rgba(10, 10, 10, 0.45);
   --shadow-focus: 0 0 0 3px rgba(10, 10, 10, 0.15);
-  --header-glass: rgba(255, 255, 255, 0.88);
+  --header-glass: rgba(255, 255, 255, 0.92);
+  --gradient-ink: radial-gradient(120% 80% at 50% 0%, #181818 0%, #0a0a0a 62%); /* dark bands: light falls from the top */
+  --gradient-mist: linear-gradient(180deg, #fafafa 0%, #f3f3f3 100%);
   --header-blur: saturate(1.4) blur(14px);
 
   /* ---- Motion (Emil Kowalski's rules: ease-out, short, transform/opacity) ---- */
@@ -197,20 +201,28 @@
   --dur-ui: 200ms;        /* hover, colour, small state changes */
   --dur-panel: 300ms;     /* menus, cards, accordions */
   --dur-enter: 500ms;     /* one-off entrances */
-  --dur-reveal: 700ms;    /* scroll reveal */
-  --dur-draw: 1600ms;     /* journey thread */
+  --dur-reveal: 640ms;    /* scroll reveal */
+  --dur-rise: 720ms;      /* page heading words rising on load */
+  --dur-settle: 1400ms;   /* hero picture settling on load */
+  --dur-draw: 1000ms;     /* journey thread */
   --stagger: 60ms;        /* gap between staggered items */
+  --stagger-word: 36ms;   /* gap between heading words */
+  --resolve-start: 280ms; /* calendar: pause before deadlines resolve */
+  --resolve-step: 300ms;  /* calendar: gap between one deadline and the next */
   --press-scale: 0.97;
   --nudge: 3px;           /* arrow hover nudge, menu and answer entrance offset */
-  --reveal-y: 20px;       /* scroll-reveal offset */
+  --reveal-y: 16px;       /* scroll-reveal offset */
+  --enter-y: 10px;        /* hero copy entrance offset */
+  --rise-pad: 0.14em;     /* room for descenders inside each heading word's mask */
+  --rise-from: 105%;      /* heading words start just below their mask */
+  --settle-scale: 1.04;   /* hero picture starts this much larger */
   --dur-none: 0.01ms;     /* reduced motion */
 
   /* ---- Controls and icons ---- */
   --control-h: 50px;
-  --control-h-sm: 42px;
+  --control-h-sm: 44px;
   --control-h-input: 48px;
   --tap: 44px;            /* minimum touch target */
-  --ph-pad-x: 0.3em;      /* placeholder chip side padding, scales with its text */
   --link-row: 32px;       /* one link per row in link lists (footer) */
   --icon-sm: 16px;
   --icon-md: 18px;

@@ -4,7 +4,7 @@ import { prices } from "@/content/site";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/content/schema";
 import { handoff, servicesLine, stageLinkLabel, stages, type Stage } from "@/content/stages";
 import Art from "./Art";
-import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V } from "./bits";
+import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V, Words } from "./bits";
 
 /** Shared layout for the four stage pages. `children` slots in stage-specific sections. */
 export default function StagePage({ stage, children }: { stage: Stage; children?: React.ReactNode }) {
@@ -28,7 +28,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
         <div className="wrap hero-split">
           <div className="hero-copy">
             <Crumbs items={[{ name: "Home", href: "/" }, { name: `${stage.number}. ${stage.label}: ${servicesLine(stage)}` }]} />
-            <h1 className="h1">{stage.title}</h1>
+            <h1 className="h1"><Words>{stage.title}</Words></h1>
             <p className="lead">{stage.lead}</p>
             <div className="hero-actions">
               <Link prefetch={false} className="btn btn-primary" href={`/contact/?need=${stage.id}`}>

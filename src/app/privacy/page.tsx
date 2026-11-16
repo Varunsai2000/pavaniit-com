@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Crumbs, JsonLd, V } from "@/components/bits";
+import { Crumbs, JsonLd, V, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
 import { site } from "@/content/site";
 
@@ -29,7 +29,7 @@ export default function Page() {
         <div className="wrap page-hero-plain">
           <Crumbs items={[{ name: "Home", href: "/" }, { name: "Privacy notice" }]} />
           <div>
-            <h1 className="h1">Privacy notice</h1>
+            <h1 className="h1"><Words>Privacy notice</Words></h1>
             <p className="lead">
               What personal data Pavani IT collects through this website, why, and what you can ask us to do with it.
               Last updated 15 November 2026.

@@ -17,7 +17,16 @@ export default function Header() {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+
+  // The header turns to glass with a rule once the page moves under it.
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 4);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
 
   // Close menus on navigation.
   useEffect(() => {
@@ -52,7 +61,7 @@ export default function Header() {
   const inServices = stages.some((s) => pathname === s.href);
 
   return (
-    <header className="site-header" ref={headerRef}>
+    <header className="site-header" ref={headerRef} data-scrolled={scrolled}>
       <div className="wrap header-row">
         <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
           Pavani IT

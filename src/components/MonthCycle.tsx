@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 
 type Due = { key: string; label: string; day: number | "payday" };
@@ -44,13 +44,39 @@ function status(day: number, today: number) {
 /**
  * This month's statutory calendar, computed in the visitor's browser. The
  * server-rendered version shows the same list with fixed due dates.
+ *
+ * When the card first scrolls into view, the deadlines resolve in date order:
+ * each one already met fills in, then its badge appears. The final state is the
+ * default; the "idle" state is only set when the card starts below the fold and
+ * motion is allowed, so nothing is ever hidden without JavaScript.
  */
 export default function MonthCycle() {
   const [model, setModel] = useState<Model | null>(null);
+  const [resolve, setResolve] = useState<"idle" | "in" | undefined>(undefined);
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => setModel(build(new Date())), []);
 
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !model) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    setResolve("idle");
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setResolve("in");
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -25% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [model]);
+
   return (
-    <div className="month" data-ready={model ? "true" : "false"}>
+    <div className="month" ref={ref} data-ready={model ? "true" : "false"} data-resolve={resolve}>
       <div className="month-card">
         <div className="month-head">
           <p className="month-name">{model ? model.monthName : "Every month"}</p>
@@ -80,7 +106,7 @@ export default function MonthCycle() {
                 .filter(Boolean)
                 .join(" ");
               return (
-                <span key={day} className={cls}>
+                <span key={day} className={cls} data-due={dueIndex >= 0 ? dueIndex + 1 : undefined}>
                   {day}
                 </span>
               );

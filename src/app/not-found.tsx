@@ -1,9 +1,10 @@
+import { Words } from "@/components/bits";
 import Link from "next/link";
 
 export default function NotFound() {
   return (
     <section className="wrap nf">
-      <h1 className="h1">This page doesn&apos;t exist</h1>
+      <h1 className="h1"><Words>{"This page doesn’t exist"}</Words></h1>
       <p className="lead">The link may be old or mistyped. Everything about our services starts on the home page.</p>
       <div className="cta-actions">
         <Link prefetch={false} className="btn btn-primary" href="/">Go to the home page</Link>

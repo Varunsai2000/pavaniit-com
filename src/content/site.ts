@@ -47,13 +47,58 @@ export type Price = {
   note?: string;
 };
 
+/* ---------------------------------------------------------------------------
+   Employer of Record pricing, from Pavani IT's price sheet (November 2026).
+   Rupee prices are the real prices. Dollar figures are conversions at
+   inrPerUsd, rounded to the dollar; change the rate here and every page,
+   llms.txt and the structured data follow.
+   --------------------------------------------------------------------------- */
+
+export const inrPerUsd = 94;
+const toUsd = (inr: number) => Math.round(inr / inrPerUsd);
+const usd = (n: number) => `$${n.toLocaleString("en-US")}`;
+const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+
+export type Plan = { id: string; name: string; usd: string; inr: string; unit: string; priceUsd: number; priceInr: number };
+
+const plan = (id: string, name: string, priceInr: number, unit: string): Plan => ({
+  id, name, unit, priceInr, priceUsd: toUsd(priceInr), usd: usd(toUsd(priceInr)), inr: inr(priceInr),
+});
+
+export const eorPlans: Plan[] = [
+  plan("eor-employee", "Full-time employee", 8200, "per employee per month"),
+  plan("eor-team", "Six or more employees", 6500, "per employee per month"),
+  plan("eor-contractor", "Independent contractor", 2400, "per contractor per month"),
+];
+
+/** Worked example: what a company pays in a month for one employee on ₹50,000.
+    Each row is converted on its own and the dollar total is the sum of the rows,
+    so the receipt adds up in both currencies. */
+const exampleRows = [
+  { label: "Employee salary", inr: 50000 },
+  { label: "Employer PF (8%)", inr: 4000 },
+  { label: "EOR service fee", inr: 8200 },
+  { label: "GST (18% on the EOR fee)", inr: 1476 },
+  { label: "FX conversion fee (1%)", inr: 637 },
+].map((r) => ({ label: r.label, inrN: r.inr, usdN: toUsd(r.inr) }));
+
+export const eorExample = {
+  salary: inr(50000),
+  rows: exampleRows.map((r) => ({ label: r.label, usd: usd(r.usdN), inr: inr(r.inrN) })),
+  total: {
+    label: "Estimated monthly cost",
+    usd: usd(exampleRows.reduce((a, r) => a + r.usdN, 0)),
+    inr: inr(exampleRows.reduce((a, r) => a + r.inrN, 0)),
+  },
+};
+
 export const prices: Price[] = [
   {
     id: "eor",
     service: "Employer of Record",
     stage: "Employ",
-    amount: "€78",
-    amountLocal: "₹8,200",
+    amount: eorPlans[0].usd,
+    amountLocal: eorPlans[0].inr,
     unit: "per employee per month",
     includes: [
       "Onboarding and employment documentation",
@@ -62,7 +107,7 @@ export const prices: Price[] = [
       "GST invoicing and statutory filings",
       "Exit formalities and full-and-final settlement",
     ],
-    note: "€62 per employee from six employees. A one-month refundable salary deposit may apply.",
+    note: `${eorPlans[1].usd} (${eorPlans[1].inr}) per employee from six employees. A one-month refundable salary deposit may apply.`,
   },
   {
     id: "recruitment",
@@ -119,42 +164,16 @@ export const prices: Price[] = [
   },
 ];
 
-/* ---------------------------------------------------------------------------
-   Employer of Record pricing, from Pavani IT's price sheet (November 2026).
-   EUR figures are approximate conversions of the INR prices.
-   --------------------------------------------------------------------------- */
-
-export type Plan = { id: string; name: string; eur: string; inr: string; unit: string; priceEur: number; priceInr: number };
-
-export const eorPlans: Plan[] = [
-  { id: "eor-employee", name: "Full-time employee", eur: "€78", inr: "₹8,200", unit: "per employee per month", priceEur: 78, priceInr: 8200 },
-  { id: "eor-team", name: "Six or more employees", eur: "€62", inr: "₹6,500", unit: "per employee per month", priceEur: 62, priceInr: 6500 },
-  { id: "eor-contractor", name: "Independent contractor", eur: "€23", inr: "₹2,400", unit: "per contractor per month", priceEur: 23, priceInr: 2400 },
-];
-
 /** The three packages as price cards (home and pricing pages). */
 export const eorPlanCards: Price[] = eorPlans.map((p) => ({
   id: p.id,
   service: p.name,
   stage: "Employ",
-  amount: p.eur,
+  amount: p.usd,
   amountLocal: p.inr,
   unit: p.unit,
   includes: [],
 }));
-
-/** Worked example: what a company pays in a month for one employee on ₹50,000. */
-export const eorExample = {
-  salary: "₹50,000",
-  rows: [
-    { label: "Employee salary", eur: "€475", inr: "₹50,000" },
-    { label: "Employer PF (8%)", eur: "€38", inr: "₹4,000" },
-    { label: "EOR service fee", eur: "€78", inr: "₹8,200" },
-    { label: "GST (18% on the EOR fee)", eur: "€14", inr: "₹1,476" },
-    { label: "FX conversion fee (1%)", eur: "€6", inr: "₹637" },
-  ],
-  total: { label: "Estimated monthly cost", eur: "€611", inr: "₹64,313" },
-};
 
 /** What the Employer of Record fee covers. */
 export const eorCovered = [

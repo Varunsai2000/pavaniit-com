@@ -6,7 +6,7 @@ import Journey from "@/components/Journey";
 import MonthCycle from "@/components/MonthCycle";
 import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
-import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V } from "@/components/bits";
+import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V, Words } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
 import { eorPlanCards, eorPlans } from "@/content/site";
 import { handoff, homeFaq, stageLinkLabel, stages } from "@/content/stages";
@@ -49,7 +49,7 @@ export default function Home() {
           <div className="hero-split">
             <div className="hero-copy">
               <h1 className="display" id="hero-title">
-                Hire your team in India without setting up a company.
+                <Words>Hire your team in India without setting up a company.</Words>
               </h1>
               <p className="lead">
                 Pavani IT is an Indian Employer of Record. We employ your people under Indian law and run their
@@ -65,7 +65,7 @@ export default function Home() {
                 </Link>
               </div>
               <p className="hero-price">
-                From <strong>{eorPlans[1].eur}</strong> {eorPlans[1].unit}. No Indian entity needed.
+                From <strong>{eorPlans[1].usd}</strong> {eorPlans[1].unit}. No Indian entity needed.
               </p>
             </div>
             <div className="hero-visual frame frame-fill">

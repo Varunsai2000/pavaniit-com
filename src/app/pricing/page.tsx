@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PriceCard from "@/components/PriceCard";
-import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V } from "@/components/bits";
+import { ArrowText, CheckList, Crumbs, CtaBand, FaqSection, JsonLd, V, Words } from "@/components/bits";
 import { abs, breadcrumbSchema } from "@/content/schema";
-import { eorCovered, eorExample, eorNotes, eorPlanCards, eorPlans, prices } from "@/content/site";
+import { eorCovered, eorExample, eorNotes, eorPlanCards, eorPlans, inrPerUsd, prices } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Pricing: Employer of Record in India from €62 a month | Pavani IT",
-  description:
-    "Employer of Record in India: €78 (₹8,200) per employee per month, €62 from six employees, €23 per contractor. See a full monthly cost example and what the fee covers.",
+  title: `Pricing: Employer of Record in India from ${eorPlans[1].usd} a month | Pavani IT`,
+  description: `Employer of Record in India: ${eorPlans[0].usd} (${eorPlans[0].inr}) per employee per month, ${eorPlans[1].usd} from six employees, ${eorPlans[2].usd} per contractor. See a full monthly cost example and what the fee covers.`,
   alternates: { canonical: "/pricing/" },
 };
 
@@ -19,7 +18,7 @@ const faq = [
   },
   {
     q: "What do we pay on top of the salary?",
-    a: "Employer PF (8%), ESI where applicable, our fee, 18% GST on the fee, and a 1% FX conversion fee on payments from abroad. For a ₹50,000 monthly salary that comes to about ₹64,313 (€611) a month.",
+    a: `Employer PF (8%), ESI where applicable, our fee, 18% GST on the fee, and a 1% FX conversion fee on payments from abroad. For a ${eorExample.salary} monthly salary that comes to about ${eorExample.total.inr} (${eorExample.total.usd}) a month.`,
   },
   {
     q: "Is there a deposit?",
@@ -45,7 +44,7 @@ const offerSchema = {
     "@type": "Offer",
     name: p.name,
     priceSpecification: [
-      { "@type": "UnitPriceSpecification", price: p.priceEur, priceCurrency: "EUR", unitText: p.unit },
+      { "@type": "UnitPriceSpecification", price: p.priceUsd, priceCurrency: "USD", unitText: p.unit },
       { "@type": "UnitPriceSpecification", price: p.priceInr, priceCurrency: "INR", unitText: p.unit },
     ],
   })),
@@ -61,7 +60,7 @@ export default function Page() {
         <div className="wrap page-hero-plain">
           <Crumbs items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
           <div>
-            <h1 className="h1">Pricing</h1>
+            <h1 className="h1"><Words>Pricing</Words></h1>
             <p className="lead">
               Every fee for every service, in writing. Salaries and statutory employer costs are passed through at
               cost; what you see here is what Pavani IT charges on top.
@@ -89,8 +88,8 @@ export default function Page() {
           <div className="section-head">
             <h2 className="h2" id="month-title">What a month costs</h2>
             <p className="lead">
-              A worked example for one employee on a monthly salary of {eorExample.salary}. Euro figures are
-              approximate.
+              A worked example for one employee on a monthly salary of {eorExample.salary}. Dollar figures are
+              approximate, at ₹{inrPerUsd} to the dollar.
             </p>
           </div>
           <div className="receipt-wrap">
@@ -99,7 +98,7 @@ export default function Page() {
               <thead>
                 <tr>
                   <th scope="col">Cost</th>
-                  <th scope="col">EUR</th>
+                  <th scope="col">USD</th>
                   <th scope="col">INR</th>
                 </tr>
               </thead>
@@ -107,7 +106,7 @@ export default function Page() {
                 {eorExample.rows.map((r) => (
                   <tr key={r.label}>
                     <th scope="row">{r.label}</th>
-                    <td>{r.eur}</td>
+                    <td>{r.usd}</td>
                     <td>{r.inr}</td>
                   </tr>
                 ))}
@@ -115,7 +114,7 @@ export default function Page() {
               <tfoot>
                 <tr>
                   <th scope="row">{eorExample.total.label}</th>
-                  <td>{eorExample.total.eur}</td>
+                  <td>{eorExample.total.usd}</td>
                   <td>{eorExample.total.inr}</td>
                 </tr>
               </tfoot>

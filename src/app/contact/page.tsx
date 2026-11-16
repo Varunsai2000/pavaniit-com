@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import EnquiryForm from "@/components/EnquiryForm";
-import { Crumbs, JsonLd, V } from "@/components/bits";
+import { Crumbs, JsonLd, V, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
 import { site } from "@/content/site";
 
@@ -18,7 +18,7 @@ export default function Page() {
         <div className="wrap contact-layout">
           <div className="page-intro">
             <Crumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
-            <h1 className="h1">Tell us who you want to hire</h1>
+            <h1 className="h1"><Words>Tell us who you want to hire</Words></h1>
             <p className="lead">
               Share a few details and we&apos;ll reply within one working day to set up a 30-minute call.
             </p>

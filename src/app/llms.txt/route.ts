@@ -31,8 +31,8 @@ export function GET() {
   lines.push("## Pricing", "");
   if (published.length) {
     for (const p of published) lines.push(`- ${p.service}: ${p.amount}${p.amountLocal ? ` (${p.amountLocal})` : ""} ${p.unit}`);
-    lines.push(`- Employer of Record packages: ${eorPlans.map((p) => `${p.name} ${p.eur} (${p.inr}) ${p.unit}`).join("; ")}`);
-    lines.push(`- Example: one employee on ${eorExample.salary} a month costs about ${eorExample.total.inr} (${eorExample.total.eur}) a month in total: ${eorExample.rows.map((r) => `${r.label} ${r.inr}`).join(", ")}.`);
+    lines.push(`- Employer of Record packages: ${eorPlans.map((p) => `${p.name} ${p.usd} (${p.inr}) ${p.unit}`).join("; ")}`);
+    lines.push(`- Example: one employee on ${eorExample.salary} a month costs about ${eorExample.total.inr} (${eorExample.total.usd}) a month in total: ${eorExample.rows.map((r) => `${r.label} ${r.inr}`).join(", ")}.`);
     lines.push(`- [Full pricing](${url("/pricing/")})`);
   } else {
     lines.push(`- [Pricing](${url("/pricing/")}): published fees for every service`);

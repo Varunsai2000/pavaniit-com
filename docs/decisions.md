@@ -5,7 +5,7 @@
 Every item in `docs/polish-checklist.md` is ticked, and every change is pushed to `main`, one commit per round. Check the five open questions below first; they're the only things the site needs from you before launch.
 
 **What changed overnight**
-- **Home hero:** now a slim split, like Deel. Headline, one sentence, Book a call and See pricing, and "From €62 per employee per month" on the left; the illustration on the right, with nothing laid over it. The whole hero fits in a 1440×900 window.
+- **Home hero:** now a slim split, like Deel. Headline, one sentence, Book a call and See pricing, and "From $69 per employee per month" on the left; the illustration on the right, with nothing laid over it. The whole hero fits in a 1440×900 window.
 - **Real pricing:** your price sheet is now on the site:
   - the pricing page shows the three packages, a ₹50,000 monthly cost receipt, the eight covered services and your four notes;
   - the home page shows the three packages;
@@ -50,12 +50,23 @@ A running log of section-level changes made by the polish loop, and the question
 
 1. **Employer PF rate.** The price sheet shows "Employer PF (8%)" and "Employee's PF (8%)", so the site shows 8%. The statutory rate is 12% of basic wages; 8% of gross matches that only when basic is two-thirds of gross. Consider wording such as "Employer PF (12% of basic wages)" so it can't be read as a non-statutory rate.
 2. **Health insurance, gratuity and labour welfare fund.** Older Employer of Record copy (the EOR page's service list, its FAQ, the glossary) mentions these. They are not in the price sheet's "Services covered", so they were taken off the price card. Confirm whether they are offered; if not, they should come off the EOR page too.
-3. **Independent contractor package (€23 / ₹2,400).** The site shows the price only. What does it cover (contracts, invoicing, payments)?
-4. **Hero price line.** It reads "From €62 per employee per month", the six-employee rate. Switch it to "€78 per employee per month" if you'd rather lead with the single-hire price.
+3. **Independent contractor package ($26 / ₹2,400).** The site shows the price only. What does it cover (contracts, invoicing, payments)?
+4. **Hero price line.** It reads "From $69 per employee per month", the six-employee rate. Switch it to "$87 per employee per month" if you'd rather lead with the single-hire price.
 5. **Other prices** (recruitment, contract staffing, payroll for your own entity, training, hire-train-deploy) are still placeholders.
 
 ## Log
 
+- **Premium pass** (your request: high-end corporate feel, every animation clear, nothing overdone). Built from an independent Codex review of the code and screenshots, plus a study of Stripe, Linear, Vercel, Mercury, Attio, Deel and Ramp (their live CSS). Rule kept throughout: motion must explain something real, and nothing is invented.
+  - **Type and space:** headings at a lighter weight (640, was 700) read calmer at large sizes; the content width is 1280px (was 1360) so lines and cards sit tighter; section spacing tops out at 120px (was 140); lead paragraphs wrap without orphans; prices and dates use tabular figures.
+  - **Header:** clear at the top of the page, then frosted glass with a hairline once you scroll (without JavaScript it stays frosted). Nav hover and the current page show a thin underline instead of grey pills. Small buttons are 44px tall, the touch-target size.
+  - **Buttons:** the black button has a lit top edge and a contact shadow; on hover its arrow moves toward where it goes. Press still scales to 97%.
+  - **Surfaces:** one card style everywhere (hairline ring, soft shadow). Dark bands and the black price card have light falling from the top. The three prices form one joined rail instead of three loose cards.
+  - **Placeholders:** a dashed underline instead of a grey wireframe chip, so unfinished details stay findable without making pages look unfinished.
+  - **Footer:** a larger wordmark; link rows grow to 44px on touch screens.
+  - **Motion, each with a job:** page headings rise word by word in reading order on load, then the lead, buttons and price line follow (under a second). The hero picture is painted at once and settles to its crop. Each section's heading and its one main component rise in once as you reach them; rows and cards never animate on their own. The calendar's deadlines resolve in date order when it comes into view, showing what is already done this month for today's real date. FAQ answers open to their height instead of jumping. The journey thread draws in 1s (was 1.6s).
+  - **Left out on purpose:** page-to-page transitions, parallax, scroll-jacking, count-up numbers, marquees, cursor effects, logo walls and badges. None of the reference sites use the first five, and the rest would need claims we don't have.
+  - **Safe by default:** server HTML is the final state; nothing is hidden without JavaScript; reduced motion turns every animation off (headings render as plain text). No layout shift, no sideways scroll at 375 to 1920px, and no console errors on any page.
+- **Prices in dollars, not euros** (your request). Dollar figures are converted from your rupee prices at ₹94 to the dollar (your choice, 16 November 2026) and rounded: $87 per employee, $69 from six employees, $26 per contractor; the ₹50,000 example comes to $685 a month, with each row converted and the total the sum of the rows, so the receipt adds up. Rupee prices are unchanged and still shown beside every dollar figure. The rate is one setting, `inrPerUsd` in `src/content/site.ts`; the pages, `llms.txt` and the structured data (now USD and INR offers) all follow it.
 - **Monthly calendar section lined up** (your feedback: misaligned). The calendar card ran about 125px below the four steps beside it. Now the steps share the card's height in four equal rows, so both columns start and end on the same line, and the first step's text starts level with the month name. Inside the card, the calendar spans the card's full width: Monday lines up with the month name, Sunday with the status badges, and the list's dates sit centred under Monday. Checked at 390, 961, 1024, 1280, 1440 and 1920px; the payroll page's calendar gets the same alignment inside the card.
 - **No cards over the hero illustration** (your request). The live time card on the home hero is gone, along with its component, styles and tokens, so the picture stands on its own at every width.
 - **Price cards stay three across on tablets** (they used to stack into wide, mostly empty slabs below 980px; now only below 640px).

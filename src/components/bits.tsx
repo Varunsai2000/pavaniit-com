@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import { ArrowRight, Check, Plus } from "lucide-react";
 import { isPlaceholder, site } from "@/content/site";
 import type { QA } from "@/content/stages";
@@ -11,6 +12,23 @@ export function V({ children }: { children: string }) {
     </span>
   ) : (
     <>{children}</>
+  );
+}
+
+/** A page heading split into words, so it can rise in reading order on load.
+    Plain text for screen readers and without motion; the spans only matter to CSS. */
+export function Words({ children }: { children: string }) {
+  return (
+    <>
+      {children.split(" ").map((w, i) => (
+        <Fragment key={i}>
+          {i > 0 && " "}
+          <span className="w">
+            <span>{w}</span>
+          </span>
+        </Fragment>
+      ))}
+    </>
   );
 }
 

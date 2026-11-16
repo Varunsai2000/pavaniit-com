@@ -26,6 +26,7 @@ body {
   font-size: var(--text-body);
   line-height: var(--leading-relaxed);
   -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
   text-rendering: optimizeLegibility;
   caret-color: var(--color-inverse);
 }
@@ -38,7 +39,7 @@ img, svg { display: block; max-width: 100%; }
 img { height: auto; }
 a { color: inherit; text-underline-offset: var(--underline-offset); }
 button { font: inherit; color: inherit; }
-table { font-variant-numeric: tabular-nums; }
+table, .price-amount, .pl-amount, .cycle-n, .month-grid, .month-list .d { font-variant-numeric: lining-nums tabular-nums; }
 
 :focus-visible { outline: var(--border-strong) solid var(--color-inverse); outline-offset: var(--focus-offset); border-radius: var(--radius-inline); }
 
@@ -57,9 +58,9 @@ table { font-variant-numeric: tabular-nums; }
 
 /* ---------- Type ---------- */
 
-.display { font-size: var(--text-display); font-weight: var(--weight-bold); line-height: var(--leading-none); letter-spacing: var(--tracking-display); text-wrap: balance; }
-.h1 { font-size: var(--text-h1); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-display); text-wrap: balance; }
-.h2 { font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); text-wrap: balance; }
+.display { font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-none); letter-spacing: var(--tracking-display); text-wrap: balance; }
+.h1 { font-size: var(--text-h1); font-weight: var(--weight-display); line-height: var(--leading-heading); letter-spacing: var(--tracking-display); text-wrap: balance; }
+.h2 { font-size: var(--text-h2); font-weight: var(--weight-display); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); text-wrap: balance; }
 .h3 { font-size: var(--text-2xl); font-weight: var(--weight-bold); line-height: var(--leading-snug); letter-spacing: var(--tracking-brand); }
 .h4 { font-size: var(--text-body); font-weight: var(--weight-bold); line-height: var(--leading-ui); letter-spacing: var(--tracking-snug); }
 .lead { font-size: var(--text-lead); line-height: var(--leading-lead); color: var(--color-ink-2); max-width: var(--measure-lead); text-wrap: pretty; }
@@ -69,8 +70,8 @@ table { font-variant-numeric: tabular-nums; }
 
 /* Placeholder chips (values set in src/content/site.ts) */
 .ph {
-  display: inline; padding: 0 var(--ph-pad-x); border-radius: var(--radius-inline);
-  background: var(--color-chip); outline: var(--border-dashed) dashed var(--color-line-muted); outline-offset: calc(var(--border-dashed) * -1);
+  display: inline; padding: 0; border-radius: 0; background: transparent;
+  border-bottom: var(--border-dashed) dashed var(--color-line-muted);
   color: var(--color-ink); font-weight: var(--weight-semibold); -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
 
@@ -85,8 +86,8 @@ table { font-variant-numeric: tabular-nums; }
   transition: transform var(--dur-press) var(--ease-out), background-color var(--dur-ui) ease, border-color var(--dur-ui) ease, color var(--dur-ui) ease;
 }
 .btn:active { transform: scale(var(--press-scale)); }
-.btn svg { width: var(--icon-md); height: var(--icon-md); flex: none; }
-.btn-primary { background: var(--color-inverse); color: var(--color-on-inverse); }
+.btn svg { width: var(--icon-md); height: var(--icon-md); flex: none; transition: transform var(--dur-ui) var(--ease-out); }
+.btn-primary { background: var(--color-inverse); color: var(--color-on-inverse); box-shadow: var(--shadow-btn); }
 .btn-secondary { background: var(--color-bg); color: var(--color-ink); border-color: var(--color-line-strong); }
 .btn-light { background: var(--color-bg); color: var(--color-ink); }
 .btn-ghost-light { background: transparent; color: var(--color-on-inverse); border-color: var(--color-inverse-line); }
@@ -95,6 +96,7 @@ table { font-variant-numeric: tabular-nums; }
 .btn:disabled { opacity: 0.6; cursor: progress; }
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover { background: var(--color-inverse-2); }
+  .btn:hover svg { transform: translateX(var(--nudge)); }
   .btn-secondary:hover { border-color: var(--color-ink); }
   .btn-light:hover { background: var(--color-surface-2); }
   .btn-ghost-light:hover { border-color: var(--color-on-inverse); }
@@ -116,26 +118,39 @@ table { font-variant-numeric: tabular-nums; }
   position: sticky; top: 0; z-index: var(--z-header);
   isolation: isolate;
   border-bottom: var(--border-hairline) solid var(--color-line);
+  transition: border-color var(--dur-ui) ease;
 }
 .site-header::before {
   content: ""; position: absolute; inset: 0; z-index: var(--z-below);
   background: var(--header-glass);
   -webkit-backdrop-filter: var(--header-blur);
   backdrop-filter: var(--header-blur);
+  transition: opacity var(--dur-ui) ease;
 }
+/* With JavaScript, the header sits clear on the page until it scrolls (or a menu opens);
+   without it, it keeps the glass and rule so nothing ever scrolls under a bare header. */
+.js .site-header:not([data-scrolled="true"]):not(:has([aria-expanded="true"])) { border-bottom-color: transparent; }
+.js .site-header:not([data-scrolled="true"]):not(:has([aria-expanded="true"]))::before { opacity: 0; }
 .header-row { display: flex; align-items: center; gap: var(--space-7); height: var(--header-h); }
 .brand { display: inline-flex; align-items: baseline; flex: none; font-family: var(--font-brand); font-size: var(--text-brand); font-weight: var(--weight-regular); line-height: var(--leading-none); letter-spacing: var(--tracking-brand); text-decoration: none; color: var(--color-ink); }
 .nav { display: flex; align-items: center; gap: var(--space-0-5); }
 .nav-link {
+  position: relative;
   display: inline-flex; align-items: center; gap: var(--space-1); height: var(--control-h-sm); padding: 0 var(--space-3);
   border: 0; border-radius: var(--radius-control); background: transparent;
   font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--color-ink-2); text-decoration: none; cursor: pointer;
-  transition: background-color var(--dur-press) ease, color var(--dur-press) ease;
+  transition: color var(--dur-press) ease;
 }
-.nav-link[aria-expanded="true"], .nav-link[aria-current="page"] { color: var(--color-ink); background: var(--color-surface); }
+.nav-link::after {
+  content: ""; position: absolute; left: var(--space-3); right: var(--space-3); bottom: var(--space-2); height: var(--nav-line);
+  border-radius: var(--radius-pill); background: currentColor;
+  transform: scaleX(0); transform-origin: left center; transition: transform var(--dur-ui) var(--ease-out);
+}
+.nav-link[aria-expanded="true"], .nav-link[aria-current="page"] { color: var(--color-ink); }
+.nav-link[aria-expanded="true"]::after, .nav-link[aria-current="page"]::after { transform: scaleX(1); }
 .nav-link svg { width: var(--icon-sm); height: var(--icon-sm); transition: transform var(--dur-ui) var(--ease-out); }
 .nav-link[aria-expanded="true"] svg { transform: rotate(180deg); }
-@media (hover: hover) and (pointer: fine) { .nav-link:hover { color: var(--color-ink); background: var(--color-surface); } }
+@media (hover: hover) and (pointer: fine) { .nav-link:hover { color: var(--color-ink); } .nav-link:hover::after { transform: scaleX(1); } }
 .header-actions { margin-left: auto; display: flex; align-items: center; gap: var(--space-2); }
 
 .services-menu {
@@ -176,7 +191,7 @@ table { font-variant-numeric: tabular-nums; }
 .hero-split { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-10) var(--grid-gap); align-items: stretch; }
 .hero-copy { align-self: center; }
 .hero-copy .display { max-width: var(--measure-display); }
-.hero-copy .lead { margin-top: var(--space-6); font-size: var(--text-lg); text-wrap: balance; }
+.hero-copy .lead { margin-top: var(--space-6); font-size: var(--text-lg); text-wrap: pretty; }
 .hero-copy .hero-actions { margin-top: var(--space-8); }
 .hero-copy .hero-price { margin-top: var(--space-4); }
 .hero-copy .hero-price + .hero-price { margin-top: var(--space-1); }
@@ -208,7 +223,7 @@ table { font-variant-numeric: tabular-nums; }
 .section-page-top { padding-top: var(--section-y-page-top); }
 .section-foot { margin-top: var(--space-6); }
 .page-intro .h1, .page-intro .lead { margin-top: var(--space-5); }
-.on-mist { background: var(--color-surface); }
+.on-mist { background: var(--color-surface); background-image: var(--gradient-mist); }
 /* Section scaffold: one heading block (title, then lead) in one of two layouts.
    Stacked: above the content, one gap below it. Side: the left half of a split, content in the right half. */
 .section-head { display: grid; gap: var(--head-gap); align-content: start; max-width: var(--measure-section); margin-bottom: var(--section-head-gap); }
@@ -266,7 +281,7 @@ table { font-variant-numeric: tabular-nums; }
 .ruled > .wrap::before { content: ""; position: absolute; top: calc(var(--section-y) * -1); left: var(--gutter); right: var(--gutter); height: var(--border-hairline); background: var(--color-line-strong); }
 
 /* The one dark band on the page: the monthly cycle. */
-.on-ink { background: var(--color-ink); color: var(--color-on-inverse); }
+.on-ink { background: var(--color-ink); background-image: var(--gradient-ink); color: var(--color-on-inverse); }
 .on-ink .h2 { color: var(--color-on-inverse); }
 .on-ink .lead { color: var(--color-on-inverse-2); }
 .cycle { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-10) var(--grid-gap); align-items: stretch; }
@@ -336,9 +351,9 @@ table { font-variant-numeric: tabular-nums; }
 
 /* ---------- Pricing ---------- */
 
-.price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
-.price-card { display: flex; flex-direction: column; padding: var(--space-7); border-radius: var(--radius-card); border: var(--border-hairline) solid var(--color-line); background: var(--color-bg); }
-.price-card.is-lead { background: var(--color-inverse); border-color: var(--color-inverse); color: var(--color-on-inverse); position: relative; overflow: hidden; }
+.price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--border-hairline); padding: var(--border-hairline); border-radius: var(--radius-card); background: var(--color-line); overflow: hidden; box-shadow: var(--shadow-card); }
+.price-card { display: flex; flex-direction: column; padding: var(--space-7); background: var(--color-bg); }
+.price-card.is-lead { background: var(--color-inverse); background-image: var(--gradient-ink); color: var(--color-on-inverse); position: relative; }
 .price-card > * { position: relative; }
 .price-name { font-size: var(--text-xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-title); }
 .price-amount { margin-top: var(--space-5); font-size: var(--text-4xl); font-weight: var(--weight-heavy); letter-spacing: var(--tracking-display); line-height: var(--leading-tight); }
@@ -351,7 +366,7 @@ table { font-variant-numeric: tabular-nums; }
 .price-card.is-lead .price-unit, .price-card.is-lead .price-includes li, .price-card.is-lead .price-note { color: var(--color-on-inverse-2); }
 .price-card.is-lead .price-includes li svg { color: var(--color-on-inverse); }
 .price-card.is-lead .price-note { border-top-color: var(--color-inverse-line); }
-.price-card.is-lead .ph, .site-footer .ph, .cta-band .ph { background: var(--color-chip-inverse); color: var(--color-on-inverse); outline-color: var(--color-line-muted); }
+.price-card.is-lead .ph, .site-footer .ph, .cta-band .ph { color: var(--color-on-inverse); border-bottom-color: var(--color-on-inverse-2); }
 /* Price cards are short, so they stay three across until phones. */
 @media (max-width: 640px) { .price-grid { grid-template-columns: minmax(0, 1fr); } }
 .price-local { color: var(--color-ink); font-weight: var(--weight-semibold); }
@@ -435,7 +450,7 @@ table { font-variant-numeric: tabular-nums; }
 
 /* ---------- CTA band ---------- */
 
-.cta-band { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); align-items: end; padding: var(--fluid-band); border-radius: var(--radius-card); background: var(--color-inverse); color: var(--color-on-inverse); }
+.cta-band { display: grid; grid-template-columns: var(--grid-half); gap: var(--space-6) var(--grid-gap); align-items: end; padding: var(--fluid-band); border-radius: var(--radius-card); background: var(--color-inverse); background-image: var(--gradient-ink); color: var(--color-on-inverse); }
 .cta-band .h2 { color: var(--color-on-inverse); max-width: var(--measure-heading-wide); }
 .cta-band p { color: var(--color-on-inverse-2); max-width: var(--measure-cta); }
 .cta-band p a { color: var(--color-on-inverse); }
@@ -576,7 +591,8 @@ select.input { appearance: none; padding-right: var(--space-10); background: var
 .footer-top { display: grid; grid-template-columns: var(--grid); gap: var(--space-10) var(--grid-gap); }
 .footer-brand { grid-column: var(--span-main); }
 .footer-col { grid-column: var(--span-link-col); }
-.footer-brand .brand { color: var(--color-on-inverse); }
+.footer-brand .brand { color: var(--color-on-inverse); font-size: var(--text-3xl); }
+@media (pointer: coarse) { .footer-col a { min-height: var(--tap); } }
 .footer-brand p { margin-top: var(--space-4); max-width: var(--measure-note); }
 .footer-col h2 { font-size: var(--text-sm); font-weight: var(--weight-heavy); color: var(--color-on-inverse); margin-bottom: var(--space-2); }
 .footer-col ul { list-style: none; display: grid; }
@@ -585,6 +601,56 @@ select.input { appearance: none; padding-right: var(--space-10); background: var
 .footer-col a:hover { color: var(--color-on-inverse); text-decoration: underline; }
 .footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3) var(--space-8); margin-top: var(--space-14); padding-top: var(--space-6); border-top: var(--border-hairline) solid var(--color-inverse-line); font-size: var(--text-sm); color: var(--color-on-inverse-2); }
 @media (max-width: 900px) { .footer-top { grid-template-columns: var(--grid-half); } .footer-brand { grid-column: 1 / -1; } .footer-col { grid-column: auto; } }
+
+/* ---------- Entrance and reveal motion ----------
+   Everything below is progressive: server HTML is the final state, and reduced
+   motion turns it all off. Only transform and opacity animate. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Page heading: words rise from a mask in reading order, once, on load. */
+  h1 .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: var(--rise-pad); margin-bottom: calc(var(--rise-pad) * -1); }
+  h1 .w > span { display: inline-block; animation: rise var(--dur-rise) var(--ease-out) both; }
+  h1 .w:nth-child(2) > span { animation-delay: calc(var(--stagger-word) * 1); }
+  h1 .w:nth-child(3) > span { animation-delay: calc(var(--stagger-word) * 2); }
+  h1 .w:nth-child(4) > span { animation-delay: calc(var(--stagger-word) * 3); }
+  h1 .w:nth-child(5) > span { animation-delay: calc(var(--stagger-word) * 4); }
+  h1 .w:nth-child(6) > span { animation-delay: calc(var(--stagger-word) * 5); }
+  h1 .w:nth-child(7) > span { animation-delay: calc(var(--stagger-word) * 6); }
+  h1 .w:nth-child(8) > span { animation-delay: calc(var(--stagger-word) * 7); }
+  h1 .w:nth-child(9) > span { animation-delay: calc(var(--stagger-word) * 8); }
+  h1 .w:nth-child(n + 10) > span { animation-delay: calc(var(--stagger-word) * 9); }
+  /* Then what follows the heading (lead, buttons, price line), one after another. */
+  h1:has(.w) ~ * { animation: enter-up var(--dur-enter) var(--ease-out) both; animation-delay: calc(var(--stagger) * 4); }
+  h1:has(.w) ~ * ~ * { animation-delay: calc(var(--stagger) * 5); }
+  h1:has(.w) ~ * ~ * ~ * { animation-delay: calc(var(--stagger) * 6); }
+  h1:has(.w) ~ * ~ * ~ * ~ * { animation-delay: calc(var(--stagger) * 7); }
+  /* The hero picture is painted at once (no fade) and settles to its crop. */
+  .hero-visual > img { animation: settle var(--dur-settle) var(--ease-out) both; }
+
+  /* Scroll reveal (Reveals.tsx): only "idle" hides anything. */
+  [data-enter] { transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out); }
+  [data-enter="idle"] { opacity: 0.001; transform: translateY(var(--reveal-y)); }
+  .section-head + [data-enter="in"], .section-head ~ * [data-enter="in"] { transition-delay: var(--stagger); }
+
+  /* Calendar (MonthCycle.tsx): this month's deadlines resolve in date order. */
+  .month[data-resolve] .month-day.is-due { transition: background-color var(--dur-ui) ease, color var(--dur-ui) ease, box-shadow var(--dur-ui) ease; }
+  .month[data-resolve] .month-list .badge { transition: opacity var(--dur-ui) ease, transform var(--dur-ui) var(--ease-out); }
+  .month[data-resolve="idle"] .month-day.is-due.is-done { background: var(--color-bg); color: var(--color-ink); box-shadow: inset 0 0 0 var(--border-strong) var(--color-ink); }
+  .month[data-resolve="idle"] .month-list .badge { opacity: 0; transform: scale(var(--press-scale)); }
+  .month[data-resolve="in"] [data-due="1"], .month[data-resolve="in"] .month-list li:nth-child(1) .badge { transition-delay: var(--resolve-start); }
+  .month[data-resolve="in"] [data-due="2"], .month[data-resolve="in"] .month-list li:nth-child(2) .badge { transition-delay: calc(var(--resolve-start) + var(--resolve-step)); }
+  .month[data-resolve="in"] [data-due="3"], .month[data-resolve="in"] .month-list li:nth-child(3) .badge { transition-delay: calc(var(--resolve-start) + var(--resolve-step) * 2); }
+  .month[data-resolve="in"] .month-list li:nth-child(4) .badge { transition-delay: calc(var(--resolve-start) + var(--resolve-step) * 3); }
+}
+@keyframes rise { from { transform: translateY(var(--rise-from)); } }
+@keyframes enter-up { from { opacity: 0.001; transform: translateY(var(--enter-y)); } }
+@keyframes settle { from { transform: scale(var(--settle-scale)); } }
+
+/* FAQ: answers open to their height instead of jumping, where the browser can animate to auto. */
+@supports (interpolate-size: allow-keywords) {
+  .faq { interpolate-size: allow-keywords; }
+  .faq details::details-content { block-size: 0; overflow-y: clip; transition: block-size var(--dur-panel) var(--ease-out), content-visibility var(--dur-panel) allow-discrete; }
+  .faq details[open]::details-content { block-size: auto; }
+}
 
 /* ---------- 404 ---------- */
 

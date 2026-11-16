@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import { Crumbs, CtaBand, JsonLd } from "@/components/bits";
+import { Crumbs, CtaBand, JsonLd, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
 import { glossary, glossaryReviewed, glossarySources } from "@/content/glossary";
 import { site } from "@/content/site";
@@ -37,7 +37,7 @@ export default function Page() {
         <div className="wrap page-hero-plain">
             <Crumbs items={[{ name: "Home", href: "/" }, { name: "Glossary" }]} />
             <div>
-              <h1 className="h1">Indian payroll and employment terms</h1>
+              <h1 className="h1"><Words>Indian payroll and employment terms</Words></h1>
               <p className="lead">
                 Plain definitions of the words you will meet when employing people in India, from CTC to the labour
                 codes. Last reviewed {reviewed}.
