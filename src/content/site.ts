@@ -1,10 +1,11 @@
 /**
  * Company facts and prices. This is the one file to edit before launch.
  *
- * Anything wrapped in square brackets, e.g. "[City]", is a placeholder. It
- * renders on the site with a dashed outline so it's easy to spot, and it is
- * left out of structured data and llms.txt. Replace it with the real value
- * (no brackets) and the outline disappears everywhere.
+ * Anything wrapped in square brackets, e.g. "[CIN]", is a placeholder. The site
+ * never shows a placeholder: whatever depends on it (the CIN in the footer, the
+ * phone row on the contact page, the people on the About page) is left out, and
+ * so is structured data and llms.txt. Replace it with the real value (no
+ * brackets) and it appears everywhere it belongs.
  */
 
 export const isPlaceholder = (value?: string | null): boolean =>
@@ -35,6 +36,13 @@ export const site = {
   /** Paste your Web3Forms access key to deliver enquiries by email. Empty = form opens the visitor's email app. */
   web3formsKey: "",
 } as const;
+
+/** The office location from whichever parts are real: street address, city, state. */
+export const officeLine = (): string =>
+  [site.address, site.city, site.state].map((v) => real(v)).filter(Boolean).join(", ");
+
+/** The name for legal lines: the registered company name once it's set, otherwise the trading name. */
+export const legalName = (): string => real(site.legalName) ?? site.name;
 
 export type Price = {
   id: string;

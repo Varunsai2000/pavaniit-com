@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import EnquiryForm from "@/components/EnquiryForm";
-import { Crumbs, JsonLd, V, Words } from "@/components/bits";
+import { Crumbs, JsonLd, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
-import { site } from "@/content/site";
+import { officeLine, real, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Contact Pavani IT: book a call",
@@ -24,8 +24,10 @@ export default function Page() {
             </p>
             <ul className="contact-facts">
               <li><span>Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
-              <li><span>Phone</span><span><V>{site.phone}</V></span></li>
-              <li><span>Office</span><span><V>{site.address}</V>, <V>{site.city}</V>, <V>{site.state}</V></span></li>
+              {real(site.phone) && (
+                <li><span>Phone</span><a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}>{site.phone}</a></li>
+              )}
+              <li><span>Office</span><span>{officeLine()}</span></li>
               <li><span>Job seekers</span><span>Send your CV to <a href={`mailto:${site.careersEmail}?subject=Job%20application`}>{site.careersEmail}</a></span></li>
             </ul>
           </div>

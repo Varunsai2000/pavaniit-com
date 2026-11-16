@@ -35,9 +35,9 @@ Every item in `docs/polish-checklist.md` is ticked, and every change is pushed t
 - images load.
 
 **Before launch** (16 November 2026). Every item below needs something from Pavani IT; the design work is done.
-1. **Company details** in `src/content/site.ts`: registered company name, CIN, GSTIN, street address and phone. They show in the footer of every page. Indian company law expects a company's website to show its name, registered office, CIN, phone and email (Companies Act 2013, section 12(3)(c)); worth confirming with your CA. City is set: Vijayawada, Andhra Pradesh.
+1. **Company details** in `src/content/site.ts`: registered company name, CIN, GSTIN, street address and phone. Until they're set the site leaves them out (no placeholders show); each appears in the footer, contact page and structured data as soon as it's filled. Indian company law expects a company's website to show its name, registered office, CIN, phone and email (Companies Act 2013, section 12(3)(c)); worth confirming with your CA. City is set: Vijayawada, Andhra Pradesh.
 2. **Confirm the researched prices** for the other services (see the log), since they are published offers.
-3. **People on the About page** (founder and compliance advisor), or hide that section.
+3. **People on the About page** (founder and compliance advisor). The section is hidden until a name, role and background are set for someone.
 4. **Open questions 1 to 4 below** (PF wording, benefits mentioned outside the price sheet, what the contractor package covers, which price the hero leads with).
 5. **Domain:** pavaniit.com pointed at the host. Email is settled: biz@pavaniit.com is the one address on the site.
 6. **Contact form:** a free Web3Forms access key, so enquiries arrive by email instead of opening the visitor's email app. The privacy notice then needs to name Web3Forms as a service that receives form data.
@@ -59,6 +59,7 @@ A running log of section-level changes made by the polish loop, and the question
 
 ## Log
 
+- **No placeholders anywhere** (your request). Nothing in square brackets shows on any page, in meta tags or in structured data (checked on all 11 pages). Company facts are not invented: the footer reads "© 2026 Pavani IT." until the registered name is set, and adds the CIN, GSTIN and phone (as a tap-to-call link) once each is set; the contact page's phone row and the street address appear the same way; the privacy notice names the registered company once it's set; the About page's "Who you will work with" section appears once a person's name, role and background are set.
 - **Prices for every service** (your request: research them and anchor them to the EOR pricing). Shown in dollars converted from rupees at ₹94, with rupees beside them; all fees are before 18% GST. Reasoning and sources:
   - **Recruitment: 8.33% of annual CTC** (one month's salary), charged when the person joins, with a 90-day replacement guarantee. Indian agencies charge 8.33% to 12.5% for junior and mid-level roles and 15% to 20% for senior roles; 90 days is the most common guarantee ([Hyring](https://hyring.com/blog/recruitment-agency-fees-india/), [GoodSpace](https://goodspace.ai/blogs/recruitment-agency-fees-india)). The bottom of the range fits your low-fee EOR positioning.
   - **Contract staffing: 12% of monthly CTC, minimum $87 (₹8,200) per person per month.** Vendor guides put Indian IT contract-staffing markups at 15% to 35% and volume staffing at 5% to 15% ([GoodSpace](https://goodspace.ai/blogs/it-staffing-and-staff-augmentation-india), [RecruitBPM](https://recruitbpm.com/blog/price-contract-staffing-services-a-rate-card-guide)). 12% sits below IT norms; the minimum equals the EOR fee, so contract staffing (which adds sourcing) never costs less than employing someone you found yourself.

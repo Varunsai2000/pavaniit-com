@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { site } from "@/content/site";
+import { legalName, officeLine, real, site } from "@/content/site";
 import { stages } from "@/content/stages";
-import { V } from "./bits";
 
 export default function Footer() {
   return (
@@ -13,9 +12,7 @@ export default function Footer() {
               Pavani IT
             </Link>
             <p>Recruitment, Employer of Record, payroll, compliance and training in India.</p>
-            <p>
-              <V>{site.address}</V>, <V>{site.city}</V>, <V>{site.state}</V>
-            </p>
+            <p>{officeLine()}</p>
           </div>
 
           <div className="footer-col">
@@ -53,10 +50,12 @@ export default function Footer() {
 
         <div className="footer-legal">
           <span>
-            © {new Date().getFullYear()} <V>{site.legalName}</V>. CIN <V>{site.cin}</V>. GSTIN <V>{site.gstin}</V>.
+            © {new Date().getFullYear()} {legalName()}.
+            {real(site.cin) && <> CIN {site.cin}.</>}
+            {real(site.gstin) && <> GSTIN {site.gstin}.</>}
           </span>
           <a href={`mailto:${site.email}`}>{site.email}</a>
-          <V>{site.phone}</V>
+          {real(site.phone) && <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}>{site.phone}</a>}
         </div>
       </div>
     </footer>

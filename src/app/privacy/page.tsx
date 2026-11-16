@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Crumbs, JsonLd, V, Words } from "@/components/bits";
+import { Crumbs, JsonLd, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
-import { site } from "@/content/site";
+import { real, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Privacy notice | Pavani IT",
@@ -56,7 +56,7 @@ export default function Page() {
 
             <h2 id="who">Who we are</h2>
             <p>
-              <V>{site.legalName}</V>, trading as Pavani IT, provides recruitment, contract staffing, Employer of Record,
+              {real(site.legalName) ? <>{site.legalName}, trading as Pavani IT,</> : "Pavani IT"} provides recruitment, contract staffing, Employer of Record,
               payroll and compliance, training and HR advisory services in India. For this website we decide why and how
               your personal data is used, which makes us the data fiduciary.
             </p>

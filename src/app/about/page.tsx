@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Crumbs, CtaBand, JsonLd, V, Words } from "@/components/bits";
+import { Crumbs, CtaBand, JsonLd, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
-import { people, site, isPlaceholder } from "@/content/site";
+import { people, real, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About Pavani IT",
@@ -18,7 +18,10 @@ const principles = [
 ];
 
 /** Initials once a real name is in; an empty dashed circle while it is still a placeholder. */
-const initials = (name: string) => (isPlaceholder(name) ? "" : name.split(" ").map((p) => p[0]).slice(0, 2).join(""));
+const initials = (name: string) => name.split(" ").map((p) => p[0]).slice(0, 2).join("");
+
+/** Only people whose name and background are set; the section is left out until then. */
+const team = people.filter((p) => real(p.name) && real(p.role) && real(p.background));
 
 export default function Page() {
   return (
@@ -31,7 +34,7 @@ export default function Page() {
               <h1 className="h1"><Words>An Indian employer for teams built from anywhere</Words></h1>
               <p className="lead">
                 Pavani IT recruits, employs, pays and trains people in India for companies abroad and for Indian
-                businesses. We are based in <V>{site.city}</V>, <V>{site.state}</V>, and run payroll and statutory compliance ourselves.
+                businesses. We are based in {site.city}, {site.state}, and run payroll and statutory compliance ourselves.
               </p>
             </div>
         </div>
@@ -50,26 +53,28 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section ruled" aria-labelledby="people-title">
-        <div className="wrap">
-          <div className="section-head">
-            <h2 className="h2" id="people-title">Who you will work with</h2>
-            <p className="lead">The people who review our guides and answer your questions.</p>
+      {team.length > 0 && (
+        <section className="section ruled" aria-labelledby="people-title">
+          <div className="wrap">
+            <div className="section-head">
+              <h2 className="h2" id="people-title">Who you will work with</h2>
+              <p className="lead">The people who review our guides and answer your questions.</p>
+            </div>
+            <div className="people">
+              {team.map((p) => (
+                <article className="person-card" key={p.role}>
+                  <span className="avatar" aria-hidden="true">{initials(p.name)}</span>
+                  <div>
+                    <h3 className="h3">{p.name}</h3>
+                    <p className="person-role">{p.role}</p>
+                    <p>{p.background}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className="people">
-            {people.map((p) => (
-              <article className="person-card" key={p.role}>
-                <span className={`avatar${isPlaceholder(p.name) ? " is-empty" : ""}`} aria-hidden="true">{initials(p.name)}</span>
-                <div>
-                  <h3 className="h3"><V>{p.name}</V></h3>
-                  <p className="person-role"><V>{p.role}</V></p>
-                  <p><V>{p.background}</V></p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <CtaBand />
     </>

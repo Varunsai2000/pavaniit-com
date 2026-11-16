@@ -13,7 +13,7 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 ## Items
 
 - [x] **Prices.** Set researched prices for recruitment, contract staffing, payroll, training and hire-train-deploy, anchored to the EOR fee, in dollars with rupees beside them. Show the rupee amount and the note in the pricing page's price list. Say that fees exclude GST.
-- [ ] **No placeholders.** Footer, contact page, About page, privacy notice and structured data render only real company details; the About page's people section is hidden until names are set.
+- [x] **No placeholders.** Footer, contact page, About page, privacy notice and structured data render only real company details; the About page's people section is hidden until names are set.
 - [ ] **Open questions settled.** Benefits mentioned outside the price sheet, the contractor package scope, PF wording, hero price line. Decide conservatively and log each decision.
 - [ ] **Home page review**, every section: hero, stages, monthly calendar, comparison, prices, India details, FAQ, call to action.
 - [ ] **Recruitment and staffing page review**, every section.
@@ -35,3 +35,4 @@ Work top to bottom, one item per round. For each item: review it at 1440px and 3
 ## Done log
 
 - Prices: researched rates for recruitment (8.33% of annual CTC, 90-day replacement), contract staffing (12% of monthly CTC, minimum the EOR fee), payroll ($5 / ₹500 per employee, minimum ₹5,000), training ($638 / ₹60,000 a day for up to 20) and hire-train-deploy ($1,596 / ₹1,50,000 per graduate who joins). Rupees and terms now show in the pricing page list; fees noted as before GST. Checked at 1440 and 390px.
+- No placeholders: footer, contact page, privacy notice and About render only real company details; CIN, GSTIN, phone, street address and the people section appear automatically once set in `src/content/site.ts`. Scan of visible text, meta tags and structured data on 11 pages finds no bracketed text. Checked at 1440 and 390px.

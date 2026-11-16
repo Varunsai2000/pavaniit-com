@@ -530,7 +530,6 @@ table, .price-amount, .pl-amount, .cycle-n, .month-grid, .month-list .d { font-v
 .avatar { display: grid; place-items: center; width: var(--size-avatar); height: var(--size-avatar); border-radius: var(--radius-pill); background: var(--color-bg); color: var(--color-ink-3); font-size: var(--text-lg); font-weight: var(--weight-heavy); }
 .person-card p { margin-top: var(--space-2); color: var(--color-ink-2); font-size: var(--text-md); }
 .person-card .person-role { margin-top: var(--space-1); font-weight: var(--weight-semibold); }
-.avatar.is-empty { background: transparent; border: var(--border-dashed) dashed var(--color-line-muted); }
 @media (max-width: 760px) { .people { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 480px) { .person-card { grid-template-columns: minmax(0, 1fr); } }
 
