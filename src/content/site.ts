@@ -152,15 +152,15 @@ export const prices: Price[] = [
     id: "payroll",
     service: "Payroll and compliance",
     stage: "Pay",
-    amount: usd(toUsd(300)),
-    amountLocal: inr(300),
+    amount: usd(toUsd(500)),
+    amountLocal: inr(500),
     unit: "per employee per month",
     includes: [
       "Monthly payroll and payslips for your Indian entity",
       "TDS, PF, ESI, professional tax and labour welfare fund filings",
       "Labour-code registers and returns",
     ],
-    note: `Minimum ${usd(toUsd(3000))} (${inr(3000)}) a month.`,
+    note: `Minimum ${usd(toUsd(5000))} (${inr(5000)}) a month. Government fees and statutory dues are paid at cost, on top.`,
   },
   {
     id: "training",
