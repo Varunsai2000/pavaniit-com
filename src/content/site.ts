@@ -21,8 +21,9 @@ export const site = {
   description:
     "Pavani IT is an Indian Employer of Record. We recruit, employ, pay and train people in India for companies abroad and Indian businesses, with payroll and statutory compliance run in-house.",
 
-  email: "hello@pavaniit.com",
-  careersEmail: "careers@pavaniit.com",
+  email: "biz@pavaniit.com",
+  /** Same inbox for now; careers links pre-fill a "Job application" subject so CVs are easy to filter. */
+  careersEmail: "biz@pavaniit.com",
   phone: "[Phone number]",
   city: "Vijayawada",
   state: "Andhra Pradesh",

@@ -37,7 +37,7 @@ export default function Footer() {
               <li><Link prefetch={false} href="/about/">About</Link></li>
               <li><Link prefetch={false} href="/pricing/">Pricing</Link></li>
               <li><Link prefetch={false} href="/contact/">Contact</Link></li>
-              <li><a href={`mailto:${site.careersEmail}`}>Careers</a></li>
+              <li><a href={`mailto:${site.careersEmail}?subject=Job%20application`}>Careers</a></li>
             </ul>
           </div>
 
