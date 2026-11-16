@@ -46,7 +46,7 @@ export default function StagePage({ stage, children }: { stage: Stage; children?
             ))}
           </div>
           <div className="hero-visual frame frame-fill">
-            <Art name={stage.id} priority sizes="(max-width: 960px) 100vw, 50vw" />
+            <Art name={stage.id} priority sizes="(max-width: 960px) 100vw, (max-width: 1360px) 50vw, 640px" />
           </div>
         </div>
       </section>

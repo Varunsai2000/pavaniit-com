@@ -39,6 +39,8 @@ const depth = [
   { k: "CTC offers", v: "Indian offers are quoted as annual cost to company. We show you and the candidate what monthly take-home pay will be before anyone signs." },
 ];
 
+const heroSizes = "(max-width: 960px) 100vw, (max-width: 1360px) 50vw, 640px";
+
 export default function Home() {
   return (
     <>
@@ -69,7 +71,7 @@ export default function Home() {
               </p>
             </div>
             <div className="hero-visual frame frame-fill">
-              <Art name="hero" className="hero-art" priority sizes="(max-width: 960px) 100vw, 50vw" />
+              <Art name="hero" className="hero-art" priority sizes={heroSizes} />
             </div>
           </div>
         </div>
