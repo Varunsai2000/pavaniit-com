@@ -73,7 +73,7 @@ export default function Page() {
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="eor-title">Employer of Record</h2>
-            <p className="lead">One monthly fee per person, on top of their salary and statutory costs.</p>
+            <p className="lead">One monthly fee per person, on top of their salary and statutory costs. Fees are before 18% GST.</p>
           </div>
           <div className="price-grid">
             {eorPlanCards.map((p, i) => (

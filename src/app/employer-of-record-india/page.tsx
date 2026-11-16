@@ -48,8 +48,8 @@ export default function Page() {
           <div className="section-head">
             <h2 className="h2" id="eor-pricing-title">What it costs</h2>
             <p className="lead">
-              One monthly fee per person, on top of their salary and statutory costs. Every fee is in the proposal before
-              you sign.
+              One monthly fee per person, on top of their salary and statutory costs, before 18% GST. Every fee is in the
+              proposal before you sign.
             </p>
           </div>
           <div className="price-grid">
