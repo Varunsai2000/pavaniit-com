@@ -72,7 +72,14 @@ Settled on 16 November 2026 (launch loop, round 3). Each is a conservative call;
   - **Course facts hidden until set.** Fee, duration, days and times, batch dates, stack and trainer no longer show as dashed placeholders. A course page shows only the facts that are set, then "Ask us for the fee, dates and timings. We reply within one working day." Course cards leave out the duration and fee row until they're set. Copy that promised "each course page shows the fee" (why learn, two FAQs) now says to ask us instead, and switches back once every course has a fee (or a trainer).
   - **320px phones:** the header no longer scrolls sideways by 19px. The gap beside the wordmark narrows below 400px, and the wordmark steps down to 22px at 360px and below.
   - **Dependabot:** `.github/dependabot.yml` opens one monthly pull request for minor and patch updates, with majors separate. Turning on Dependabot security updates is a repository setting (Settings → Code security).
-  - **Checks:** typecheck and build pass; no visible placeholders in any built page; all 1,492 internal links and anchors resolve; no sideways scroll on all 18 pages at 320, 375 and 414px.
+  - **Checks:**
+    - typecheck and build pass;
+    - no visible placeholders in any built page;
+    - all 1,492 internal links and anchors resolve;
+    - no sideways scroll on all 18 pages at 320, 375 and 414px;
+    - axe-core 4.10 at 1440 and 390px on all 18 pages: no violations;
+    - keyboard pass on `/courses/`, a course page and the enquiry form: a visible focus ring at every stop.
+  - **Not yet:** load time on a throttled phone, and a look at the Netlify deploy preview. Netlify hasn't reported a preview on pull request #1.
 
 - **AI courses lead the catalogue** (your direction, 22 November 2026: "AI related course, how to become forward deployed engineer, Claude and Codex based coding, OpenSpec framework, trending stuff"). `/courses/` now groups six courses into AI courses and Software engineering courses.
   - **New:** Agentic AI engineering (model APIs, tool use, MCP, retrieval, agent SDKs, evals, guardrails, shipping); Forward deployed engineer (discovery, prototyping with coding agents, integrating with customer systems, evals, deployment, demos and handover, the case-study interview); Claude Code and Codex (CLAUDE.md, plan mode, subagents, hooks, skills and MCP; AGENTS.md, cloud tasks and code review in Codex; spec-driven development with OpenSpec; reviewing agent-written code; agents in CI).

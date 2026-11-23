@@ -10,7 +10,7 @@ Owner: **You** means only Pavani IT can do it (accounts, facts, decisions). **Cl
 
 - [x] **Next.js security upgrade** (Claude). Done 23 November on the branch `courses-and-production`: 16.4.3 → 16.4.6, `npm audit` clean, build no longer warns.
 - [x] **No placeholder outlines on course pages** (Claude). Done 23 November: each course fact stays hidden until it's set in `src/content/courses.ts`, and the course page says "Ask us for the fee, dates and timings". Filling in the real facts is still yours (section 4).
-- [ ] **Ship the courses work through a deploy preview** (Claude). Commit on a branch, push, check Netlify's preview URL, then merge to `main`. From now on, nothing goes straight to `main`.
+- [ ] **Ship the courses work through a deploy preview** (Claude, then You). Pull request #1 (`courses-and-production`) opened 23 November. Netlify hasn't reported a deploy preview on it: no status, check or comment appeared on GitHub. Check that deploy previews are on in Netlify (Site configuration → Build & deploy → Branches and deploy contexts → Deploy previews: any pull request against `main`). Then look at the preview and merge. From now on, nothing goes straight to `main`.
 
 ## 2. Enquiries that actually arrive
 
@@ -54,7 +54,11 @@ Owner: **You** means only Pavani IT can do it (accounts, facts, decisions). **Cl
 
 ## 7. Checks on the new pages
 
-- [ ] **Launch checks on the eight new pages** (Claude). Run the same checks as launch: axe-core at 1440 and 390px, a keyboard pass, internal links, image weights and load time on a throttled phone. Internal links done 23 November (all resolve).
+- [ ] **Launch checks on the eight new pages** (Claude). Done 23 November, except load time:
+  - axe-core 4.10 at 1440 and 390px on all 18 pages: no violations;
+  - keyboard pass on `/courses/`, a course page and the enquiry form: every stop shows a focus ring, and the skip link comes first;
+  - all 1,492 internal links and anchors resolve, and the new pages reuse the illustrations already checked at launch.
+  - Still to do: load time on a throttled phone, on the deploy preview or the live site.
 - [x] **320px overflow** (Claude). Done 23 November: no sideways scroll on any of the 18 pages at 320, 375 or 414px.
 
 ## 8. Keeping it running
@@ -69,3 +73,5 @@ Owner: **You** means only Pavani IT can do it (accounts, facts, decisions). **Cl
   - Bump the sitemap date only when content really changes.
 
 ## Done log
+
+- 23 November 2026: Next.js 16.4.6, course facts hidden until set, 320px header fix, Dependabot config, accessibility, keyboard and link checks. All on pull request #1, not yet merged.
