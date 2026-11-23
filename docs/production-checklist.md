@@ -2,7 +2,11 @@
 
 What it takes to run pavaniit.com as a working business site: enquiries that arrive, someone who answers them, real details, and checks that keep it healthy. Written 22 November 2026.
 
-**Where things stand.** The site is live on Netlify at https://pavaniit.com. HTTPS works, www and http redirect to it, HSTS and the security headers are on, and email runs on Google Workspace. The courses work (training institute and AI courses) isn't committed yet, so `/courses/` returns 404 on the live site. Enquiry forms don't post anywhere yet: with no Web3Forms key, they open the visitor's email app.
+**Where things stand.** The site is live on Netlify at https://pavaniit.com. HTTPS works, www and http redirect to it, HSTS and the security headers are on, and email runs on Google Workspace. All 18 pages are live, `/courses/` and the six course pages included, and the sitemap lists 18 URLs. Both enquiry forms deliver by email through Web3Forms, tested end to end. What's missing is the content: the real course facts, the phone number, the company registration details and the legal pages.
+
+**How the site deploys.** Netlify builds from the Git repository on every push to `main`. Until 23 November it built from nothing at all: the project had no repository linked and the live site was a single manual upload ("Netlify Drop") made on 17 November. That's why `/courses/` returned 404 for six days after the courses work was already on `main` — nobody had dropped a new folder. If the live site ever looks older than the code again, check the Deploys tab before anything else.
+
+**Which repository it builds from.** Netlify builds from `Varunsai2000/pavaniit-com`, a copy, not from `niteshballa/pavaniit-site`. Linking the original needs the Netlify GitHub App installed on that account, which needs admin on it. Until that happens, work pushed to the original does not reach the live site: it has to be carried over with `git pull origin main` then `git push mine main`. That manual step is the same kind of gap that left the site six days stale, so getting the app installed on the original and relinking is worth doing, after which this copy can go.
 
 Owner: **You** means only Pavani IT can do it (accounts, facts, decisions). **Claude** means it can be done in the code.
 
@@ -10,12 +14,15 @@ Owner: **You** means only Pavani IT can do it (accounts, facts, decisions). **Cl
 
 - [x] **Next.js security upgrade** (Claude). Done 23 November on the branch `courses-and-production`: 16.4.3 → 16.4.6, `npm audit` clean, build no longer warns.
 - [x] **No placeholder outlines on course pages** (Claude). Done 23 November: each course fact stays hidden until it's set in `src/content/courses.ts`, and the course page says "Ask us for the fee, dates and timings". Filling in the real facts is still yours (section 4).
-- [ ] **Ship the courses work through a deploy preview** (Claude, then You). Pull request #1 (`courses-and-production`) opened 23 November. Netlify hasn't reported a deploy preview on it: no status, check or comment appeared on GitHub. Check that deploy previews are on in Netlify (Site configuration → Build & deploy → Branches and deploy contexts → Deploy previews: any pull request against `main`). Then look at the preview and merge. From now on, nothing goes straight to `main`.
+- [x] **Ship the courses work** (Claude, then You). Done 23 November, though not the way this said. The courses work was already on `main`: pull request #1 (`courses-and-production`) held the same files, so there was nothing left to merge. Netlify reported no deploy preview because the project had no repository linked at all. Linking it published `main`, and all 18 pages went live.
+- [ ] **Deploy previews** (You). Still off. Netlify → Site configuration → Build & deploy → Branches and deploy contexts → Deploy previews: any pull request against `main`. Worth turning on before the next change, so nothing goes straight to `main` again.
 
 ## 2. Enquiries that actually arrive
 
-- [ ] **Web3Forms access key** (You). Create a free account at web3forms.com with biz@pavaniit.com and send the key. Claude puts it in `site.ts`. Both forms then post directly, and the privacy notice names Web3Forms automatically. The site's security policy already allows it.
-- [ ] **End-to-end test** (Claude and You). On the preview and then live, send each form from a phone and a laptop. Check that the email lands in the inbox (not spam), the subject is right ("Enquiry: …" or "Course enquiry: …"), and pressing Reply goes to the visitor, not to Web3Forms.
+- [x] **Web3Forms access key** (You, then Claude). Done 23 November: the key is set in `site.ts`, both forms post directly, and the privacy notice names Web3Forms.
+- [x] **End-to-end test** (Claude and You). Done 23 November on the live site. Two enquiries arrived in the inbox, not spam, with the right subject and every field. DKIM signs them (`Signed by: web3forms.com`) and they travel over TLS.
+- [x] **Reply-to** (Claude). Found during that test and fixed 23 November. Web3Forms sends from its own address, so with no `replyto` field, pressing Reply answered Web3Forms instead of the person who wrote in. Both forms name the visitor's address `email`, so `useEnquirySend` in `src/components/formParts.tsx` now sets `replyto` from it. Verified in the message headers.
+- [ ] **IP addresses in enquiry emails** (You decide, Claude words it). Web3Forms records the IP address an enquiry was sent from and includes it in the email. The privacy notice says the host keeps IP addresses in server logs, but not that submitting a form sends one to us. Worth stating plainly, and worth raising in the legal review below.
 - [ ] **Sorting in Gmail** (You). Add filters and labels on the subject: company enquiries, course enquiries, job applications ("Job application"). Optionally add free Workspace aliases (courses@, careers@) and point the forms at them.
 - [ ] **Spam** (Claude, if needed). Both forms already have a hidden honeypot field. If spam gets through, add Web3Forms' hCaptcha, which needs a security-policy update.
 - [ ] **Enquiry tracker** (You). A simple Google Sheet: date, name, company or course, source page, status, next step. This is enough until volume justifies a CRM (HubSpot's free tier, for example).
@@ -65,7 +72,7 @@ Owner: **You** means only Pavani IT can do it (accounts, facts, decisions). **Cl
 
 - [ ] **Uptime monitor** (You). A free monitor (UptimeRobot or similar) on the home page and `/contact/`, alerting biz@.
 - [ ] **Deploy notifications** (You). In Netlify, email on a failed deploy. On GitHub, protect `main` so changes go through a pull request and a deploy preview.
-- [ ] **Dependency updates** (Claude, then You). `.github/dependabot.yml` added 23 November: a monthly pull request for minor and patch updates. You turn on security updates in GitHub under Settings → Code security, which sends fixes as soon as an advisory is published.
+- [x] **Dependency updates** (Claude, then You). `.github/dependabot.yml` added 23 November: a monthly pull request for minor and patch updates. Dependabot alerts and security updates were turned on the same day, so fixes arrive as soon as an advisory is published. Three update pull requests are already open, one of them a major TypeScript bump worth reviewing rather than merging blind.
 - [ ] **Monthly upkeep** (You).
   - Update batch dates, and remove past ones.
   - Send one test enquiry from each form.
@@ -74,4 +81,5 @@ Owner: **You** means only Pavani IT can do it (accounts, facts, decisions). **Cl
 
 ## Done log
 
-- 23 November 2026: Next.js 16.4.6, course facts hidden until set, 320px header fix, Dependabot config, accessibility, keyboard and link checks. All on pull request #1, not yet merged.
+- 23 November 2026: Next.js 16.4.6, course facts hidden until set, 320px header fix, Dependabot config, accessibility, keyboard and link checks.
+- 23 November 2026, later: found the live site was a manual upload from 17 November with no repository linked, which is why `/courses/` was 404. Linked the project to Git, so every push to `main` now builds and publishes. All 18 pages live, sitemap back to 18 URLs, redirects and security headers checked on the new pages. Web3Forms key set and both forms tested end to end; reply-to fixed so Reply answers the visitor. Dependabot alerts and security updates on.
