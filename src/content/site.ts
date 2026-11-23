@@ -34,7 +34,7 @@ export const site = {
   linkedin: "[LinkedIn page URL]",
 
   /** Paste your Web3Forms access key to deliver enquiries by email. Empty = form opens the visitor's email app. */
-  web3formsKey: "",
+  web3formsKey: "130bb815-5e14-4901-b966-d10f6de9a4cc",
 } as const;
 
 /** The sharing image (link previews on LinkedIn, WhatsApp, Slack). Every page's openGraph must include it,
