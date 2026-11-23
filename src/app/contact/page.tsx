@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import EnquiryForm from "@/components/EnquiryForm";
 import { Crumbs, JsonLd, Words } from "@/components/bits";
 import { breadcrumbSchema } from "@/content/schema";
@@ -28,6 +29,7 @@ export default function Page() {
                 <li><span>Phone</span><a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}>{site.phone}</a></li>
               )}
               <li><span>Office</span><span>{officeLine()}</span></li>
+              <li><span>Learners</span><span>Interested in a course? <Link prefetch={false} href="/courses/enquire/">Ask about a batch</Link>.</span></li>
               <li><span>Job seekers</span><span>Send your CV to <a href={`mailto:${site.careersEmail}?subject=Job%20application`}>{site.careersEmail}</a></span></li>
             </ul>
           </div>

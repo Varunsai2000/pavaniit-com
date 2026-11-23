@@ -8,6 +8,7 @@ import { stages } from "@/content/stages";
 import { servicesLine } from "@/content/stages";
 
 const primary = [
+  { href: "/courses/", label: "Courses" },
   { href: "/pricing/", label: "Pricing" },
   { href: "/glossary/", label: "Glossary" },
   { href: "/about/", label: "About" },
@@ -115,7 +116,7 @@ export default function Header() {
               key={item.href}
               className="nav-link"
               href={item.href}
-              aria-current={pathname === item.href ? "page" : undefined}
+              aria-current={pathname === item.href || (item.href === "/courses/" && pathname.startsWith("/courses/")) ? "page" : undefined}
             >
               {item.label}
             </Link>

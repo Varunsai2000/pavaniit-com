@@ -203,17 +203,17 @@ export const stages: Stage[] = [
     title: "Corporate training and hire-train-deploy in India",
     metaTitle: "Corporate training and hire-train-deploy in India | Pavani IT",
     metaDescription:
-      "Technical training for engineering teams in India with specialist training partners, and graduate cohorts trained on your stack before they join you.",
-    lead: "Pavani IT arranges technical training for engineering teams with specialist training partners, built around the stack you already use, and builds graduate cohorts that join your team ready to work.",
+      "Technical upskilling for engineering teams in India, and graduate cohorts trained on your stack before they join your team.",
+    lead: "Pavani IT trains engineering teams on the stack they already use, with specialist partner trainers for some topics, and builds graduate cohorts that join your team ready to work.",
     services: [
       {
         id: "corporate-training",
         name: "Corporate training",
         short:
-          "Technical upskilling for your teams, delivered by specialist training partners matched to your stack, on-site or live online.",
+          "Technical upskilling for your teams, built around your stack and delivered on-site or live online.",
         details: [
-          "Trainers from specialist training partners, chosen for your topic and stack",
-          "Cloud and DevOps, data engineering, full-stack development, and practical use of AI coding tools",
+          "Taught by our own trainers, or by a specialist partner trainer matched to your topic and stack",
+          "Agentic AI, coding with Claude Code and Codex, cloud and DevOps, data engineering and full-stack development",
           "Labs built on your own stack",
           "Live online or on-site at your office",
           "An assessment at the end so you can see what changed",
@@ -223,10 +223,10 @@ export const stages: Stage[] = [
       {
         id: "hire-train-deploy",
         name: "Hire, train, deploy",
-        short: "We recruit graduates, our training partners train them on your stack, and we place them on your team ready to work.",
+        short: "We recruit graduates, train them for your projects, and place them on your team ready to work.",
         details: [
-          "Graduates selected against your role and stack",
-          "Training on your stack by our training partners before they join your team",
+          "Graduates selected against your role and stack, including learners from our own courses",
+          "Training on your stack before they join your team",
           "They join on our payroll or yours, as agreed",
           "The option to make them permanent employees",
         ],
@@ -240,11 +240,11 @@ export const stages: Stage[] = [
       },
       {
         q: "Who delivers the training?",
-        a: "Specialist trainers from our training partners, chosen for your topic and stack. We scope the programme with you and arrange it with the partner.",
+        a: "Our own trainers, and for some topics a specialist trainer from one of our training partners. We scope the programme with you and tell you who will teach it before you book.",
       },
       {
         q: "Do you run POSH training?",
-        a: "Yes, through our training partners. The POSH Act requires employers to run awareness sessions regularly; we arrange them alongside induction and first-time manager programmes.",
+        a: "Yes. The POSH Act requires employers to run awareness sessions regularly; we run them alongside induction and first-time manager programmes, with a specialist partner where the topic needs one.",
       },
     ],
   },

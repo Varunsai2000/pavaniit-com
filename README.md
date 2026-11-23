@@ -15,11 +15,12 @@ npm run preview    # serve out/ on http://localhost:4174
 
 ## Before launch: fill in the placeholders
 
-Every company fact lives in **`src/content/site.ts`**. Values in square brackets, like `"[City]"`, render on the site with a dashed yellow outline and are left out of structured data and `llms.txt`. Replace each one with the real value, without brackets, and the outline disappears everywhere.
+Every company fact lives in **`src/content/site.ts`**, and every course fact in **`src/content/courses.ts`**. Values in square brackets, like `"[City]"`, are placeholders. Pages leave them out until they're set (a course page asks visitors to enquire for the fee and dates instead), and so do structured data and `llms.txt`. Replace each one with the real value, without brackets, and it appears everywhere. If a placeholder is ever passed to the `V` component, it shows with a dashed outline so it's easy to find.
 
 | What | Where in `site.ts` |
 | --- | --- |
 | Prices for every service, deposit terms, replacement guarantee | `prices` |
+| Courses: names and syllabi (drafts), fees, durations, days and times, batch dates, stack, trainer | `src/content/courses.ts` |
 | Founder and advisor names, roles, credentials | `people` |
 | City, state, office address, phone | `site.city`, `site.state`, `site.address`, `site.phone` |
 | Registered company name, CIN, GSTIN | `site.legalName`, `site.cin`, `site.gstin` |
@@ -37,6 +38,8 @@ The domain is assumed to be `pavaniit.com` (`site.url`, plus the two email addre
 | `/employer-of-record-india/` | Employ: Employer of Record and onboarding |
 | `/payroll-compliance-india/` | Pay: payroll and statutory compliance |
 | `/corporate-training-india/` | Grow: corporate training and hire-train-deploy |
+| `/courses/`, `/courses/<course>/` | Training institute: courses for individuals, one page per course |
+| `/courses/enquire/` | Learners ask about a batch (separate from the company enquiry form) |
 | `/pricing/`, `/about/`, `/contact/`, `/glossary/`, `/privacy/` | Supporting pages |
 | `/llms.txt`, `/robots.txt`, `/sitemap.xml` | Generated from content at build time |
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { courseHref, courses, enquireHref } from "@/content/courses";
 import { legalName, officeLine, real, site } from "@/content/site";
 import { stages } from "@/content/stages";
 
@@ -11,7 +12,7 @@ export default function Footer() {
             <Link prefetch={false} className="brand" href="/" aria-label="Pavani IT home">
               Pavani IT
             </Link>
-            <p>Employer of Record, recruitment and payroll in India. Training through specialist partners.</p>
+            <p>Employer of Record, recruitment, payroll and training in India, and software courses for individuals.</p>
             <p>{officeLine()}</p>
           </div>
 
@@ -25,6 +26,18 @@ export default function Footer() {
                   </li>
                 )),
               )}
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h2>Courses</h2>
+            <ul>
+              {courses.map((c) => (
+                <li key={c.slug}>
+                  <Link prefetch={false} href={courseHref(c)}>{c.name}</Link>
+                </li>
+              ))}
+              <li><Link prefetch={false} href={enquireHref()}>Ask about a batch</Link></li>
             </ul>
           </div>
 

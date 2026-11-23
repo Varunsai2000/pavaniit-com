@@ -8,7 +8,8 @@ import PriceCard from "@/components/PriceCard";
 import { ComparisonTable } from "@/components/EorTables";
 import { ArrowText, CtaBand, FaqSection, JsonLd, MoreLink, V, Words } from "@/components/bits";
 import { faqSchema } from "@/content/schema";
-import { eorPlanCards, eorPlans, howWeWork, ogImage } from "@/content/site";
+import { catalogueLine, courses } from "@/content/courses";
+import { eorPlanCards, eorPlans, howWeWork, ogImage, site } from "@/content/site";
 import { handoff, homeFaq, stageLinkLabel, stages } from "@/content/stages";
 
 export const metadata: Metadata = {
@@ -210,7 +211,41 @@ export default function Home() {
         </div>
       </section>
 
-      <FaqSection items={homeFaq} ruled />
+      {/* The training institute: one band for learners, below everything a hiring company reads. */}
+      <section className="section-tight on-mist" aria-labelledby="courses-band">
+        <div className="wrap next-stage">
+          <div className="section-head">
+            <h2 className="h2" id="courses-band">
+              We also teach the skills we hire for.
+            </h2>
+            <p className="lead">
+              Pavani IT runs courses for individuals in {catalogueLine}, in our {site.city} classroom and live
+              online. Learners who finish can join our recruitment pool.
+            </p>
+          </div>
+          <article className="next-card">
+            <div className="stage-art frame frame-inset frame-fill">
+              <Art name="grow" decorative sizes="(max-width: 520px) 100vw, 25vw" />
+            </div>
+            <div className="next-card-body">
+              <h3 className="stage-name">Courses</h3>
+              <p className="stage-services dot-list">
+                {courses.map((c, i) => (
+                  <span key={c.slug}>
+                    {i > 0 && <span className="sr-only">, </span>}
+                    {c.name}
+                  </span>
+                ))}
+              </p>
+              <Link prefetch={false} className="text-link stage-link" href="/courses/">
+                <ArrowText>See the courses</ArrowText>
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <FaqSection items={homeFaq} />
       <CtaBand />
     </>
   );

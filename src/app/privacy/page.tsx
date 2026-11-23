@@ -32,7 +32,7 @@ export default function Page() {
             <h1 className="h1"><Words>Privacy notice</Words></h1>
             <p className="lead">
               What personal data Pavani IT collects through this website, why, and what you can ask us to do with it.
-              Last updated 16 November 2026.
+              Last updated 22 November 2026.
             </p>
           </div>
         </div>
@@ -57,12 +57,14 @@ export default function Page() {
             <h2 id="who">Who we are</h2>
             <p>
               {real(site.legalName) ? <>{site.legalName}, trading as Pavani IT,</> : "Pavani IT"} provides recruitment, contract staffing, Employer of Record,
-              payroll and compliance, training and HR advisory services in India. For this website we decide why and how
+              payroll and compliance, training and HR advisory services in India, and runs software courses for
+              individuals. For this website we decide why and how
               your personal data is used, which makes us the data fiduciary.
             </p>
 
             <h2 id="collect">What we collect</h2>
             <p><strong>When you send an enquiry,</strong> we receive your name, work email, company, country, the services you are interested in, approximate team size and anything you write in the message box.</p>
+            <p><strong>When you ask about a course,</strong> we receive your name, email, phone number if you give it, the course and way of attending you are interested in, what you are doing now and anything you write in the message box.</p>
             <p><strong>When you send us your CV,</strong> we receive what it contains, usually your contact details, work history, education and skills.</p>
             <p><strong>When you visit the site,</strong> we don&apos;t use analytics, advertising or tracking cookies, and our fonts are served from our own domain. Our website host keeps standard server logs, such as your IP address, browser type and the pages you request, to keep the site secure and working.</p>
             <p>
@@ -72,13 +74,14 @@ export default function Page() {
                 : "sending the enquiry form opens your own email app with your details filled in, and the enquiry reaches us as an ordinary email. Nothing is sent until you send that email."}
             </p>
             <p>Please don&apos;t send government ID numbers, bank details or health information through the website. If we need them later, for example to employ you, we will ask through a secure channel and explain why.</p>
-            <p>This website is meant for adults. We don&apos;t knowingly collect personal data from children.</p>
+            <p>This website is meant for adults. We don&apos;t knowingly collect personal data from children. If someone under 18 is interested in a course, a parent or guardian should contact us for them.</p>
 
             <h2 id="why">Why we use it</h2>
             <ul>
               <li>To reply to your enquiry and discuss the services you asked about.</li>
+              <li>To reply about the course you asked about and, if you join, to run your course.</li>
               <li>To prepare a proposal and, if you become a client, to provide our services.</li>
-              <li>To consider you for roles we are recruiting for, if you send us your CV.</li>
+              <li>To consider you for roles we are recruiting for, if you send us your CV or join our recruitment pool after a course.</li>
               <li>To meet legal obligations, such as keeping business records.</li>
             </ul>
             <p>We use enquiry details because you shared them for that purpose. We use your CV with your consent, and we ask before sharing it with any client.</p>
@@ -99,7 +102,7 @@ export default function Page() {
             <p>We don&apos;t sell personal data or share it for advertising.</p>
 
             <h2 id="keep">How long we keep it</h2>
-            <p>We keep enquiry details while we are in contact about your enquiry and delete them within 12 months of our last contact, unless you become a client. We keep CVs for up to 12 months so we can match you with new roles, unless you ask us to delete yours sooner. Where the law requires longer retention, we keep only what it requires.</p>
+            <p>We keep enquiry details, including course enquiries, while we are in contact about your enquiry and delete them within 12 months of our last contact, unless you become a client. We keep CVs for up to 12 months so we can match you with new roles, unless you ask us to delete yours sooner. Where the law requires longer retention, we keep only what it requires.</p>
 
             <h2 id="protect">How we protect it</h2>
             <p>We limit access to the people who need it, use providers that encrypt data in transit, and review access regularly. If a breach affects your data, we will tell you and the Data Protection Board of India as the law requires.</p>

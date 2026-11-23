@@ -20,7 +20,7 @@ export const site = {
   legalName: "[Registered company name]",
   url: "https://pavaniit.com",
   description:
-    "Pavani IT is an Indian Employer of Record and hiring company. We recruit, employ and pay people in India for companies abroad and Indian businesses, and bring in specialist partners for training.",
+    "Pavani IT is an Indian Employer of Record, hiring company and training institute. We recruit, employ, pay and train people in India and run software courses.",
 
   email: "biz@pavaniit.com",
   /** Same inbox for now; careers links pre-fill a "Job application" subject so CVs are easy to filter. */
@@ -46,8 +46,8 @@ export const ogImage = {
   alt: "Pavani IT: Employer of Record in India from $69 per employee per month, no Indian entity needed",
 };
 
-/** Training partners who deliver corporate training. Add each name once the agreement is signed; the
-    training page lists them. Never add a partner who hasn't agreed to be named. */
+/** Training partners whose trainers teach some topics alongside Pavani IT's own trainers. Add each name
+    once the agreement is signed; the training page lists them. Never add a partner who hasn't agreed to be named. */
 export const trainingPartners: string[] = [];
 
 /** Why the fees are low, said plainly: AI does the routine work, people do the rest. */
@@ -185,7 +185,7 @@ export const prices: Price[] = [
     stage: "Grow",
     amount: "Quoted per programme",
     unit: "based on the topic, number of days, cohort size and location",
-    includes: ["Trainers from specialist training partners", "Curriculum built on your stack", "Live online or on-site", "End-of-programme assessment"],
+    includes: ["Our trainers, or a specialist partner trainer for your topic", "Curriculum built on your stack", "Live online or on-site", "End-of-programme assessment"],
     note: "You get a written quote before anything is booked. Travel for on-site sessions outside Vijayawada is billed at cost.",
   },
   {

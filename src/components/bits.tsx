@@ -90,11 +90,14 @@ export function FaqSection({ items, title = "Questions buyers ask us", ruled = f
 export function CtaBand({
   title = "Tell us who you want to hire in India.",
   body = "A 30-minute call is enough to tell you which services you need, what they cost and how soon someone could start.",
+  action = { href: "/contact/", label: "Book a call" },
   pricingLink = true,
 }: {
   title?: string;
   body?: string;
-  /** Off on the pricing page itself. */
+  /** The main button: a call for companies, a batch question for learners. */
+  action?: { href: string; label: string };
+  /** Off on the pricing page itself and on course pages. */
   pricingLink?: boolean;
 }) {
   return (
@@ -110,8 +113,8 @@ export function CtaBand({
               {body} Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a>.
             </p>
             <div className="cta-actions">
-              <Link prefetch={false} className="btn btn-light" href="/contact/">
-                Book a call
+              <Link prefetch={false} className="btn btn-light" href={action.href}>
+                {action.label}
                 <ArrowRight aria-hidden="true" />
               </Link>
               {pricingLink && (

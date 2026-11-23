@@ -1,4 +1,5 @@
 import { glossary } from "@/content/glossary";
+import { courseHref, courses, placementHelp } from "@/content/courses";
 import { eorExample, eorPlans, prices, real, site, unitJoin } from "@/content/site";
 import { homeFaq, stages } from "@/content/stages";
 
@@ -15,7 +16,7 @@ export function GET() {
   lines.push(`# ${site.name}`, "");
   lines.push(`> ${site.description}`, "");
   lines.push(
-    "Pavani IT works only in India. AI handles the routine work and people handle the rest, which keeps fees low. Services are organised as four stages: Hire (recruitment, contract staffing), Employ (Employer of Record, onboarding), Pay (payroll, statutory compliance) and Grow (corporate training and hire-train-deploy, with training delivered by specialist partners).",
+    "Pavani IT works only in India. AI handles the routine work and people handle the rest, which keeps fees low. Services are organised as four stages: Hire (recruitment, contract staffing), Employ (Employer of Record, onboarding), Pay (payroll, statutory compliance) and Grow (corporate training and hire-train-deploy, taught by Pavani IT's own trainers with specialist partner trainers for some topics).",
   );
   const location = [real(site.city), real(site.state)].filter(Boolean).join(", ");
   if (location) lines.push(`Based in ${location}, India.`);
@@ -26,6 +27,19 @@ export function GET() {
     lines.push(`- [${s.title}](${url(s.href)}): ${s.lead}`);
   }
   lines.push("");
+
+  lines.push("## Courses for individuals", "");
+  lines.push(`Every course is taught live, in Pavani IT's ${site.city} classroom or online. ${placementHelp}`, "");
+  for (const c of courses) {
+    const facts = [
+      real(c.duration) && `duration ${c.duration}`,
+      real(c.schedule) && c.schedule,
+      real(c.fee) && `fee ${c.fee}`,
+      real(c.nextBatch) && `next batches ${c.nextBatch}`,
+    ].filter(Boolean);
+    lines.push(`- [${c.name}](${url(courseHref(c))}): ${c.short}${facts.length ? ` (${facts.join("; ")})` : ""}`);
+  }
+  lines.push(`- [Ask about a batch](${url("/courses/enquire/")})`, "");
 
   const published = prices.filter((p) => real(p.amount));
   lines.push("## Pricing", "");
@@ -46,6 +60,7 @@ export function GET() {
   lines.push("## Reference", "");
   lines.push(`- [Glossary of Indian payroll and employment terms](${url("/glossary/")}): ${glossary.map((t) => t.term).join(", ")}`);
   lines.push(`- [Pricing](${url("/pricing/")})`);
+  lines.push(`- [Courses](${url("/courses/")})`);
   lines.push(`- [About](${url("/about/")})`);
   lines.push(`- [Contact](${url("/contact/")})`);
   lines.push("");

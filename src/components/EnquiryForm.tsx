@@ -1,12 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { site } from "@/content/site";
 import { stages, type StageId } from "@/content/stages";
-import { Tick } from "./bits";
+import { Field, FormDone, FormNote, looksLikeEmail, SendStatus, useEnquirySend } from "./formParts";
 
-const ENDPOINT = "https://api.web3forms.com/submit";
 const SIZES = ["1 to 5", "6 to 20", "21 to 100", "More than 100"];
 
 type Errors = Partial<Record<"name" | "email" | "company" | "need", string>>;
@@ -14,13 +11,9 @@ type Errors = Partial<Record<"name" | "email" | "company" | "need", string>>;
 export default function EnquiryForm() {
   const [need, setNeed] = useState<StageId[]>([]);
   const [errors, setErrors] = useState<Errors>({});
-  const [state, setState] = useState<"idle" | "sending" | "sent" | "failed" | "mailto">("idle");
-  const [draft, setDraft] = useState("");
-  const [copied, setCopied] = useState(false);
   const [sentTo, setSentTo] = useState({ name: "", email: "" });
   const formRef = useRef<HTMLFormElement>(null);
-  const doneRef = useRef<HTMLDivElement>(null);
-  const canPost = Boolean(site.web3formsKey);
+  const { state, setState, copied, send, copyDraft } = useEnquirySend();
 
   // Preselect services passed from a stage page or a pricing card (?need=employ,pay).
   useEffect(() => {
@@ -29,10 +22,6 @@ export default function EnquiryForm() {
     const ids = param.split(",").filter((x): x is StageId => stages.some((s) => s.id === x));
     if (ids.length) setNeed(ids);
   }, []);
-
-  useEffect(() => {
-    if (state === "sent") doneRef.current?.focus();
-  }, [state]);
 
   const toggle = (id: StageId) =>
     setNeed((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]));
@@ -48,7 +37,7 @@ export default function EnquiryForm() {
     const next: Errors = {};
     if (!name) next.name = "Enter your name.";
     if (!email) next.email = "Enter your work email.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = "Check the email address: it should look like name@company.com.";
+    else if (!looksLikeEmail(email)) next.email = "Check the email address: it should look like name@company.com.";
     if (!company) next.company = "Enter your company name.";
     if (need.length === 0) next.need = "Choose at least one service.";
     setErrors(next);
@@ -71,46 +60,19 @@ export default function EnquiryForm() {
       String(data.get("message") || ""),
     ].join("\n");
 
-    if (!canPost) {
-      // No form service yet: hand the enquiry to the visitor's email app, and keep a copy on screen
-      // in case no email app opens.
-      setDraft(`Subject: ${subject}\n\n${body}`);
-      setCopied(false);
-      setState("mailto");
-      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      return;
-    }
-
-    setState("sending");
-    try {
-      data.set("access_key", site.web3formsKey);
-      data.set("subject", subject);
-      data.set("from_name", "Pavani IT website");
-      data.set("needs", needLabel);
-      const res = await fetch(ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: data });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.success === false) throw new Error(json.message || res.statusText);
+    if (await send(data, subject, body, { needs: needLabel })) {
       setSentTo({ name: name.split(" ")[0], email });
       setState("sent");
       form.reset();
       setNeed([]);
-    } catch {
-      setState("failed");
     }
   }
 
   if (state === "sent") {
     return (
-      <div className="form-done" ref={doneRef} tabIndex={-1}>
-        <Tick />
-        <h2 className="h3">Enquiry sent</h2>
-        <p>
-          Thanks, {sentTo.name}. We'll reply to {sentTo.email} within one working day to set up a call.
-        </p>
-        <button type="button" className="btn btn-secondary" onClick={() => setState("idle")}>
-          Send another enquiry
-        </button>
-      </div>
+      <FormDone title="Enquiry sent" again="Send another enquiry" onAgain={() => setState("idle")}>
+        Thanks, {sentTo.name}. We'll reply to {sentTo.email} within one working day to set up a call.
+      </FormDone>
     );
   }
 
@@ -164,83 +126,12 @@ export default function EnquiryForm() {
 
       <input className="hp" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
-      {state === "mailto" && (
-        <div className="form-status" role="status">
-          <p>
-            Your email app should open with this enquiry filled in. If it didn&apos;t, send it to{" "}
-            <a href={`mailto:${site.email}`}>{site.email}</a>.
-          </p>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm"
-            onClick={async () => {
-              try {
-                await navigator.clipboard.writeText(draft);
-                setCopied(true);
-              } catch {
-                setCopied(false);
-              }
-            }}
-          >
-            {copied ? "Enquiry copied" : "Copy the enquiry"}
-          </button>
-        </div>
-      )}
-
-      {state === "failed" && (
-        <p className="form-error" role="alert">
-          Your enquiry didn't send. Check your connection and try again, or email us at {site.email}.
-        </p>
-      )}
+      <SendStatus state={state} copied={copied} onCopy={copyDraft} />
 
       <button className="btn btn-primary btn-block" type="submit" disabled={state === "sending"}>
         {state === "sending" ? "Sending…" : "Send enquiry"}
       </button>
-      <p className="form-note">
-        We use these details only to reply to you. Read our <Link prefetch={false} href="/privacy/">privacy notice</Link>.
-        {!canPost && " Sending opens your email app with your details filled in."}
-      </p>
+      <FormNote />
     </form>
-  );
-}
-
-function Field({
-  id,
-  name,
-  label,
-  type = "text",
-  autoComplete,
-  error,
-  optional,
-}: {
-  id: string;
-  name: string;
-  label: string;
-  type?: string;
-  autoComplete?: string;
-  error?: string;
-  optional?: boolean;
-}) {
-  return (
-    <div className="field">
-      <label className="label" htmlFor={id}>
-        {label}
-        {optional && <span className="opt">Optional</span>}
-      </label>
-      <input
-        className="input"
-        id={id}
-        name={name}
-        type={type}
-        autoComplete={autoComplete}
-        aria-invalid={error ? true : undefined}
-        aria-describedby={error ? `${id}-error` : undefined}
-      />
-      {error && (
-        <p className="field-error" id={`${id}-error`}>
-          {error}
-        </p>
-      )}
-    </div>
   );
 }

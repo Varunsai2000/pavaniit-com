@@ -6,7 +6,7 @@ import { officeLine, people, real, site } from "@/content/site";
 export const metadata: Metadata = {
   title: "About Pavani IT",
   description:
-    "Pavani IT is an Indian Employer of Record and hiring company. We recruit, employ and pay people in India for companies abroad and Indian businesses.",
+    "About Pavani IT: an Indian Employer of Record, hiring company and training institute in Vijayawada, for companies abroad, Indian businesses and learners.",
   alternates: { canonical: "/about/" },
 };
 
@@ -14,7 +14,7 @@ const principles = [
   { k: "Prove it in writing", v: "Prices, scope and timelines go in the proposal before you sign. If it isn't written down, we don't charge for it." },
   { k: "India only", v: "We don't spread across 150 countries. Every rule we handle is one we work with every month." },
   { k: "AI for the routine, people for the rest", v: "Software and AI handle calculations, reminders and paperwork. Our people handle the rest and talk to you. That keeps fees low without cutting corners on Indian law." },
-  { k: "Do what we're best at", v: "Hiring and employing people in India is our work, end to end. For training, we bring in specialist partners who excel at it." },
+  { k: "Teach what we hire for", v: "We recruit engineers, and our courses teach the skills those roles ask for. Our own trainers teach, and specialist partner trainers take the topics where they are stronger." },
   { k: "Answer first", v: "Ask us a question and you get the answer, then the detail. Most of them are already on this site." },
 ];
 
@@ -44,9 +44,9 @@ export default function Page() {
             <div>
               <h1 className="h1"><Words>An Indian employer for teams built from anywhere</Words></h1>
               <p className="lead">
-                Pavani IT recruits, employs and pays people in India for companies abroad and for Indian businesses.
-                We are based in {site.city}, {site.state}, and run payroll and statutory compliance ourselves. For
-                training, we bring in specialist partners who do it best.
+                Pavani IT recruits, employs, pays and trains people in India for companies abroad and for Indian
+                businesses, and runs software courses for individuals. We are based in {site.city}, {site.state}, and
+                run payroll and statutory compliance ourselves.
               </p>
             </div>
         </div>

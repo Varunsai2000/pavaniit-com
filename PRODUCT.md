@@ -16,15 +16,17 @@ Primary: companies outside India (startups and scale-ups, often US/UK/EU) that w
 
 Secondary: Indian startups and SMEs that need recruitment, contract staffing, payroll and statutory compliance (including the move to the new labour codes). Served lower on the home page and on service pages.
 
+Learners (added 22 Nov 2026, the training institute): students, recent graduates and career-switchers in and around Vijayawada, and online across India, looking for a software course with placement help. Served on their own section (`/courses/`), with one band on the home page, so the company pages stay led for buyers.
+
 Tertiary: job seekers sending CVs.
 
 ## Product Purpose
 
-Pavani IT is a new Indian HR services company. It lets a company hire, employ, pay and train people in India through one partner. Success: a qualified buyer books a call or sends an enquiry.
+Pavani IT is a new Indian HR services company and training institute. It lets a company hire, employ, pay and train people in India through one partner, and runs software courses for individuals. Success: a qualified buyer books a call or sends an enquiry; a learner asks about a batch.
 
 ## Positioning
 
-India-only and hands-on. Unlike global EOR platforms that cover 150+ countries through partners, Pavani IT is an Indian company running Indian payroll and compliance itself, and can also recruit and train the people it employs. One partner from offer letter to appraisal.
+India-only and hands-on. Unlike global EOR platforms that cover 150+ countries through partners, Pavani IT is an Indian company running Indian payroll and compliance itself, and can also recruit and train the people it employs. One partner from offer letter to appraisal. Its own courses teach the skills it recruits for, and learners who finish can join its recruitment pool.
 
 ## Operating Context
 
@@ -39,6 +41,8 @@ Services, fixed by the user as four stages with two services each:
 - Grow: Corporate training; Hire, train, deploy
 
 Plus HR advisory (handbooks, policies, POSH Internal Committee, labour-code transition) as a supporting service.
+
+Training institute (user's direction, 22 Nov 2026): courses for individuals, taught live in the Vijayawada classroom and online, by Pavani IT's own trainers with specialist partner trainers for some topics. Placement help without a guarantee: finished learners can join the recruitment pool; no placement rates or job promises. Courses, syllabi and every course fact live in `src/content/courses.ts`; the six courses (three AI courses first: agentic AI engineering, forward deployed engineer, Claude Code and Codex; then full-stack, cloud and DevOps, data engineering) and their syllabi are drafts awaiting the user's confirmation, and fees, durations, schedules, batch dates, stacks and trainers are placeholders.
 
 Undecided or not yet supplied (must not be invented; kept in one content file with visible TODO markers):
 - Published prices (user confirmed prices exist and can be published; values not yet provided)

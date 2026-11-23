@@ -146,6 +146,7 @@
   --span-topic: 2 / 7;      /* ledger topic, after the index column */
   --span-aside: 1 / 5;      /* reading pages: sticky aside */
   --span-doc: 5 / -1;       /* reading pages: the document */
+  --span-footer-brand: 1 / 5; /* footer blurb, beside four link columns */
   --span-link-col: span 2;  /* footer link columns */
   --measure-prose: 36em;    /* long-form reading (privacy, glossary sources): about 75 characters a line */
   --measure: 40em;          /* max line length for body copy */

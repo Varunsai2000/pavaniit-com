@@ -144,7 +144,7 @@ export default function Page() {
         <div className="wrap">
           <div className="section-head">
             <h2 className="h2" id="others-title">Other services</h2>
-            <p className="lead">Recruitment, contract staffing and payroll for your own entity, plus training through our specialist partners. Training and hire-train-deploy are quoted per programme, because each one is built around your stack. Fees are before 18% GST.</p>
+            <p className="lead">Recruitment, contract staffing, payroll for your own entity, and training. Training and hire-train-deploy are quoted per programme, because each one is built around your stack. Fees are before 18% GST. Fees for individual learners are on each <Link prefetch={false} href="/courses/">course page</Link>.</p>
           </div>
           <ul className="price-list">
             {others.map((p) => (
