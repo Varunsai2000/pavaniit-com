@@ -37,6 +37,10 @@ export function useEnquirySend() {
       data.set("access_key", site.web3formsKey);
       data.set("subject", subject);
       data.set("from_name", "Pavani IT website");
+      // Web3Forms sends from its own address, so without this, pressing Reply in the inbox
+      // answers Web3Forms instead of the person who wrote in. Both forms name the field "email".
+      const replyTo = String(data.get("email") || "").trim();
+      if (replyTo) data.set("replyto", replyTo);
       for (const [k, v] of Object.entries(extra)) data.set(k, v);
       const res = await fetch(ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: data });
       const json = await res.json().catch(() => ({}));
